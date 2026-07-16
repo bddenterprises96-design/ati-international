@@ -10,7 +10,7 @@ export default function Navbar({ currentPage, onNavigate }) {
       className="bg-white/90 border-b border-[#c5c6cd] top-0 sticky z-50"
       style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
     >
-      <div className="flex justify-between items-center h-24 px-8 max-w-[1280px] mx-auto">
+      <div className="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto">
 
         {/* Logo */}
         <div

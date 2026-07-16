@@ -12,7 +12,7 @@ export default function Footer({ onNavigate }) {
             onClick={() => onNavigate('About')}
           >
             <img
-              src="/assets/ooll.png"
+              src="/assets/oool.png"
               alt="ATI Logo"
               className="h-20 w-auto object-contain"
               onError={(e) => { e.target.style.display = 'none' }}
