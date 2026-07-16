@@ -4,9 +4,9 @@ const DATA_SHEETS = {
   'valve-stem': {
     title: 'Valve Stem Seals — Technical Data Sheet',
     subtitle: 'Valve stem seals control oil flow to engine valve stems, ensuring proper lubrication while preventing oil leakage into the combustion chamber.',
-    structureImage: '/src/assets/cylinder.png',
+    structureImage: '/assets/cylinder.png',
     structureCaption: 'Valve Stem Seal — Cross-Section Structure Diagram',
-    theoryImage: '/src/assets/cyy.png',
+    theoryImage: '/assets/cyy.png',
     theoryCaption: 'Valve Stem Seal — Sealing Theory Diagram',
     sections: [
       {
@@ -49,9 +49,9 @@ const DATA_SHEETS = {
   'o-rings': {
     title: 'O-Rings — Technical Data Sheet',
     subtitle: 'O-Rings provide reliable static and dynamic sealing across a wide range of pressures, temperatures, and chemical environments.',
-    structureImage: '/src/assets/il2.png',
+    structureImage: '/assets/il2.png',
     structureCaption: 'O-Ring — Cross-Section & Groove Dimension Diagram',
-    theoryImage: '/src/assets/oo.png',
+    theoryImage: '/assets/oo.png',
     theoryCaption: 'O-Ring — Pressure Sealing Theory Diagram',
     sections: [
       {
@@ -95,9 +95,9 @@ const DATA_SHEETS = {
   'oil-seals': {
     title: 'Oil Seals — Technical Data Sheet',
     subtitle: 'Oil seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies.',
-    structureImage: '/src/assets/il.png',
+    structureImage: '/assets/il.png',
     structureCaption: 'Oil Seal — Component Anatomy & Installation Diagram',
-    theoryImage: '/src/assets/oo1.png',
+    theoryImage: '/assets/oo1.png',
     theoryCaption: 'Oil Seal — Hydrodynamic Sealing Theory Diagram',
     sections: [
       {
@@ -146,7 +146,7 @@ const PRODUCTS = [
     id: 'valve-stem',
     name: 'Valve Stem Seals',
     tagline: 'Precision lubrication control for high-performance engines',
-    image: '/src/assets/aaa.png',
+    image: '/assets/aaa.png',
     hasDataSheet: true,
     description: 'ATI Valve Stem Seals are manufactured using high-grade Viton (FKM) and Silicone (VMQ) elastomers, engineered to provide consistent oil film control on valve stems. Designed for extreme thermal cycling and high-RPM environments in gasoline, diesel, and gas engines.',
     features: [
@@ -168,7 +168,7 @@ const PRODUCTS = [
     id: 'o-rings',
     name: 'O-Rings',
     tagline: 'Comprehensive material range for universal sealing',
-    image: '/src/assets/ccc.png',
+    image: '/assets/ccc.png',
     hasDataSheet: true,
     description: 'ATI O-Rings are available in a comprehensive range of elastomeric materials, suitable for static, dynamic, pneumatic, and hydraulic applications. Our manufacturing covers metric (DIN 3771), imperial (AS568), and custom dimensions with full material traceability.',
     features: [
@@ -190,7 +190,7 @@ const PRODUCTS = [
     id: 'oil-seals',
     name: 'Oil Seals',
     tagline: 'Robust rotating shaft sealing against leakage and contamination',
-    image: '/src/assets/bbb.png',
+    image: '/assets/bbb.png',
     hasDataSheet: true,
     description: 'ATI Oil Seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies. Available with single lip, double lip, and PTFE designs with spring-loaded sealing edges for superior long-term performance in demanding environments.',
     features: [

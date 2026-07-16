@@ -11,7 +11,7 @@ export default function Hero({ onNavigate }) {
           playsInline
           className="w-full h-full object-cover opacity-60"
         >
-          <source src="/src/assets/video.mp4" type="video/mp4" />
+          <source src="/assets/video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/60 to-transparent" />
       </div>

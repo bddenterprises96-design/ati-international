@@ -20,7 +20,7 @@ export default function Navbar({ currentPage, onNavigate }) {
           <img
             alt="ATI Logo"
             className="h-14 w-auto object-contain"
-            src="/src/assets/logo.png"
+            src="/assets/logo.png"
             onError={(e) => { e.target.style.display = 'none' }}
           />
           <span className="text-xl font-bold text-[#005691] tracking-tight">

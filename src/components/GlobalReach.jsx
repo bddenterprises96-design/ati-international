@@ -10,7 +10,7 @@ export default function GlobalReach() {
       <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1 rounded-xl overflow-hidden border border-white/20">
           <img alt="ATI Manufacturing" className="w-full h-[420px] object-cover"
-            src="/src/assets/12.jpg" />
+            src="/assets/12.jpg" />
         </div>
         <div className="order-1 md:order-2">
           <h2 className="text-[32px] font-bold text-white mb-4">Optimized Supply Chain &amp; Global Reach</h2>
