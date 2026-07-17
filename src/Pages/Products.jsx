@@ -363,7 +363,7 @@ export default function Products({ onNavigate }) {
       </section>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-[#c5c6cd] sticky top-24 z-40">
+      <div className="bg-white border-b border-[#c5c6cd] sticky top-20 z-40">
         <div className="max-w-[1280px] mx-auto px-8 flex gap-2 overflow-x-auto">
           {PRODUCTS.map((p) => (
             <button

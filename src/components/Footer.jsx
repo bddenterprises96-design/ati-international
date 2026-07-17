@@ -13,7 +13,7 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer className="bg-[#191c1e] text-white">
-      <div className="max-w-[1280px] mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="max-w-[1440px] mx-auto px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
 
         {/* Brand */}
         <div>
@@ -34,7 +34,7 @@ export default function Footer({ onNavigate }) {
           </p>
           
           {/* Social Media Icons - 2 Rows with Square Shape */}
-          <div className="grid grid-cols-3 gap-3 max-w-[180px]">
+          <div className="grid grid-cols-3 gap-5 max-w-[280px]">
             {/* Row 1: Facebook, Twitter, LinkedIn */}
             <a
               href="https://facebook.com/atiinternational"
@@ -119,8 +119,8 @@ export default function Footer({ onNavigate }) {
 
         {/* Navigation */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white/80">Navigation</h4>
-          <ul className="space-y-3">
+          <h4 className="font-bold text-md uppercase tracking-widest mb-5 text-white/80">Navigation</h4>
+          <ul className="space-y-6">
             {NAV_LINKS.map((link) => (
               <li key={link}>
                 <button
@@ -136,8 +136,8 @@ export default function Footer({ onNavigate }) {
 
         {/* Products */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white/80">Products</h4>
-          <ul className="space-y-3">
+          <h4 className="font-bold text-md uppercase tracking-widest mb-5 text-white/80">Products</h4>
+          <ul className="space-y-6">
             <li>
               <button
                 onClick={() => handleNavigate('Products', 'valve-stem-seals')}
@@ -175,8 +175,8 @@ export default function Footer({ onNavigate }) {
 
         {/* Contact */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white/80">Contact</h4>
-          <ul className="space-y-3 text-white/60 text-sm">
+          <h4 className="font-bold text-md uppercase tracking-widest mb-5 text-white/80">Contact</h4>
+          <ul className="space-y-5 text-white/60 text-sm">
             <li className="flex items-start gap-2">
               <span className="material-symbols-outlined text-sm mt-0.5">location_on</span>
               Room 271, 2nd Floor, No. 49 Dongjiao North Road, Liwan District, Guangzhou City, China.
@@ -192,7 +192,7 @@ export default function Footer({ onNavigate }) {
           </ul>
           <button
             onClick={() => handleNavigate('Contact US')}
-            className="mt-6 bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
+            className="mt-6 bg-[#005691] text-white px-8 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
           >
             Generate Inquiry
           </button>
