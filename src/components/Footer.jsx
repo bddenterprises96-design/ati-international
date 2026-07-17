@@ -29,8 +29,8 @@ export default function Footer({ onNavigate }) {
             />
             <span className="font-bold text-white">ATI International</span>
           </div>
-          <p className="text-white/60 text-sm leading-relaxed mb-6">
-            Precision sealing solutions for global manufacturers. ISO 9001:2015 certified.
+          <p className="text-white/60 text-sm leading-relaxed mb-8">
+            Precision sealing solutions. ISO 9001:2015 certified.
           </p>
           
           {/* Social Media Icons - 2 Rows with Square Shape */}

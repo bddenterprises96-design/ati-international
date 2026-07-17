@@ -71,7 +71,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section className="relative h-[600px] flex items-center overflow-hidden">
+      <section className="relative h-[630px] flex items-center overflow-hidden">
 
         {/* Video Background — replaces the previous static image */}
         <video
@@ -107,7 +107,7 @@ export default function AboutUs({ onNavigate }) {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
-          <div className="max-w-4xl">
+          <div className="max-w-3xl">
 
             {/* Badge */}
             <div style={{ transition: 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
@@ -125,7 +125,7 @@ export default function AboutUs({ onNavigate }) {
 
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <p className="text-white/80 text-lg mb-10 leading-relaxed">
+              <p className="mt-6 max-w-[85%] md:w-[80%] text-white/80 text-lg mb-10 leading-8">
                 Engineered for your most demanding mechanical systems with reinforced
                 construction and a range of high-quality sealing compounds, ATI sealing
                 solutions deliver reliable, high-quality products. Delivering Pivotal Products
@@ -185,7 +185,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── COMPANY OVERVIEW with ANIMATED COUNTERS ── */}
-      <section className="py-20 max-w-[1440px] mx-auto px-8">
+      <section className="py-20 max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
