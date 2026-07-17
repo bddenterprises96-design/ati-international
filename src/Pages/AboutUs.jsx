@@ -284,7 +284,7 @@ export default function AboutUs({ onNavigate }) {
       <section className="py-20 bg-white">
         <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
-            <img src="/assets/why.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="/assets/888.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Optimized Supply Chain & Global Reach</h2>
