@@ -71,7 +71,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section className="relative h-[700px] flex items-center overflow-hidden">
+      <section className="relative h-[600px] flex items-center overflow-hidden">
 
         {/* Video Background — replaces the previous static image */}
         <video
@@ -106,7 +106,7 @@ export default function AboutUs({ onNavigate }) {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-[2400px] mx-auto px-8 w-full">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
           <div className="max-w-4xl">
 
             {/* Badge */}
@@ -160,7 +160,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── VALUE PROPS BAR ── */}
       <section className="bg-white border-b border-[#c5c6cd] py-1">
-        <div className="max-w-[2400px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
           {[
             { icon: 'verified_user',           title: 'ISO 9001:2015 Certified', desc: 'Rigorous quality control for mission-critical components.' },
             { icon: 'precision_manufacturing', title: 'Advanced Machining',      desc: 'Zero-defect manufacturing with 0.001mm tolerance.' },
@@ -185,7 +185,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── COMPANY OVERVIEW with ANIMATED COUNTERS ── */}
-      <section className="py-20 max-w-[1280px] mx-auto px-8">
+      <section className="py-20 max-w-[1440px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
@@ -216,7 +216,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── MISSION & VISION ── */}
       <section className="bg-white py-20">
-        <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="bg-[#005691] text-white rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
@@ -238,7 +238,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── CORE VALUES ── */}
-      <section className="py-20 max-w-[1280px] mx-auto px-8">
+      <section className="py-20 max-w-[1440px] mx-auto px-8">
         <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">Core Values</h2>
         <p className="text-[#505f76] text-center mb-12">The principles that guide everything we do at ATI International.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -261,7 +261,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── CERTIFICATIONS ── */}
       <section className="bg-[#005691] py-10">
-        <div className="max-w-[1280px] mx-auto px-8 text-center">
+        <div className="max-w-[1440px] mx-auto px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Certifications & Compliance</h2>
           <p className="text-white/80 mb-12">ATI International meets the highest international standards.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -282,7 +282,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── GLOBAL REACH ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-[2400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
             <img src="/assets/why.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>

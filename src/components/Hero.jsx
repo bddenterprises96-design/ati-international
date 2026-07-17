@@ -1,6 +1,6 @@
 export default function Hero({ onNavigate }) {
   return (
-    <section className="relative h-[700px] flex items-center overflow-hidden bg-[#005691]">
+    <section className="relative h-[600px] flex items-center overflow-hidden bg-[#005691]">
 
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -17,7 +17,7 @@ export default function Hero({ onNavigate }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-8 w-full">
         <div className="max-w-3xl">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
             Global Reach • Industrial Excellence
