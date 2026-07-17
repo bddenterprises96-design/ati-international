@@ -1,6 +1,16 @@
 const NAV_LINKS = ['About', 'Products', 'Why ATI?', 'Contact US', 'Blogs', "FAQ's"]
 
 export default function Footer({ onNavigate }) {
+  // Function to handle navigation with product section targeting
+  const handleNavigate = (page, section = null) => {
+    if (section) {
+      // Navigate to page with hash for specific section
+      onNavigate(`${page}#${section}`)
+    } else {
+      onNavigate(page)
+    }
+  }
+
   return (
     <footer className="bg-[#191c1e] text-white">
       <div className="max-w-[1280px] mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -9,7 +19,7 @@ export default function Footer({ onNavigate }) {
         <div>
           <div
             className="flex items-center gap-3 mb-4 cursor-pointer"
-            onClick={() => onNavigate('About')}
+            onClick={() => handleNavigate('About')}
           >
             <img
               src="/assets/ooll.png"
@@ -114,7 +124,7 @@ export default function Footer({ onNavigate }) {
             {NAV_LINKS.map((link) => (
               <li key={link}>
                 <button
-                  onClick={() => onNavigate(link)}
+                  onClick={() => handleNavigate(link)}
                   className="text-white/60 text-sm hover:text-white transition-colors"
                 >
                   {link}
@@ -128,16 +138,38 @@ export default function Footer({ onNavigate }) {
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white/80">Products</h4>
           <ul className="space-y-3">
-            {['Valve Stem Seals', 'O-Rings', 'Oil Seals', 'Custom Seals'].map((p) => (
-              <li key={p}>
-                <button
-                  onClick={() => onNavigate('Products')}
-                  className="text-white/60 text-sm hover:text-white transition-colors"
-                >
-                  {p}
-                </button>
-              </li>
-            ))}
+            <li>
+              <button
+                onClick={() => handleNavigate('Products', 'valve-stem-seals')}
+                className="text-white/60 text-sm hover:text-white transition-colors"
+              >
+                Valve Stem Seals
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigate('Products', 'o-rings')}
+                className="text-white/60 text-sm hover:text-white transition-colors"
+              >
+                O-Rings
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigate('Products', 'oil-seals')}
+                className="text-white/60 text-sm hover:text-white transition-colors"
+              >
+                Oil Seals
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigate('Products', 'custom-seals')}
+                className="text-white/60 text-sm hover:text-white transition-colors"
+              >
+                Custom Seals
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -159,7 +191,7 @@ export default function Footer({ onNavigate }) {
             </li>
           </ul>
           <button
-            onClick={() => onNavigate('Contact US')}
+            onClick={() => handleNavigate('Contact US')}
             className="mt-6 bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
           >
             Generate Inquiry

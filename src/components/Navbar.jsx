@@ -10,7 +10,7 @@ export default function Navbar({ currentPage, onNavigate }) {
       className="bg-white/90 border-b border-[#c5c6cd] top-0 sticky z-50"
       style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
     >
-      <div className="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto">
+      <div className="flex justify-between items-center h-20 px-4 max-w-[1440px] mx-auto">
 
         {/* Logo */}
         <div
@@ -44,7 +44,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               >
                 {label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#005691] rounded-full" />
+                  <span className="absolute bottom-0 left-3 right-0 h-0.5 bg-[#005691] rounded-full" />
                 )}
               </button>
             )
@@ -57,8 +57,8 @@ export default function Navbar({ currentPage, onNavigate }) {
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#75777d]">search</span>
             <input
               type="text"
-              placeholder="Search technical specs..."
-              className="pl-10 pr-4 py-2.5 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm w-56 outline-none focus:ring-2 focus:ring-[#005691]/30"
+              placeholder="Search specs..."
+              className="pl-10 pr-4 py-2.5 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm w-40 outline-none focus:ring-2 focus:ring-[#005691]/30"
             />
           </div>
           <button
