@@ -63,7 +63,7 @@ export default function Navbar({ currentPage, onNavigate }) {
           </div>
           <button
             onClick={() => onNavigate('Contact US')}
-            className="bg-[#005691] text-white px-5 py-3 text-sm font-semibold rounded-lg flex items-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all"
+            className="bg-[#005691] text-white px-5 py-3 text-sm font-semibold rounded-lg flex items-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
           >
             <span className="material-symbols-outlined text-sm">request_quote</span>
             <span className="hidden sm:inline">Generate Inquiry</span>

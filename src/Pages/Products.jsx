@@ -341,12 +341,21 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero */}
-      <section className="bg-[#005691] py-20 px-8">
-        <div className="max-w-[1280px] mx-auto">
+      <section className="relative py-20 px-8 overflow-hidden">
+        {/* Background image */}
+        <img
+          src="/assets/vvv.png"
+          alt="ATI International Facility"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Blue overlay so text stays readable, matches homepage style */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
-            Our Products
+            Our Produts
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Industrial Product Catalog</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Industrial Product Catalogose</h1>
           <p className="text-white/80 text-lg max-w-2xl">
             Precision-sourced sealing components, supplied for demanding industrial applications worldwide.
           </p>
@@ -375,7 +384,7 @@ export default function Products({ onNavigate }) {
       {/* Product Detail */}
       <div className="max-w-[1280px] mx-auto px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <div className="rounded-2xl overflow-hidden h-80 border border-[#c5c6cd] shadow-md">
+          <div className="rounded-2xl overflow-hidden h-80 hover:scale-110 transition-transform duration-500">
             <img
               src={product.image}
               alt={product.name}
@@ -392,14 +401,14 @@ export default function Products({ onNavigate }) {
             <div className="flex gap-4 flex-wrap">
               <button
                 onClick={() => onNavigate('Contact US')}
-                className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2"
+                className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
               >
                 <span className="material-symbols-outlined text-sm">request_quote</span>
                 Request Quote
               </button>
               <button
                 onClick={() => product.hasDataSheet && setSheetOpen(true)}
-                className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all flex items-center gap-2"
+                className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
               >
                 <span className="material-symbols-outlined text-sm">description</span>
                 Data Sheet
@@ -466,7 +475,7 @@ export default function Products({ onNavigate }) {
                     <td className="p-5">
                       <button
                         onClick={() => onNavigate('Contact US')}
-                        className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all"
+                        className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all hover:scale-105 transition-transform duration-200"
                       >
                         Add to Inquiry
                       </button>
@@ -486,7 +495,7 @@ export default function Products({ onNavigate }) {
           </div>
           <button
             onClick={() => onNavigate('Contact US')}
-            className="bg-white text-[#005691] px-10 py-4 rounded-lg font-semibold text-sm hover:brightness-105 transition-all whitespace-nowrap flex items-center gap-2"
+            className="bg-white text-[#005691] px-10 py-4 rounded-lg font-semibold text-sm hover:brightness-105 transition-all whitespace-nowrap flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
           >
             <span className="material-symbols-outlined text-sm">engineering</span>
             Discuss Custom Order

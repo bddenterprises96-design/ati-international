@@ -115,11 +115,24 @@ export default function ContactUS() {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="bg-[#005691] py-20 px-8">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Get In Touch</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact & Procurement Inquiry</h1>
-          <p className="text-white/80 text-lg max-w-2xl">Submit your requirements and our team will respond with a detailed proposal within 24 business hours.</p>
+      <section className="relative py-20 px-8 overflow-hidden">
+        {/* Background image */}
+        <img
+          src="/assets/jjj.png"
+          alt="ATI International Facility"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Blue overlay so text stays readable, matches homepage style */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/65 to-[#005691]/10" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
+            Get In Touch
+          </span>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Contact & Procurement Inquiry</h1>
+          <p className="text-white/80 text-lg max-w-2xl">
+            Submit your requirements and our team will respond with a detailed proposal within 24 business hours.
+          </p>
         </div>
       </section>
 

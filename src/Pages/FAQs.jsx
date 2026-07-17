@@ -84,11 +84,24 @@ export default function FAQs() {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="bg-[#005691] py-20 px-8">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Support</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
-          <p className="text-white/80 text-lg max-w-2xl">Answers to the most common questions from our global procurement and engineering customers.</p>
+      <section className="relative py-20 px-8 overflow-hidden">
+        {/* Background image */}
+        <img
+          src="/assets/fll.png"
+          alt="ATI International Facility"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Blue overlay so text stays readable, matches homepage style */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/30" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
+            Support
+          </span>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h1>
+          <p className="text-white/80 text-lg max-w-2xl">
+            Answers to the most common questions from our global procurement and engineering customers.
+          </p>
         </div>
       </section>
 

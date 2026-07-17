@@ -31,7 +31,7 @@ function useCounter(target, duration = 2000, startCounting = false) {
 function StatCard({ num, label, startCounting }) {
   const display = useCounter(num, 2000, startCounting)
   return (
-    <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+    <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 text-center shadow-sm hover:shadow-md hover:scale-105 transition-transform duration-500">
       <div className="text-4xl font-bold text-[#005691] mb-2">{display}</div>
       <div className="text-[#505f76] text-sm">{label}</div>
     </div>
@@ -85,7 +85,7 @@ export default function AboutUs({ onNavigate }) {
         </video>
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/80 to-[#005691]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/70 to-[#005691]/10" />
 
         {/* Shimmer lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -217,7 +217,7 @@ export default function AboutUs({ onNavigate }) {
       {/* ── MISSION & VISION ── */}
       <section className="bg-white py-20">
         <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-[#005691] text-white rounded-2xl p-10 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-[#005691] text-white rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
@@ -226,7 +226,7 @@ export default function AboutUs({ onNavigate }) {
               integrity, and sustainability.
             </p>
           </div>
-          <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl text-[#005691] mb-5 block">visibility</span>
             <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
             <p className="text-[#505f76] leading-relaxed">
@@ -250,7 +250,7 @@ export default function AboutUs({ onNavigate }) {
             { icon: 'public',        title: 'Global Thinking', desc: 'Our worldwide logistics network ensures timely delivery to every corner of the globe, on schedule and on budget.' },
             { icon: 'eco',           title: 'Sustainability',  desc: 'Committed to environmentally responsible manufacturing with reduced waste, energy efficiency, and green sourcing.' },
           ].map((v) => (
-            <div key={v.title} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <div key={v.title} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-lg hover:bg-white/20 hover:scale-105 transition-transform duration-500">
               <span className="material-symbols-outlined text-[#005691] text-4xl mb-4 block">{v.icon}</span>
               <h4 className="font-bold text-[#005691] text-lg mb-3">{v.title}</h4>
               <p className="text-[#505f76] text-sm leading-relaxed">{v.desc}</p>
@@ -271,7 +271,7 @@ export default function AboutUs({ onNavigate }) {
               { cert: 'REACH',         desc: 'Chemical Safety Regulation'    },
               { cert: 'TS 16949',      desc: 'Automotive Quality Standard'   },
             ].map((c) => (
-              <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 transition-all duration-200">
+              <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 hover:scale-105 transition-transform duration-500">
                 <div className="text-xl font-bold text-white mb-2">{c.cert}</div>
                 <div className="text-white/70 text-sm">{c.desc}</div>
               </div>
@@ -284,7 +284,7 @@ export default function AboutUs({ onNavigate }) {
       <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
-            <img src="/assets/background.jpg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="/assets/why.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Optimized Supply Chain & Global Reach</h2>

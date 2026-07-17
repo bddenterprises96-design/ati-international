@@ -77,7 +77,7 @@ export default function Blogs() {
       <section className="bg-[#005691] py-20 px-8">
         <div className="max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Knowledge Hub</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">ATI International Blog</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">ATI International Blog</h1>
           <p className="text-white/80 text-lg max-w-2xl">Technical insights, industry trends, and procurement guides from our engineering and supply chain teams.</p>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function Blogs() {
       <div className="max-w-[1280px] mx-auto px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((post) => (
-            <article key={post.id} className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer">
+            <article key={post.id} className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer hover:scale-105 transition-transform duration-500">
               <div className="h-48 bg-[#005691]/10 flex items-center justify-center group-hover:bg-[#005691]/20 transition-colors">
                 <span className="material-symbols-outlined text-[#005691] text-6xl">{post.icon}</span>
               </div>
