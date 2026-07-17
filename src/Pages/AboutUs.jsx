@@ -106,7 +106,7 @@ export default function AboutUs({ onNavigate }) {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
+        <div className="relative z-10 max-w-[2400px] mx-auto px-8 w-full">
           <div className="max-w-4xl">
 
             {/* Badge */}
@@ -160,7 +160,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── VALUE PROPS BAR ── */}
       <section className="bg-white border-b border-[#c5c6cd] py-1">
-        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="max-w-[2400px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
           {[
             { icon: 'verified_user',           title: 'ISO 9001:2015 Certified', desc: 'Rigorous quality control for mission-critical components.' },
             { icon: 'precision_manufacturing', title: 'Advanced Machining',      desc: 'Zero-defect manufacturing with 0.001mm tolerance.' },
@@ -282,7 +282,7 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── GLOBAL REACH ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[2400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
             <img src="/assets/why.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>

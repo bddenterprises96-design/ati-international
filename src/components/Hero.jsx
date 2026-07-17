@@ -17,7 +17,7 @@ export default function Hero({ onNavigate }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-8 w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
         <div className="max-w-3xl">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
             Global Reach • Industrial Excellence
