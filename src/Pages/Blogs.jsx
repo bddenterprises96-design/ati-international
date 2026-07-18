@@ -9,6 +9,7 @@ const POSTS = [
     date: 'May 20, 2026',
     readTime: '6 min read',
     icon: 'science',
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371147/Understanding_Valve_Stem_Seal_Materials_FKM_vs_VMQ_vs_NBR_boayxp.png',
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const POSTS = [
     date: 'April 14, 2026',
     readTime: '5 min read',
     icon: 'trending_up',
+    image: "https://res.cloudinary.com/ybne3lvu/image/upload/v1784371139/Global_Sealing_Market_Trends_2026_What_Manufacturers_Need_to_Know_isk3a8.png"
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const POSTS = [
     date: 'March 8, 2026',
     readTime: '8 min read',
     icon: 'build',
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371141/O-Ring_Failure_Analysis_The_7_Most_Common_Causes_and_How_to_Prevent_Them_atc6pr.png'
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ const POSTS = [
     date: 'February 22, 2026',
     readTime: '4 min read',
     icon: 'verified',
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371583/What_ISO_90012015_Really_Means_for_Your_Sealing_Component_Supplier_nojlle.png'
   },
   {
     id: 5,
@@ -45,6 +49,7 @@ const POSTS = [
     date: 'January 10, 2026',
     readTime: '5 min read',
     icon: 'local_shipping',
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371797/Exporting_Industrial_Components_from_Pakistan_ATI_s_Logistics_Playbook_grhybl.png'
   },
   {
     id: 6,
@@ -54,6 +59,7 @@ const POSTS = [
     date: 'December 5, 2025',
     readTime: '7 min read',
     icon: 'design_services',
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371903/Custom_Seal_Design_From_Drawing_to_First_Article_in_14_Days_awni6j.png'
   },
 ]
 
@@ -89,9 +95,8 @@ export default function Blogs() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
-                activeCategory === cat ? 'bg-[#005691] text-white' : 'text-[#505f76] hover:bg-[#f2f4f6]'
-              }`}
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${activeCategory === cat ? 'bg-[#005691] text-white' : 'text-[#505f76] hover:bg-[#f2f4f6]'
+                }`}
             >
               {cat}
             </button>
@@ -104,8 +109,11 @@ export default function Blogs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((post) => (
             <article key={post.id} className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer hover:scale-105 transition-transform duration-500">
-              <div className="h-48 bg-[#005691]/10 flex items-center justify-center group-hover:bg-[#005691]/20 transition-colors">
-                <span className="material-symbols-outlined text-[#005691] text-6xl">{post.icon}</span>
+              <div className="h-48 bg-[#005691]/10 flex items-center justify-center group-hover:bg-[#005691]/20 transition-colors overflow-hidden">
+                {post.image
+                  ? <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  : <span className="material-symbols-outlined text-[#005691] text-6xl">{post.icon}</span>
+                }
               </div>
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-4">
