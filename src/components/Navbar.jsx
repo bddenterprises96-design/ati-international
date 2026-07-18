@@ -31,7 +31,7 @@ export default function Navbar({ onNavigate }) {
       className={`top-0 sticky z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/90 border-b border-[#c5c6cd] shadow-sm'
-          : 'bg-transparent border-b border-white/10'
+          : 'bg-transparent'
       }`}
       style={scrolled ? { backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' } : {}}
     >
