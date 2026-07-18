@@ -115,7 +115,7 @@ export default function ContactUS() {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="relative py-20 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/jjj.png"

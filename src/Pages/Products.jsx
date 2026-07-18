@@ -341,7 +341,7 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero */}
-      <section className="relative py-20 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/vvv.png"

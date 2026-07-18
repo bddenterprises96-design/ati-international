@@ -71,7 +71,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section className="relative h-[630px] flex items-center overflow-hidden">
+      <section className="relative -mt-20 h-[710px] flex items-center overflow-hidden">
 
         {/* Video Background — replaces the previous static image */}
         <video

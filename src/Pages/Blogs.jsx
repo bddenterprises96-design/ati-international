@@ -80,8 +80,16 @@ export default function Blogs() {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="bg-[#005691] py-20 px-8">
-        <div className="max-w-[1280px] mx-auto">
+      <section
+        className="-mt-20 pt-40 pb-20 relative px-8 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://res.cloudinary.com/ybne3lvu/image/upload/v1784374923/blogs_hero_w45i65.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-[#005691]/80" />
+        <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Knowledge Hub</span>
           <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">ATI International Blog</h1>
           <p className="text-white/80 text-lg max-w-2xl">Technical insights, industry trends, and procurement guides from our engineering and supply chain teams.</p>

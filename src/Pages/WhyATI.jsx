@@ -2,8 +2,7 @@ export default function WhyATI({ onNavigate }) {
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
 
-      {/* Hero — same box size, with background image */}
-      <section className="relative py-20 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/why.jpeg"
