@@ -81,7 +81,7 @@ export default function AboutUs({ onNavigate }) {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1784377885/make_this_video_s_quality_bett_hpjrnd.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1784380222/make_this_video_s_quality_bett_ldzldn.mp4" type="video/mp4" />
         </video>
 
         {/* Gradient overlay */}
