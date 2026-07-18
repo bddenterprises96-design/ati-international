@@ -1,9 +1,20 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
-const NAV_LINKS = ['About', 'Products', 'Why ATI?', 'Contact US', 'Blogs', "FAQ's"]
+const NAV_LINKS = [
+  { label: 'About',      path: '/' },
+  { label: 'Products',   path: '/products' },
+  { label: 'Why ATI?',   path: '/why-ati' },
+  { label: 'Contact US', path: '/contact' },
+  { label: 'Blogs',      path: '/blogs' },
+  { label: "FAQ's",      path: '/faqs' },
+]
 
-export default function Navbar({ currentPage, onNavigate }) {
+export default function Navbar({ onNavigate }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  const isActive = (path) => pathname === path
 
   return (
     <header
@@ -28,22 +39,22 @@ export default function Navbar({ currentPage, onNavigate }) {
           </span>
         </div>
 
-        {/* Desktop Nav Links — pushed slightly right with ml-auto */}
+        {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-1 ml-auto mr-4">
-          {NAV_LINKS.map((label) => {
-            const isActive = currentPage === label
+          {NAV_LINKS.map(({ label, path }) => {
+            const active = isActive(path)
             return (
               <button
                 key={label}
                 onClick={() => onNavigate(label)}
                 className={`relative px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
-                  isActive
+                  active
                     ? 'text-[#005691] bg-[#e6f1fb]'
                     : 'text-[#505f76] hover:text-[#005691] hover:bg-[#f2f4f6]'
                 }`}
               >
                 {label}
-                {isActive && (
+                {active && (
                   <span className="absolute bottom-0 left-3 right-0 h-0.5 bg-[#005691] rounded-full" />
                 )}
               </button>
@@ -100,22 +111,22 @@ export default function Navbar({ currentPage, onNavigate }) {
             </div>
           </div>
 
-          {/* Nav Links — same style as desktop active/inactive */}
+          {/* Nav Links */}
           <div className="px-6 pb-4 flex flex-col gap-1">
-            {NAV_LINKS.map((label) => {
-              const isActive = currentPage === label
+            {NAV_LINKS.map(({ label, path }) => {
+              const active = isActive(path)
               return (
                 <button
                   key={label}
                   onClick={() => { onNavigate(label); setMenuOpen(false) }}
                   className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all flex items-center justify-between ${
-                    isActive
+                    active
                       ? 'text-[#005691] bg-[#e6f1fb] border-l-4 border-[#005691]'
                       : 'text-[#505f76] hover:text-[#005691] hover:bg-[#f2f4f6]'
                   }`}
                 >
                   {label}
-                  {isActive && (
+                  {active && (
                     <span className="material-symbols-outlined text-[#005691] text-sm">chevron_right</span>
                   )}
                 </button>
