@@ -1,6 +1,6 @@
 export default function Hero({ onNavigate }) {
   return (
-    <section className="relative h-[650px] flex items-center overflow-hidden bg-[#005691]">
+    <section className="relative h-[7000px] flex items-center overflow-hidden bg-[#005691]">
 
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
