@@ -112,7 +112,7 @@ export default function Blogs() {
       <section
         className="-mt-20 pt-40 pb-20 relative px-8 overflow-hidden"
         style={{
-          backgroundImage: 'url(https://res.cloudinary.com/ybne3lvu/image/upload/v1784374923/blogs_hero_w45i65.png)',
+          backgroundImage: 'url(https://res.cloudinary.com/ybne3lvu/image/upload/v1784457971/wwe_siixmw.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
