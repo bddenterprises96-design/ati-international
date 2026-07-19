@@ -15,7 +15,7 @@ export default function GlobalReach() {
         <div className="order-1 md:order-2">
           <h2 className="text-[32px] font-bold text-white mb-4">Optimized Supply Chain &amp; Global Reach</h2>
           <p className="text-base text-white/80 mb-8 leading-relaxed">
-            ATI International ensures seamless distribution of essential sealing solutions.
+            ATI ensures seamless distribution of essential sealing solutions.
             From custom material formulations to just-in-time delivery for high-volume manufacturing lines.
           </p>
           <div className="flex flex-col gap-6 mb-10">

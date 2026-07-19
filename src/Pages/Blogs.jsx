@@ -34,7 +34,7 @@ const POSTS = [
     id: 1,
     category: 'Technical',
     title: 'Understanding Valve Stem Seal Materials: FKM vs VMQ vs NBR',
-    excerpt: 'A deep-dive into the three most common elastomers used in valve stem seal manufacturing — comparing thermal resistance, chemical compatibility, and long-term durability in real engine environments.',
+    excerpt: 'A deep-dive into the three most common elastomers used in valve stem seals comparing thermal resistance, chemical compatibility, and long-term durability across real engine environments, with guidance on selecting the right material for your application.',
     date: 'May 20, 2026',
     readTime: '6 min read',
     icon: 'science',
@@ -54,7 +54,7 @@ const POSTS = [
     id: 3,
     category: 'Technical',
     title: 'O-Ring Failure Analysis: The 7 Most Common Causes and How to Prevent Them',
-    excerpt: 'From extrusion and spiral failure to chemical attack and compression set — learn how to identify O-ring failure modes early, and which material and design changes eliminate them.',
+    excerpt: 'From extrusion and spiral failure to chemical attack and compression set learn how to identify O-ring failure modes early, and which material and design changes eliminate them.',
     date: 'March 8, 2026',
     readTime: '8 min read',
     icon: 'build',
@@ -73,8 +73,8 @@ const POSTS = [
   {
     id: 5,
     category: 'Logistics',
-    title: 'Exporting Industrial Components from Pakistan: ATI\'s Logistics Playbook',
-    excerpt: 'How ATI International manages end-to-end logistics for shipments to Europe, the Middle East, Africa, and the Americas — covering documentation, Incoterms, transit times, and customs clearance.',
+    title: 'Exporting Industrial Components from China: ATI\'s Logistics Playbook',
+    excerpt: 'How ATI manages end-to-end export logistics from Guangzhou to Europe, the Middle East, Africa, and the Americas covering documentation, Incoterms, transit times, and customs clearance.',
     date: 'January 10, 2026',
     readTime: '5 min read',
     icon: 'local_shipping',
@@ -84,7 +84,7 @@ const POSTS = [
     id: 6,
     category: 'Technical',
     title: 'Custom Seal Design: From Drawing to First Article in 14 Days',
-    excerpt: 'Walk through ATI International\'s rapid prototyping process — DFM review, mold design, sample production, and first article inspection — and how we help customers qualify new seals faster.',
+    excerpt: 'Walk through ATI\'s rapid custom sourcing process drawing review, supplier coordination, sample production, and first article inspection and how we help customers qualify new seals faster.',
     date: 'December 5, 2025',
     readTime: '7 min read',
     icon: 'design_services',
@@ -120,7 +120,7 @@ export default function Blogs() {
         <div className="absolute inset-0 bg-[#005691]/80" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Knowledge Hub</span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">ATI International Blog</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">ATI Blog</h1>
           <p className="text-white/80 text-lg max-w-2xl">Technical insights, industry trends, and procurement guides from our engineering and supply chain teams.</p>
         </div>
       </section>

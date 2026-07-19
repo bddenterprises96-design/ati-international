@@ -26,7 +26,7 @@ export default function Hero({ onNavigate }) {
             Essential Sealing <br />Solutions for Global <br />Manufacturing.
           </h1>
           <p className="text-lg text-white/80 mb-10 max-w-xl leading-relaxed">
-            ATI International delivers high-performance engine components to global manufacturers.
+            ATI delivers high-performance engine components to global manufacturers.
             Specializing in Valve Stem Seals, O-Rings, and bespoke industrial sealing solutions.
           </p>
           <div className="flex flex-wrap gap-4">

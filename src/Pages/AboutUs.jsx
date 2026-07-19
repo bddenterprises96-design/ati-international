@@ -126,10 +126,10 @@ export default function AboutUs({ onNavigate }) {
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <p className="mt-6 max-w-[85%] md:w-[80%] text-white/80 text-lg mb-10 leading-8">
-                Engineered for your most demanding mechanical systems with reinforced
-                construction and a range of high-quality sealing compounds, ATI sealing
-                solutions deliver reliable, high-quality products. Delivering Pivotal Products
-                that Keep Systems Running Smoothly.
+                ATI is a global trading and export company specializing in
+                high-performance industrial sealing components. We source from verified,
+                ISO-certified partner manufacturers and supply procurement teams,
+                distributors, and industrial buyers across more than 40 countries worldwide.
               </p>
             </div>
 
@@ -162,10 +162,10 @@ export default function AboutUs({ onNavigate }) {
       <section className="bg-white border-b border-[#c5c6cd] py-1">
         <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
           {[
-            { icon: 'verified_user',           title: 'ISO 9001:2015 Certified', desc: 'Rigorous quality control for mission-critical components.' },
-            { icon: 'precision_manufacturing', title: 'Advanced Machining',      desc: 'Zero-defect manufacturing with 0.001mm tolerance.' },
-            { icon: 'public',                  title: 'Global Supply Chain',     desc: 'Strategic distribution hubs across five continents.' },
-            { icon: 'engineering',             title: 'Expert Engineering',      desc: 'Direct access to technical consultants and CAD support.' },
+            { icon: 'verified_user',    title: 'Quality-Assured Sourcing', desc: 'All products sourced from ISO 9001:2015 certified partner manufacturers.' },
+            { icon: 'public',           title: 'Global Export Network',    desc: 'Supplying industrial buyers in over 40 countries across six continents.' },
+            { icon: 'handshake',        title: 'Trusted Trading Partner',  desc: 'Transparent procurement, competitive pricing, and long-term supply reliability.' },
+            { icon: 'engineering',      title: 'Technical Sourcing Support', desc: 'Specification guidance, cross-referencing, and custom sourcing for your exact requirements.' },
           ].map((item, i) => (
             <div
               key={item.title}
@@ -190,18 +190,19 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
             <p className="text-[#505f76] text-lg leading-relaxed mb-5">
-              ATI International is a leading manufacturer and global exporter of high-performance sealing components.
-              We specialize in Valve Stem Seals, O-Rings, Oil Seals, and custom-engineered sealing solutions for the
-              automotive and industrial sectors.
+              ATI is an international trading and export company specializing in
+              high-performance industrial sealing components. We supply Valve Stem Seals, O-Rings,
+              Oil Seals, and custom-engineered sealing solutions to procurement teams, distributors,
+              and industrial buyers worldwide.
             </p>
             <p className="text-[#505f76] leading-relaxed mb-5">
-              Founded with a mission to deliver precision-engineered components to global OEMs and Tier 1 suppliers,
-              ATI International has grown into a trusted name recognized for consistent quality, technical expertise,
-              and reliable logistics.
+              Operating from Guangzhou, China, we source exclusively from verified, ISO-certified
+              partner manufacturers — giving our customers access to quality-assured components
+              at competitive international pricing, backed by full documentation and traceability.
             </p>
             <p className="text-[#505f76] leading-relaxed">
-              Our manufacturing facilities are equipped with advanced CNC machinery and quality control systems,
-              ensuring every component exceeds customer expectations.
+              Whether you need standard catalogue items or custom specifications sourced to your drawings,
+              our experienced sourcing team manages the entire supply process from inquiry to delivery.
             </p>
           </div>
 
@@ -221,17 +222,18 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To deliver precision-engineered sealing solutions that enable our customers to achieve the highest levels
-              of performance, reliability, and efficiency — while maintaining the highest standards of quality,
-              integrity, and sustainability.
+              To simplify global procurement of industrial sealing components by connecting buyers
+              with quality-certified suppliers delivering reliable products, transparent service,
+              and competitive pricing to industrial businesses in every corner of the world.
             </p>
           </div>
           <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl text-[#005691] mb-5 block">visibility</span>
             <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
             <p className="text-[#505f76] leading-relaxed">
-              To be the world's most trusted partner for industrial sealing solutions — recognized globally for
-              innovation, quality excellence, and our commitment to long-term customer relationships.
+              To be the most trusted international trading partner for industrial sealing components
+              recognized for supply reliability, sourcing expertise, and the long-term relationships
+              we build with procurement professionals around the world.
             </p>
           </div>
         </div>
@@ -240,15 +242,15 @@ export default function AboutUs({ onNavigate }) {
       {/* ── CORE VALUES ── */}
       <section className="py-20 max-w-[1440px] mx-auto px-8">
         <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">Core Values</h2>
-        <p className="text-[#505f76] text-center mb-12">The principles that guide everything we do at ATI International.</p>
+        <p className="text-[#505f76] text-center mb-12">The principles that guide everything we do at ATI.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { icon: 'verified',      title: 'Quality First',   desc: 'Every component undergoes rigorous multi-stage inspection. ISO 9001:2015 certified processes ensure zero-defect delivery.' },
-            { icon: 'handshake',     title: 'Integrity',       desc: 'Transparent pricing, honest communication, and dependable commitments form the foundation of every customer relationship.' },
-            { icon: 'rocket_launch', title: 'Innovation',      desc: 'Continuous investment in R&D and advanced manufacturing technology keeps our solutions at the cutting edge.' },
-            { icon: 'groups',        title: 'Customer Focus',  desc: "We listen, adapt, and deliver solutions tailored to each client's specific technical and commercial requirements." },
-            { icon: 'public',        title: 'Global Thinking', desc: 'Our worldwide logistics network ensures timely delivery to every corner of the globe, on schedule and on budget.' },
-            { icon: 'eco',           title: 'Sustainability',  desc: 'Committed to environmentally responsible manufacturing with reduced waste, energy efficiency, and green sourcing.' },
+            { icon: 'verified',      title: 'Quality First',       desc: 'We source only from ISO-certified partner manufacturers. Every shipment includes full material documentation and traceability.' },
+            { icon: 'handshake',     title: 'Integrity',           desc: 'Transparent pricing, honest communication, and dependable commitments form the foundation of every customer relationship.' },
+            { icon: 'rocket_launch', title: 'Procurement Agility', desc: 'Fast inquiry turnaround, flexible MOQ options, and responsive sourcing that adapts to your production schedules.' },
+            { icon: 'groups',        title: 'Customer Focus',      desc: "We listen, understand your application, and source components that match your exact technical and commercial requirements." },
+            { icon: 'public',        title: 'Global Reach',        desc: 'From our base in Guangzhou, we manage exports to over 40 countries with experience in customs, Incoterms, and international freight.' },
+            { icon: 'eco',           title: 'Responsible Sourcing', desc: 'We prioritize suppliers with strong environmental commitments, RoHS and REACH compliant materials, and responsible supply chains.' },
           ].map((v) => (
             <div key={v.title} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-lg hover:bg-white/20 hover:scale-105 transition-transform duration-500">
               <span className="material-symbols-outlined text-[#005691] text-4xl mb-4 block">{v.icon}</span>
@@ -262,8 +264,8 @@ export default function AboutUs({ onNavigate }) {
       {/* ── CERTIFICATIONS ── */}
       <section className="bg-[#005691] py-10">
         <div className="max-w-[1440px] mx-auto px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Certifications & Compliance</h2>
-          <p className="text-white/80 mb-12">ATI International meets the highest international standards.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Compliance Standards</h2>
+          <p className="text-white/80 mb-12">Products sourced and supplied in compliance with leading international quality and safety standards.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System'     },
@@ -287,15 +289,15 @@ export default function AboutUs({ onNavigate }) {
             <img src="/assets/888.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-[#005691] mb-6">Optimized Supply Chain & Global Reach</h2>
+            <h2 className="text-3xl font-bold text-[#005691] mb-6">Global Sourcing & Export Capabilities</h2>
             <p className="text-[#505f76] leading-relaxed mb-8">
-              ATI International ensures seamless distribution of essential sealing solutions. From custom material
-              formulations to just-in-time delivery for high-volume manufacturing lines.
+              From Guangzhou, we coordinate the full supply chain on your behalf from supplier
+              selection and quality verification to export documentation and international delivery.
             </p>
             {[
-              { icon: 'check_circle', title: 'Full PPAP Support',     desc: 'Complete documentation and quality assurance for automotive compliance.' },
-              { icon: 'check_circle', title: 'Consolidated Shipping', desc: 'Reduced logistics costs via strategic regional distribution centers.' },
-              { icon: 'check_circle', title: 'Custom Engineering',    desc: 'Material testing and formulation for specific environmental extremes.' },
+              { icon: 'check_circle', title: 'Full Documentation',    desc: 'CoC, material data sheets, PPAP, RoHS and REACH declarations provided with every order.' },
+              { icon: 'check_circle', title: 'Flexible Incoterms',    desc: 'EXW, FOB, CFR, CIF and DDP terms available to suit your logistics and import requirements.' },
+              { icon: 'check_circle', title: 'Custom Sourcing',       desc: 'We source to your drawings, specifications, and OEM cross-references from our verified supplier network.' },
             ].map((item) => (
               <div key={item.title} className="flex gap-4 mb-5">
                 <span className="material-symbols-outlined text-[#005691] text-xl mt-0.5 flex-shrink-0">{item.icon}</span>
@@ -310,13 +312,13 @@ export default function AboutUs({ onNavigate }) {
                 onClick={() => onNavigate('Contact US')}
                 className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 hover:scale-105 transition-all duration-200"
               >
-                Connect with Engineering
+                Discuss Your Requirements
               </button>
               <button
                 onClick={() => onNavigate('Contact US')}
                 className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 hover:scale-105 transition-all duration-200"
               >
-                Review Inquiries
+                Submit a Sourcing Request
               </button>
             </div>
           </div>
@@ -325,9 +327,9 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── CTA ── */}
       <section className="py-20 text-center bg-[#f2f4f6]">
-        <h2 className="text-3xl font-bold text-[#005691] mb-4">Partner with ATI International</h2>
+        <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Source Smarter?</h2>
         <p className="text-[#505f76] mb-8 max-w-xl mx-auto">
-          Get in touch with our team to discuss your sealing requirements and receive a tailored procurement proposal.
+          Submit your product requirements and our sourcing team will respond with a competitive supply proposal within 24 business hours.
         </p>
         <button
           onClick={() => onNavigate('Contact US')}

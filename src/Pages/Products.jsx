@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 const DATA_SHEETS = {
   'valve-stem': {
-    title: 'Valve Stem Seals — Technical Data Sheet',
+    title: 'Valve Stem Seals Technical Data Sheet',
     subtitle: 'Valve stem seals control oil flow to engine valve stems, ensuring proper lubrication while preventing oil leakage into the combustion chamber.',
     structureImage: '/assets/cylinder.png',
-    structureCaption: 'Valve Stem Seal — Cross-Section Structure Diagram',
+    structureCaption: 'Valve Stem Seal Cross-Section Structure Diagram',
     theoryImage: '/assets/cyy.png',
-    theoryCaption: 'Valve Stem Seal — Sealing Theory Diagram',
+    theoryCaption: 'Valve Stem Seal Sealing Theory Diagram',
     sections: [
       {
         heading: 'Product Description',
@@ -47,12 +47,12 @@ const DATA_SHEETS = {
     ],
   },
   'o-rings': {
-    title: 'O-Rings — Technical Data Sheet',
+    title: 'O-Rings Technical Data Sheet',
     subtitle: 'O-Rings provide reliable static and dynamic sealing across a wide range of pressures, temperatures, and chemical environments.',
     structureImage: '/assets/il2.png',
-    structureCaption: 'O-Ring — Cross-Section & Groove Dimension Diagram',
+    structureCaption: 'O-Ring Cross-Section & Groove Dimension Diagram',
     theoryImage: '/assets/oo.png',
-    theoryCaption: 'O-Ring — Pressure Sealing Theory Diagram',
+    theoryCaption: 'O-Ring Pressure Sealing Theory Diagram',
     sections: [
       {
         heading: 'Product Description',
@@ -93,12 +93,12 @@ const DATA_SHEETS = {
     ],
   },
   'oil-seals': {
-    title: 'Oil Seals — Technical Data Sheet',
+    title: 'Oil Seals Technical Data Sheet',
     subtitle: 'Oil seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies.',
     structureImage: '/assets/il.png',
-    structureCaption: 'Oil Seal — Component Anatomy & Installation Diagram',
+    structureCaption: 'Oil Seal Component Anatomy & Installation Diagram',
     theoryImage: '/assets/oo1.png',
-    theoryCaption: 'Oil Seal — Hydrodynamic Sealing Theory Diagram',
+    theoryCaption: 'Oil Seal Hydrodynamic Sealing Theory Diagram',
     sections: [
       {
         heading: 'Product Description',
@@ -129,7 +129,7 @@ const DATA_SHEETS = {
           'Store horizontally in original packaging to prevent lip deformation.',
           'Clean shaft and housing bore thoroughly before installation.',
           'Apply light grease to the sealing lip and shaft before fitting.',
-          'Use a sleeve or installation tool — never hammer directly on the seal face.',
+          'Use a sleeve or installation tool never hammer directly on the seal face.',
           'Verify shaft hardness (55–65 HRC) and surface finish (Ra 0.2–0.8 μm) before installation.',
         ],
       },
@@ -148,7 +148,7 @@ const PRODUCTS = [
     tagline: 'Precision lubrication control for high-performance engines',
     image: '/assets/aaa.png',
     hasDataSheet: true,
-    description: 'ATI Valve Stem Seals are manufactured using high-grade Viton (FKM) and Silicone (VMQ) elastomers, engineered to provide consistent oil film control on valve stems. Designed for extreme thermal cycling and high-RPM environments in gasoline, diesel, and gas engines.',
+    description: 'ATI supplies Valve Stem Seals produced from high-grade Viton (FKM) and Silicone (VMQ) elastomers, engineered to provide consistent oil film control on valve stems. Sourced from certified partner manufacturers for extreme thermal cycling and high-RPM environments in gasoline, diesel, and gas engines.',
     features: [
       'Operating temperature: -40°C to +230°C',
       'Pressure resistance: up to 10 bar',
@@ -158,9 +158,9 @@ const PRODUCTS = [
       'OEM cross-reference available on request',
     ],
     specs: [
-      { part: 'ATI-VS-5022', material: 'Viton-75 (FKM)', dim: '22.0 × 3.5', temp: '-20 to +200°C', moq: '5,000'  },
-      { part: 'ATI-VS-7822', material: 'Silicone VMQ',   dim: '18.0 × 2.0', temp: '-60 to +230°C', moq: '10,000' },
-      { part: 'ATI-VS-4418', material: 'NBR-70',         dim: '14.0 × 2.5', temp: '-40 to +120°C', moq: '5,000'  },
+      { part: 'ATI-VS-5022', material: 'Viton-75 (FKM)', dim: '22.0 × 3.5', temp: '-20 to +200°C', moq: '5,000' },
+      { part: 'ATI-VS-7822', material: 'Silicone VMQ', dim: '18.0 × 2.0', temp: '-60 to +230°C', moq: '10,000' },
+      { part: 'ATI-VS-4418', material: 'NBR-70', dim: '14.0 × 2.5', temp: '-40 to +120°C', moq: '5,000' },
     ],
     applications: ['Passenger Vehicles', 'Commercial Trucks', 'Industrial Engines', 'Marine Engines', 'Agricultural Equipment'],
   },
@@ -170,7 +170,7 @@ const PRODUCTS = [
     tagline: 'Comprehensive material range for universal sealing',
     image: '/assets/ccc.png',
     hasDataSheet: true,
-    description: 'ATI O-Rings are available in a comprehensive range of elastomeric materials, suitable for static, dynamic, pneumatic, and hydraulic applications. Our manufacturing covers metric (DIN 3771), imperial (AS568), and custom dimensions with full material traceability.',
+    description: 'ATI supplies O-Rings in a comprehensive range of elastomeric materials, suitable for static, dynamic, pneumatic, and hydraulic applications. Our supply catalogue covers metric (DIN 3771), imperial (AS568), and custom dimensions with full material traceability.',
     features: [
       'Materials: NBR, FKM (Viton), EPDM, Silicone, PTFE, FFKM',
       'Hardness range: 40–90 Shore A',
@@ -180,9 +180,9 @@ const PRODUCTS = [
       'Chemical resistance data sheets available on request',
     ],
     specs: [
-      { part: 'ATI-OR-991',    material: 'NBR-90 High Grade', dim: '140.2 × 8.0', temp: '-40 to +120°C', moq: '2,500' },
-      { part: 'ATI-OR-FKM-50', material: 'Viton 75A',         dim: '50.0 × 3.0',  temp: '-20 to +200°C', moq: '2,000' },
-      { part: 'ATI-OR-EPD-20', material: 'EPDM 70A',          dim: '20.0 × 2.5',  temp: '-50 to +150°C', moq: '5,000' },
+      { part: 'ATI-OR-991', material: 'NBR-90 High Grade', dim: '140.2 × 8.0', temp: '-40 to +120°C', moq: '2,500' },
+      { part: 'ATI-OR-FKM-50', material: 'Viton 75A', dim: '50.0 × 3.0', temp: '-20 to +200°C', moq: '2,000' },
+      { part: 'ATI-OR-EPD-20', material: 'EPDM 70A', dim: '20.0 × 2.5', temp: '-50 to +150°C', moq: '5,000' },
     ],
     applications: ['Hydraulic Systems', 'Pneumatic Cylinders', 'Chemical Processing', 'Food & Beverage', 'Aerospace', 'Oil & Gas'],
   },
@@ -202,9 +202,9 @@ const PRODUCTS = [
       'Custom lip geometries for special applications',
     ],
     specs: [
-      { part: 'ATI-SL-12-B', material: 'Stainless / Viton',  dim: '88.0 OD × 65 ID', temp: '-30 to +250°C', moq: '1,000' },
-      { part: 'ATI-SL-40-A', material: 'NBR Double Lip',     dim: '55.0 OD × 40 ID', temp: '-40 to +120°C', moq: '2,000' },
-      { part: 'ATI-SL-80-P', material: 'PTFE Spring-Loaded', dim: '80.0 OD × 60 ID', temp: '-60 to +260°C', moq: '500'   },
+      { part: 'ATI-SL-12-B', material: 'Stainless / Viton', dim: '88.0 OD × 65 ID', temp: '-30 to +250°C', moq: '1,000' },
+      { part: 'ATI-SL-40-A', material: 'NBR Double Lip', dim: '55.0 OD × 40 ID', temp: '-40 to +120°C', moq: '2,000' },
+      { part: 'ATI-SL-80-P', material: 'PTFE Spring-Loaded', dim: '80.0 OD × 60 ID', temp: '-60 to +260°C', moq: '500' },
     ],
     applications: ['Gearboxes', 'Axles & Differentials', 'Pumps & Compressors', 'Electric Motors', 'Wind Turbines', 'Heavy Equipment'],
   },
@@ -313,7 +313,7 @@ function DataSheetModal({ productId, onClose }) {
 
         {/* Modal Footer */}
         <div className="border-t border-[#c5c6cd] px-8 py-5 flex items-center justify-between gap-4 rounded-b-2xl bg-[#f7f9fb]">
-          <p className="text-xs text-[#505f76]">ATI International — Confidential Technical Document</p>
+          <p className="text-xs text-[#505f76]">ATI — Confidential Technical Document</p>
           <button
             onClick={onClose}
             className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
@@ -328,7 +328,7 @@ function DataSheetModal({ productId, onClose }) {
 
 // ── Main Products Page ────────────────────────────────────────────
 export default function Products({ onNavigate }) {
-  const [active, setActive]       = useState('valve-stem')
+  const [active, setActive] = useState('valve-stem')
   const [sheetOpen, setSheetOpen] = useState(false)
 
   const product = PRODUCTS.find((p) => p.id === active)
@@ -345,7 +345,7 @@ export default function Products({ onNavigate }) {
         {/* Background image */}
         <img
           src="/assets/vvv.png"
-          alt="ATI International Facility"
+          alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Blue overlay so text stays readable, matches homepage style */}
@@ -353,11 +353,11 @@ export default function Products({ onNavigate }) {
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
-            Our Produts
+            Our Products
           </span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Industrial Product Catalogose</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Industrial Product Catalogue</h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Precision-sourced sealing components, supplied for demanding industrial applications worldwide.
+            Quality-verified sealing components sourced from certified partner manufacturers, supplied for demanding industrial applications worldwide.
           </p>
         </div>
       </section>
@@ -369,11 +369,10 @@ export default function Products({ onNavigate }) {
             <button
               key={p.id}
               onClick={() => { setActive(p.id); setSheetOpen(false) }}
-              className={`px-8 py-5 font-semibold text-sm tracking-widest uppercase border-b-2 transition-all whitespace-nowrap ${
-                active === p.id
+              className={`px-8 py-5 font-semibold text-sm tracking-widest uppercase border-b-2 transition-all whitespace-nowrap ${active === p.id
                   ? 'border-[#005691] text-[#005691]'
                   : 'border-transparent text-[#505f76] hover:text-[#005691]'
-              }`}
+                }`}
             >
               {p.name}
             </button>
@@ -491,7 +490,7 @@ export default function Products({ onNavigate }) {
         <div className="mt-10 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-2">Need Custom Specifications?</h3>
-            <p className="text-white/80">We manufacture bespoke sealing components to your exact drawings and technical requirements.</p>
+            <p className="text-white/80">We source bespoke sealing components to your exact drawings and technical requirements from our verified supplier network.</p>
           </div>
           <button
             onClick={() => onNavigate('Contact US')}

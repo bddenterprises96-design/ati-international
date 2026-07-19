@@ -5,12 +5,12 @@ const FAQS = [
     category: 'Products & Specifications',
     items: [
       {
-        q: 'What types of sealing products does ATI International manufacture?',
-        a: 'ATI International manufactures Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), and custom-engineered sealing components. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+        q: 'What types of sealing products does ATI supply?',
+        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), and custom-engineered sealing components. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
       },
       {
-        q: 'Can ATI manufacture seals to my custom dimensions and drawings?',
-        a: 'Yes. We have a dedicated custom manufacturing division. Submit your technical drawings (DXF, PDF, or STEP format), material requirements, and application details — our engineering team will review your design, provide DFM feedback, and produce first article samples within 7–14 business days.',
+        q: 'Can ATI source seals to my custom dimensions and drawings?',
+        a: 'Yes. We coordinate custom procurement on your behalf. Submit your technical drawings (DXF, PDF, or STEP format), material requirements, and application details our sourcing team will review your specifications, coordinate with our supplier network, and deliver first article samples within 7–14 business days.',
       },
       {
         q: 'What are the maximum operating temperatures for your seals?',
@@ -35,7 +35,7 @@ const FAQS = [
       },
       {
         q: 'How do I submit a procurement inquiry?',
-        a: 'Use our Contact US page to submit a Procurement Inquiry Form, or reach us directly via WhatsApp or WeChat. Provide your product type, quantity, dimensions, material preference, and delivery destination — our team will respond with a proposal within 24 business hours.',
+        a: 'Use our Contact US page to submit a Procurement Inquiry Form, or reach us directly via WhatsApp or WeChat. Provide your product type, quantity, dimensions, material preference, and delivery destination our team will respond with a proposal within 24 business hours.',
       },
     ],
   },
@@ -43,8 +43,8 @@ const FAQS = [
     category: 'Quality & Certification',
     items: [
       {
-        q: 'Is ATI International ISO certified?',
-        a: 'Yes. ATI International is ISO 9001:2015 certified. Our quality management system covers raw material sourcing, in-process inspection, final QC, and packaging. We also comply with TS 16949 (automotive), RoHS, and REACH regulations.',
+        q: 'Is ATI ISO certified?',
+        a: 'All partner manufacturers in our supply network hold ISO 9001:2015 certification. We verify supplier quality systems as part of our sourcing process and can provide material certifications, PPAP documentation, and traceability records with every order. We also supply products compliant with RoHS and REACH regulations.',
       },
       {
         q: 'What quality control processes do you use?',
@@ -60,12 +60,12 @@ const FAQS = [
     category: 'Shipping & Logistics',
     items: [
       {
-        q: 'Which countries does ATI International export to?',
+        q: 'Which countries does ATI export to?',
         a: 'We currently export to over 40 countries across Asia, the Middle East, Europe, Africa, and the Americas. We have established logistics partnerships and experience with customs documentation for all major markets.',
       },
       {
         q: 'What Incoterms do you offer?',
-        a: 'We offer EXW, FOB Karachi, CFR, CIF, and DDP depending on destination and order volume. For repeat customers, we can arrange freight on preferred carriers or integrate with your existing logistics provider.',
+        a: 'We offer EXW, FOB Guangzhou, CFR, CIF, and DDP depending on destination and order volume. For repeat customers, we can arrange freight on preferred carriers or integrate with your existing logistics provider.',
       },
       {
         q: 'What are typical lead times for production orders?',
@@ -88,7 +88,7 @@ export default function FAQs() {
         {/* Background image */}
         <img
           src="/assets/fll.png"
-          alt="ATI International Facility"
+          alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Blue overlay so text stays readable, matches homepage style */}
@@ -145,7 +145,7 @@ export default function FAQs() {
           <p className="text-white/80 mb-8 max-w-md mx-auto">Our technical and procurement team is available Mon–Sat to answer your specific requirements.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://wa.me/923000000000"
+              href="https://wa.me/8618523210975"
               target="_blank"
               rel="noreferrer"
               className="bg-[#25D366] text-white px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-110 transition-all flex items-center gap-2"

@@ -34,7 +34,7 @@ const SOCIAL = [
   },
   {
     name: 'WhatsApp',
-    href: 'https://wa.me/923000000000',
+    href: 'https://wa.me/8618523210975',
     icon: (
       <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
         <rect width="48" height="48" rx="12" fill="#25D366"/>
@@ -119,7 +119,7 @@ export default function ContactUS() {
         {/* Background image */}
         <img
           src="/assets/jjj.png"
-          alt="ATI International Facility"
+          alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Blue overlay so text stays readable, matches homepage style */}
@@ -149,7 +149,7 @@ export default function ContactUS() {
                 { icon: 'location_on', label: 'Head Office',      value: 'Liwan District, Guangzhou City'   },
                 { icon: 'mail',        label: 'Email',            value: 'theatinternational@gmail.com' },
                 { icon: 'phone',       label: 'Phone / WhatsApp', value: '0086-18523210975'           },
-                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm PKT'    },
+                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm CST (China)'    },
               ].map((c) => (
                 <div key={c.label} className="flex gap-4 mb-6">
                   <div className="w-10 h-10 bg-[#005691]/10 rounded-lg flex items-center justify-center flex-shrink-0">
