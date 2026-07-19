@@ -1,5 +1,34 @@
 import { useState } from 'react'
 
+// Inject Cloudinary transformations for fast delivery (auto format, auto quality, width-capped)
+const optimizeCloudinaryUrl = (url) => {
+  if (!url || !url.includes('res.cloudinary.com')) return url
+  return url.replace('/upload/', '/upload/w_600,q_auto,f_auto/')
+}
+
+// Card image with skeleton shimmer + fade-in on load
+function BlogImage({ src, alt }) {
+  const [loaded, setLoaded] = useState(false)
+  const optimized = optimizeCloudinaryUrl(src)
+  return (
+    <div className="relative w-full h-full">
+      {/* Skeleton shimmer shown until image loads */}
+      {!loaded && (
+        <div className="absolute inset-0 bg-gradient-to-r from-[#e8edf2] via-[#f2f4f6] to-[#e8edf2] animate-pulse" />
+      )}
+      <img
+        src={optimized}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </div>
+  )
+}
+
 const POSTS = [
   {
     id: 1,
@@ -119,7 +148,7 @@ export default function Blogs() {
             <article key={post.id} className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer hover:scale-105 transition-transform duration-500">
               <div className="h-48 bg-[#005691]/10 flex items-center justify-center group-hover:bg-[#005691]/20 transition-colors overflow-hidden">
                 {post.image
-                  ? <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  ? <BlogImage src={post.image} alt={post.title} />
                   : <span className="material-symbols-outlined text-[#005691] text-6xl">{post.icon}</span>
                 }
               </div>
