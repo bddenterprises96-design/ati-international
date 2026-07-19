@@ -118,7 +118,7 @@ export default function ContactUS() {
       <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
         {/* Background image */}
         <img
-          src="/assets/jjj.png"
+          src="/assets/icccc.png"
           alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
