@@ -197,7 +197,7 @@ export default function AboutUs({ onNavigate }) {
             </p>
             <p className="text-[#505f76] leading-relaxed mb-5">
               Operating from Guangzhou, China, we source exclusively from verified, ISO-certified
-              partner manufacturers — giving our customers access to quality-assured components
+              partner manufacturers giving our customers access to quality-assured components
               at competitive international pricing, backed by full documentation and traceability.
             </p>
             <p className="text-[#505f76] leading-relaxed">

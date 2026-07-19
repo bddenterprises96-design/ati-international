@@ -313,7 +313,7 @@ function DataSheetModal({ productId, onClose }) {
 
         {/* Modal Footer */}
         <div className="border-t border-[#c5c6cd] px-8 py-5 flex items-center justify-between gap-4 rounded-b-2xl bg-[#f7f9fb]">
-          <p className="text-xs text-[#505f76]">ATI — Confidential Technical Document</p>
+          <p className="text-xs text-[#505f76]">ATI Confidential Technical Document</p>
           <button
             onClick={onClose}
             className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
