@@ -48,7 +48,7 @@ const POSTS = [
     date: 'April 14, 2026',
     readTime: '5 min read',
     icon: 'trending_up',
-    image: "https://res.cloudinary.com/ybne3lvu/image/upload/v1784371139/Global_Sealing_Market_Trends_2026_What_Manufacturers_Need_to_Know_isk3a8.png"
+    image: "https://res.cloudinary.com/ybne3lvu/image/upload/v1784460351/Global_Sealing_Market_Trends_2026_What_Manufacturers_Need_to_Know_oej8ip.png"
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ const POSTS = [
     date: 'March 8, 2026',
     readTime: '8 min read',
     icon: 'build',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371141/O-Ring_Failure_Analysis_The_7_Most_Common_Causes_and_How_to_Prevent_Them_atc6pr.png'
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784460023/O-Ring_Failure_Analysis_The_7_Most_Common_Causes_and_How_to_Prevent_Them_nwlqs1.png'
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ const POSTS = [
     date: 'December 5, 2025',
     readTime: '7 min read',
     icon: 'design_services',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371903/Custom_Seal_Design_From_Drawing_to_First_Article_in_14_Days_awni6j.png'
+    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784459659/Custom_Seal_Design_From_Drawing_to_First_Article_in_14_Days_jq01oi.png'
   },
 ]
 
