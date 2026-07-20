@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const DATA_SHEETS = {
   'valve-stem': {
-    title: 'Valve Stem Seals Technical Data Sheet',
+    title: 'Valve Stem Seals ',
     subtitle: 'Valve stem seals control oil flow to engine valve stems, ensuring proper lubrication while preventing oil leakage into the combustion chamber.',
     structureImage: '/assets/cylinder.png',
     structureCaption: 'Valve Stem Seal Cross-Section Structure Diagram',
@@ -47,7 +47,7 @@ const DATA_SHEETS = {
     ],
   },
   'o-rings': {
-    title: 'O-Rings Technical Data Sheet',
+    title: 'O-Rings ',
     subtitle: 'O-Rings provide reliable static and dynamic sealing across a wide range of pressures, temperatures, and chemical environments.',
     structureImage: '/assets/il2.png',
     structureCaption: 'O-Ring Cross-Section & Groove Dimension Diagram',
@@ -66,6 +66,14 @@ const DATA_SHEETS = {
           'Hardness range of 40–90 Shore A for flexible or rigid sealing requirements.',
           'Compliant with DIN 3771, AS568, and JIS B2401 international standards.',
         ],
+      },
+      {
+        heading: 'Standards',
+        content: "The O-Rings we supply comply with widely recognized international and regional standards, ensuring reliable performance and compatibility across industries. Key standards include ISO for global sizing, AS568 for aerospace dimensions, ASTM for material testing, and JIS/DIN/BS for metric sizing and performance.",
+      },
+      {
+        heading: 'Product Types',
+        content: "Our O-Rings are available in a variety of standard designs to meet different industrial and commercial needs. Options include standard circular O-Rings for general sealing, quad-ring (X-Ring) profiles for improved stability, encapsulated O-Rings for chemical resistance, square-cut seals for high-pressure applications, and metallic O-Rings for extreme temperatures and pressures.",
       },
       {
         heading: 'Basic Structure',
@@ -93,7 +101,7 @@ const DATA_SHEETS = {
     ],
   },
   'oil-seals': {
-    title: 'Oil Seals Technical Data Sheet',
+    title: 'Oil Seals ',
     subtitle: 'Oil seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies.',
     structureImage: '/assets/il.png',
     structureCaption: 'Oil Seal Component Anatomy & Installation Diagram',
