@@ -140,7 +140,7 @@ export default function ContactUS() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* Left Column */}
-          <div className="md:col-span-1 flex flex-col gap-6">
+          <div className="md:col-span-1 flex flex-col gap-12">
 
             {/* Contact Info */}
             <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
@@ -149,7 +149,7 @@ export default function ContactUS() {
                 { icon: 'location_on', label: 'Head Office',      value: 'Liwan District, Guangzhou City'   },
                 { icon: 'mail',        label: 'Email',            value: 'theatinternational@gmail.com' },
                 { icon: 'phone',       label: 'Phone / WhatsApp', value: '0086-18523210975'           },
-                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm CST (China)'    },
+                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm (China Standard Time, GMT+8)'    },
               ].map((c) => (
                 <div key={c.label} className="flex gap-4 mb-6">
                   <div className="w-10 h-10 bg-[#005691]/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -163,12 +163,8 @@ export default function ContactUS() {
               ))}
 
               <div className="border-t border-[#c5c6cd] my-4" />
-
-              <h4 className="font-bold text-[#005691] text-sm uppercase tracking-widest mb-4">Regional Offices</h4>
               {[
-                { region: 'Middle East',  contact: 'UAE Distribution Hub' },
-                { region: 'Europe',       contact: 'Germany Sales Office' },
-                { region: 'Asia Pacific', contact: 'China Liaison Office' },
+                
               ].map((r) => (
                 <div key={r.region} className="flex gap-4 mb-4 last:mb-0">
                   <div className="w-10 h-10 bg-[#005691]/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -253,7 +249,7 @@ export default function ContactUS() {
                       <option>Valve Stem Seals</option>
                       <option>O-Rings</option>
                       <option>Oil Seals</option>
-                      <option>Custom / Bespoke Seals</option>
+                      <option>Motorcycle / E-Bike Parts</option>
                       <option>Multiple Products</option>
                     </select>
                   </div>

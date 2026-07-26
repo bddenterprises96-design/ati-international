@@ -120,7 +120,7 @@ export default function Blogs() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/65 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Knowledge Hub</span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">ATI Blog</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">AT International Blog</h1>
           <p className="text-white/80 text-lg max-w-2xl">Technical insights, industry trends, and procurement guides from our engineering and supply chain teams.</p>
         </div>
       </section>

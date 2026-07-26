@@ -71,7 +71,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section className="relative -mt-20 h-[710px] flex items-center overflow-hidden">
+      <section className="relative -mt-20 h-[750px] flex items-center overflow-hidden">
 
         {/* Video Background — replaces the previous static image */}
         <video
@@ -126,8 +126,7 @@ export default function AboutUs({ onNavigate }) {
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <p className="mt-6 max-w-[85%] md:w-[80%] text-white/80 text-lg mb-10 leading-8">
-                ATI is a global trading and export company specializing in
-                high-performance industrial sealing components. We source from verified,
+                AT International is a global supplier, trading, and export company specializing in high-performance industrial sealing components and Premium parts for motorcycle, e-bike. We source from verified,
                 ISO-certified partner manufacturers and supply procurement teams,
                 distributors, and industrial buyers across more than 40 countries worldwide.
               </p>
@@ -190,8 +189,7 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
             <p className="text-[#505f76] text-lg leading-relaxed mb-5">
-              ATI is an international trading and export company specializing in
-              high-performance industrial sealing components. We supply Valve Stem Seals, O-Rings,
+              AT International is a global supplier, trading, and export company specializing in high-performance industrial sealing components and Premium parts for motorcycle, e-bike. We supply Valve Stem Seals, O-Rings,
               Oil Seals, and custom-engineered sealing solutions to procurement teams, distributors,
               and industrial buyers worldwide.
             </p>
@@ -222,7 +220,7 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To simplify global procurement of industrial sealing components by connecting buyers
+              To simplify global procurement of industrial sealing components and Premium parts of Motorcycle,E-Bike by connecting buyers
               with quality-certified suppliers delivering reliable products, transparent service,
               and competitive pricing to industrial businesses in every corner of the world.
             </p>
@@ -232,7 +230,7 @@ export default function AboutUs({ onNavigate }) {
             <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
             <p className="text-[#505f76] leading-relaxed">
               To be the most trusted international trading partner for industrial sealing components
-              recognized for supply reliability, sourcing expertise, and the long-term relationships
+              and Premium parts of Motorcycle,E-Bike recognized for supply reliability, sourcing expertise, and the long-term relationships
               we build with procurement professionals around the world.
             </p>
           </div>
@@ -242,7 +240,7 @@ export default function AboutUs({ onNavigate }) {
       {/* ── CORE VALUES ── */}
       <section className="py-20 max-w-[1440px] mx-auto px-8">
         <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">Core Values</h2>
-        <p className="text-[#505f76] text-center mb-12">The principles that guide everything we do at ATI.</p>
+        <p className="text-[#505f76] text-center mb-12">The principles that guide everything we do at AT International.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { icon: 'verified',      title: 'Quality First',       desc: 'We source only from ISO-certified partner manufacturers. Every shipment includes full material documentation and traceability.' },
@@ -261,7 +259,7 @@ export default function AboutUs({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── CERTIFICATIONS ── */}
+      {/* ── CERTIFICAT Intl.ONS ── */}
       <section className="bg-[#005691] py-10">
         <div className="max-w-[1440px] mx-auto px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Compliance Standards</h2>
@@ -271,7 +269,7 @@ export default function AboutUs({ onNavigate }) {
               { cert: 'ISO 9001:2015', desc: 'Quality Management System'     },
               { cert: 'RoHS',          desc: 'Hazardous Substance Compliance' },
               { cert: 'REACH',         desc: 'Chemical Safety Regulation'    },
-              { cert: 'TS 16949',      desc: 'Automotive Quality Standard'   },
+              { cert: '100% Batch Inspection',      desc: 'Automotive Quality Standard'   },
             ].map((c) => (
               <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 hover:scale-105 transition-transform duration-500">
                 <div className="text-xl font-bold text-white mb-2">{c.cert}</div>
@@ -286,7 +284,7 @@ export default function AboutUs({ onNavigate }) {
       <section className="py-20 bg-white">
         <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
-            <img src="/assets/888.jpeg" alt="ATI Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="/assets/888.jpeg" alt="AT Intl. Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Global Sourcing & Export Capabilities</h2>

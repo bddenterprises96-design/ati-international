@@ -50,7 +50,7 @@ export default function Navbar({ onNavigate }) {
             onError={(e) => { e.target.style.display = 'none' }}
           />
           <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-[#005691]' : 'text-white'}`}>
-            ATI International
+            AT International
           </span>
         </div>
 

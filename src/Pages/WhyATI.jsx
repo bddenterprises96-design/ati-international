@@ -16,9 +16,9 @@ export default function WhyATI({ onNavigate }) {
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
             Our Advantage
           </span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Why Source Through ATI?</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Why Source Through AT International?</h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Discover what makes ATI the preferred industrial supply partner for procurement managers and distributors worldwide.
+            Discover what makes AT International the preferred industrial supply partner for procurement managers and distributors worldwide.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function WhyATI({ onNavigate }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System' },
-              { cert: 'TS 16949', desc: 'Automotive Quality Standard' },
+              { cert: '100% Batch Inspection', desc: 'Automotive Quality Standard' },
               { cert: 'RoHS Compliant', desc: 'Hazardous Substances Directive' },
               { cert: 'REACH Compliant', desc: 'EU Chemical Safety Regulation' },
             ].map((c) => (
@@ -115,9 +115,9 @@ export default function WhyATI({ onNavigate }) {
         <p className="text-[#505f76] text-center mb-12">Trusted by leading manufacturers and procurement teams around the world.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { quote: 'ATI has been our preferred seal supplier for 8 years. Consistent quality, reliable lead times, and excellent technical support.', name: 'Procurement Manager', company: 'Tier 1 Automotive, Germany' },
+            { quote: 'ATI has been our trusted supplier for motorcycle oil seals and rubber components for over three years. The product quality is consistently excellent, pricing is competitive, and shipments always arrive on schedule. Their team is responsive and understands our sourcing requirements.', name: 'Procurement Manager', company: 'Motorcycle Parts Distributor, Germany' },
             { quote: 'Their custom O-ring solutions solved a sealing challenge we had struggled with for months. Fast prototyping and great engineering collaboration.', name: 'R&D Engineer', company: 'Industrial OEM, UAE' },
-            { quote: 'Competitive pricing, ISO-certified quality, and delivery to our facility in South Africa on schedule every time. Highly recommended.', name: 'Supply Chain Director', company: 'Mining Equipment, South Africa' },
+            { quote: 'ATI has become our preferred supplier for automotive sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidenc.', name: 'Purchasing Director', company: 'Automotive Parts Manufacturer, South Africa' },
           ].map((t) => (
             <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-md transition-shadow hover:bg-grey/30 hover:scale-105 transition-transform duration-500">
               <span className="material-symbols-outlined text-[#005691] text-3xl mb-4 block">format_quote</span>
@@ -132,7 +132,7 @@ export default function WhyATI({ onNavigate }) {
       {/* CTA */}
       <section className="py-16 bg-[#f2f4f6] text-center">
         <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Procurement?</h2>
-        <p className="text-[#505f76] mb-8 max-w-xl mx-auto">Get a competitive sourcing proposal for your sealing component requirements no minimum complexity, no obligation.</p>
+        <p className="text-[#505f76] mb-8 max-w-xl mx-auto">Get a competitive sourcing proposal for your sealing components & Premium parts for motorcycle, e-bike, requirements no minimum complexity, no obligation.</p>
         <div className="flex flex-wrap gap-4 justify-center">
           <button
             onClick={() => onNavigate('Contact US')}

@@ -27,10 +27,10 @@ export default function Footer({ onNavigate }) {
               className="h-20 w-auto object-contain"
               onError={(e) => { e.target.style.display = 'none' }}
             />
-            <span className="font-bold text-white">ATI International</span>
+            <span className="font-bold text-white">AT International</span>
           </div>
           <p className="text-white/60 text-sm leading-relaxed mb-8">
-            Precision sealing solutions. ISO 9001:2015 certified.
+            Global Supplier of Precision Sealing Solutions and Premium Parts for Motorcycles, E-Bikes — Delivering Worldwide. ISO 9001:2015 certified.
           </p>
           
           {/* Social Media Icons - 2 Rows with Square Shape */}
@@ -140,7 +140,7 @@ export default function Footer({ onNavigate }) {
           <ul className="space-y-6">
             <li>
               <button
-                onClick={() => handleNavigate('Products', 'valve-stem-seals')}
+                onClick={() => handleNavigate('Products')}
                 className="text-white/60 text-sm hover:text-white transition-colors"
               >
                 Valve Stem Seals
@@ -148,7 +148,7 @@ export default function Footer({ onNavigate }) {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate('Products', 'o-rings')}
+                onClick={() => handleNavigate('Products')}
                 className="text-white/60 text-sm hover:text-white transition-colors"
               >
                 O-Rings
@@ -156,7 +156,7 @@ export default function Footer({ onNavigate }) {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate('Products', 'oil-seals')}
+                onClick={() => handleNavigate('Products')}
                 className="text-white/60 text-sm hover:text-white transition-colors"
               >
                 Oil Seals
@@ -164,7 +164,7 @@ export default function Footer({ onNavigate }) {
             </li>
             <li>
               <button
-                onClick={() => handleNavigate('Products', 'custom-seals')}
+                onClick={() => handleNavigate('Products')}
                 className="text-white/60 text-sm hover:text-white transition-colors"
               >
                 Custom Seals
@@ -199,7 +199,7 @@ export default function Footer({ onNavigate }) {
         </div>
       </div>
       <div className="border-t border-white/10 py-6 px-8 text-center text-white/40 text-xs">
-        © {new Date().getFullYear()} ATI International. All rights reserved. | Guangzhou City, China
+        © {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China
       </div>
     </footer>
   )

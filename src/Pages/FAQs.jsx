@@ -6,7 +6,7 @@ const FAQS = [
     items: [
       {
         q: 'What types of sealing products does ATI supply?',
-        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), and custom-engineered sealing components. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), custom-engineered sealing components and premium parts for motorcycle, e-bike. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
       },
       {
         q: 'Can ATI source seals to my custom dimensions and drawings?',
@@ -43,7 +43,7 @@ const FAQS = [
     category: 'Quality & Certification',
     items: [
       {
-        q: 'Is ATI ISO certified?',
+        q: 'Is AT International ISO certified?',
         a: 'All partner manufacturers in our supply network hold ISO 9001:2015 certification. We verify supplier quality systems as part of our sourcing process and can provide material certifications, PPAP documentation, and traceability records with every order. We also supply products compliant with RoHS and REACH regulations.',
       },
       {
