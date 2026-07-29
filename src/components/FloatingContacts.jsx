@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react' 
+
 
 export default function FloatingContacts() {
   const [showWeChat, setShowWeChat] = useState(false)
@@ -10,9 +11,13 @@ export default function FloatingContacts() {
       {showWeChat && (
         <div className="bg-white border border-[#c5c6cd] rounded-xl shadow-2xl p-5 w-52 text-center mb-2">
           <div className="font-bold text-[#005691] text-sm mb-2">Scan to Add on WeChat</div>
-          <div className="w-32 h-32 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg mx-auto flex items-center justify-center">
-            <span className="text-xs text-[#505f76] text-center px-2">Your WeChat QR Code Here</span>
-          </div>
+            <div className="w-32 h-32 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg mx-auto flex items-center justify-center overflow-hidden">
+              <img
+                src="/assets/wechat.jpeg"
+                alt="WeChat QR Code"
+                className="w-full h-full object-contain"
+              />
+            </div>
           <button
             onClick={() => setShowWeChat(false)}
             className="mt-3 text-xs text-[#505f76] hover:text-[#005691]"
