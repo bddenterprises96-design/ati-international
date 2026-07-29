@@ -18,7 +18,7 @@ export default function WhyATI({ onNavigate }) {
           </span>
           <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Why Source Through AT International?</h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Discover what makes AT International the preferred industrial supply partner for procurement managers and distributors worldwide.
+            Discover what makes AT International the preferred global sourcing & trading partner for procurement teams, distributors and industrial buyers worldwide.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function WhyATI({ onNavigate }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System' },
-              { cert: '100% Batch Inspection', desc: 'Automotive Quality Standard' },
+              { cert: '100% Batch Inspection', desc: 'Quality Standard' },
               { cert: 'RoHS Compliant', desc: 'Hazardous Substances Directive' },
               { cert: 'REACH Compliant', desc: 'EU Chemical Safety Regulation' },
             ].map((c) => (
@@ -115,15 +115,31 @@ export default function WhyATI({ onNavigate }) {
         <p className="text-[#505f76] text-center mb-12">Trusted by leading manufacturers and procurement teams around the world.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { quote: 'ATI has been our trusted supplier for motorcycle oil seals and rubber components for over three years. The product quality is consistently excellent, pricing is competitive, and shipments always arrive on schedule. Their team is responsive and understands our sourcing requirements.', name: 'Procurement Manager', company: 'Motorcycle Parts Distributor, Germany' },
-            { quote: 'Their custom O-ring solutions solved a sealing challenge we had struggled with for months. Fast prototyping and great engineering collaboration.', name: 'R&D Engineer', company: 'Industrial OEM, UAE' },
-            { quote: 'ATI has become our preferred supplier for automotive sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidenc.', name: 'Purchasing Director', company: 'Automotive Parts Manufacturer, South Africa' },
-          ].map((t) => (
-            <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-md transition-shadow hover:bg-grey/30 hover:scale-105 transition-transform duration-500">
+            { quote: 'ATI has been our trusted supplier for motorcycle oil seals and rubber components for over three years. The product quality is consistently excellent, pricing is competitive, and shipments always arrive on schedule. Their team is responsive and understands our sourcing requirements.', name: 'Procurement Manager', company: 'Motorcycle Parts Distributor, Bangladesh', rating: 5 },
+            { quote: 'Their custom O-ring solutions solved a sealing challenge we had struggled with for months. Fast prototyping and great engineering collaboration.', name: 'R&D Engineer', company: 'Industrial OEM, UAE', rating: 5 },
+            { quote: 'ATI has become our preferred supplier for sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidence.', name: 'Purchasing Director', company: 'Motorcycle Parts Distributorr, Indonesia', rating: 5 },
+          ].map((t, index) => (
+            <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-md transition-shadow hover:bg-grey/30 hover:scale-105 transition-transform duration-500 flex flex-col">
               <span className="material-symbols-outlined text-[#005691] text-3xl mb-4 block">format_quote</span>
-              <p className="text-[#505f76] text-sm leading-relaxed mb-6 italic">"{t.quote}"</p>
-              <div className="font-bold text-[#005691] text-sm">{t.name}</div>
-              <div className="text-[#505f76] text-xs">{t.company}</div>
+              <p className="text-[#505f76] text-sm leading-relaxed mb-6 italic flex-grow">"{t.quote}"</p>
+              <div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <span 
+                      key={i} 
+                      className="text-yellow-400 text-lg inline-block"
+                      style={{
+                        animation: `sparkle 2s ease-in-out ${i * 0.2 + index * 0.4}s infinite`,
+                        display: 'inline-block'
+                      }}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <div className="font-bold text-[#005691] text-sm">{t.name}</div>
+                <div className="text-[#505f76] text-xs">{t.company}</div>
+              </div>
             </div>
           ))}
         </div>
@@ -132,10 +148,10 @@ export default function WhyATI({ onNavigate }) {
       {/* CTA */}
       <section className="py-16 bg-[#f2f4f6] text-center">
         <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Procurement?</h2>
-        <p className="text-[#505f76] mb-8 max-w-xl mx-auto">Get a competitive sourcing proposal for your sealing components & Premium parts for motorcycle, e-bike, requirements no minimum complexity, no obligation.</p>
+        <p className="text-[#505f76] mb-8 max-w-xl mx-auto">Get a competitive sourcing proposal for your motorcycle parts, e-bike components, and industrial sealing components — No Complex Requirements and No Obligation.</p>
         <div className="flex flex-wrap gap-4 justify-center">
           <button
-            onClick={() => onNavigate('Contact US')}
+            onClick={() => onNavigate('Contact Us')}
             className="bg-[#005691] text-white px-12 py-4 rounded-lg font-semibold text-sm hover:brightness-110 transition-all inline-flex items-center gap-2 shadow-lg uppercase tracking-widest hover:bg-grey/20 hover:scale-105 transition-transform duration-500"
           >
             <span className="material-symbols-outlined text-sm">request_quote</span>
@@ -150,6 +166,37 @@ export default function WhyATI({ onNavigate }) {
           </button>
         </div>
       </section>
+
+      {/* Add keyframe animation in style tag */}
+      <style jsx>{`
+        @keyframes sparkle {
+          0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.6;
+            text-shadow: 0 0 0px rgba(255, 215, 0, 0);
+          }
+          25% {
+            transform: scale(1.3) rotate(10deg);
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+          }
+          50% {
+            transform: scale(1) rotate(-5deg);
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+          }
+          75% {
+            transform: scale(1.2) rotate(5deg);
+            opacity: 1;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+          }
+          100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.6;
+            text-shadow: 0 0 0px rgba(255, 215, 0, 0);
+          }
+        }
+      `}</style>
     </div>
   )
 }

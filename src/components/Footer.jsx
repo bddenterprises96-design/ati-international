@@ -1,4 +1,4 @@
-const NAV_LINKS = ['About', 'Products', 'Why ATI?', 'Contact US', 'Blogs', "FAQ's"]
+const NAV_LINKS = ['About', 'Products', 'Why ATI?', 'Contact Us', 'Blogs', "FAQ's"]
 
 export default function Footer({ onNavigate }) {
   // Function to handle navigation with product section targeting
@@ -30,7 +30,7 @@ export default function Footer({ onNavigate }) {
             <span className="font-bold text-white">AT International</span>
           </div>
           <p className="text-white/60 text-sm leading-relaxed mb-8">
-            Global Supplier of Precision Sealing Solutions and Premium Parts for Motorcycles, E-Bikes — Delivering Worldwide. ISO 9001:2015 certified.
+            Trusted supplier, exporter and trading company for motorcycle and e-bike parts, delivering worldwide.
           </p>
           
           {/* Social Media Icons - 2 Rows with Square Shape */}
@@ -191,8 +191,8 @@ export default function Footer({ onNavigate }) {
             </li>
           </ul>
           <button
-            onClick={() => handleNavigate('Contact US')}
-            className="mt-6 bg-[#005691] text-white px-8 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
+            onClick={() => handleNavigate('Contact Us')}
+            className="mt-6 bg-[#005691] text-white px-8 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer hover:scale-105 transition-transform duration-500"
           >
             Generate Inquiry
           </button>

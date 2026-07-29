@@ -112,23 +112,21 @@ export default function AboutUs({ onNavigate }) {
             {/* Badge */}
             <div style={{ transition: 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
               <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest backdrop-blur-sm">
-                Global Reach • Industrial Excellence
+                GLOBAL REACH • TRUSTED SUPPLY
               </span>
             </div>
 
             {/* Headline */}
             <div style={{ transition: 'opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Essential Sealing <br />Solutions
+                Global Sourcing  <br />Partner
               </h1>
             </div>
 
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <p className="mt-6 max-w-[85%] md:w-[80%] text-white/80 text-lg mb-10 leading-8">
-                AT International is a global supplier, trading, and export company specializing in high-performance industrial sealing components and Premium parts for motorcycle, e-bike. We source from verified,
-                ISO-certified partner manufacturers and supply procurement teams,
-                distributors, and industrial buyers across more than 40 countries worldwide.
+                AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions — sourced from reliable partners and delivered with precision.
               </p>
             </div>
 
@@ -142,7 +140,7 @@ export default function AboutUs({ onNavigate }) {
                 <span className="material-symbols-outlined text-sm">north_east</span>
               </button>
               <button
-                onClick={() => onNavigate('Contact US')}
+                onClick={() => onNavigate('Contact Us')}
                 className="border border-white/50 text-white px-8 py-4 font-semibold rounded-lg hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2 text-sm backdrop-blur-sm"
               >
                 Get a Quote Today
@@ -188,13 +186,13 @@ export default function AboutUs({ onNavigate }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
-            <p className="text-[#505f76] text-lg leading-relaxed mb-5">
-              AT International is a global supplier, trading, and export company specializing in high-performance industrial sealing components and Premium parts for motorcycle, e-bike. We supply Valve Stem Seals, O-Rings,
-              Oil Seals, and custom-engineered sealing solutions to procurement teams, distributors,
+            <p className="text-[#505f76] leading-relaxed mb-5">
+              AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions. We supply Valve Stem Seals, O-Rings,
+              Oil Seals, and custom-sourced sealing solutions to procurement teams, distributors,
               and industrial buyers worldwide.
             </p>
             <p className="text-[#505f76] leading-relaxed mb-5">
-              Operating from Guangzhou, China, we source exclusively from verified, ISO-certified
+              Operating from China, we source exclusively from verified, ISO-certified
               partner manufacturers giving our customers access to quality-assured components
               at competitive international pricing, backed by full documentation and traceability.
             </p>
@@ -220,18 +218,14 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To simplify global procurement of industrial sealing components and Premium parts of Motorcycle,E-Bike by connecting buyers
-              with quality-certified suppliers delivering reliable products, transparent service,
-              and competitive pricing to industrial businesses in every corner of the world.
+              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, ebike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide."
             </p>
           </div>
           <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl text-[#005691] mb-5 block">visibility</span>
             <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
             <p className="text-[#505f76] leading-relaxed">
-              To be the most trusted international trading partner for industrial sealing components
-              and Premium parts of Motorcycle,E-Bike recognized for supply reliability, sourcing expertise, and the long-term relationships
-              we build with procurement professionals around the world.
+              To become a trusted global sourcing partner for motorcycle, ebike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets.
             </p>
           </div>
         </div>
@@ -269,7 +263,7 @@ export default function AboutUs({ onNavigate }) {
               { cert: 'ISO 9001:2015', desc: 'Quality Management System'     },
               { cert: 'RoHS',          desc: 'Hazardous Substance Compliance' },
               { cert: 'REACH',         desc: 'Chemical Safety Regulation'    },
-              { cert: '100% Batch Inspection',      desc: 'Automotive Quality Standard'   },
+              { cert: '100% Batch Inspection',      desc: ' Quality Standard'   },
             ].map((c) => (
               <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 hover:scale-105 transition-transform duration-500">
                 <div className="text-xl font-bold text-white mb-2">{c.cert}</div>
@@ -289,7 +283,7 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Global Sourcing & Export Capabilities</h2>
             <p className="text-[#505f76] leading-relaxed mb-8">
-              From Guangzhou, we coordinate the full supply chain on your behalf from supplier
+              From China, we coordinate the full supply chain on your behalf from supplier
               selection and quality verification to export documentation and international delivery.
             </p>
             {[
@@ -307,13 +301,13 @@ export default function AboutUs({ onNavigate }) {
             ))}
             <div className="flex gap-4 mt-8 flex-wrap">
               <button
-                onClick={() => onNavigate('Contact US')}
+                onClick={() => onNavigate('Contact Us')}
                 className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 hover:scale-105 transition-all duration-200"
               >
                 Discuss Your Requirements
               </button>
               <button
-                onClick={() => onNavigate('Contact US')}
+                onClick={() => onNavigate('Contact Us')}
                 className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 hover:scale-105 transition-all duration-200"
               >
                 Submit a Sourcing Request
@@ -330,7 +324,7 @@ export default function AboutUs({ onNavigate }) {
           Submit your product requirements and our sourcing team will respond with a competitive supply proposal within 24 business hours.
         </p>
         <button
-          onClick={() => onNavigate('Contact US')}
+          onClick={() => onNavigate('Contact Us')}
           className="bg-[#005691] text-white px-12 py-4 rounded-lg font-semibold text-sm hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-200 inline-flex items-center gap-2 shadow-lg"
         >
           <span className="material-symbols-outlined text-sm">mail</span>

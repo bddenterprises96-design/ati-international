@@ -9,41 +9,12 @@ const DATA_SHEETS = {
     theoryImage: '/assets/cyy.png',
     theoryCaption: 'Valve Stem Seal Sealing Theory Diagram',
     sections: [
-      {
-        heading: 'Product Description',
-        content: 'Valve stem seals are precision engine components that regulate the flow of lubricant between the valve stem and valve guide. They help minimize oil consumption, reduce emissions, and maintain engine efficiency by preventing excess oil from entering the combustion chamber.',
-      },
-      {
-        heading: 'Features & Benefits',
-        list: [
-          'Accurately controls oil flow while maintaining proper lubrication of the valve stem.',
-          'Constructed from high-temperature, oil-resistant materials to perform reliably under engine heat and pressure.',
-          'Reduces wear, prevents oil burning and deposits, and extends the service life of the valve train.',
-        ],
-      },
-      {
-        heading: 'Basic Structure',
-        content: 'A valve stem seal typically consists of a metal or reinforced casing combined with a rubber sealing lip. The sealing lip fits tightly around the valve stem, while the outer body is securely seated on the valve guide to maintain stable sealing during engine operation.',
-        showImageAfter: 'structure',
-      },
-      {
-        heading: 'Sealing Theory',
-        content: 'As the valve moves up and down, the valve stem seal meters a controlled amount of oil along the valve stem. The elastic sealing lip prevents excess oil from entering the combustion chamber while ensuring sufficient lubrication to reduce wear and friction.',
-        showImageAfter: 'theory',
-      },
-      {
-        heading: 'Handling Instructions',
-        list: [
-          'Store in a clean, dry environment away from sunlight, heat, and chemicals.',
-          'Handle carefully to avoid damage to the sealing lip.',
-          'Use proper installation tools to prevent deformation or misalignment.',
-          'Inspect for damage before installation to ensure reliable sealing performance.',
-        ],
-      },
-      {
-        heading: 'Usage Example',
-        content: 'Automotive engines, commercial vehicles, motorcycles, agricultural machinery, and industrial engines, where precise oil control and long engine life are required.',
-      },
+      { heading: 'Product Description', content: 'Valve stem seals are precision engine components that regulate the flow of lubricant between the valve stem and valve guide. They help minimize oil consumption, reduce emissions, and maintain engine efficiency by preventing excess oil from entering the combustion chamber.' },
+      { heading: 'Features & Benefits', list: ['Accurately controls oil flow while maintaining proper lubrication of the valve stem.', 'Constructed from high-temperature, oil-resistant materials to perform reliably under engine heat and pressure.', 'Reduces wear, prevents oil burning and deposits, and extends the service life of the valve train.'] },
+      { heading: 'Basic Structure', content: 'A valve stem seal typically consists of a metal or reinforced casing combined with a rubber sealing lip. The sealing lip fits tightly around the valve stem, while the outer body is securely seated on the valve guide to maintain stable sealing during engine operation.', showImageAfter: 'structure' },
+      { heading: 'Sealing Theory', content: 'As the valve moves up and down, the valve stem seal meters a controlled amount of oil along the valve stem. The elastic sealing lip prevents excess oil from entering the combustion chamber while ensuring sufficient lubrication to reduce wear and friction.', showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Store in a clean, dry environment away from sunlight, heat, and chemicals.', 'Handle carefully to avoid damage to the sealing lip.', 'Use proper installation tools to prevent deformation or misalignment.', 'Inspect for damage before installation to ensure reliable sealing performance.'] },
+      { heading: 'Usage Example', content: 'Automotive engines, commercial vehicles, motorcycles, agricultural machinery, and industrial engines, where precise oil control and long engine life are required.' },
     ],
   },
   'o-rings': {
@@ -54,50 +25,14 @@ const DATA_SHEETS = {
     theoryImage: '/assets/oo.png',
     theoryCaption: 'O-Ring Pressure Sealing Theory Diagram',
     sections: [
-      {
-        heading: 'Product Description',
-        content: 'ATI O-Rings are torus-shaped sealing elements manufactured from elastomeric compounds. They create a pressure-tight seal when compressed between mating surfaces in static or dynamic applications, preventing fluid or gas leakage across a broad range of industrial environments.',
-      },
-      {
-        heading: 'Features & Benefits',
-        list: [
-          'Available in NBR, FKM (Viton), EPDM, Silicone, PTFE, and FFKM for maximum chemical compatibility.',
-          'Suitable for static, dynamic, pneumatic, and hydraulic sealing applications.',
-          'Hardness range of 40–90 Shore A for flexible or rigid sealing requirements.',
-          'Compliant with DIN 3771, AS568, and JIS B2401 international standards.',
-        ],
-      },
-      {
-        heading: 'Standards',
-        content: "The O-Rings we supply comply with widely recognized international and regional standards, ensuring reliable performance and compatibility across industries. Key standards include ISO for global sizing, AS568 for aerospace dimensions, ASTM for material testing, and JIS/DIN/BS for metric sizing and performance.",
-      },
-      {
-        heading: 'Product Types',
-        content: "Our O-Rings are available in a variety of standard designs to meet different industrial and commercial needs. Options include standard circular O-Rings for general sealing, quad-ring (X-Ring) profiles for improved stability, encapsulated O-Rings for chemical resistance, square-cut seals for high-pressure applications, and metallic O-Rings for extreme temperatures and pressures.",
-      },
-      {
-        heading: 'Basic Structure',
-        content: 'An O-Ring is a simple, circular cross-section ring formed from a continuous elastomeric compound. Its geometry allows it to be compressed into a groove, creating a leak-free seal against mating surfaces under pressure.',
-        showImageAfter: 'structure',
-      },
-      {
-        heading: 'Sealing Theory',
-        content: "When installed in a groove and subjected to system pressure, the O-Ring deforms elastically and presses against the groove walls and mating surface. This contact pressure, combined with the elastomer's natural resilience, creates a positive seal that increases with system pressure.",
-        showImageAfter: 'theory',
-      },
-      {
-        heading: 'Handling Instructions',
-        list: [
-          'Store in sealed packaging away from ozone, UV light, and solvents.',
-          'Avoid stretching or twisting O-Rings during installation.',
-          'Lubricate with compatible grease before fitting to prevent damage.',
-          'Verify chemical compatibility with the sealing medium before use.',
-        ],
-      },
-      {
-        heading: 'Usage Example',
-        content: 'Hydraulic cylinders, pneumatic systems, chemical processing equipment, food and beverage machinery, aerospace components, and oil and gas pipeline connections.',
-      },
+      { heading: 'Product Description', content: 'ATI O-Rings are torus-shaped sealing elements manufactured from elastomeric compounds. They create a pressure-tight seal when compressed between mating surfaces in static or dynamic applications, preventing fluid or gas leakage across a broad range of industrial environments.' },
+      { heading: 'Features & Benefits', list: ['Available in NBR, FKM (Viton), EPDM, Silicone, PTFE, and FFKM for maximum chemical compatibility.', 'Suitable for static, dynamic, pneumatic, and hydraulic sealing applications.', 'Hardness range of 40–90 Shore A for flexible or rigid sealing requirements.', 'Compliant with DIN 3771, AS568, and JIS B2401 international standards.'] },
+      { heading: 'Standards', content: 'The O-Rings we supply comply with widely recognized international and regional standards, ensuring reliable performance and compatibility across industries. Key standards include ISO for global sizing, AS568 for aerospace dimensions, ASTM for material testing, and JIS/DIN/BS for metric sizing and performance.' },
+      { heading: 'Product Types', content: 'Our O-Rings are available in a variety of standard designs to meet different industrial and commercial needs. Options include standard circular O-Rings for general sealing, quad-ring (X-Ring) profiles for improved stability, encapsulated O-Rings for chemical resistance, square-cut seals for high-pressure applications, and metallic O-Rings for extreme temperatures and pressures.' },
+      { heading: 'Basic Structure', content: 'An O-Ring is a simple, circular cross-section ring formed from a continuous elastomeric compound. Its geometry allows it to be compressed into a groove, creating a leak-free seal against mating surfaces under pressure.', showImageAfter: 'structure' },
+      { heading: 'Sealing Theory', content: "When installed in a groove and subjected to system pressure, the O-Ring deforms elastically and presses against the groove walls and mating surface. This contact pressure, combined with the elastomer's natural resilience, creates a positive seal that increases with system pressure.", showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Store in sealed packaging away from ozone, UV light, and solvents.', 'Avoid stretching or twisting O-Rings during installation.', 'Lubricate with compatible grease before fitting to prevent damage.', 'Verify chemical compatibility with the sealing medium before use.'] },
+      { heading: 'Usage Example', content: 'Hydraulic cylinders, pneumatic systems, chemical processing equipment, food and beverage machinery, aerospace components, and oil and gas pipeline connections.' },
     ],
   },
   'oil-seals': {
@@ -108,43 +43,12 @@ const DATA_SHEETS = {
     theoryImage: '/assets/oo1.png',
     theoryCaption: 'Oil Seal Hydrodynamic Sealing Theory Diagram',
     sections: [
-      {
-        heading: 'Product Description',
-        content: 'ATI Oil Seals (rotary shaft seals) are engineered to retain lubricants and exclude dust, water, and contaminants in rotating shaft assemblies. Available in single lip, double lip, and PTFE designs with spring-loaded sealing edges for consistent contact force across the full service life.',
-      },
-      {
-        heading: 'Features & Benefits',
-        list: [
-          'Spring-loaded sealing lip maintains consistent radial contact force across shaft speed variations.',
-          'Available in single lip (lubricant retention) and double lip (lubricant + contamination exclusion) configurations.',
-          'Compatible with mineral oil, synthetic lubricants, grease, water, and process fluids.',
-          'Stainless steel (AISI 304) garter spring for corrosion resistance in harsh environments.',
-        ],
-      },
-      {
-        heading: 'Basic Structure',
-        content: 'An oil seal consists of a metal outer casing, bonded elastomeric sealing lip, and a garter spring that applies radial force on the lip. The outer casing provides a press-fit into the housing bore, while the sealing lip makes contact with the rotating shaft.',
-        showImageAfter: 'structure',
-      },
-      {
-        heading: 'Sealing Theory',
-        content: 'The garter spring presses the sealing lip against the rotating shaft surface, maintaining a thin hydrodynamic oil film. This film lubricates the lip-to-shaft interface while preventing bulk leakage. The secondary dust lip (on double-lip designs) excludes external contaminants.',
-        showImageAfter: 'theory',
-      },
-      {
-        heading: 'Handling Instructions',
-        list: [
-          'Store horizontally in original packaging to prevent lip deformation.',
-          'Clean shaft and housing bore thoroughly before installation.',
-          'Apply light grease to the sealing lip and shaft before fitting.',
-          'Use a sleeve or installation tool never hammer directly on the seal face.',
-          'Verify shaft hardness (55–65 HRC) and surface finish (Ra 0.2–0.8 μm) before installation.',
-        ],
-      },
-      {
-        heading: 'Usage Example',
-        content: 'Gearboxes, axles and differentials, hydraulic pumps, electric motors, wind turbine gearboxes, and heavy construction equipment where shaft sealing and contamination exclusion are critical.',
-      },
+      { heading: 'Product Description', content: 'ATI Oil Seals (rotary shaft seals) are engineered to retain lubricants and exclude dust, water, and contaminants in rotating shaft assemblies. Available in single lip, double lip, and PTFE designs with spring-loaded sealing edges for consistent contact force across the full service life.' },
+      { heading: 'Features & Benefits', list: ['Spring-loaded sealing lip maintains consistent radial contact force across shaft speed variations.', 'Available in single lip (lubricant retention) and double lip (lubricant + contamination exclusion) configurations.', 'Compatible with mineral oil, synthetic lubricants, grease, water, and process fluids.', 'Stainless steel (AISI 304) garter spring for corrosion resistance in harsh environments.'] },
+      { heading: 'Basic Structure', content: 'An oil seal consists of a metal outer casing, bonded elastomeric sealing lip, and a garter spring that applies radial force on the lip. The outer casing provides a press-fit into the housing bore, while the sealing lip makes contact with the rotating shaft.', showImageAfter: 'structure' },
+      { heading: 'Sealing Theory', content: 'The garter spring presses the sealing lip against the rotating shaft surface, maintaining a thin hydrodynamic oil film. This film lubricates the lip-to-shaft interface while preventing bulk leakage. The secondary dust lip (on double-lip designs) excludes external contaminants.', showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Store horizontally in original packaging to prevent lip deformation.', 'Clean shaft and housing bore thoroughly before installation.', 'Apply light grease to the sealing lip and shaft before fitting.', 'Use a sleeve or installation tool never hammer directly on the seal face.', 'Verify shaft hardness (55–65 HRC) and surface finish (Ra 0.2–0.8 μm) before installation.'] },
+      { heading: 'Usage Example', content: 'Gearboxes, axles and differentials, hydraulic pumps, electric motors, wind turbine gearboxes, and heavy construction equipment where shaft sealing and contamination exclusion are critical.' },
     ],
   },
 }
@@ -156,21 +60,14 @@ const PRODUCTS = [
     tagline: 'Precision lubrication control for high-performance engines',
     image: '/assets/aaa.png',
     hasDataSheet: true,
-    description: 'ATI supplies Valve Stem Seals produced from high-grade Viton (FKM) and Silicone (VMQ) elastomers, engineered to provide consistent oil film control on valve stems. Sourced from certified partner manufacturers for extreme thermal cycling and high-RPM environments in gasoline, diesel, and gas engines.',
-    features: [
-      'Operating temperature: -40°C to +230°C',
-      'Pressure resistance: up to 10 bar',
-      'Material options: FKM, VMQ, PTFE-coated',
-      'Tolerance: ±0.01mm on critical dimensions',
-      'Compatible with mineral, synthetic, and bio-based oils',
-      'OEM cross-reference available on request',
-    ],
+    description: 'ATI supplies Valve Stem Seals produced from high-grade Viton (FKM) and Silicone (VMQ) elastomers, designed to provide consistent oil film control on valve stems. Sourced from certified partner manufacturers for extreme thermal cycling and high-RPM environments in gasoline, diesel, and gas engines.',
+    features: ['Operating temperature: -40°C to +230°C', 'Pressure resistance: up to 10 bar', 'Material options: FKM, VMQ, PTFE-coated', 'Tolerance: ±0.01mm on critical dimensions', 'Compatible with mineral, synthetic, and bio-based oils', 'OEM cross-reference available on request'],
     specs: [
       { part: 'ATI-VS-5022', material: 'Viton-75 (FKM)', dim: '22.0 × 3.5', temp: '-20 to +200°C', moq: '5,000' },
-      { part: 'ATI-VS-7822', material: 'Silicone VMQ', dim: '18.0 × 2.0', temp: '-60 to +230°C', moq: '10,000' },
-      { part: 'ATI-VS-4418', material: 'NBR-70', dim: '14.0 × 2.5', temp: '-40 to +120°C', moq: '5,000' },
+      { part: 'ATI-VS-7822', material: 'Silicone VMQ',   dim: '18.0 × 2.0', temp: '-60 to +230°C', moq: '10,000' },
+      { part: 'ATI-VS-4418', material: 'NBR-70',         dim: '14.0 × 2.5', temp: '-40 to +120°C', moq: '5,000' },
     ],
-    applications: ['Passenger Vehicles', 'Commercial Trucks', 'Industrial Engines', 'Marine Engines', 'Agricultural Equipment'],
+    applications: ['MotorCycles', 'E-Bikes', 'Industrial Engines', 'Marine Engines', 'Agricultural Equipment', 'Small Engine'],
   },
   {
     id: 'o-rings',
@@ -179,18 +76,11 @@ const PRODUCTS = [
     image: '/assets/ccc.png',
     hasDataSheet: true,
     description: 'ATI supplies O-Rings in a comprehensive range of elastomeric materials, suitable for static, dynamic, pneumatic, and hydraulic applications. Our supply catalogue covers metric (DIN 3771), imperial (AS568), and custom dimensions with full material traceability.',
-    features: [
-      'Materials: NBR, FKM (Viton), EPDM, Silicone, PTFE, FFKM',
-      'Hardness range: 40–90 Shore A',
-      'Sizes: 1mm ID to 1000mm+ ID, custom on request',
-      'Temperature range: -70°C to +300°C (material dependent)',
-      'DIN 3771, AS568, JIS B2401 compliant',
-      'Chemical resistance data sheets available on request',
-    ],
+    features: ['Materials: NBR, FKM (Viton), EPDM, Silicone, PTFE, FFKM', 'Hardness range: 40–90 Shore A', 'Sizes: 1mm ID to 1000mm+ ID, custom on request', 'Temperature range: -70°C to +300°C (material dependent)', 'DIN 3771, AS568, JIS B2401 compliant', 'Chemical resistance data sheets available on request'],
     specs: [
-      { part: 'ATI-OR-991', material: 'NBR-90 High Grade', dim: '140.2 × 8.0', temp: '-40 to +120°C', moq: '2,500' },
-      { part: 'ATI-OR-FKM-50', material: 'Viton 75A', dim: '50.0 × 3.0', temp: '-20 to +200°C', moq: '2,000' },
-      { part: 'ATI-OR-EPD-20', material: 'EPDM 70A', dim: '20.0 × 2.5', temp: '-50 to +150°C', moq: '5,000' },
+      { part: 'ATI-OR-991',    material: 'NBR-90 High Grade', dim: '140.2 × 8.0', temp: '-40 to +120°C', moq: '2,500' },
+      { part: 'ATI-OR-FKM-50', material: 'Viton 75A',         dim: '50.0 × 3.0',  temp: '-20 to +200°C', moq: '2,000' },
+      { part: 'ATI-OR-EPD-20', material: 'EPDM 70A',          dim: '20.0 × 2.5',  temp: '-50 to +150°C', moq: '5,000' },
     ],
     applications: ['Hydraulic Systems', 'Pneumatic Cylinders', 'Chemical Processing', 'Food & Beverage', 'Aerospace', 'Oil & Gas'],
   },
@@ -201,20 +91,57 @@ const PRODUCTS = [
     image: '/assets/bbb.png',
     hasDataSheet: true,
     description: 'ATI Oil Seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies. Available with single lip, double lip, and PTFE designs with spring-loaded sealing edges for superior long-term performance in demanding environments.',
-    features: [
-      'Types: Single lip, Double lip, PTFE / Hydrodynamic',
-      'Shaft speed: up to 10,000 RPM',
-      'Operating temperature: -30°C to +250°C',
-      'Housing bore tolerance: h8 / H8 standard',
-      'Spring material: Stainless steel (AISI 304)',
-      'Custom lip geometries for special applications',
-    ],
+    features: ['Types: Single lip, Double lip, PTFE / Hydrodynamic', 'Shaft speed: up to 10,000 RPM', 'Operating temperature: -30°C to +250°C', 'Housing bore tolerance: h8 / H8 standard', 'Spring material: Stainless steel (AISI 304)', 'Custom lip geometries for special applications'],
     specs: [
-      { part: 'ATI-SL-12-B', material: 'Stainless / Viton', dim: '88.0 OD × 65 ID', temp: '-30 to +250°C', moq: '1,000' },
-      { part: 'ATI-SL-40-A', material: 'NBR Double Lip', dim: '55.0 OD × 40 ID', temp: '-40 to +120°C', moq: '2,000' },
+      { part: 'ATI-SL-12-B', material: 'Stainless / Viton',  dim: '88.0 OD × 65 ID', temp: '-30 to +250°C', moq: '1,000' },
+      { part: 'ATI-SL-40-A', material: 'NBR Double Lip',     dim: '55.0 OD × 40 ID', temp: '-40 to +120°C', moq: '2,000' },
       { part: 'ATI-SL-80-P', material: 'PTFE Spring-Loaded', dim: '80.0 OD × 60 ID', temp: '-60 to +260°C', moq: '500' },
     ],
     applications: ['Gearboxes', 'Axles & Differentials', 'Pumps & Compressors', 'Electric Motors', 'Wind Turbines', 'Heavy Equipment'],
+  },
+  // ── NEW PRODUCT: Motorcycles ──────────────────────────────────
+  {
+    id: 'motorcycles',
+    name: 'Motorcycles',
+    tagline: 'Complete sealing parts catalogue for motorcycle engines',
+    image: '/assets/moto.png',
+    hasDataSheet: false,
+    partsOnly: true,
+    description: 'ATI supplies a comprehensive range of sealing components specifically sourced for motorcycle engines. All parts are verified for fitment compatibility with leading motorcycle brands and engine types.',
+    parts: [
+      { partNo: 'ATI-MC-001', name: 'Valve Stem Seal — FKM',        compatibility: 'Honda, Yamaha 4-stroke',   moq: '1,000' },
+      { partNo: 'ATI-MC-002', name: 'Valve Stem Seal — VMQ Silicone',compatibility: 'Kawasaki, Suzuki',         moq: '1,000' },
+      { partNo: 'ATI-MC-003', name: 'Crankshaft Oil Seal',          compatibility: 'Universal 2-stroke & 4-stroke', moq: '500' },
+      { partNo: 'ATI-MC-004', name: 'Gearbox Output Shaft Seal',    compatibility: 'Honda CG/CB Series',        moq: '500'   },
+      { partNo: 'ATI-MC-005', name: 'Fork Dust Seal',               compatibility: '38mm / 41mm / 45mm fork',  moq: '1,000' },
+      { partNo: 'ATI-MC-006', name: 'Fork Oil Seal',                compatibility: '38mm / 41mm / 45mm fork',  moq: '1,000' },
+      { partNo: 'ATI-MC-007', name: 'Carburetor O-Ring Kit',        compatibility: 'Multi-brand universal',     moq: '500'   },
+      { partNo: 'ATI-MC-008', name: 'Clutch Cover Gasket Seal',     compatibility: 'Yamaha YBR / FZ Series',   moq: '500'   },
+      { partNo: 'ATI-MC-009', name: 'Cam Chain Tensioner Seal',     compatibility: 'Honda, Yamaha 4-stroke',   moq: '1,000' },
+      { partNo: 'ATI-MC-010', name: 'Wheel Hub Oil Seal — Rear',    compatibility: 'Universal 100–120mm shaft', moq: '500'   },
+    ],
+  },
+  // ── NEW PRODUCT: E-Bike ───────────────────────────────────────
+  {
+    id: 'e-bike',
+    name: 'E-Bike',
+    tagline: 'Precision sealing parts for electric bicycle drive systems',
+    image: '/assets/ebike.png',
+    hasDataSheet: false,
+    partsOnly: true,
+    description: 'ATI supplies sealing components engineered for electric bicycle mid-drive and hub-drive motor systems. Sourced for compatibility with leading e-bike motor brands and battery enclosure standards.',
+    parts: [
+      { partNo: 'ATI-EB-001', name: 'Mid-Drive Motor Output Seal',    compatibility: 'Bafang BBS01/BBS02/BBSHD',  moq: '500'   },
+      { partNo: 'ATI-EB-002', name: 'Hub Motor Axle Seal',            compatibility: 'Universal 14mm / 12mm axle', moq: '500'   },
+      { partNo: 'ATI-EB-003', name: 'Controller Housing O-Ring',      compatibility: 'IP65 waterproof enclosures',  moq: '1,000' },
+      { partNo: 'ATI-EB-004', name: 'Battery Pack Connector O-Ring',  compatibility: 'XT60 / Anderson connectors',  moq: '1,000' },
+      { partNo: 'ATI-EB-005', name: 'Bottom Bracket Seal',            compatibility: 'Shimano Steps / Bosch CX',   moq: '500'   },
+      { partNo: 'ATI-EB-006', name: 'Rear Derailleur Gear Seal',      compatibility: 'Universal 8/9/10-speed',      moq: '1,000' },
+      { partNo: 'ATI-EB-007', name: 'Suspension Fork Oil Seal',       compatibility: '32mm / 34mm air forks',       moq: '500'   },
+      { partNo: 'ATI-EB-008', name: 'Throttle Grip O-Ring',           compatibility: 'Universal 22mm handlebar',    moq: '1,000' },
+      { partNo: 'ATI-EB-009', name: 'Display Unit Gasket Seal',       compatibility: 'IP67 display housings',       moq: '1,000' },
+      { partNo: 'ATI-EB-010', name: 'Charging Port Waterproof Seal',  compatibility: 'Universal DC barrel / USB-C', moq: '1,000' },
+    ],
   },
 ]
 
@@ -273,13 +200,10 @@ function DataSheetModal({ productId, onClose }) {
         <div className="overflow-y-auto px-8 py-6 flex flex-col gap-5">
           {sheet.sections.map((sec) => (
             <div key={sec.heading}>
-              {/* Section heading */}
               <h3 className="font-bold text-[#005691] text-base mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-5 bg-[#005691] rounded-full inline-block" />
                 {sec.heading}
               </h3>
-
-              {/* Section content */}
               {sec.content && (
                 <p className="text-[#505f76] text-sm leading-relaxed">{sec.content}</p>
               )}
@@ -295,24 +219,14 @@ function DataSheetModal({ productId, onClose }) {
                   ))}
                 </ul>
               )}
-
-              {/* Structure image — shown after Basic Structure section only */}
               {sec.showImageAfter === 'structure' && (
                 <div className="mt-4">
-                  <StructureImage
-                    src={sheet.structureImage}
-                    caption={sheet.structureCaption}
-                  />
+                  <StructureImage src={sheet.structureImage} caption={sheet.structureCaption} />
                 </div>
               )}
-
-              {/* Theory image — shown after Sealing Theory section only */}
               {sec.showImageAfter === 'theory' && (
                 <div className="mt-4">
-                  <StructureImage
-                    src={sheet.theoryImage}
-                    caption={sheet.theoryCaption}
-                  />
+                  <StructureImage src={sheet.theoryImage} caption={sheet.theoryCaption} />
                 </div>
               )}
             </div>
@@ -350,15 +264,12 @@ export default function Products({ onNavigate }) {
 
       {/* Hero */}
       <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
-        {/* Background image */}
         <img
           src="/assets/vvv.png"
           alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Blue overlay so text stays readable, matches homepage style */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
-
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
             Our Products
@@ -377,10 +288,11 @@ export default function Products({ onNavigate }) {
             <button
               key={p.id}
               onClick={() => { setActive(p.id); setSheetOpen(false) }}
-              className={`px-8 py-5 font-semibold text-sm tracking-widest uppercase border-b-2 transition-all whitespace-nowrap ${active === p.id
+              className={`px-8 py-5 font-semibold text-sm tracking-widest uppercase border-b-2 transition-all whitespace-nowrap ${
+                active === p.id
                   ? 'border-[#005691] text-[#005691]'
                   : 'border-transparent text-[#505f76] hover:text-[#005691]'
-                }`}
+              }`}
             >
               {p.name}
             </button>
@@ -407,92 +319,136 @@ export default function Products({ onNavigate }) {
             <p className="text-[#505f76] leading-relaxed mb-8">{product.description}</p>
             <div className="flex gap-4 flex-wrap">
               <button
-                onClick={() => onNavigate('Contact US')}
+                onClick={() => onNavigate('Contact Us')}
                 className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
               >
                 <span className="material-symbols-outlined text-sm">request_quote</span>
                 Request Quote
               </button>
-              <button
-                onClick={() => product.hasDataSheet && setSheetOpen(true)}
-                className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
-              >
-                <span className="material-symbols-outlined text-sm">description</span>
-                Data Sheet
-              </button>
+              {product.hasDataSheet && (
+                <button
+                  onClick={() => setSheetOpen(true)}
+                  className="border border-[#005691] text-[#005691] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
+                >
+                  <span className="material-symbols-outlined text-sm">description</span>
+                  Data Sheet
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Features + Applications */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
-            <h3 className="text-lg font-bold text-[#005691] mb-6 flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">check_circle</span>
-              Key Features & Specifications
-            </h3>
-            <ul className="space-y-3">
-              {product.features.map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm text-[#505f76]">
-                  <span className="material-symbols-outlined text-[#005691] text-sm mt-0.5">arrow_right</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
-            <h3 className="text-lg font-bold text-[#005691] mb-6 flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">factory</span>
-              Applications
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {product.applications.map((a) => (
-                <span key={a} className="px-4 py-2 bg-[#005691]/10 text-[#005691] rounded-full text-sm font-semibold">
-                  {a}
-                </span>
-              ))}
+        {/* ── PARTS-ONLY VIEW (Motorcycles & E-Bike) ── */}
+        {product.partsOnly ? (
+          <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden shadow-sm">
+            <div className="bg-[#eceef0] px-8 py-4">
+              <h3 className="font-bold text-[#005691] text-sm uppercase tracking-widest">
+                Parts List & MOQ — {product.name}
+              </h3>
             </div>
-          </div>
-        </div>
-
-        {/* Specs Table */}
-        <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden shadow-sm">
-          <div className="bg-[#eceef0] px-8 py-4">
-            <h3 className="font-bold text-[#005691] text-sm uppercase tracking-widest">
-              Standard Part Numbers & MOQ
-            </h3>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#c5c6cd]">
-                  {['Part Number', 'Material', 'Dimensions (mm)', 'Temp Range', 'MOQ (units)', 'Action'].map((h) => (
-                    <th key={h} className="p-5 font-semibold text-left text-xs uppercase tracking-widest text-[#005691]">{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {product.specs.map((row, i) => (
-                  <tr key={row.part} className={`border-b border-[#c5c6cd] hover:bg-[#f2f4f6] transition-colors ${i % 2 === 1 ? 'bg-[#f1f5f9]' : ''}`}>
-                    <td className="p-5 font-mono font-semibold text-[#005691]">{row.part}</td>
-                    <td className="p-5 text-[#505f76]">{row.material}</td>
-                    <td className="p-5 text-[#505f76]">{row.dim}</td>
-                    <td className="p-5 text-[#505f76]">{row.temp}</td>
-                    <td className="p-5 font-semibold text-[#005691]">{row.moq}</td>
-                    <td className="p-5">
-                      <button
-                        onClick={() => onNavigate('Contact US')}
-                        className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all hover:scale-105 transition-transform duration-200"
-                      >
-                        Add to Inquiry
-                      </button>
-                    </td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-[#c5c6cd]">
+                    {['Part Number', 'Part Name', 'Compatibility', 'MOQ (units)', 'Action'].map((h) => (
+                      <th key={h} className="p-5 font-semibold text-left text-xs uppercase tracking-widest text-[#005691]">{h}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {product.parts.map((row, i) => (
+                    <tr key={row.partNo} className={`border-b border-[#c5c6cd] hover:bg-[#f2f4f6] transition-colors ${i % 2 === 1 ? 'bg-[#f1f5f9]' : ''}`}>
+                      <td className="p-5 font-mono font-semibold text-[#005691]">{row.partNo}</td>
+                      <td className="p-5 text-[#505f76] font-medium">{row.name}</td>
+                      <td className="p-5 text-[#505f76]">{row.compatibility}</td>
+                      <td className="p-5 font-semibold text-[#005691]">{row.moq}</td>
+                      <td className="p-5">
+                        <button
+                          onClick={() => onNavigate('Contact Us')}
+                          className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all hover:scale-105 transition-transform duration-200"
+                        >
+                          Add to Inquiry
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* Features + Applications */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
+                <h3 className="text-lg font-bold text-[#005691] mb-6 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-sm">check_circle</span>
+                  Key Features & Specifications
+                </h3>
+                <ul className="space-y-3">
+                  {product.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-[#505f76]">
+                      <span className="material-symbols-outlined text-[#005691] text-sm mt-0.5">arrow_right</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
+                <h3 className="text-lg font-bold text-[#005691] mb-6 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-sm">factory</span>
+                  Applications
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {product.applications.map((a) => (
+                    <span key={a} className="px-4 py-2 bg-[#005691]/10 text-[#005691] rounded-full text-sm font-semibold">
+                      {a}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Specs Table */}
+            <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden shadow-sm">
+              <div className="bg-[#eceef0] px-8 py-4">
+                <h3 className="font-bold text-[#005691] text-sm uppercase tracking-widest">
+                  Standard Part Numbers & MOQ
+                </h3>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-[#c5c6cd]">
+                      {['Part Number', 'Material', 'Dimensions (mm)', 'Temp Range', 'MOQ (units)', 'Action'].map((h) => (
+                        <th key={h} className="p-5 font-semibold text-left text-xs uppercase tracking-widest text-[#005691]">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {product.specs.map((row, i) => (
+                      <tr key={row.part} className={`border-b border-[#c5c6cd] hover:bg-[#f2f4f6] transition-colors ${i % 2 === 1 ? 'bg-[#f1f5f9]' : ''}`}>
+                        <td className="p-5 font-mono font-semibold text-[#005691]">{row.part}</td>
+                        <td className="p-5 text-[#505f76]">{row.material}</td>
+                        <td className="p-5 text-[#505f76]">{row.dim}</td>
+                        <td className="p-5 text-[#505f76]">{row.temp}</td>
+                        <td className="p-5 font-semibold text-[#005691]">{row.moq}</td>
+                        <td className="p-5">
+                          <button
+                            onClick={() => onNavigate('Contact Us')}
+                            className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all hover:scale-105 transition-transform duration-200"
+                          >
+                            Add to Inquiry
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        )}
 
         {/* Custom CTA */}
         <div className="mt-10 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -501,7 +457,7 @@ export default function Products({ onNavigate }) {
             <p className="text-white/80">We source bespoke sealing components to your exact drawings and technical requirements from our verified supplier network.</p>
           </div>
           <button
-            onClick={() => onNavigate('Contact US')}
+            onClick={() => onNavigate('Contact Us')}
             className="bg-white text-[#005691] px-10 py-4 rounded-lg font-semibold text-sm hover:brightness-105 transition-all whitespace-nowrap flex items-center gap-2 hover:bg-grey/20 hover:scale-105 transition-transform duration-200"
           >
             <span className="material-symbols-outlined text-sm">engineering</span>

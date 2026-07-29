@@ -5,7 +5,7 @@ const NAV_LINKS = [
   { label: 'About',      path: '/' },
   { label: 'Products',   path: '/products' },
   { label: 'Why ATI?',   path: '/why-ati' },
-  { label: 'Contact US', path: '/contact' },
+  { label: 'Contact Us', path: '/contact' },
   { label: 'Blogs',      path: '/blogs' },
   { label: "FAQ's",      path: '/faqs' },
 ]
@@ -95,7 +95,7 @@ export default function Navbar({ onNavigate }) {
 
           {/* Generate Inquiry button */}
           <button
-            onClick={() => onNavigate('Contact US')}
+            onClick={() => onNavigate('Contact Us')}
             className={`px-5 py-3 text-sm font-semibold rounded-lg flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all duration-200 ${
               scrolled
                 ? 'bg-[#005691] text-white hover:brightness-110'

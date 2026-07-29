@@ -38,7 +38,7 @@ export default function Hero({ onNavigate }) {
               <span className="material-symbols-outlined text-base">north_east</span>
             </button>
             <button
-              onClick={() => onNavigate('Contact US')}
+              onClick={() => onNavigate('Contact Us')}
               className="border border-white/40 text-white px-8 py-4 text-sm font-semibold rounded-lg hover:bg-white/10 flex items-center gap-2"
             >
               Get a Quote Today

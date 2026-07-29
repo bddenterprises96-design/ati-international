@@ -102,12 +102,40 @@ const SOCIAL = [
 ]
 
 export default function ContactUS() {
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', country: '', product: '', quantity: '', message: '' })
+  const [form, setForm] = useState({
+    name: '', company: '', email: '', phone: '',
+    country: '', product: '', quantity: '', message: ''
+  })
   const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors]       = useState({})
 
-  const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handle = (e) => {
+    const { name, value } = e.target
+    setForm({ ...form, [name]: value })
+    
+    // Clear error for this field when user types
+    if (errors[name]) {
+      const newErrors = { ...errors }
+      delete newErrors[name]
+      setErrors(newErrors)
+    }
+  }
+
+  const validate = () => {
+    const newErrors = {}
+    if (!form.name.trim())  newErrors.name  = 'Full name is required'
+    if (!form.email.trim()) newErrors.email = 'Email address is required'
+    else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = 'Please enter a valid email'
+    return newErrors
+  }
+
   const submit = () => {
-    if (!form.name || !form.email) return
+    const newErrors = validate()
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return
+    }
+    setErrors({})
     setSubmitted(true)
   }
 
@@ -116,27 +144,30 @@ export default function ContactUS() {
 
       {/* Hero */}
       <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
-        {/* Background image */}
-        <img
-          src="/assets/icccc.png"
-          alt="ATI Facility"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* Blue overlay so text stays readable, matches homepage style */}
+        <img src="/assets/icccc.png" alt="ATI Facility" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/65 to-[#005691]/10" />
-
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
-            Get In Touch
-          </span>
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">Get In Touch</span>
           <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Contact & Procurement Inquiry</h1>
-          <p className="text-white/80 text-lg max-w-2xl">
-            Submit your requirements and our team will respond with a detailed proposal within 24 business hours.
-          </p>
+          <p className="text-white/80 text-lg max-w-2xl">Submit your requirements and our team will respond with a detailed proposal within 24 business hours.</p>
         </div>
       </section>
 
-      <section className="py-20 max-w-[1280px] mx-auto px-8">
+      <section className="py-10 max-w-[1280px] mx-auto px-8">
+        
+        {/* Important Message Box - Full Width Above Both Columns */}
+        <div className="mb-8 bg-blue-50 border border-[#005691]/20 rounded-lg px-6 py-4 w-full">
+          <div className="flex items-start gap-3">
+            <span className="material-symbols-outlined text-[#005691] text-lg flex-shrink-0 mt-0.5">info</span>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-[#005691]">Can't Find Your Product?</p>
+              <p className="text-xs text-[#505f76] mt-1 leading-relaxed">
+                The products displayed on our website represent only part of our sourcing capabilities. As a global trading company, supplier, and exporter, AT International can source and supply a wide range of motorcycle parts, e-bike components, industrial products, and customized sourcing solutions through our trusted supplier network.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* Left Column */}
@@ -146,10 +177,10 @@ export default function ContactUS() {
             <div className="bg-white border border-[#c5c6cd] rounded-xl p-8">
               <h3 className="font-bold text-[#005691] text-lg mb-6">Contact Information</h3>
               {[
-                { icon: 'location_on', label: 'Head Office',      value: 'Liwan District, Guangzhou City'   },
-                { icon: 'mail',        label: 'Email',            value: 'theatinternational@gmail.com' },
-                { icon: 'phone',       label: 'Phone / WhatsApp', value: '0086-18523210975'           },
-                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm (China Standard Time, GMT+8)'    },
+                { icon: 'location_on', label: 'Head Office',      value: 'Liwan District, Guangzhou City, China'           },
+                { icon: 'mail',        label: 'Email',            value: 'theatinternational@gmail.com'             },
+                { icon: 'phone',       label: 'Phone / WhatsApp', value: '0086-18523210975'                         },
+                { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm (China Standard Time, GMT+8)'              },
               ].map((c) => (
                 <div key={c.label} className="flex gap-4 mb-6">
                   <div className="w-10 h-10 bg-[#005691]/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -161,21 +192,6 @@ export default function ContactUS() {
                   </div>
                 </div>
               ))}
-
-              <div className="border-t border-[#c5c6cd] my-4" />
-              {[
-                
-              ].map((r) => (
-                <div key={r.region} className="flex gap-4 mb-4 last:mb-0">
-                  <div className="w-10 h-10 bg-[#005691]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-[#005691] text-xl">location_on</span>
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-[#005691] uppercase tracking-widest mb-1">{r.region}</div>
-                    <div className="text-sm text-[#505f76]">{r.contact}</div>
-                  </div>
-                </div>
-              ))}
             </div>
 
             {/* Social Icons */}
@@ -184,20 +200,11 @@ export default function ContactUS() {
               <p className="text-[#505f76] text-xs mb-5">Find us on social media</p>
               <div className="grid grid-cols-4 gap-4">
                 {SOCIAL.map((s) => (
-                  <a
-                    key={s.name}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={s.name}
-                    className="flex flex-col items-center gap-1.5 group"
-                  >
+                  <a key={s.name} href={s.href} target="_blank" rel="noreferrer" title={s.name} className="flex flex-col items-center gap-1.5 group">
                     <div className="w-14 h-14 rounded-[16px] flex items-center justify-center group-hover:scale-110 group-hover:brightness-110 transition-all duration-200 shadow-md">
                       {s.icon}
                     </div>
-                    <span className="text-[10px] text-[#505f76] group-hover:text-[#005691] transition-colors text-center font-medium">
-                      {s.name}
-                    </span>
+                    <span className="text-[10px] text-[#505f76] group-hover:text-[#005691] transition-colors text-center font-medium">{s.name}</span>
                   </a>
                 ))}
               </div>
@@ -205,75 +212,109 @@ export default function ContactUS() {
 
           </div>
 
-          {/* Inquiry Form */}
+          {/* Right Column - Inquiry Form */}
           <div className="md:col-span-2">
             {submitted ? (
               <div className="bg-white border border-[#c5c6cd] rounded-xl p-16 text-center">
                 <span className="material-symbols-outlined text-[#005691] text-6xl mb-6 block">check_circle</span>
                 <h3 className="text-2xl font-bold text-[#005691] mb-4">Inquiry Submitted!</h3>
-                <p className="text-[#505f76]">Thank you, <strong>{form.name}</strong>. Our procurement team will review your inquiry and respond within 24 business hours.</p>
+                <p className="text-[#505f76]">
+                  Thank you, <strong>{form.name}</strong>. Our procurement team will review your inquiry and respond within 24 business hours.
+                </p>
+                <button
+                  onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product: '', quantity: '', message: '' }) }}
+                  className="mt-8 bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
+                >
+                  Submit Another Inquiry
+                </button>
               </div>
             ) : (
-              <div className="bg-white border border-[#c5c6cd] rounded-xl p-10">
-                <h3 className="font-bold text-[#005691] text-xl mb-8">Procurement Inquiry Form</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {[
-                    { name: 'name',     label: 'Full Name *',       placeholder: 'Your full name',      type: 'text'  },
-                    { name: 'company',  label: 'Company Name',      placeholder: 'Your company',        type: 'text'  },
-                    { name: 'email',    label: 'Email Address *',   placeholder: 'your@email.com',      type: 'email' },
-                    { name: 'phone',    label: 'Phone / WhatsApp',  placeholder: '+1 234 567 8900',     type: 'tel'   },
-                    { name: 'country',  label: 'Country',           placeholder: 'Country of delivery', type: 'text'  },
-                    { name: 'quantity', label: 'Quantity Required', placeholder: 'e.g. 5,000 units',    type: 'text'  },
-                  ].map((f) => (
-                    <div key={f.name}>
-                      <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">{f.label}</label>
-                      <input
-                        type={f.type}
-                        name={f.name}
-                        value={form[f.name]}
+              <>
+                <div className="bg-white border border-[#c5c6cd] rounded-xl p-10">
+                  <h3 className="font-bold text-[#005691] text-xl mb-8">Procurement Inquiry Form</h3>
+
+                  {/* Global error banner - only show if there are errors */}
+                  {Object.keys(errors).length > 0 && (
+                    <div className="mb-6 bg-red-50 border border-red-200 rounded-lg px-5 py-4 flex items-start gap-3">
+                      <span className="material-symbols-outlined text-red-500 text-xl flex-shrink-0 mt-0.5">error</span>
+                      <div>
+                        <p className="text-red-600 text-sm font-semibold mb-1">Please fix the following:</p>
+                        {Object.values(errors).map((err) => (
+                          <p key={err} className="text-red-500 text-xs">{err}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {[
+                      { name: 'name',     label: 'Full Name *',       placeholder: 'Your full name',      type: 'text'  },
+                      { name: 'company',  label: 'Company Name',      placeholder: 'Your company',        type: 'text'  },
+                      { name: 'email',    label: 'Email Address *',   placeholder: 'your@email.com',      type: 'email' },
+                      { name: 'phone',    label: 'Phone / WhatsApp',  placeholder: '+1 234 567 8900',     type: 'tel'   },
+                      { name: 'country',  label: 'Country',           placeholder: 'Country of delivery', type: 'text'  },
+                      { name: 'quantity', label: 'Quantity Required', placeholder: 'e.g. 5,000 units',    type: 'text'  },
+                    ].map((f) => (
+                      <div key={f.name}>
+                        <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">{f.label}</label>
+                        <input
+                          type={f.type}
+                          name={f.name}
+                          value={form[f.name]}
+                          onChange={handle}
+                          placeholder={f.placeholder}
+                          className={`w-full px-4 py-3 bg-[#f2f4f6] border rounded-lg text-sm outline-none transition-all ${
+                            errors[f.name]
+                              ? 'border-red-400 focus:ring-2 focus:ring-red-300'
+                              : 'border-[#c5c6cd] focus:ring-2 focus:ring-[#005691] focus:border-[#005691]'
+                          }`}
+                        />
+                        {errors[f.name] && (
+                          <p className="text-red-500 text-xs mt-1">{errors[f.name]}</p>
+                        )}
+                      </div>
+                    ))}
+
+                    <div className="md:col-span-2">
+                      <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">Product Required</label>
+                      <select
+                        name="product"
+                        value={form.product}
                         onChange={handle}
-                        placeholder={f.placeholder}
                         className="w-full px-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm focus:ring-2 focus:ring-[#005691] focus:border-[#005691] outline-none transition-all"
+                      >
+                        <option value="">Select a product category</option>
+                        <option>Motorcycle Parts & Accessories</option>
+                        <option>E-Bike Parts & Components</option>
+                        <option>Industrial Sealing Solutions</option>
+                        <option>Custom Sourcing Request</option>
+                        <option>Other Products ( Please Specify )</option>
+                      </select>
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">Technical Requirements / Message</label>
+                      <textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handle}
+                        rows={5}
+                        placeholder="Include dimensions, material specifications, tolerances, application details..."
+                        className="w-full px-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm focus:ring-2 focus:ring-[#005691] focus:border-[#005691] outline-none transition-all resize-none"
                       />
                     </div>
-                  ))}
-                  <div className="md:col-span-2">
-                    <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">Product Required</label>
-                    <select
-                      name="product"
-                      value={form.product}
-                      onChange={handle}
-                      className="w-full px-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm focus:ring-2 focus:ring-[#005691] focus:border-[#005691] outline-none transition-all"
-                    >
-                      <option value="">Select a product category</option>
-                      <option>Valve Stem Seals</option>
-                      <option>O-Rings</option>
-                      <option>Oil Seals</option>
-                      <option>Motorcycle / E-Bike Parts</option>
-                      <option>Multiple Products</option>
-                    </select>
                   </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-xs font-semibold text-[#005691] uppercase tracking-widest mb-2">Technical Requirements / Message</label>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handle}
-                      rows={5}
-                      placeholder="Include dimensions, material specifications, tolerances, application details..."
-                      className="w-full px-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm focus:ring-2 focus:ring-[#005691] focus:border-[#005691] outline-none transition-all resize-none"
-                    />
-                  </div>
+
+                  <button
+                    onClick={submit}
+                    className="mt-8 w-full bg-[#005691] text-white py-4 rounded-lg font-semibold text-sm hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 uppercase tracking-widest shadow-lg"
+                  >
+                    <span className="material-symbols-outlined text-sm">send</span>
+                    Submit Inquiry
+                  </button>
+                  <p className="text-xs text-[#505f76] text-center mt-4">We respond within 24 business hours. Your information is kept strictly confidential.</p>
                 </div>
-                <button
-                  onClick={submit}
-                  className="mt-8 w-full bg-[#005691] text-white py-4 rounded-lg font-semibold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2 uppercase tracking-widest shadow-lg"
-                >
-                  <span className="material-symbols-outlined text-sm">send</span>
-                  Submit Inquiry
-                </button>
-                <p className="text-xs text-[#505f76] text-center mt-4">We respond within 24 business hours. Your information is kept strictly confidential.</p>
-              </div>
+              </>
             )}
           </div>
         </div>

@@ -6,7 +6,11 @@ const FAQS = [
     items: [
       {
         q: 'What types of sealing products does ATI supply?',
-        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), custom-engineered sealing components and premium parts for motorcycle, e-bike. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), custom-sourced sealing components. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+      },
+      {
+        q: 'Does ATI supply products beyond sealing components?',
+        a: 'Yes. As a global trading company, supplier, and exporter, ATI sources and supplies a wide range of motorcycle parts, e-bike components, accessories, and other industrial products beyond our core sealing product line through our trusted supplier network and ISO-certified partner manufacturers.',
       },
       {
         q: 'Can ATI source seals to my custom dimensions and drawings?',
@@ -18,7 +22,7 @@ const FAQS = [
       },
       {
         q: 'Do you provide material certifications and test reports?',
-        a: 'Yes. Full material traceability is available including Certificate of Conformance (CoC), material data sheets (MDS), PPAP documentation, and ROHS/REACH compliance declarations. These are provided with every order on request.',
+        a: 'Yes. Full material traceability is available including Certificate of Conformance (CoC), material data sheets (MDS) and ROHS/REACH compliance declarations. These are provided with every order on request.',
       },
     ],
   },
@@ -35,7 +39,7 @@ const FAQS = [
       },
       {
         q: 'How do I submit a procurement inquiry?',
-        a: 'Use our Contact US page to submit a Procurement Inquiry Form, or reach us directly via WhatsApp or WeChat. Provide your product type, quantity, dimensions, material preference, and delivery destination our team will respond with a proposal within 24 business hours.',
+        a: 'Use our Contact Us page to submit a Procurement Inquiry Form, or reach us directly via WhatsApp or WeChat. Provide your product type, quantity, dimensions, material preference, and delivery destination our team will respond with a proposal within 24 business hours.',
       },
     ],
   },
@@ -44,15 +48,15 @@ const FAQS = [
     items: [
       {
         q: 'Is AT International ISO certified?',
-        a: 'All partner manufacturers in our supply network hold ISO 9001:2015 certification. We verify supplier quality systems as part of our sourcing process and can provide material certifications, PPAP documentation, and traceability records with every order. We also supply products compliant with RoHS and REACH regulations.',
+        a: 'All partner manufacturers in our supply network hold ISO 9001:2015 certification. We verify supplier quality systems as part of our sourcing process and can provide material certifications and traceability records with every order. We also supply products compliant with RoHS and REACH regulations.',
       },
       {
         q: 'What quality control processes do you use?',
-        a: 'Every batch goes through dimensional inspection (CMM and optical comparators), hardness testing (Shore A/D), material verification (FTIR spectroscopy), and visual inspection. We use AQL sampling plans and can provide 100% inspection for critical applications on request.',
+        a: 'Every batch goes through dimensional inspection (CMM and optical comparators), hardness testing (Shore A/D), material verification (FTIR spectroscopy), and visual inspection. Our partner manufacturers conduct quality inspections by using AQL and dimentional inspections, while ATI independently verifies the inspection results to ensure consistent quality, accuracy, and compliance with international standards before global shipment.',
       },
       {
         q: 'Can you match competitor part numbers?',
-        a: 'Yes. We maintain an extensive OEM and aftermarket cross-reference database. Provide us with the original part number, brand, or application details and our team will identify the matching ATI specification or engineer an equivalent.',
+        a: 'Yes. We maintain an extensive OEM and aftermarket cross-reference database. Provide us with the original part number, brand, or application details and our team will identify the matching ATI specification or source an equivalent.',
       },
     ],
   },
@@ -68,8 +72,12 @@ const FAQS = [
         a: 'We offer EXW, FOB Guangzhou, CFR, CIF, and DDP depending on destination and order volume. For repeat customers, we can arrange freight on preferred carriers or integrate with your existing logistics provider.',
       },
       {
-        q: 'What are typical lead times for production orders?',
+        q: 'What are typical lead times for bulk orders?',
         a: 'Standard catalogue items: 3–4 weeks after order confirmation. Custom or new tooling orders: 6–10 weeks including tooling, sampling, and approval. We provide a detailed production schedule at order confirmation and provide regular updates throughout.',
+      },
+      {
+        q: 'Is ATI a manufacturer or a trading company?',
+        a: 'AT International is a global trading company, supplier, and exporter. We work with verified manufacturing partners to provide reliable products, competitive pricing, and customized sourcing solutions for customers worldwide.',
       },
     ],
   },
@@ -154,7 +162,7 @@ export default function FAQs() {
               WhatsApp Us
             </a>
             <button 
-            onClick={() => onNavigate('Contact US')}
+            onClick={() => onNavigate('Contact Us')}
             className="bg-white text-[#005691] px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-105 transition-all flex items-center gap-2">
               <span className="material-symbols-outlined text-sm">mail</span>
               Email Our Team

@@ -6,7 +6,7 @@ import FloatingContacts from './components/FloatingContacts'
 import AboutUs from './Pages/AboutUs'
 import Products from './Pages/Products'
 import WhyATI from './Pages/WhyATI'
-import ContactUS from './Pages/ContactUS'
+import ContactUS from './Pages/ContactUs'
 import Blogs from './Pages/Blogs'
 import FAQs from './Pages/FAQs'
 
@@ -27,7 +27,7 @@ export default function App() {
       'About':      '/',
       'Products':   '/products',
       'Why ATI?':   '/why-ati',
-      'Contact US': '/contact',
+      'Contact Us': '/contact',
       'Blogs':      '/blogs',
       "FAQ's":      '/faqs',
     }
