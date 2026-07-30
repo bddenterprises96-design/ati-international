@@ -113,8 +113,8 @@ const PRODUCTS = [
   },
   // ── MOTORCYCLES ─────────────────────────────────────────────────
   {
-    id: 'motorcycles',
-    name: 'Motorcycles',
+    id: 'motorcycle',
+    name: 'Motorcycle',
     tagline: 'Complete sealing parts catalogue for motorcycle engines',
     image: '/assets/moto.png',
     hasDataSheet: false,

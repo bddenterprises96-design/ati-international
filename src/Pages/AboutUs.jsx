@@ -218,7 +218,7 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, ebike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide."
+              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, ebike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
             </p>
           </div>
           <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
