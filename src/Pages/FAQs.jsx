@@ -100,7 +100,7 @@ export default function FAQs() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Blue overlay so text stays readable, matches homepage style */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691]/100 via-[#005691]/65 to-[#005691]/10" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
