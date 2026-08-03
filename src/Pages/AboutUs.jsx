@@ -218,14 +218,14 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, ebike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
+              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, e-bike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
             </p>
           </div>
           <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
             <span className="material-symbols-outlined text-4xl text-[#005691] mb-5 block">visibility</span>
             <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
             <p className="text-[#505f76] leading-relaxed">
-              To become a trusted global sourcing partner for motorcycle, ebike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets.
+              To become a trusted global sourcing partner for motorcycle, e-bike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets.
             </p>
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function AboutUs({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── CERTIFICAT Intl.ONS ── */}
+      {/* ── CERTIFICAT International.ONS ── */}
       <section className="bg-[#005691] py-10">
         <div className="max-w-[1440px] mx-auto px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Compliance Standards</h2>
@@ -278,7 +278,7 @@ export default function AboutUs({ onNavigate }) {
       <section className="py-20 bg-white">
         <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-80 shadow-lg">
-            <img src="/assets/888.jpeg" alt="AT Intl. Manufacturing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="/assets/888.jpeg" alt="AT International Supply" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Global Sourcing & Export Capabilities</h2>

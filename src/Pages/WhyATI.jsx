@@ -37,7 +37,7 @@ export default function WhyATI({ onNavigate }) {
             {
               icon: 'public',
               title: 'Global Logistics Network',
-              desc: 'Operating from Guangzhou, China, we supply over 40 countries with reliable lead times. We offer DDP, FOB, CIF, and EXW Incoterms, and coordinate with established freight forwarders for seamless customs clearance.',
+              desc: 'Operating from China, we supply over 40 countries with reliable lead times. We offer DDP, FOB, CIF, and EXW Incoterms, and coordinate with established freight forwarders for seamless customs clearance.',
             },
             {
               icon: 'engineering',
@@ -117,7 +117,7 @@ export default function WhyATI({ onNavigate }) {
           {[
             { quote: 'ATI has been our trusted supplier for motorcycle oil seals and rubber components for over three years. The product quality is consistently excellent, pricing is competitive, and shipments always arrive on schedule. Their team is responsive and understands our sourcing requirements.', name: 'Procurement Manager', company: 'Motorcycle Parts Distributor, Bangladesh', rating: 5 },
             { quote: 'Their custom O-ring solutions solved a sealing challenge we had struggled with for months. Fast prototyping and great engineering collaboration.', name: 'R&D Engineer', company: 'Industrial OEM, UAE', rating: 5 },
-            { quote: 'ATI has become our preferred supplier for sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidence.', name: 'Purchasing Director', company: 'Motorcycle Parts Distributorr, Indonesia', rating: 5 },
+            { quote: 'ATI has become our preferred supplier for sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidence.', name: 'Purchasing Director', company: 'Motorcycle Parts Distributor, Indonesia', rating: 5 },
           ].map((t, index) => (
             <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-md transition-shadow hover:bg-grey/30 hover:scale-105 transition-transform duration-500 flex flex-col">
               <span className="material-symbols-outlined text-[#005691] text-3xl mb-4 block">format_quote</span>
@@ -128,10 +128,6 @@ export default function WhyATI({ onNavigate }) {
                     <span 
                       key={i} 
                       className="text-yellow-400 text-lg inline-block"
-                      style={{
-                        animation: `sparkle 2s ease-in-out ${i * 0.2 + index * 0.4}s infinite`,
-                        display: 'inline-block'
-                      }}
                     >
                       ★
                     </span>
@@ -166,37 +162,6 @@ export default function WhyATI({ onNavigate }) {
           </button>
         </div>
       </section>
-
-      {/* Add keyframe animation in style tag */}
-      <style jsx>{`
-        @keyframes sparkle {
-          0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.6;
-            text-shadow: 0 0 0px rgba(255, 215, 0, 0);
-          }
-          25% {
-            transform: scale(1.3) rotate(10deg);
-            opacity: 1;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-          }
-          50% {
-            transform: scale(1) rotate(-5deg);
-            opacity: 0.8;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-          }
-          75% {
-            transform: scale(1.2) rotate(5deg);
-            opacity: 1;
-            text-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
-          }
-          100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.6;
-            text-shadow: 0 0 0px rgba(255, 215, 0, 0);
-          }
-        }
-      `}</style>
     </div>
   )
 }

@@ -187,14 +187,14 @@ export default function Footer({ onNavigate }) {
             </li>
             <li className="flex items-start gap-2">
               <span className="material-symbols-outlined text-sm mt-0.5">phone</span>
-              0086-18523210975
+              +86 185 2321 0975
             </li>
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
             className="mt-6 bg-[#005691] text-white px-8 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer hover:scale-105 transition-transform duration-500"
           >
-            Generate Inquiry
+            Request a Quote
           </button>
         </div>
       </div>

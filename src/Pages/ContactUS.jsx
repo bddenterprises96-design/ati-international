@@ -179,7 +179,7 @@ export default function ContactUS() {
               {[
                 { icon: 'location_on', label: 'Head Office',      value: 'Liwan District, Guangzhou City, China'           },
                 { icon: 'mail',        label: 'Email',            value: 'theatinternational@gmail.com'             },
-                { icon: 'phone',       label: 'Phone / WhatsApp', value: '0086-18523210975'                         },
+                { icon: 'phone',       label: 'Phone / WhatsApp', value: '+86 185 2321 0975'                         },
                 { icon: 'schedule',    label: 'Business Hours',   value: 'Mon–Sat: 9am – 6pm (China Standard Time, GMT+8)'              },
               ].map((c) => (
                 <div key={c.label} className="flex gap-4 mb-6">

@@ -40,7 +40,7 @@ export default function FloatingContacts() {
 
       {/* WhatsApp Button - Square Shape */}
       <a
-        href="https://wa.me/923000000000"
+        href="https://wa.me/+8618523210975"
         target="_blank"
         rel="noreferrer"
         title="WhatsApp"

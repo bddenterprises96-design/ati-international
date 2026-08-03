@@ -103,7 +103,7 @@ export default function Navbar({ onNavigate }) {
             }`}
           >
             <span className="material-symbols-outlined text-sm">request_quote</span>
-            <span className="hidden sm:inline">Generate Inquiry</span>
+            <span className="hidden sm:inline">Request a Quote</span>
           </button>
 
           {/* Hamburger — mobile only */}
