@@ -6,7 +6,7 @@ const FAQS = [
     items: [
       {
         q: 'What types of sealing products does ATI supply?',
-        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), custom-sourced sealing components. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), and custom sealing components. Beyond sealing products, AT International also sources and supplies motorcycle parts, e-bike components, accessories, and other industrial products through our trusted supplier network. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
       },
       {
         q: 'Does ATI supply products beyond sealing components?',
@@ -52,7 +52,7 @@ const FAQS = [
       },
       {
         q: 'What quality control processes do you use?',
-        a: 'Every batch goes through dimensional inspection (CMM and optical comparators), hardness testing (Shore A/D), material verification (FTIR spectroscopy), and visual inspection. Our partner manufacturers conduct quality inspections by using AQL and dimentional inspections, while ATI independently verifies the inspection results to ensure consistent quality, accuracy, and compliance with international standards before global shipment.',
+        a: 'Our partner manufacturers conduct quality inspections including dimensional inspection (CMM and optical comparators), hardness testing (Shore A/D), material verification (FTIR spectroscopy), and visual inspection. AT International verifies supplier quality records and inspection results to ensure consistent quality, accuracy, and compliance with international standards before global shipment.',
       },
       {
         q: 'Can you match competitor part numbers?',
