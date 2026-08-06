@@ -605,7 +605,7 @@ function PartItem({ part, onSelect, isSelected, brands, selectedBrands, onBrandT
   return (
     <div 
       className={`
-        flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 group
+        flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg transition-all duration-200 group
         ${isSelected 
           ? 'bg-yellow-100 border-2 border-yellow-400 shadow-md' 
           : 'hover:bg-yellow-100 hover:shadow-sm hover:scale-[1.02]'
@@ -613,7 +613,7 @@ function PartItem({ part, onSelect, isSelected, brands, selectedBrands, onBrandT
       `}
     >
       <span className={`
-        w-1.5 h-1.5 rounded-full transition-all duration-300 flex-shrink-0
+        w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full transition-all duration-300 flex-shrink-0
         ${isSelected 
           ? 'bg-yellow-500 scale-150' 
           : 'bg-gradient-to-r from-[#005691] to-[#0077be] group-hover:bg-yellow-500 group-hover:scale-150'
@@ -633,12 +633,12 @@ function PartItem({ part, onSelect, isSelected, brands, selectedBrands, onBrandT
 
       <div 
         onClick={() => onSelect(part)}
-        className="flex items-center gap-2 flex-1 cursor-pointer min-w-0"
+        className="flex items-center gap-1 sm:gap-2 flex-1 cursor-pointer min-w-0"
       >
-        <span className="text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-200 flex-1 font-medium truncate">
+        <span className="text-[10px] sm:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-200 flex-1 font-medium truncate">
           {part.name}
         </span>
-        <span className="text-[10px] text-gray-400 font-mono bg-gray-100 group-hover:bg-yellow-200 px-1.5 py-0.5 rounded transition-all duration-200 flex-shrink-0">
+        <span className="text-[8px] sm:text-[10px] text-gray-400 font-mono bg-gray-100 group-hover:bg-yellow-200 px-1 sm:px-1.5 py-0.5 rounded transition-all duration-200 flex-shrink-0">
           {part.partNo}
         </span>
       </div>
@@ -656,7 +656,7 @@ function PartItem({ part, onSelect, isSelected, brands, selectedBrands, onBrandT
           onSelect(part)
         }}
       >
-        <span className="material-symbols-outlined text-sm">
+        <span className="material-symbols-outlined text-sm sm:text-base">
           {isSelected ? 'check_circle' : 'add_circle'}
         </span>
       </button>
@@ -967,34 +967,34 @@ function SelectionSummary({
   if (selectedParts.length === 0 || totalItems === 0) return null
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white rounded-2xl shadow-2xl border-2 border-[#005691] px-6 py-4 animate-fadeInUp max-w-[90%]">
-      <div className="flex flex-wrap items-center gap-4">
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[#005691]">shopping_cart</span>
-          <span className="font-bold text-[#005691]">{selectedParts.length}</span>
-          <span className="text-gray-600 text-sm">part{selectedParts.length > 1 ? 's' : ''}</span>
-          <span className="text-gray-400 text-sm">×</span>
-          <span className="font-bold text-[#005691]">{uniqueBrandCount}</span>
-          <span className="text-gray-600 text-sm">brand{uniqueBrandCount > 1 ? 's' : ''}</span>
-          <span className="text-gray-400 text-sm">=</span>
-          <span className="font-bold text-[#005691]">{totalItems}</span>
-          <span className="text-gray-600 text-sm">total items</span>
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white rounded-2xl shadow-2xl border-2 border-[#005691] px-4 sm:px-6 py-3 sm:py-4 animate-fadeInUp max-w-[95%] sm:max-w-[90%]">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <span className="material-symbols-outlined text-[#005691] text-base sm:text-xl">shopping_cart</span>
+          <span className="font-bold text-[#005691] text-xs sm:text-base">{selectedParts.length}</span>
+          <span className="text-gray-600 text-[10px] sm:text-sm">part{selectedParts.length > 1 ? 's' : ''}</span>
+          <span className="text-gray-400 text-[10px] sm:text-sm">×</span>
+          <span className="font-bold text-[#005691] text-xs sm:text-base">{uniqueBrandCount}</span>
+          <span className="text-gray-600 text-[10px] sm:text-sm">brand{uniqueBrandCount > 1 ? 's' : ''}</span>
+          <span className="text-gray-400 text-[10px] sm:text-sm">=</span>
+          <span className="font-bold text-[#005691] text-xs sm:text-base">{totalItems}</span>
+          <span className="text-gray-600 text-[10px] sm:text-sm">items</span>
         </div>
-        {/* Removed selected items names display */}
-        <div className="flex gap-3">
+        <div className="flex gap-1 sm:gap-3 ml-auto">
           <button
             onClick={onClearAll}
-            className="text-sm text-gray-500 hover:text-red-600 transition-all flex items-center gap-1"
+            className="text-[10px] sm:text-sm text-gray-500 hover:text-red-600 transition-all flex items-center gap-0.5 sm:gap-1"
           >
-            <span className="material-symbols-outlined text-sm">clear</span>
-            Clear All
+            <span className="material-symbols-outlined text-xs sm:text-sm">clear</span>
+            <span className="hidden xs:inline">Clear All</span>
           </button>
           <button
             onClick={onProceedToQuote}
-            className="bg-[#005691] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
+            className="bg-[#005691] text-white px-2 sm:px-6 py-1 sm:py-2 rounded-lg text-[10px] sm:text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-1 sm:gap-2 hover:scale-105 duration-200"
           >
-            <span className="material-symbols-outlined text-sm">request_quote</span>
-            Proceed to Quote
+            <span className="material-symbols-outlined text-xs sm:text-sm">request_quote</span>
+            <span className="hidden xs:inline">Proceed to Quote</span>
+            <span className="xs:hidden">Quote</span>
           </button>
         </div>
       </div>
@@ -1052,28 +1052,29 @@ function ModernCategoryBox({
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 animate-fadeInUp" style={{ animationDelay: `${index * 0.08}s` }}>
-      <div className={`bg-gradient-to-r ${color.bg} px-5 py-3 flex items-center justify-between`}>
-        <div className="flex items-center gap-2">
-          <span className="text-xl">{getCategoryEmoji(category)}</span>
-          <h4 className="text-white font-bold text-sm tracking-wide">{category}</h4>
+      <div className={`bg-gradient-to-r ${color.bg} px-3 sm:px-5 py-2 sm:py-3 flex items-center justify-between`}>
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+          <span className="text-base sm:text-xl flex-shrink-0">{getCategoryEmoji(category)}</span>
+          <h4 className="text-white font-bold text-[11px] sm:text-sm tracking-wide truncate">{category}</h4>
           {selectedCount > 0 && (
-            <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold">
-              {selectedCount} selected
+            <span className="bg-yellow-400 text-gray-800 text-[8px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold flex-shrink-0">
+              {selectedCount}
             </span>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           <button
             onClick={() => onQuoteAll(category, parts)}
-            className="bg-white/20 hover:bg-white/30 text-white text-xs px-3 py-1 rounded-full font-medium transition-all duration-200 flex items-center gap-1"
+            className="bg-white/20 hover:bg-white/30 text-white text-[8px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-medium transition-all duration-200 flex items-center gap-0.5 sm:gap-1"
           >
-            <span className="material-symbols-outlined text-sm">request_quote</span>
-            Quote All
+            <span className="material-symbols-outlined text-[10px] sm:text-sm">request_quote</span>
+            <span className="hidden xs:inline">Quote All</span>
+            <span className="xs:hidden">Quote</span>
           </button>
         </div>
       </div>
-      <div className="p-3">
-        <div className="grid grid-cols-2 gap-1.5">
+      <div className="p-1.5 sm:p-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-1.5">
           {parts.map((part, idx) => {
             const partSelected = selectedParts.find(p => p.name === part.name)
             const selectedBrands = partSelected ? partSelected.selectedBrands || [] : []
@@ -1839,13 +1840,13 @@ export default function Products({ onNavigate }) {
 
       {/* PERMANENT CONFIRM ORDER BUTTON */}
       {active !== 'industrial-seals' && (
-        <div className="max-w-[1280px] mx-auto px-8 py-4">
-          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="material-symbols-outlined text-[#005691] text-2xl">shopping_cart</span>
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-4">
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-2 sm:p-4 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-1 sm:gap-4">
+              <span className="material-symbols-outlined text-[#005691] text-base sm:text-2xl">shopping_cart</span>
               <div>
-                <span className="font-semibold text-gray-700">Your Selection</span>
-                <span className="text-sm text-gray-500 ml-2">
+                <span className="font-semibold text-gray-700 text-xs sm:text-base">Your Selection</span>
+                <span className="text-[10px] sm:text-sm text-gray-500 ml-1 sm:ml-2">
                   {hasSelection ? (
                     <>{totalSelectedItems} item{totalSelectedItems > 1 ? 's' : ''} selected</>
                   ) : (
@@ -1856,17 +1857,18 @@ export default function Products({ onNavigate }) {
             </div>
             <button
               onClick={handleOpenConfirmModalFromButton}
-              className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-2 sm:px-6 py-1 sm:py-2.5 rounded-lg text-[10px] sm:text-sm font-semibold transition-all flex items-center gap-1 sm:gap-2 ${
                 hasSelection 
                   ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105' 
                   : 'bg-gray-200 text-gray-500 cursor-not-allowed'
               }`}
               disabled={!hasSelection}
             >
-              <span className="material-symbols-outlined text-sm">checklist</span>
-              Review Order
+              <span className="material-symbols-outlined text-sm sm:text-base">checklist</span>
+              <span className="hidden xs:inline">Review Order</span>
+              <span className="xs:hidden">Review</span>
               {hasSelection && (
-                <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full ml-1">
+                <span className="bg-white/20 text-white text-[8px] sm:text-xs px-1 sm:px-2 py-0.5 rounded-full ml-0.5 sm:ml-1">
                   {totalSelectedItems}
                 </span>
               )}
@@ -1875,7 +1877,7 @@ export default function Products({ onNavigate }) {
         </div>
       )}
 
-      <div className="max-w-[1280px] mx-auto px-8 py-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-10">
         <ProductDetail 
           key={product.id}
           product={product} 
@@ -1960,6 +1962,34 @@ export default function Products({ onNavigate }) {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+        }
+        /* Mobile responsive fixes */
+        @media (max-width: 480px) {
+          .material-symbols-outlined {
+            font-size: 18px !important;
+          }
+        }
+        /* Extra small devices */
+        @media (max-width: 380px) {
+          .material-symbols-outlined {
+            font-size: 16px !important;
+          }
+        }
+        .xs\:inline {
+          display: none;
+        }
+        @media (min-width: 480px) {
+          .xs\:inline {
+            display: inline;
+          }
+        }
+        .xs\:hidden {
+          display: inline;
+        }
+        @media (min-width: 480px) {
+          .xs\:hidden {
+            display: none;
+          }
         }
       `}</style>
     </div>
