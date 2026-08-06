@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const SOCIAL = [
   {
@@ -101,7 +101,7 @@ const SOCIAL = [
   },
 ]
 
-export default function ContactUS() {
+export default function ContactUS({ onNavigate }) {
   const [form, setForm] = useState({
     name: '', company: '', email: '', phone: '',
     country: '', product: '', quantity: '', message: ''
@@ -109,11 +109,99 @@ export default function ContactUS() {
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors]       = useState({})
 
+  // ── SELECTED PARTS FROM PRODUCTS PAGE ─────────────────────────
+  const [selectedParts, setSelectedParts] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedBrandsByCategory, setSelectedBrandsByCategory] = useState({})
+
+  const loadSelectedParts = () => {
+    console.log('🔍 [ContactUs] loadSelectedParts() running...')
+    try {
+      const storedParts = localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
+      const storedCategory = localStorage.getItem('productCategory') || sessionStorage.getItem('productCategory')
+      const storedBrands = localStorage.getItem('selectedBrandsByCategory') || sessionStorage.getItem('selectedBrandsByCategory')
+      
+      console.log('🔍 [ContactUs] raw storedParts:', storedParts)
+      console.log('🔍 [ContactUs] raw storedBrands:', storedBrands)
+
+      if (storedParts) {
+        const parsed = JSON.parse(storedParts)
+        console.log('🔍 [ContactUs] parsed parts:', parsed, 'isArray:', Array.isArray(parsed))
+        if (Array.isArray(parsed)) {
+          setSelectedParts(parsed)
+          console.log('🔍 [ContactUs] setSelectedParts called with', parsed.length, 'items')
+        }
+      } else {
+        console.log('🔍 [ContactUs] no storedParts found, clearing state')
+        setSelectedParts([])
+      }
+      
+      if (storedBrands) {
+        const parsedBrands = JSON.parse(storedBrands)
+        setSelectedBrandsByCategory(parsedBrands)
+        console.log('🔍 [ContactUs] setSelectedBrandsByCategory called with', parsedBrands)
+      }
+      
+      if (storedCategory) {
+        setSelectedCategory(storedCategory)
+        setForm((prev) => ({ ...prev, product: storedCategory }))
+      }
+    } catch (err) {
+      console.error('Failed to load selected parts:', err)
+    }
+  }
+
+  useEffect(() => {
+    loadSelectedParts()
+    window.addEventListener('selectedPartsUpdated', loadSelectedParts)
+    window.addEventListener('storage', loadSelectedParts)
+    window.addEventListener('focus', loadSelectedParts)
+
+    return () => {
+      window.removeEventListener('selectedPartsUpdated', loadSelectedParts)
+      window.removeEventListener('storage', loadSelectedParts)
+      window.removeEventListener('focus', loadSelectedParts)
+    }
+  }, [])
+
+  // ── TOGGLE INDIVIDUAL PART SELECTION ──────────────────────────
+  const togglePartSelection = (partName) => {
+    const updated = selectedParts.map(p => 
+      p.name === partName ? { ...p, selected: !p.selected } : p
+    )
+    setSelectedParts(updated)
+    localStorage.setItem('selectedParts', JSON.stringify(updated))
+    sessionStorage.setItem('selectedParts', JSON.stringify(updated))
+  }
+
+  const handleRemovePart = (partName) => {
+    const updated = selectedParts.filter((p) => p.name !== partName)
+    setSelectedParts(updated)
+    localStorage.setItem('selectedParts', JSON.stringify(updated))
+    sessionStorage.setItem('selectedParts', JSON.stringify(updated))
+  }
+
+  const handleClearSelectedParts = () => {
+    setSelectedParts([])
+    localStorage.removeItem('selectedParts')
+    localStorage.removeItem('productCategory')
+    localStorage.removeItem('selectedBrandsByCategory')
+    sessionStorage.removeItem('selectedParts')
+    sessionStorage.removeItem('productCategory')
+    sessionStorage.removeItem('selectedBrandsByCategory')
+  }
+
+  // ── NAVIGATE BACK TO PRODUCTS ──────────────────────────────────
+  const handleNavigate = (page) => {
+    if (onNavigate && typeof onNavigate === 'function') {
+      onNavigate(page)
+    }
+  }
+
   const handle = (e) => {
     const { name, value } = e.target
     setForm({ ...form, [name]: value })
     
-    // Clear error for this field when user types
     if (errors[name]) {
       const newErrors = { ...errors }
       delete newErrors[name]
@@ -137,7 +225,45 @@ export default function ContactUS() {
     }
     setErrors({})
     setSubmitted(true)
+    handleClearSelectedParts()
   }
+
+  // ── BUILD FLATTENED LIST WITH BRANDS ──────────────────────────
+  const getFlattenedPartsWithBrands = () => {
+    const flattened = []
+    selectedParts.forEach(part => {
+      // Skip if part is deselected
+      if (part.selected === false) return
+      
+      const brands = part.selectedBrands || []
+      // If no brands selected, add the part without brand
+      if (brands.length === 0) {
+        flattened.push({
+          ...part,
+          brand: null,
+          displayName: part.name
+        })
+      } else {
+        // For each brand, create a separate line item
+        brands.forEach(brand => {
+          flattened.push({
+            ...part,
+            brand: brand,
+            displayName: `${part.name} (${brand})`
+          })
+        })
+      }
+    })
+    return flattened
+  }
+
+  const flattenedParts = getFlattenedPartsWithBrands()
+  const totalItems = flattenedParts.length
+
+  // Count selected items (checked)
+  const selectedCount = selectedParts.filter(p => p.selected !== false).length
+
+  console.log('🔍 [ContactUs] RENDER — selectedParts.length =', selectedParts.length, 'flattenedParts =', flattenedParts.length)
 
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
@@ -155,7 +281,7 @@ export default function ContactUS() {
 
       <section className="py-10 max-w-[1280px] mx-auto px-8">
         
-        {/* Important Message Box - Full Width Above Both Columns */}
+        {/* Important Message Box */}
         <div className="mb-8 bg-blue-50 border border-[#005691]/20 rounded-lg px-6 py-4 w-full">
           <div className="flex items-start gap-3">
             <span className="material-symbols-outlined text-[#005691] text-lg flex-shrink-0 mt-0.5">info</span>
@@ -221,6 +347,11 @@ export default function ContactUS() {
                 <p className="text-[#505f76]">
                   Thank you, <strong>{form.name}</strong>. Our procurement team will review your inquiry and respond within 24 business hours.
                 </p>
+                {selectedParts.length > 0 && (
+                  <p className="text-sm text-[#505f76] mt-2">
+                    <strong>{selectedCount}</strong> part{selectedCount > 1 ? 's' : ''} with <strong>{totalItems}</strong> total items included in your inquiry.
+                  </p>
+                )}
                 <button
                   onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product: '', quantity: '', message: '' }) }}
                   className="mt-8 bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
@@ -233,7 +364,7 @@ export default function ContactUS() {
                 <div className="bg-white border border-[#c5c6cd] rounded-xl p-10">
                   <h3 className="font-bold text-[#005691] text-xl mb-8">Procurement Inquiry Form</h3>
 
-                  {/* Global error banner - only show if there are errors */}
+                  {/* Error banner */}
                   {Object.keys(errors).length > 0 && (
                     <div className="mb-6 bg-red-50 border border-red-200 rounded-lg px-5 py-4 flex items-start gap-3">
                       <span className="material-symbols-outlined text-red-500 text-xl flex-shrink-0 mt-0.5">error</span>
@@ -242,6 +373,100 @@ export default function ContactUS() {
                         {Object.values(errors).map((err) => (
                           <p key={err} className="text-red-500 text-xs">{err}</p>
                         ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ── SELECTED PARTS SUMMARY BOX ────────────────────────── */}
+                  {flattenedParts.length > 0 && (
+                    <div className="mb-6 bg-[#f2f7fb] border-2 border-[#005691]/30 rounded-lg overflow-hidden">
+                      {/* Box Header */}
+                      <div className="bg-[#005691] px-5 py-3 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="material-symbols-outlined text-white text-lg">shopping_cart</span>
+                          <p className="text-white font-semibold text-sm">
+                            Selected Items ({totalItems} total)
+                          </p>
+                          {selectedCategory && (
+                            <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full">
+                              {selectedCategory}
+                            </span>
+                          )}
+                          <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold">
+                            {selectedCount} parts
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={handleClearSelectedParts}
+                          className="text-white/70 hover:text-white text-xs flex items-center gap-1 transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-sm">delete</span>
+                          Clear All
+                        </button>
+                      </div>
+
+                      {/* Parts List - Each brand shown as separate item */}
+                      <div className="px-4 py-3 max-h-56 overflow-y-auto">
+                        {flattenedParts.map((item, index) => (
+                          <div
+                            key={`${item.name}-${item.brand || 'no-brand'}-${index}`}
+                            className="flex items-center justify-between gap-3 bg-white border border-[#c5c6cd] rounded-md px-3 py-2 mb-2 hover:border-[#005691]/40 transition-colors"
+                          >
+                            <div className="flex items-center gap-3 min-w-0 flex-1">
+                              <span className="w-5 h-5 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
+                                {index + 1}
+                              </span>
+                              <div className="min-w-0 flex-1">
+                                <div className="text-sm font-medium text-gray-700 truncate">
+                                  {item.name}
+                                </div>
+                                <div className="flex items-center gap-2 flex-wrap text-[10px] text-gray-400">
+                                  <span className="font-mono">{item.partNo}</span>
+                                  <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                                  {item.brand ? (
+                                    <>
+                                      <span className="font-semibold text-[#005691]">Brand: {item.brand}</span>
+                                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                                      <span className="font-semibold text-green-600">✓ Selected</span>
+                                    </>
+                                  ) : (
+                                    <span className="text-gray-400">No brand specified</span>
+                                  )}
+                                  {item.moq && (
+                                    <>
+                                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                                      <span>MOQ: {item.moq}</span>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => handleRemovePart(item.name)}
+                              className="text-gray-400 hover:text-red-500 transition-colors flex-shrink-0"
+                              title="Remove item"
+                            >
+                              <span className="material-symbols-outlined text-base">close</span>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Box Footer */}
+                      <div className="bg-white px-4 py-3 border-t border-[#c5c6cd] flex items-center justify-between">
+                        <p className="text-[11px] text-[#505f76]">
+                          <strong>{selectedCount}</strong> part{selectedCount > 1 ? 's' : ''} · <strong>{totalItems}</strong> total items (brand-wise)
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => handleNavigate('Products')}
+                          className="bg-[#005691] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
+                        >
+                          <span className="material-symbols-outlined text-sm">add</span>
+                          Add More Products
+                        </button>
                       </div>
                     </div>
                   )}
@@ -311,6 +536,11 @@ export default function ContactUS() {
                   >
                     <span className="material-symbols-outlined text-sm">send</span>
                     Submit Inquiry
+                    {selectedCount > 0 && (
+                      <span className="bg-yellow-400 text-gray-800 text-xs font-bold px-2 py-0.5 rounded-full ml-1">
+                        {selectedCount} parts · {totalItems} items
+                      </span>
+                    )}
                   </button>
                   <p className="text-xs text-[#505f76] text-center mt-4">We respond within 24 business hours. Your information is kept strictly confidential.</p>
                 </div>
