@@ -980,18 +980,7 @@ function SelectionSummary({
           <span className="font-bold text-[#005691]">{totalItems}</span>
           <span className="text-gray-600 text-sm">total items</span>
         </div>
-        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 max-w-xs">
-          {selectedParts.map((part, idx) => {
-            if (part.selectedBrands && part.selectedBrands.length > 0) {
-              return (
-                <span key={idx} className="bg-gray-100 px-2 py-0.5 rounded">
-                  {part.name}: {part.selectedBrands.join(', ')}
-                </span>
-              )
-            }
-            return null
-          })}
-        </div>
+        {/* Removed selected items names display */}
         <div className="flex gap-3">
           <button
             onClick={onClearAll}
@@ -1026,23 +1015,8 @@ function ModernCategoryBox({
   onBrandToggle,
   onDropdownToggle
 }) {
-  const colors = [
-    { bg: 'from-blue-500 to-blue-600' },
-    { bg: 'from-purple-500 to-purple-600' },
-    { bg: 'from-green-500 to-green-600' },
-    { bg: 'from-red-500 to-red-600' },
-    { bg: 'from-yellow-500 to-yellow-600' },
-    { bg: 'from-pink-500 to-pink-600' },
-    { bg: 'from-indigo-500 to-indigo-600' },
-    { bg: 'from-teal-500 to-teal-600' },
-    { bg: 'from-orange-500 to-orange-600' },
-    { bg: 'from-cyan-500 to-cyan-600' },
-    { bg: 'from-rose-500 to-rose-600' },
-    { bg: 'from-emerald-500 to-emerald-600' },
-  ]
-  
-  const colorIndex = index % colors.length
-  const color = colors[colorIndex]
+  // All categories use the same color - website primary blue
+  const color = { bg: 'from-[#005691] to-[#0077be]' }
   
   const getCategoryEmoji = (cat) => {
     const emojis = {
@@ -1565,13 +1539,54 @@ export default function Products({ onNavigate }) {
       const newList = exists
         ? currentList.filter(p => p.name !== part.name)
         : [...currentList, { ...part, selectedBrands: [] }]
+      
+      // Save to localStorage immediately with tab-specific key
+      saveToStorage(newList, active)
+      
       return { ...prev, [active]: newList }
     })
   }
 
   const handleClearAllParts = () => {
-    setSelectedPartsByTab(prev => ({ ...prev, [active]: [] }))
-    setOpenDropdownPart(null)
+    setSelectedPartsByTab(prev => {
+      const updated = { ...prev, [active]: [] }
+      // Clear from storage for this specific tab
+      const storageKey = `selectedParts_${active}`
+      localStorage.removeItem(storageKey)
+      localStorage.removeItem(`productCategory_${active}`)
+      sessionStorage.removeItem(storageKey)
+      sessionStorage.removeItem(`productCategory_${active}`)
+      setOpenDropdownPart(null)
+      window.dispatchEvent(new Event('selectedPartsUpdated'))
+      return updated
+    })
+  }
+
+  // Save to storage function with tab-specific keys
+  const saveToStorage = (parts, tabId) => {
+    const storageKey = `selectedParts_${tabId}`
+    const categoryKey = `productCategory_${tabId}`
+    
+    if (parts && parts.length > 0) {
+      const category = tabId === 'motorcycle' ? 'Motorcycle Parts & Accessories' : 
+                      tabId === 'e-bike' ? 'E-Bike Parts & Components' : 
+                      'Industrial Sealing Solutions'
+      
+      localStorage.setItem(storageKey, JSON.stringify(parts))
+      localStorage.setItem(categoryKey, category)
+      sessionStorage.setItem(storageKey, JSON.stringify(parts))
+      sessionStorage.setItem(categoryKey, category)
+      
+      console.log(`💾 [Products] Saved to storage for ${tabId}:`, parts.length, 'parts')
+    } else {
+      // If no parts, clear storage for this tab
+      localStorage.removeItem(storageKey)
+      localStorage.removeItem(categoryKey)
+      sessionStorage.removeItem(storageKey)
+      sessionStorage.removeItem(categoryKey)
+      console.log(`💾 [Products] Cleared storage for ${tabId}`)
+    }
+    window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
 
   const handleOpenConfirmModal = () => {
@@ -1605,12 +1620,13 @@ export default function Products({ onNavigate }) {
                   'Industrial Sealing Solutions'
       }
       
-      localStorage.setItem('selectedParts', JSON.stringify(currentParts))
-      localStorage.setItem('selectedBrandsByCategory', JSON.stringify({}))
-      localStorage.setItem('productCategory', orderData.category)
-      sessionStorage.setItem('selectedParts', JSON.stringify(currentParts))
-      sessionStorage.setItem('selectedBrandsByCategory', JSON.stringify({}))
-      sessionStorage.setItem('productCategory', orderData.category)
+      // Save to storage with tab-specific keys
+      const storageKey = `selectedParts_${active}`
+      const categoryKey = `productCategory_${active}`
+      localStorage.setItem(storageKey, JSON.stringify(currentParts))
+      localStorage.setItem(categoryKey, orderData.category)
+      sessionStorage.setItem(storageKey, JSON.stringify(currentParts))
+      sessionStorage.setItem(categoryKey, orderData.category)
       
       console.log('✅ Order Data:', orderData)
       window.dispatchEvent(new Event('selectedPartsUpdated'))
@@ -1621,10 +1637,12 @@ export default function Products({ onNavigate }) {
   }
 
   const handleUpdateSelection = (updatedParts) => {
-    setSelectedPartsByTab(prev => ({
-      ...prev,
-      [active]: updatedParts
-    }))
+    setSelectedPartsByTab(prev => {
+      const result = { ...prev, [active]: updatedParts }
+      // Save to storage with tab-specific key
+      saveToStorage(updatedParts, active)
+      return result
+    })
   }
 
   const handleBrandToggle = (part, brandOrBrands) => {
@@ -1657,6 +1675,9 @@ export default function Products({ onNavigate }) {
         return p
       })
 
+      // Save to storage with tab-specific key
+      saveToStorage(updatedList, active)
+      
       return { ...prev, [active]: updatedList }
     })
   }
@@ -1691,14 +1712,13 @@ export default function Products({ onNavigate }) {
     return totalItems
   }
 
-  // NEW: Function to open confirm modal from permanent button
+  // Function to open confirm modal from permanent button
   const handleOpenConfirmModalFromButton = () => {
     const currentParts = selectedPartsByTab[active] || []
     const hasBrands = currentParts.some(p => p.selectedBrands && p.selectedBrands.length > 0)
     if (currentParts.length > 0 && hasBrands) {
       setShowConfirmModal(true)
     } else {
-      // Show a toast or alert if no items selected
       alert('Please select at least one part with brands before confirming your order.')
     }
   }
@@ -1717,6 +1737,30 @@ export default function Products({ onNavigate }) {
 
   const totalSelectedItems = getTotalSelectedItems()
   const hasSelection = totalSelectedItems > 0
+
+  // Load selected parts from storage when component mounts or tab changes
+  useEffect(() => {
+    const loadFromStorage = () => {
+      try {
+        const storageKey = `selectedParts_${active}`
+        const storedParts = localStorage.getItem(storageKey) || sessionStorage.getItem(storageKey)
+        if (storedParts) {
+          const parsed = JSON.parse(storedParts)
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setSelectedPartsByTab(prev => ({
+              ...prev,
+              [active]: parsed
+            }))
+            console.log(`📥 [Products] Loaded from storage for ${active}:`, parsed.length, 'parts')
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load parts from storage:', err)
+      }
+    }
+    
+    loadFromStorage()
+  }, [active])
 
   return (
     <div className="bg-[#f7f9fb] min-h-screen">

@@ -107,44 +107,154 @@ export default function ContactUS({ onNavigate }) {
     country: '', product: '', quantity: '', message: ''
   })
   const [submitted, setSubmitted] = useState(false)
-  const [errors, setErrors]       = useState({})
+  const [errors, setErrors] = useState({})
 
   // ── SELECTED PARTS FROM PRODUCTS PAGE ─────────────────────────
   const [selectedParts, setSelectedParts] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('')
-  const [selectedBrandsByCategory, setSelectedBrandsByCategory] = useState({})
+  const [motorcycleItems, setMotorcycleItems] = useState([])
+  const [ebikeItems, setEbikeItems] = useState([])
+  const [motorcycleCount, setMotorcycleCount] = useState(0)
+  const [ebikeCount, setEbikeCount] = useState(0)
+  const [totalItems, setTotalItems] = useState(0)
 
   const loadSelectedParts = () => {
     console.log('🔍 [ContactUs] loadSelectedParts() running...')
     try {
-      const storedParts = localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
-      const storedCategory = localStorage.getItem('productCategory') || sessionStorage.getItem('productCategory')
-      const storedBrands = localStorage.getItem('selectedBrandsByCategory') || sessionStorage.getItem('selectedBrandsByCategory')
+      let allParts = []
+      let storedCategory = 'Selected Items'
       
-      console.log('🔍 [ContactUs] raw storedParts:', storedParts)
-      console.log('🔍 [ContactUs] raw storedBrands:', storedBrands)
-
-      if (storedParts) {
-        const parsed = JSON.parse(storedParts)
-        console.log('🔍 [ContactUs] parsed parts:', parsed, 'isArray:', Array.isArray(parsed))
-        if (Array.isArray(parsed)) {
-          setSelectedParts(parsed)
-          console.log('🔍 [ContactUs] setSelectedParts called with', parsed.length, 'items')
+      // Try to load from tab-specific keys first (new format)
+      const motorcycleKey = 'selectedParts_motorcycle'
+      const ebikeKey = 'selectedParts_e-bike'
+      const motorcycleCategoryKey = 'productCategory_motorcycle'
+      const ebikeCategoryKey = 'productCategory_e-bike'
+      
+      const motorcycleData = localStorage.getItem(motorcycleKey) || sessionStorage.getItem(motorcycleKey)
+      const ebikeData = localStorage.getItem(ebikeKey) || sessionStorage.getItem(ebikeKey)
+      
+      console.log('🔍 [ContactUs] Motorcycle data:', motorcycleData)
+      console.log('🔍 [ContactUs] E-Bike data:', ebikeData)
+      
+      // Load motorcycle parts
+      if (motorcycleData) {
+        const parsed = JSON.parse(motorcycleData)
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          allParts = [...allParts, ...parsed]
+          storedCategory = localStorage.getItem(motorcycleCategoryKey) || sessionStorage.getItem(motorcycleCategoryKey) || 'Motorcycle Parts'
+          console.log('✅ [ContactUs] Loaded motorcycle parts:', parsed.length)
         }
-      } else {
-        console.log('🔍 [ContactUs] no storedParts found, clearing state')
-        setSelectedParts([])
       }
       
-      if (storedBrands) {
-        const parsedBrands = JSON.parse(storedBrands)
-        setSelectedBrandsByCategory(parsedBrands)
-        console.log('🔍 [ContactUs] setSelectedBrandsByCategory called with', parsedBrands)
+      // Load e-bike parts
+      if (ebikeData) {
+        const parsed = JSON.parse(ebikeData)
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          allParts = [...allParts, ...parsed]
+          if (!storedCategory || storedCategory === 'Selected Items') {
+            storedCategory = localStorage.getItem(ebikeCategoryKey) || sessionStorage.getItem(ebikeCategoryKey) || 'E-Bike Parts'
+          } else {
+            storedCategory = 'Motorcycle & E-Bike Parts'
+          }
+          console.log('✅ [ContactUs] Loaded e-bike parts:', parsed.length)
+        }
       }
       
-      if (storedCategory) {
+      // If no tab-specific data, try old format
+      if (allParts.length === 0) {
+        const oldData = localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
+        if (oldData) {
+          const parsed = JSON.parse(oldData)
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allParts = parsed
+            storedCategory = localStorage.getItem('productCategory') || sessionStorage.getItem('productCategory') || 'Selected Items'
+            console.log('✅ [ContactUs] Loaded from old format:', parsed.length)
+          }
+        }
+      }
+      
+      console.log('📦 [ContactUs] Total parts loaded:', allParts.length)
+      
+      if (allParts.length > 0) {
+        setSelectedParts(allParts)
         setSelectedCategory(storedCategory)
         setForm((prev) => ({ ...prev, product: storedCategory }))
+        
+        // Separate motorcycle and e-bike items based on category
+        const motorcycle = allParts.filter(p => p.category && (
+          p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' || 
+          p.category === 'Fuel System' || p.category === 'Air Intake System' ||
+          p.category === 'Exhaust System' || p.category === 'Cooling System' ||
+          p.category === 'Brake System' || p.category === 'Suspension & Steering' ||
+          p.category === 'Wheels & Tires' || p.category === 'Chain Drive' ||
+          p.category === 'Electrical Parts' || p.category === 'Lighting' ||
+          p.category === 'Controls' || p.category === 'Body Parts' ||
+          p.category === 'Rubber & Sealing Components' || p.category === 'Accessories'
+        ))
+        
+        const ebike = allParts.filter(p => p.category && (
+          p.category === 'Electric Drive System' || p.category === 'Battery System' ||
+          p.category === 'Electrical Components' || p.category === 'Drivetrain' ||
+          p.category === 'Suspension & Steering' || p.category === 'Frame & Body Parts' ||
+          p.category === 'Lighting & Safety' || p.category === 'Fasteners & Hardware' ||
+          p.category === 'E-Bike Accessories'
+        ))
+        
+        // Also catch any that might have been mis-categorized
+        const remaining = allParts.filter(p => 
+          !motorcycle.includes(p) && !ebike.includes(p)
+        )
+        
+        // If there are remaining items, try to guess their category
+        remaining.forEach(p => {
+          if (p.category && p.category.includes('Motorcycle')) {
+            motorcycle.push(p)
+          } else if (p.category && p.category.includes('E-Bike')) {
+            ebike.push(p)
+          } else {
+            motorcycle.push(p)
+          }
+        })
+        
+        setMotorcycleItems(motorcycle)
+        setEbikeItems(ebike)
+        
+        // Calculate counts
+        let mCount = 0
+        motorcycle.forEach(part => {
+          if (part.selectedBrands && part.selectedBrands.length > 0) {
+            mCount += part.selectedBrands.length
+          }
+        })
+        setMotorcycleCount(mCount)
+        
+        let eCount = 0
+        ebike.forEach(part => {
+          if (part.selectedBrands && part.selectedBrands.length > 0) {
+            eCount += part.selectedBrands.length
+          }
+        })
+        setEbikeCount(eCount)
+        
+        // Calculate total items
+        let count = 0
+        allParts.forEach(part => {
+          if (part.selectedBrands && part.selectedBrands.length > 0) {
+            count += part.selectedBrands.length
+          }
+        })
+        setTotalItems(count)
+        
+        console.log('✅ [ContactUs] Loaded:', allParts.length, 'parts,', count, 'total items')
+      } else {
+        console.log('⚠️ [ContactUs] No parts found')
+        setSelectedParts([])
+        setSelectedCategory('')
+        setMotorcycleItems([])
+        setEbikeItems([])
+        setMotorcycleCount(0)
+        setEbikeCount(0)
+        setTotalItems(0)
       }
     } catch (err) {
       console.error('Failed to load selected parts:', err)
@@ -164,31 +274,141 @@ export default function ContactUS({ onNavigate }) {
     }
   }, [])
 
-  // ── TOGGLE INDIVIDUAL PART SELECTION ──────────────────────────
-  const togglePartSelection = (partName) => {
-    const updated = selectedParts.map(p => 
-      p.name === partName ? { ...p, selected: !p.selected } : p
-    )
-    setSelectedParts(updated)
-    localStorage.setItem('selectedParts', JSON.stringify(updated))
-    sessionStorage.setItem('selectedParts', JSON.stringify(updated))
-  }
-
-  const handleRemovePart = (partName) => {
-    const updated = selectedParts.filter((p) => p.name !== partName)
-    setSelectedParts(updated)
-    localStorage.setItem('selectedParts', JSON.stringify(updated))
-    sessionStorage.setItem('selectedParts', JSON.stringify(updated))
+  // ── HANDLE REMOVE SPECIFIC BRAND FROM A PART ──────────────────
+  const handleRemoveBrandFromPart = (partName, brandToRemove) => {
+    console.log('🗑️ [ContactUs] Removing brand:', brandToRemove, 'from part:', partName)
+    
+    // Find the part
+    const partIndex = selectedParts.findIndex(p => p.name === partName)
+    if (partIndex === -1) {
+      console.log('⚠️ [ContactUs] Part not found:', partName)
+      return
+    }
+    
+    const part = selectedParts[partIndex]
+    const currentBrands = part.selectedBrands || []
+    
+    // Check if the brand exists
+    if (!currentBrands.includes(brandToRemove)) {
+      console.log('⚠️ [ContactUs] Brand not found in part:', brandToRemove)
+      return
+    }
+    
+    // Remove the specific brand
+    const updatedBrands = currentBrands.filter(b => b !== brandToRemove)
+    
+    // Create updated part
+    const updatedPart = { ...part, selectedBrands: updatedBrands }
+    
+    // Update the main parts list
+    let updatedParts = [...selectedParts]
+    updatedParts[partIndex] = updatedPart
+    
+    // If no brands left, remove the part entirely
+    if (updatedBrands.length === 0) {
+      updatedParts = updatedParts.filter(p => p.name !== partName)
+    }
+    
+    setSelectedParts(updatedParts)
+    
+    // Update segmented lists
+    const updatedMotorcycle = updatedParts.filter(p => p.category && (
+      p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' || 
+      p.category === 'Fuel System' || p.category === 'Air Intake System' ||
+      p.category === 'Exhaust System' || p.category === 'Cooling System' ||
+      p.category === 'Brake System' || p.category === 'Suspension & Steering' ||
+      p.category === 'Wheels & Tires' || p.category === 'Chain Drive' ||
+      p.category === 'Electrical Parts' || p.category === 'Lighting' ||
+      p.category === 'Controls' || p.category === 'Body Parts' ||
+      p.category === 'Rubber & Sealing Components' || p.category === 'Accessories'
+    ))
+    
+    const updatedEbike = updatedParts.filter(p => p.category && (
+      p.category === 'Electric Drive System' || p.category === 'Battery System' ||
+      p.category === 'Electrical Components' || p.category === 'Drivetrain' ||
+      p.category === 'Suspension & Steering' || p.category === 'Frame & Body Parts' ||
+      p.category === 'Lighting & Safety' || p.category === 'Fasteners & Hardware' ||
+      p.category === 'E-Bike Accessories'
+    ))
+    
+    setMotorcycleItems(updatedMotorcycle)
+    setEbikeItems(updatedEbike)
+    
+    // Recalculate counts
+    let mCount = 0
+    updatedMotorcycle.forEach(p => {
+      if (p.selectedBrands && p.selectedBrands.length > 0) {
+        mCount += p.selectedBrands.length
+      }
+    })
+    setMotorcycleCount(mCount)
+    
+    let eCount = 0
+    updatedEbike.forEach(p => {
+      if (p.selectedBrands && p.selectedBrands.length > 0) {
+        eCount += p.selectedBrands.length
+      }
+    })
+    setEbikeCount(eCount)
+    
+    let count = 0
+    updatedParts.forEach(p => {
+      if (p.selectedBrands && p.selectedBrands.length > 0) {
+        count += p.selectedBrands.length
+      }
+    })
+    setTotalItems(count)
+    
+    // Save to storage
+    const isMotorcycle = motorcycleItems.some(p => p.name === partName)
+    const isEbike = ebikeItems.some(p => p.name === partName)
+    
+    if (isMotorcycle) {
+      const motorParts = updatedParts.filter(p => 
+        updatedMotorcycle.some(m => m.name === p.name)
+      )
+      localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
+      sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
+    } else if (isEbike) {
+      const ebikeParts = updatedParts.filter(p => 
+        updatedEbike.some(e => e.name === p.name)
+      )
+      localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
+      sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
+    }
+    
+    // Also update the old format for backward compatibility
+    localStorage.setItem('selectedParts', JSON.stringify(updatedParts))
+    sessionStorage.setItem('selectedParts', JSON.stringify(updatedParts))
+    
+    // Dispatch event to notify other components
+    window.dispatchEvent(new Event('selectedPartsUpdated'))
+    
+    console.log('✅ [ContactUs] Brand removed successfully')
   }
 
   const handleClearSelectedParts = () => {
     setSelectedParts([])
+    setMotorcycleItems([])
+    setEbikeItems([])
+    setMotorcycleCount(0)
+    setEbikeCount(0)
+    setTotalItems(0)
     localStorage.removeItem('selectedParts')
+    localStorage.removeItem('selectedParts_motorcycle')
+    localStorage.removeItem('selectedParts_e-bike')
     localStorage.removeItem('productCategory')
+    localStorage.removeItem('productCategory_motorcycle')
+    localStorage.removeItem('productCategory_e-bike')
     localStorage.removeItem('selectedBrandsByCategory')
     sessionStorage.removeItem('selectedParts')
+    sessionStorage.removeItem('selectedParts_motorcycle')
+    sessionStorage.removeItem('selectedParts_e-bike')
     sessionStorage.removeItem('productCategory')
+    sessionStorage.removeItem('productCategory_motorcycle')
+    sessionStorage.removeItem('productCategory_e-bike')
     sessionStorage.removeItem('selectedBrandsByCategory')
+    window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
 
   // ── NAVIGATE BACK TO PRODUCTS ──────────────────────────────────
@@ -228,28 +448,25 @@ export default function ContactUS({ onNavigate }) {
     handleClearSelectedParts()
   }
 
-  // ── BUILD FLATTENED LIST WITH BRANDS ──────────────────────────
-  const getFlattenedPartsWithBrands = () => {
+  // Get flattened parts with brands for a specific category
+  const getFlattenedPartsForCategory = (parts) => {
     const flattened = []
-    selectedParts.forEach(part => {
-      // Skip if part is deselected
-      if (part.selected === false) return
-      
+    parts.forEach(part => {
       const brands = part.selectedBrands || []
-      // If no brands selected, add the part without brand
       if (brands.length === 0) {
         flattened.push({
           ...part,
           brand: null,
-          displayName: part.name
+          displayName: part.name,
+          uniqueId: `${part.name}-no-brand`
         })
       } else {
-        // For each brand, create a separate line item
         brands.forEach(brand => {
           flattened.push({
             ...part,
             brand: brand,
-            displayName: `${part.name} (${brand})`
+            displayName: `${part.name} (${brand})`,
+            uniqueId: `${part.name}-${brand}`
           })
         })
       }
@@ -257,13 +474,61 @@ export default function ContactUS({ onNavigate }) {
     return flattened
   }
 
-  const flattenedParts = getFlattenedPartsWithBrands()
-  const totalItems = flattenedParts.length
+  const flattenedMotorcycle = getFlattenedPartsForCategory(motorcycleItems)
+  const flattenedEbike = getFlattenedPartsForCategory(ebikeItems)
 
-  // Count selected items (checked)
-  const selectedCount = selectedParts.filter(p => p.selected !== false).length
-
-  console.log('🔍 [ContactUs] RENDER — selectedParts.length =', selectedParts.length, 'flattenedParts =', flattenedParts.length)
+  // Render a segment of items with colored header
+  const renderSegment = (title, items, icon, count, bgColor, textColor, borderColor) => {
+    if (items.length === 0) return null
+    
+    return (
+      <div className="mb-4">
+        <div className={`flex items-center gap-2 mb-2 px-3 py-2 rounded-lg ${bgColor} border ${borderColor}`}>
+          <span className="text-lg">{icon}</span>
+          <h3 className={`font-semibold ${textColor} text-sm`}>{title}</h3>
+          <span className={`text-xs px-2 py-0.5 rounded-full ${bgColor} ${textColor} border ${borderColor} ml-auto`}>
+            {count} items
+          </span>
+        </div>
+        <div className="space-y-1">
+          {items.map((item, idx) => (
+            <div key={item.uniqueId || `${item.name}-${item.brand || 'no-brand'}-${idx}`} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2 bg-gray-50/50 border-b border-gray-100">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="w-6 h-6 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
+                    {idx + 1}
+                  </span>
+                  <span className="text-sm font-medium text-gray-800">{item.name}</span>
+                  <span className="text-xs text-gray-400 font-mono">{item.partNo}</span>
+                  {item.brand && (
+                    <span className="text-xs bg-[#005691]/10 text-[#005691] px-2 py-0.5 rounded-full font-medium">
+                      {item.brand}
+                    </span>
+                  )}
+                </div>
+                <button
+                  onClick={() => handleRemoveBrandFromPart(item.name, item.brand)}
+                  className="text-gray-400 hover:text-red-500 transition-all p-1"
+                  title="Remove this item"
+                >
+                  <span className="material-symbols-outlined text-sm">delete</span>
+                </button>
+              </div>
+              <div className="px-4 py-2 flex items-center gap-4 text-xs text-gray-400">
+                <span>MOQ: {item.moq || 'N/A'}</span>
+                {item.brand && (
+                  <span className="text-green-600 font-medium">✓ Brand selected</span>
+                )}
+                {item.category && (
+                  <span className="text-blue-600">Category: {item.category}</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
@@ -349,7 +614,7 @@ export default function ContactUS({ onNavigate }) {
                 </p>
                 {selectedParts.length > 0 && (
                   <p className="text-sm text-[#505f76] mt-2">
-                    <strong>{selectedCount}</strong> part{selectedCount > 1 ? 's' : ''} with <strong>{totalItems}</strong> total items included in your inquiry.
+                    <strong>{selectedParts.length}</strong> part{selectedParts.length > 1 ? 's' : ''} with <strong>{totalItems}</strong> total items included in your inquiry.
                   </p>
                 )}
                 <button
@@ -378,22 +643,17 @@ export default function ContactUS({ onNavigate }) {
                   )}
 
                   {/* ── SELECTED PARTS SUMMARY BOX ────────────────────────── */}
-                  {flattenedParts.length > 0 && (
+                  {(flattenedMotorcycle.length > 0 || flattenedEbike.length > 0) && (
                     <div className="mb-6 bg-[#f2f7fb] border-2 border-[#005691]/30 rounded-lg overflow-hidden">
                       {/* Box Header */}
-                      <div className="bg-[#005691] px-5 py-3 flex items-center justify-between">
+                      <div className="bg-gradient-to-r from-[#005691] to-[#0077be] px-5 py-3 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="material-symbols-outlined text-white text-lg">shopping_cart</span>
                           <p className="text-white font-semibold text-sm">
-                            Selected Items ({totalItems} total)
+                            Order Summary - {selectedCategory || 'Selected Items'} ({totalItems} total)
                           </p>
-                          {selectedCategory && (
-                            <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full">
-                              {selectedCategory}
-                            </span>
-                          )}
                           <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold">
-                            {selectedCount} parts
+                            {selectedParts.length} parts
                           </span>
                         </div>
                         <button
@@ -406,58 +666,42 @@ export default function ContactUS({ onNavigate }) {
                         </button>
                       </div>
 
-                      {/* Parts List - Each brand shown as separate item */}
-                      <div className="px-4 py-3 max-h-56 overflow-y-auto">
-                        {flattenedParts.map((item, index) => (
-                          <div
-                            key={`${item.name}-${item.brand || 'no-brand'}-${index}`}
-                            className="flex items-center justify-between gap-3 bg-white border border-[#c5c6cd] rounded-md px-3 py-2 mb-2 hover:border-[#005691]/40 transition-colors"
-                          >
-                            <div className="flex items-center gap-3 min-w-0 flex-1">
-                              <span className="w-5 h-5 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
-                                {index + 1}
-                              </span>
-                              <div className="min-w-0 flex-1">
-                                <div className="text-sm font-medium text-gray-700 truncate">
-                                  {item.name}
-                                </div>
-                                <div className="flex items-center gap-2 flex-wrap text-[10px] text-gray-400">
-                                  <span className="font-mono">{item.partNo}</span>
-                                  <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-                                  {item.brand ? (
-                                    <>
-                                      <span className="font-semibold text-[#005691]">Brand: {item.brand}</span>
-                                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-                                      <span className="font-semibold text-green-600">✓ Selected</span>
-                                    </>
-                                  ) : (
-                                    <span className="text-gray-400">No brand specified</span>
-                                  )}
-                                  {item.moq && (
-                                    <>
-                                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-                                      <span>MOQ: {item.moq}</span>
-                                    </>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => handleRemovePart(item.name)}
-                              className="text-gray-400 hover:text-red-500 transition-colors flex-shrink-0"
-                              title="Remove item"
-                            >
-                              <span className="material-symbols-outlined text-base">close</span>
-                            </button>
-                          </div>
-                        ))}
+                      {/* Parts List - Segmented */}
+                      <div className="px-4 py-3 max-h-64 overflow-y-auto">
+                        {/* Motorcycle Segment - Orange Theme */}
+                        {renderSegment(
+                          'Motorcycle Parts',
+                          flattenedMotorcycle,
+                          '🏍️',
+                          motorcycleCount,
+                          'bg-orange-50',
+                          'text-orange-700',
+                          'border-orange-200'
+                        )}
+                        
+                        {/* E-Bike Segment - Green Theme */}
+                        {renderSegment(
+                          'E-Bike Parts',
+                          flattenedEbike,
+                          '⚡',
+                          ebikeCount,
+                          'bg-emerald-50',
+                          'text-emerald-700',
+                          'border-emerald-200'
+                        )}
                       </div>
 
                       {/* Box Footer */}
                       <div className="bg-white px-4 py-3 border-t border-[#c5c6cd] flex items-center justify-between">
                         <p className="text-[11px] text-[#505f76]">
-                          <strong>{selectedCount}</strong> part{selectedCount > 1 ? 's' : ''} · <strong>{totalItems}</strong> total items (brand-wise)
+                          <strong>{selectedParts.length}</strong> part{selectedParts.length > 1 ? 's' : ''} · <strong>{totalItems}</strong> total items (brand-wise)
+                          {motorcycleCount > 0 && (
+                            <span className="ml-2">🏍️ <span className="font-semibold text-orange-600">{motorcycleCount}</span></span>
+                          )}
+                          {motorcycleCount > 0 && ebikeCount > 0 && <span className="mx-1">·</span>}
+                          {ebikeCount > 0 && (
+                            <span className="ml-1">⚡ <span className="font-semibold text-emerald-600">{ebikeCount}</span></span>
+                          )}
                         </p>
                         <button
                           type="button"
@@ -536,9 +780,9 @@ export default function ContactUS({ onNavigate }) {
                   >
                     <span className="material-symbols-outlined text-sm">send</span>
                     Submit Inquiry
-                    {selectedCount > 0 && (
+                    {selectedParts.length > 0 && (
                       <span className="bg-yellow-400 text-gray-800 text-xs font-bold px-2 py-0.5 rounded-full ml-1">
-                        {selectedCount} parts · {totalItems} items
+                        {selectedParts.length} parts · {totalItems} items
                       </span>
                     )}
                   </button>
