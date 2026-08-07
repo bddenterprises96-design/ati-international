@@ -67,7 +67,8 @@ const MOTORCYCLE_PARTS = {
   'Transmission & Clutch': [
     'Clutch Plates', 'Clutch Friction Plates', 'Clutch Basket', 'Clutch Hub',
     'Clutch Springs', 'Clutch Cable', 'Gear Shift Drum', 'Gear Shift Fork',
-    'Transmission Gears', 'Drive Shaft', 'Counter Shaft', 'Kick Starter'
+    'Transmission Gears', 'Drive Shaft', 'Counter Shaft', 'Kick Starter',
+    'Gear Lever'
   ],
   'Fuel System': [
     'Fuel Tank', 'Fuel Pump', 'Carburetor', 'Fuel Injector', 'Throttle Body',
@@ -86,7 +87,7 @@ const MOTORCYCLE_PARTS = {
   ],
   'Brake System': [
     'Brake Disc (Rotor)', 'Brake Drum', 'Brake Pads', 'Brake Shoes',
-    'Brake Caliper', 'Brake Master Cylinder', 'Brake Pedal',
+    'Brake Caliper', 'Brake Master Cylinder', 'Brake Lever', 'Brake Pedal',
     'Brake Hose', 'Brake Fluid Reservoir'
   ],
   'Suspension & Steering': [
@@ -112,18 +113,18 @@ const MOTORCYCLE_PARTS = {
   ],
   'Controls': [
     'Handlebar', 'Handle Grips', 'Throttle Grip', 'Brake Lever',
-    'Clutch Lever', 'Foot Peg', 'Side Stand', 'Center Stand', 'Mirrors',
-    'Gear Lever'
+    'Clutch Lever', 'Foot Peg', 'Side Stand', 'Center Stand', 'Mirrors'
   ],
   'Body Parts': [
     'Fuel Tank Cover', 'Front Fender', 'Rear Fender', 'Side Covers',
     'Fairings', 'Seat', 'Seat Cover', 'Rear Carrier', 'Chain Cover'
   ],
   'Rubber & Sealing Components': [
+    'Oil Seals', 'Valve Stem Seals', 'O-Rings', 'Gaskets',
     'Rubber Bushes', 'Dust Seals', 'Rubber Mounts', 'Rubber Grommets',
     'Rubber Dampers'
   ],
-  'Accessories': [
+  'Motorcycle Accessories': [
     'Phone Holder', 'USB Charger', 'Top Box', 'Side Box', 'Crash Guard',
     'Engine Guard', 'Windshield', 'Luggage Rack', 'LED Auxiliary Lights',
     'Helmet Lock', 'Hand Guards', 'Tank Pad', 'Frame Sliders'
@@ -190,6 +191,110 @@ const EBIKE_PARTS = {
   ]
 }
 
+// ── BRAND MODELS DATA ─────────────────────────────────────────────
+const BRAND_MODELS = {
+  'Honda': [
+    'CBR125R', 'CBR250R', 'CBR300R', 'CBR500R', 'CBR600RR', 'CBR650R', 'CBR1000RR-R Fireblade',
+    'CB125R', 'CB300R', 'CB500F', 'CB650R', 'CB750 Hornet', 'CB1000 Hornet',
+    'CRF300L', 'CRF300 Rally', 'CRF1100L Africa Twin', 'Africa Twin Adventure Sports', 'NC750X', 'XL750 Transalp',
+    'Rebel 300', 'Rebel 500', 'Rebel 1100', 'Gold Wing',
+    'CG125', 'CG150', 'CG160', 'CB125F', 'CB150F', 'CB190R', 'CB200X', 'CB250F', 'CB Shine', 'CB Unicorn', 'SP125'
+  ],
+  'Yamaha': [
+    'YZF-R1', 'YZF-R7', 'YZF-R6', 'YZF-R3', 'YZF-R25', 'YZF-R15',
+    'MT-125', 'MT-15', 'MT-03', 'MT-07', 'MT-09', 'MT-10',
+    'Tenere 700', 'Tenere 700 World Raid', 'Tracer 7', 'Tracer 9', 'Super Tenere',
+    'WR250F', 'WR450F', 'YZ125', 'YZ250', 'YZ250F', 'YZ450F',
+    'FZ', 'FZS', 'SZ-RR', 'XSR125', 'XSR700', 'XSR900'
+  ],
+  'Kawasaki': [
+    'Ninja 125', 'Ninja 250', 'Ninja 300', 'Ninja 400', 'Ninja 500', 'Ninja 650', 'Ninja 1000SX', 'Ninja ZX-4R', 'Ninja ZX-6R', 'Ninja ZX-10R', 'Ninja H2',
+    'Z125', 'Z250', 'Z400', 'Z500', 'Z650', 'Z900', 'Z H2',
+    'Versys-X 300', 'Versys 650', 'Versys 1000', 'KLE500',
+    'Eliminator', 'Vulcan S', 'Vulcan 900', 'Vulcan 1700',
+    'KLR650', 'KLX230', 'KLX250', 'KLX300', 'KLX450R', 'KX65', 'KX85', 'KX112', 'KX250', 'KX450'
+  ],
+  'Suzuki': [
+    'GSX-R125', 'GSX-R600', 'GSX-R750', 'GSX-R1000', 'GSX-8R', 'Hayabusa',
+    'GSX-S125', 'GSX-S750', 'GSX-S1000', 'GSX-8S',
+    'V-Strom 250', 'V-Strom 650', 'V-Strom 800', 'V-Strom 1050',
+    'Boulevard C50', 'Boulevard M109R',
+    'DR-Z400', 'DR650S', 'DR-Z4S'
+  ],
+  'Harley-Davidson': [
+    'Sportster S', 'Nightster',
+    'Street Bob', 'Low Rider S', 'Low Rider ST', 'Fat Boy', 'Heritage Classic', 'Breakout',
+    'Street Glide', 'Road Glide', 'Road Glide Limited', 'Street Glide Limited',
+    'Pan America 1250', 'Pan America 1250 Special',
+    'Freewheeler', 'Road Glide 3'
+  ],
+  'BMW': [
+    'R 1250 GS', 'R 1300 GS', 'R 1300 GS Adventure', 'R 1300 R', 'R 1300 RS', 'R 1300 RT', 'R 18', 'R 18 Classic', 'R 18 Transcontinental',
+    'S 1000 RR', 'S 1000 R', 'S 1000 XR',
+    'M 1000 RR', 'M 1000 R', 'M 1000 XR',
+    'F 450 GS', 'F 700 GS', 'F 750 GS', 'F 800 GS', 'F 850 GS', 'F 900 GS', 'F 900 XR', 'F 900 R',
+    'G 310 R', 'G 310 GS', 'G 310 RR'
+  ],
+  'Ducati': [
+    'Panigale V2', 'Panigale V4', 'Panigale V4 R',
+    'Monster', 'Monster SP',
+    'Multistrada V2', 'Multistrada V4', 'Multistrada V4 Rally', 'Multistrada V4 Pikes Peak',
+    'Streetfighter V2', 'Streetfighter V4', 'Streetfighter V4 SP',
+    'Scrambler Icon', 'Scrambler Full Throttle', 'Scrambler Nightshift', 'Scrambler 1100',
+    'Diavel V4', 'XDiavel',
+    'DesertX', 'DesertX Rally'
+  ],
+  'Triumph': [
+    'Bonneville T100', 'Bonneville T120', 'Bonneville Bobber', 'Speedmaster', 'Speed Twin 900', 'Speed Twin 1200', 'Scrambler 900', 'Scrambler 1200',
+    'Trident 660', 'Speed Triple 1200', 'Street Triple 765',
+    'Tiger Sport 660', 'Tiger 900', 'Tiger 1200', 'Tiger 1200 GT', 'Tiger 1200 Rally Pro',
+    'Daytona 660', 'Daytona 765',
+    'Speed 400', 'Scrambler 400 X', 'Scrambler 400 XC', 'Thruxton 400', 'Tracker 400'
+  ],
+  'KTM': [
+    '125 Duke', '200 Duke', '250 Duke', '390 Duke', '790 Duke', '890 Duke', '990 Duke', '1390 Super Duke R',
+    'RC 125', 'RC 200', 'RC 390', 'RC 8C',
+    '390 Adventure', '790 Adventure', '890 Adventure', '1290 Super Adventure', '1390 Super Adventure',
+    '125 EXC', '250 EXC', '300 EXC', '350 EXC-F', '450 EXC-F', '500 EXC-F'
+  ],
+  'Royal Enfield': [
+    'Bullet 350', 'Bullet 650', 'Classic 350', 'Classic 650', 'Hunter 350', 'Meteor 350',
+    'Guerrilla 450', 'Himalayan 450', 'Scram 440', 'Goan Classic 350',
+    'Super Meteor 650', 'Shotgun 650', 'Bear 650', 'Interceptor 650', 'Continental GT 650'
+  ],
+  'Bajaj': [
+    'Pulsar 125', 'Pulsar 150', 'Pulsar 160 NS', 'Pulsar N160', 'Pulsar N250', 'Pulsar NS200', 'Pulsar NS400Z', 'Pulsar RS200', 'Pulsar 220F',
+    'Dominar 250', 'Dominar 400',
+    'Avenger 160', 'Avenger 220',
+    'Platina 100', 'Platina 110', 'CT100', 'CT110', 'Discover 100', 'Discover 125'
+  ],
+  'TVS': [
+    'Apache RTR 160', 'Apache RTR 160 4V', 'Apache RTR 180', 'Apache RTR 200 4V', 'Apache RTR 310', 'Apache RR 310', 'Apache RTX',
+    'Raider 125', 'Ronin 225', 'Radeon', 'Sport', 'Star City+'
+  ],
+  'Hero': [
+    'Splendor+', 'Splendor+ XTEC', 'Splendor+ XTEC 2.0',
+    'HF Deluxe', 'HF 100',
+    'Glamour', 'Glamour X',
+    'Xtreme 125R', 'Xtreme 160R', 'Xtreme 160R 4V', 'Xtreme 250R',
+    'Xpulse 200 4V', 'Xpulse 210',
+    'Karizma XMR',
+    'Mavrick 440'
+  ],
+  'Aprilia': [
+    'RS 125', 'RS 457', 'RS 660', 'RSV4', 'RSV4 Factory',
+    'Tuono 125', 'Tuono 457', 'Tuono 660', 'Tuono V4', 'Tuono V4 Factory',
+    'Tuareg 660', 'Tuareg Rally',
+    'SX 125', 'RX 125'
+  ],
+  'Moto Guzzi': [
+    'V7 Stone', 'V7 Special', 'V7 Sport', 'V7 Racer',
+    'V85 TT', 'V85 TT Travel', 'V85 Strada',
+    'V100 Mandello', 'V100 Mandello S', 'V100 Stelvio',
+    'California 1400', 'Audace', 'Eldorado'
+  ]
+}
+
 // ── GENERATE PRODUCT PARTS WITH CATEGORIES ────────────────────────
 function generatePartsWithCategories(partsData) {
   const result = []
@@ -200,7 +305,8 @@ function generatePartsWithCategories(partsData) {
         category: category,
         partNo: `ATI-${item.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}`,
         moq: [500, 1000, 2000, 5000][Math.floor(Math.random() * 4)],
-        selectedBrands: []
+        selectedBrands: [],
+        selectedModels: []
       })
     })
   })
@@ -445,8 +551,8 @@ function SubProductNav({ subProducts, activeSub, onSelect, onBack }) {
 }
 
 // ── PART BRAND DROPDOWN ───────────────────────────────────────────
-const DROPDOWN_WIDTH = 208
-const DROPDOWN_HEIGHT = 260
+const DROPDOWN_WIDTH = 260
+const DROPDOWN_HEIGHT = 320
 
 function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen, onToggle }) {
   const dropdownRef = useRef(null)
@@ -506,6 +612,16 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
 
   const selectedCount = selectedBrands ? selectedBrands.length : 0
 
+  const handleBrandSelect = (brand) => {
+    onBrandToggle(part, [brand])
+    onToggle(false)
+  }
+
+  const handleClearBrands = () => {
+    onBrandToggle(part, [])
+    onToggle(false)
+  }
+
   return (
     <div className="relative inline-block flex-shrink-0">
       <button
@@ -515,18 +631,18 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
           onToggle(!isOpen)
         }}
         className={`
-          w-7 h-7 rounded border-2 transition-all duration-200 flex items-center justify-center flex-shrink-0
+          w-9 h-9 rounded border-2 transition-all duration-200 flex items-center justify-center flex-shrink-0
           ${isOpen 
             ? 'border-[#005691] bg-[#005691]/10 text-[#005691]' 
             : 'border-gray-300 hover:border-[#005691] text-gray-400 hover:text-[#005691]'
           }
           ${selectedCount > 0 ? 'border-[#005691] bg-[#005691]/5' : ''}
         `}
-        title="Select brands for this part"
+        title="Select a brand for this part"
       >
-        <span className="material-symbols-outlined text-sm">expand_more</span>
+        <span className="material-symbols-outlined text-base">expand_more</span>
         {selectedCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#005691] text-white text-[8px] font-bold flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#005691] text-white text-[9px] font-bold flex items-center justify-center">
             {selectedCount}
           </span>
         )}
@@ -535,52 +651,33 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
       {isOpen && createPortal(
         <div 
           ref={dropdownRef}
-          className="fixed bg-white rounded-xl shadow-2xl border border-gray-200 z-[9999] p-3 max-h-56 overflow-y-auto"
-          style={{ top: position.top, left: position.left, width: DROPDOWN_WIDTH, minWidth: '180px' }}
+          className="fixed bg-white rounded-xl shadow-2xl border border-gray-200 z-[9999] p-4 max-h-64 overflow-y-auto"
+          style={{ top: position.top, left: position.left, width: DROPDOWN_WIDTH, minWidth: '220px' }}
         >
-          <div className="flex items-center justify-between mb-2 pb-2 border-b border-gray-200">
-            <span className="text-xs font-semibold text-gray-700 truncate pr-2" title={part.name}>
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-gray-200">
+            <span className="text-sm font-semibold text-gray-700 truncate pr-2" title={part.name}>
               {part.name}
             </span>
-            <div className="flex gap-2 flex-shrink-0">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  const allBrands = [...brands]
-                  onBrandToggle(part, allBrands)
-                  onToggle(false)
-                }}
-                className="text-[10px] text-[#005691] hover:underline font-medium"
-              >
-                All
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  onBrandToggle(part, [])
-                  onToggle(false)
-                }}
-                className="text-[10px] text-red-500 hover:underline font-medium"
-              >
-                Clear
-              </button>
-            </div>
+            <button
+              onClick={handleClearBrands}
+              className="text-[11px] text-red-500 hover:underline font-medium"
+            >
+              Clear
+            </button>
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             {brands.map((brand) => {
               const isSelected = selectedBrands && selectedBrands.includes(brand)
               return (
                 <label
                   key={brand}
-                  className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
                 >
                   <input
-                    type="checkbox"
+                    type="radio"
+                    name={`brand-${part.name}`}
                     checked={isSelected}
-                    onChange={(e) => {
-                      e.stopPropagation()
-                      onBrandToggle(part, brand)
-                    }}
+                    onChange={() => handleBrandSelect(brand)}
                     className="w-4 h-4 accent-[#005691] cursor-pointer"
                   />
                   <span className="text-sm text-gray-700">{brand}</span>
@@ -588,9 +685,9 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
               )
             })}
           </div>
-          <div className="mt-2 pt-2 border-t border-gray-200">
-            <p className="text-[10px] text-gray-400">
-              {selectedCount} brand{selectedCount !== 1 ? 's' : ''} selected
+          <div className="mt-3 pt-2 border-t border-gray-200">
+            <p className="text-[11px] text-gray-400">
+              {selectedCount > 0 ? `${selectedCount} brand selected` : 'No brand selected'}
             </p>
           </div>
         </div>,
@@ -600,190 +697,381 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
   )
 }
 
-// ── PART ITEM WITH SELECTION ──────────────────────────────────────
-function PartItem({ part, onSelect, isSelected, brands, selectedBrands, onBrandToggle, isDropdownOpen, onDropdownToggle }) {
+// ── MODEL DROPDOWN ─────────────────────────────────────────────────
+function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle, isOpen, onToggle }) {
+  const dropdownRef = useRef(null)
+  const buttonRef = useRef(null)
+  const [position, setPosition] = useState({ top: 0, left: 0 })
+
+  const getAvailableModels = () => {
+    const models = new Set()
+    if (selectedBrands && selectedBrands.length > 0) {
+      selectedBrands.forEach(brand => {
+        if (BRAND_MODELS[brand]) {
+          BRAND_MODELS[brand].forEach(model => models.add(model))
+        }
+      })
+    }
+    return Array.from(models)
+  }
+
+  const availableModels = getAvailableModels()
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current && 
+        !buttonRef.current.contains(event.target)
+      ) {
+        onToggle(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen, onToggle])
+
+  useEffect(() => {
+    if (!isOpen || !buttonRef.current) return
+
+    const computePosition = () => {
+      const rect = buttonRef.current.getBoundingClientRect()
+      let top = rect.bottom + 4
+      let left = rect.left
+
+      if (top + DROPDOWN_HEIGHT > window.innerHeight - 8) {
+        const above = rect.top - DROPDOWN_HEIGHT - 4
+        top = above < 8 ? 8 : above
+      }
+
+      if (left + DROPDOWN_WIDTH > window.innerWidth - 8) {
+        left = window.innerWidth - DROPDOWN_WIDTH - 8
+      }
+      if (left < 8) left = 8
+
+      setPosition({ top, left })
+    }
+
+    computePosition()
+    window.addEventListener('scroll', computePosition, true)
+    window.addEventListener('resize', computePosition)
+    return () => {
+      window.removeEventListener('scroll', computePosition, true)
+      window.removeEventListener('resize', computePosition)
+    }
+  }, [isOpen])
+
+  const selectedCount = selectedModels ? selectedModels.length : 0
+  const hasBrands = selectedBrands && selectedBrands.length > 0
+
   return (
-    <div 
-      className={`
-        flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg transition-all duration-200 group
-        ${isSelected 
-          ? 'bg-yellow-100 border-2 border-yellow-400 shadow-md' 
-          : 'hover:bg-yellow-100 hover:shadow-sm hover:scale-[1.02]'
-        }
-      `}
-    >
-      <span className={`
-        w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full transition-all duration-300 flex-shrink-0
-        ${isSelected 
-          ? 'bg-yellow-500 scale-150' 
-          : 'bg-gradient-to-r from-[#005691] to-[#0077be] group-hover:bg-yellow-500 group-hover:scale-150'
-        }
-      `}></span>
-
-      {brands && brands.length > 0 && (
-        <PartBrandDropdown 
-          part={part}
-          brands={brands}
-          selectedBrands={selectedBrands}
-          onBrandToggle={onBrandToggle}
-          isOpen={isDropdownOpen}
-          onToggle={(state) => onDropdownToggle(part, state)}
-        />
-      )}
-
-      <div 
-        onClick={() => onSelect(part)}
-        className="flex items-center gap-1 sm:gap-2 flex-1 cursor-pointer min-w-0"
-      >
-        <span className="text-[10px] sm:text-sm text-gray-700 group-hover:text-gray-900 transition-colors duration-200 flex-1 font-medium truncate">
-          {part.name}
-        </span>
-        <span className="text-[8px] sm:text-[10px] text-gray-400 font-mono bg-gray-100 group-hover:bg-yellow-200 px-1 sm:px-1.5 py-0.5 rounded transition-all duration-200 flex-shrink-0">
-          {part.partNo}
-        </span>
-      </div>
-
-      <button 
-        className={`
-          transition-all duration-200 flex-shrink-0
-          ${isSelected 
-            ? 'text-green-600 opacity-100' 
-            : 'opacity-0 group-hover:opacity-100 text-[#005691] hover:text-[#0077be]'
-          }
-        `}
+    <div className="relative inline-block flex-shrink-0">
+      <button
+        ref={buttonRef}
         onClick={(e) => {
           e.stopPropagation()
-          onSelect(part)
+          if (hasBrands) {
+            onToggle(!isOpen)
+          }
         }}
+        className={`
+          w-9 h-9 rounded border-2 transition-all duration-200 flex items-center justify-center flex-shrink-0
+          ${!hasBrands ? 'opacity-50 cursor-not-allowed' : ''}
+          ${isOpen 
+            ? 'border-[#005691] bg-[#005691]/10 text-[#005691]' 
+            : 'border-gray-300 hover:border-[#005691] text-gray-400 hover:text-[#005691]'
+          }
+          ${selectedCount > 0 ? 'border-[#005691] bg-[#005691]/5' : ''}
+        `}
+        title={hasBrands ? "Select models for this part" : "Select a brand first"}
+        disabled={!hasBrands}
       >
-        <span className="material-symbols-outlined text-sm sm:text-base">
-          {isSelected ? 'check_circle' : 'add_circle'}
-        </span>
+        <span className="material-symbols-outlined text-base">model_training</span>
+        {selectedCount > 0 && (
+          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#005691] text-white text-[9px] font-bold flex items-center justify-center">
+            {selectedCount}
+          </span>
+        )}
       </button>
+
+      {isOpen && hasBrands && createPortal(
+        <div 
+          ref={dropdownRef}
+          className="fixed bg-white rounded-xl shadow-2xl border border-gray-200 z-[9999] p-4 max-h-64 overflow-y-auto"
+          style={{ top: position.top, left: position.left, width: DROPDOWN_WIDTH, minWidth: '220px' }}
+        >
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-gray-200">
+            <span className="text-sm font-semibold text-gray-700 truncate pr-2" title={part.name}>
+              {part.name} Models
+            </span>
+            <div className="flex gap-3 flex-shrink-0">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onModelToggle(part, availableModels)
+                }}
+                className="text-[11px] text-[#005691] hover:underline font-medium"
+              >
+                All
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onModelToggle(part, [])
+                }}
+                className="text-[11px] text-red-500 hover:underline font-medium"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+          <div className="space-y-1.5">
+            {availableModels.length === 0 ? (
+              <div className="text-sm text-gray-400 py-3 text-center">No models available for selected brands</div>
+            ) : (
+              availableModels.map((model) => {
+                const isSelected = selectedModels && selectedModels.includes(model)
+                return (
+                  <label
+                    key={model}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isSelected}
+                      onChange={(e) => {
+                        e.stopPropagation()
+                        onModelToggle(part, model)
+                      }}
+                      className="w-4 h-4 accent-[#005691] cursor-pointer"
+                    />
+                    <span className="text-sm text-gray-700">{model}</span>
+                  </label>
+                )
+              })
+            )}
+          </div>
+          <div className="mt-3 pt-2 border-t border-gray-200">
+            <p className="text-[11px] text-gray-400">
+              {selectedCount} model{selectedCount !== 1 ? 's' : ''} selected
+            </p>
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   )
 }
 
-// ── CONFIRM ORDER MODAL ────────────────────────────────────────────
-function ConfirmOrderModal({ isOpen, onClose, onConfirm, selectedParts, onUpdateSelection }) {
-  const [localSelectedParts, setLocalSelectedParts] = useState([])
+// ── PRODUCT CARD ──────────────────────────────────────────────────
+function ProductCard({ part, brands, onSelectPart, isSelected, selectedBrands, selectedModels, onBrandToggle, onModelToggle, isBrandDropdownOpen, isModelDropdownOpen, onBrandDropdownToggle, onModelDropdownToggle }) {
+  return (
+    <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow flex flex-col group">
+      <div className="h-40 bg-[#eceef0] relative overflow-hidden flex items-center justify-center border-b border-[#c5c6cd]">
+        <div className="w-full h-full flex items-center justify-center text-5xl opacity-20 group-hover:opacity-40 transition-opacity">
+          🔧
+        </div>
+        {isSelected && (
+          <div className="absolute top-2 right-2">
+            <span className="material-symbols-outlined text-yellow-400 text-4xl">check_circle</span>
+          </div>
+        )}
+      </div>
+      <div className="p-3 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="font-medium text-[#191c1e] text-sm leading-tight line-clamp-2">{part.name}</h3>
+        </div>
+        <div className="mb-2">
+          <span className="text-[10px] font-mono bg-[#eceef0] px-1.5 py-0.5 rounded">PN: {part.partNo}</span>
+        </div>
+        <div className="mb-2 text-xs text-[#45474c]">
+          <span className="font-medium text-[#191c1e]">MOQ:</span> {part.moq} units
+        </div>
+        <div className="mt-auto flex items-center justify-between border-t border-[#c5c6cd] pt-2">
+          <div className="flex items-center gap-2">
+            {brands && brands.length > 0 && (
+              <PartBrandDropdown 
+                part={part}
+                brands={brands}
+                selectedBrands={selectedBrands}
+                onBrandToggle={onBrandToggle}
+                isOpen={isBrandDropdownOpen}
+                onToggle={onBrandDropdownToggle}
+              />
+            )}
+            <PartModelDropdown 
+              part={part}
+              selectedBrands={selectedBrands}
+              selectedModels={selectedModels}
+              onModelToggle={onModelToggle}
+              isOpen={isModelDropdownOpen}
+              onToggle={onModelDropdownToggle}
+            />
+            <span className="text-[10px] text-[#505f76] max-w-[80px] truncate">
+              {selectedBrands && selectedBrands.length > 0 ? selectedBrands[0] : 'Select Brand'}
+              {selectedModels && selectedModels.length > 0 && `, ${selectedModels.length} models`}
+            </span>
+          </div>
+          <button
+            onClick={() => onSelectPart(part)}
+            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+              isSelected 
+                ? 'bg-yellow-400 text-gray-800 hover:bg-yellow-500' 
+                : 'bg-[#005691] text-white hover:brightness-110'
+            }`}
+          >
+            <span className="material-symbols-outlined text-base">
+              {isSelected ? 'check' : 'add'}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── CATEGORY SECTION ──────────────────────────────────────────────
+function CategorySection({ 
+  category, 
+  parts, 
+  brands,
+  onSelectPart,
+  selectedParts,
+  onBrandToggle,
+  onModelToggle,
+  openBrandDropdownPart,
+  openModelDropdownPart,
+  onBrandDropdownToggle,
+  onModelDropdownToggle
+}) {
+  const selectedCount = parts.filter(p => selectedParts.some(sp => sp.name === p.name)).length
+
+  return (
+    <div className="mb-8">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-lg font-bold text-[#005691] flex items-center gap-2">
+          <span className="w-1 h-6 bg-[#005691] rounded-full inline-block" />
+          {category}
+          {selectedCount > 0 && (
+            <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold ml-2">
+              {selectedCount} selected
+            </span>
+          )}
+        </h3>
+        <button
+          onClick={() => {
+            parts.forEach(part => {
+              if (!selectedParts.some(p => p.name === part.name)) {
+                onSelectPart(part)
+              }
+            })
+          }}
+          className="text-xs text-[#005691] hover:text-[#0077be] font-medium px-3 py-1 border border-[#005691] rounded-lg hover:bg-[#005691]/5 transition-all"
+        >
+          Select All
+        </button>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3">
+        {parts.map((part) => {
+          const partSelected = selectedParts.find(p => p.name === part.name)
+          const selectedBrands = partSelected ? partSelected.selectedBrands || [] : []
+          const selectedModels = partSelected ? partSelected.selectedModels || [] : []
+          return (
+            <ProductCard 
+              key={part.name}
+              part={part}
+              brands={brands}
+              onSelectPart={onSelectPart}
+              isSelected={!!partSelected}
+              selectedBrands={selectedBrands}
+              selectedModels={selectedModels}
+              onBrandToggle={onBrandToggle}
+              onModelToggle={onModelToggle}
+              isBrandDropdownOpen={openBrandDropdownPart === part.name}
+              isModelDropdownOpen={openModelDropdownPart === part.name}
+              onBrandDropdownToggle={(state) => onBrandDropdownToggle(part, state)}
+              onModelDropdownToggle={(state) => onModelDropdownToggle(part, state)}
+            />
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── REVIEW ORDER MODAL ────────────────────────────────────────────
+function ReviewOrderModal({ 
+  isOpen, 
+  onClose, 
+  basketItems, 
+  onRemoveItem, 
+  onClearAll, 
+  onConfirmOrder, 
+  onContinueShopping,
+  onUpdateBasketItems 
+}) {
+  const [localBasketItems, setLocalBasketItems] = useState([])
 
   useEffect(() => {
     if (isOpen) {
-      setLocalSelectedParts(JSON.parse(JSON.stringify(selectedParts)))
+      setLocalBasketItems(JSON.parse(JSON.stringify(basketItems)))
     }
-  }, [isOpen, selectedParts])
+  }, [isOpen, basketItems])
 
   if (!isOpen) return null
 
-  let totalItems = 0
-  const allBrandsSet = new Set()
-  const flattenedItems = []
+  const totalItems = localBasketItems.reduce((sum, item) => sum + (item.selectedModels?.length || 0), 0)
 
-  localSelectedParts.forEach(part => {
-    if (part.selectedBrands && part.selectedBrands.length > 0) {
-      const brands = part.selectedBrands
-      totalItems += brands.length
-      brands.forEach(b => allBrandsSet.add(b))
-      
-      brands.forEach(brand => {
-        flattenedItems.push({
-          ...part,
-          brand: brand
-        })
-      })
-    }
-  })
-
-  const uniqueBrandCount = allBrandsSet.size
-  const totalParts = localSelectedParts.filter(p => p.selectedBrands && p.selectedBrands.length > 0).length
-
-  const toggleItemSelection = (partName, brand) => {
-    setLocalSelectedParts(prev => {
-      return prev.map(p => {
-        if (p.name === partName) {
-          let newBrands = [...(p.selectedBrands || [])]
-          if (newBrands.includes(brand)) {
-            newBrands = newBrands.filter(b => b !== brand)
+  const toggleModelSelection = (partName, model) => {
+    setLocalBasketItems(prev => {
+      return prev.map(item => {
+        if (item.name === partName) {
+          const currentModels = item.selectedModels || []
+          let newModels
+          if (currentModels.includes(model)) {
+            newModels = currentModels.filter(m => m !== model)
           } else {
-            newBrands = [...newBrands, brand]
+            newModels = [...currentModels, model]
           }
-          return { ...p, selectedBrands: newBrands }
+          return { ...item, selectedModels: newModels }
         }
-        return p
+        return item
       })
     })
   }
 
-  const toggleAllForPart = (partName) => {
-    setLocalSelectedParts(prev => {
-      return prev.map(p => {
-        if (p.name === partName) {
-          const allBrands = p.selectedBrands || []
-          const originalPart = selectedParts.find(sp => sp.name === partName)
-          const originalBrands = originalPart?.selectedBrands || []
-          const allSelected = allBrands.length === originalBrands.length && originalBrands.length > 0
-          
-          if (allSelected) {
-            return { ...p, selectedBrands: [] }
-          } else {
-            return { ...p, selectedBrands: [...originalBrands] }
-          }
-        }
-        return p
-      })
-    })
+  const handleRemovePart = (partName) => {
+    setLocalBasketItems(prev => prev.filter(item => item.name !== partName))
+    onRemoveItem(partName)
   }
 
-  const selectAllItems = () => {
-    setLocalSelectedParts(prev => {
-      return prev.map(p => {
-        const originalPart = selectedParts.find(sp => sp.name === p.name)
-        return { ...p, selectedBrands: [...(originalPart?.selectedBrands || [])] }
-      })
-    })
+  const handleClearAll = () => {
+    setLocalBasketItems([])
+    onClearAll()
   }
-
-  const deselectAllItems = () => {
-    setLocalSelectedParts(prev => {
-      return prev.map(p => {
-        return { ...p, selectedBrands: [] }
-      })
-    })
-  }
-
-  const removePart = (partName) => {
-    setLocalSelectedParts(prev => {
-      return prev.filter(p => p.name !== partName)
-    })
-  }
-
-  const getSelectedCount = () => {
-    let count = 0
-    localSelectedParts.forEach(p => {
-      if (p.selectedBrands && p.selectedBrands.length > 0) {
-        count += p.selectedBrands.length
-      }
-    })
-    return count
-  }
-
-  const selectedCount = getSelectedCount()
 
   const handleConfirm = () => {
-    onUpdateSelection(localSelectedParts)
-    onConfirm(localSelectedParts)
+    // Update parent with modified items
+    onUpdateBasketItems(localBasketItems)
+    onConfirmOrder(localBasketItems)
   }
 
   return createPortal(
     <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn" onClick={onClose}>
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col animate-scaleIn" onClick={e => e.stopPropagation()}>
-        <div className="bg-gradient-to-r from-[#005691] to-[#0077be] rounded-t-2xl px-6 py-5 flex items-center justify-between">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col animate-scaleIn" onClick={e => e.stopPropagation()}>
+        <div className="bg-gradient-to-r from-[#005691] to-[#0077be] rounded-t-2xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-white text-2xl">shopping_cart</span>
+            <span className="material-symbols-outlined text-white text-2xl">shopping_basket</span>
             <div>
-              <h2 className="text-white font-bold text-lg">Confirm Your Order</h2>
-              <p className="text-white/70 text-sm">Review and manage your selected items</p>
+              <h2 className="text-white font-bold text-lg">Review Order</h2>
+              <p className="text-white/70 text-sm">{totalItems} items from {localBasketItems.length} parts</p>
             </div>
           </div>
           <button
@@ -794,151 +1082,100 @@ function ConfirmOrderModal({ isOpen, onClose, onConfirm, selectedParts, onUpdate
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex gap-2">
+        <div className="flex-1 overflow-y-auto p-5">
+          {localBasketItems.length === 0 ? (
+            <div className="text-center py-8">
+              <span className="material-symbols-outlined text-5xl text-gray-300">shopping_basket</span>
+              <p className="text-gray-500 mt-3 text-sm">Your order is empty</p>
               <button
-                onClick={selectAllItems}
-                className="text-xs text-[#005691] hover:text-[#0077be] font-medium px-3 py-1.5 border border-[#005691] rounded-lg hover:bg-[#005691]/5 transition-all"
+                onClick={onContinueShopping}
+                className="mt-4 bg-[#005691] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
               >
-                Select All
-              </button>
-              <button
-                onClick={deselectAllItems}
-                className="text-xs text-gray-500 hover:text-red-600 font-medium px-3 py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
-              >
-                Deselect All
+                Continue Shopping
               </button>
             </div>
-            <span className="text-xs text-gray-500">
-              <span className="font-semibold text-[#005691]">{selectedCount}</span> of <span className="font-semibold text-gray-700">{totalItems}</span> items selected
-            </span>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
-              <div className="text-2xl font-bold text-[#005691]">{totalParts}</div>
-              <div className="text-xs text-gray-500">Parts</div>
-            </div>
-            <div className="bg-green-50 rounded-xl p-4 text-center border border-green-100">
-              <div className="text-2xl font-bold text-green-600">{uniqueBrandCount}</div>
-              <div className="text-xs text-gray-500">Unique Brands</div>
-            </div>
-            <div className="bg-yellow-50 rounded-xl p-4 text-center border border-yellow-100">
-              <div className="text-2xl font-bold text-yellow-600">{selectedCount}</div>
-              <div className="text-xs text-gray-500">Selected Items</div>
-            </div>
-          </div>
-
-          <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-            <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center justify-between">
-              <span className="text-sm font-semibold text-gray-700">Selected Items</span>
-              <span className="text-xs text-gray-400">{selectedCount} of {totalItems} selected</span>
-            </div>
-            <div className="max-h-64 overflow-y-auto p-2 space-y-1">
-              {localSelectedParts.map((part, idx) => {
-                if (!part.selectedBrands || part.selectedBrands.length === 0) return null
-                
-                const partBrands = part.selectedBrands
-                const originalBrands = selectedParts.find(p => p.name === part.name)?.selectedBrands || []
-                const allBrandsSelected = partBrands.length === originalBrands.length && originalBrands.length > 0
-
-                return (
-                  <div key={part.name} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-                    <div className="flex items-center justify-between px-4 py-2 bg-gray-50/50 border-b border-gray-100">
-                      <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          {idx + 1}
-                        </span>
-                        <span className="text-sm font-medium text-gray-800">{part.name}</span>
-                        <span className="text-xs text-gray-400 font-mono">{part.partNo}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-400">
-                          {partBrands.length}/{originalBrands.length} brands
-                        </span>
-                        <button
-                          onClick={() => toggleAllForPart(part.name)}
-                          className={`text-xs px-2 py-1 rounded-lg transition-all ${
-                            allBrandsSelected 
-                              ? 'bg-[#005691]/10 text-[#005691] hover:bg-[#005691]/20' 
-                              : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                          }`}
-                        >
-                          {allBrandsSelected ? 'Deselect All' : 'Select All'}
-                        </button>
-                        <button
-                          onClick={() => removePart(part.name)}
-                          className="text-gray-400 hover:text-red-500 transition-all p-1"
-                          title="Remove this part"
-                        >
-                          <span className="material-symbols-outlined text-sm">delete</span>
-                        </button>
-                      </div>
+          ) : (
+            <div className="space-y-3">
+              {localBasketItems.map((item, idx) => (
+                <div key={`${item.name}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <span className="w-6 h-6 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        {idx + 1}
+                      </span>
+                      <span className="text-sm font-medium text-gray-800">{item.name}</span>
+                      <span className="text-xs text-gray-400 font-mono">{item.partNo}</span>
                     </div>
-                    
-                    <div className="p-2 grid grid-cols-2 gap-1">
-                      {partBrands.map((brand, brandIdx) => {
-                        const isChecked = part.selectedBrands?.includes(brand) || false
-                        return (
-                          <label
-                            key={`${part.name}-${brand}-${brandIdx}`}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-50 cursor-pointer transition-all"
-                          >
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={() => toggleItemSelection(part.name, brand)}
-                              className="w-4 h-4 accent-[#005691] cursor-pointer"
-                            />
-                            <span className="text-sm text-gray-700">{brand}</span>
-                            {isChecked && (
-                              <span className="text-[10px] text-green-600 font-medium ml-auto">✓ Selected</span>
-                            )}
-                          </label>
-                        )
-                      })}
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-gray-400">{item.selectedModels?.length || 0} models</span>
+                      <button
+                        onClick={() => handleRemovePart(item.name)}
+                        className="text-gray-400 hover:text-red-500 transition-all p-1"
+                        title="Remove this part"
+                      >
+                        <span className="material-symbols-outlined text-sm">delete</span>
+                      </button>
                     </div>
                   </div>
-                )
-              })}
-              {localSelectedParts.filter(p => p.selectedBrands && p.selectedBrands.length > 0).length === 0 && (
-                <div className="text-center py-8 text-gray-400 text-sm">
-                  No items selected. Select brands for your parts.
+                  <div className="p-3">
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="text-xs font-medium text-[#005691]">Brand:</span>
+                      <span className="text-xs text-gray-700">{item.selectedBrands?.join(', ') || 'N/A'}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs font-medium text-[#005691]">Models:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.selectedModels?.map((model, mi) => (
+                          <span 
+                            key={mi} 
+                            className="text-xs bg-blue-50 text-gray-700 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer hover:bg-blue-100 transition-colors"
+                            onClick={() => toggleModelSelection(item.name, model)}
+                          >
+                            {model}
+                            <span className="text-gray-400 hover:text-red-500 text-xs ml-0.5">×</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-400">
+                      MOQ: {item.moq} units
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          </div>
-
-          {localSelectedParts.filter(p => p.selectedBrands && p.selectedBrands.length > 0).length > 0 && (
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-[#005691]">{totalParts}</span> part{totalParts > 1 ? 's' : ''} with <span className="font-semibold text-[#005691]">{uniqueBrandCount}</span> brand{uniqueBrandCount > 1 ? 's' : ''} = <span className="font-semibold text-[#005691]">{selectedCount}</span> total items selected
-              </p>
+              ))}
             </div>
           )}
         </div>
 
-        <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-gray-50 rounded-b-2xl">
+        <div className="border-t border-gray-200 px-6 py-3.5 flex items-center justify-between bg-gray-50 rounded-b-2xl">
           <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-all flex items-center gap-2 text-sm font-medium"
+            onClick={handleClearAll}
+            className="text-sm text-red-500 hover:text-red-600 transition-all flex items-center gap-1"
           >
-            <span className="material-symbols-outlined text-sm">arrow_back</span>
-            Go Back
+            <span className="material-symbols-outlined text-sm">delete_forever</span>
+            Clear All
           </button>
-          <button
-            onClick={handleConfirm}
-            disabled={selectedCount === 0}
-            className={`px-8 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 shadow-md ${
-              selectedCount > 0
-                ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            <span className="material-symbols-outlined text-sm">check_circle</span>
-            Confirm Order {selectedCount > 0 && `(${selectedCount} items)`}
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={onContinueShopping}
+              className="text-gray-500 hover:text-gray-700 transition-all flex items-center gap-2 text-sm font-medium"
+            >
+              <span className="material-symbols-outlined text-sm">arrow_back</span>
+              Continue Shopping
+            </button>
+            <button
+              onClick={handleConfirm}
+              disabled={localBasketItems.length === 0 || totalItems === 0}
+              className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 shadow-md ${
+                localBasketItems.length > 0 && totalItems > 0
+                  ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              <span className="material-symbols-outlined text-sm">check_circle</span>
+              Confirm Order
+            </button>
+          </div>
         </div>
       </div>
     </div>,
@@ -950,148 +1187,59 @@ function ConfirmOrderModal({ isOpen, onClose, onConfirm, selectedParts, onUpdate
 function SelectionSummary({ 
   selectedParts, 
   onClearAll, 
-  onProceedToQuote 
+  onAddToCart 
 }) {
   let totalItems = 0
   const allBrandsSet = new Set()
+  const allModelsSet = new Set()
   
   selectedParts.forEach(part => {
+    if (part.selectedModels && part.selectedModels.length > 0) {
+      totalItems += part.selectedModels.length
+      part.selectedModels.forEach(m => allModelsSet.add(m))
+    }
     if (part.selectedBrands && part.selectedBrands.length > 0) {
-      totalItems += part.selectedBrands.length
       part.selectedBrands.forEach(b => allBrandsSet.add(b))
     }
   })
   
   const uniqueBrandCount = allBrandsSet.size
+  const uniqueModelCount = allModelsSet.size
 
   if (selectedParts.length === 0 || totalItems === 0) return null
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white rounded-2xl shadow-2xl border-2 border-[#005691] px-4 sm:px-6 py-3 sm:py-4 animate-fadeInUp max-w-[95%] sm:max-w-[90%]">
-      <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-        <div className="flex items-center gap-1 sm:gap-2">
-          <span className="material-symbols-outlined text-[#005691] text-base sm:text-xl">shopping_cart</span>
-          <span className="font-bold text-[#005691] text-xs sm:text-base">{selectedParts.length}</span>
-          <span className="text-gray-600 text-[10px] sm:text-sm">part{selectedParts.length > 1 ? 's' : ''}</span>
-          <span className="text-gray-400 text-[10px] sm:text-sm">×</span>
-          <span className="font-bold text-[#005691] text-xs sm:text-base">{uniqueBrandCount}</span>
-          <span className="text-gray-600 text-[10px] sm:text-sm">brand{uniqueBrandCount > 1 ? 's' : ''}</span>
-          <span className="text-gray-400 text-[10px] sm:text-sm">=</span>
-          <span className="font-bold text-[#005691] text-xs sm:text-base">{totalItems}</span>
-          <span className="text-gray-600 text-[10px] sm:text-sm">items</span>
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white rounded-2xl shadow-2xl border-2 border-[#005691] px-6 py-4 animate-fadeInUp max-w-[90%]">
+      <div className="flex flex-wrap items-center gap-4">
+        <div className="flex items-center gap-2">
+          <span className="material-symbols-outlined text-[#005691]">shopping_cart</span>
+          <span className="font-bold text-[#005691]">{selectedParts.length}</span>
+          <span className="text-gray-600 text-sm">part{selectedParts.length > 1 ? 's' : ''}</span>
+          <span className="text-gray-400 text-sm">×</span>
+          <span className="font-bold text-[#005691]">{uniqueBrandCount}</span>
+          <span className="text-gray-600 text-sm">brand{uniqueBrandCount > 1 ? 's' : ''}</span>
+          <span className="text-gray-400 text-sm">×</span>
+          <span className="font-bold text-[#005691]">{uniqueModelCount}</span>
+          <span className="text-gray-600 text-sm">model{uniqueModelCount > 1 ? 's' : ''}</span>
+          <span className="text-gray-400 text-sm">=</span>
+          <span className="font-bold text-[#005691]">{totalItems}</span>
+          <span className="text-gray-600 text-sm">total items</span>
         </div>
-        <div className="flex gap-1 sm:gap-3 ml-auto">
+        <div className="flex gap-3">
           <button
             onClick={onClearAll}
-            className="text-[10px] sm:text-sm text-gray-500 hover:text-red-600 transition-all flex items-center gap-0.5 sm:gap-1"
+            className="text-sm text-gray-500 hover:text-red-600 transition-all flex items-center gap-1"
           >
-            <span className="material-symbols-outlined text-xs sm:text-sm">clear</span>
-            <span className="hidden xs:inline">Clear All</span>
+            <span className="material-symbols-outlined text-sm">clear</span>
+            Clear All
           </button>
           <button
-            onClick={onProceedToQuote}
-            className="bg-[#005691] text-white px-2 sm:px-6 py-1 sm:py-2 rounded-lg text-[10px] sm:text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-1 sm:gap-2 hover:scale-105 duration-200"
+            onClick={onAddToCart}
+            className="bg-[#005691] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
           >
-            <span className="material-symbols-outlined text-xs sm:text-sm">request_quote</span>
-            <span className="hidden xs:inline">Proceed to Quote</span>
-            <span className="xs:hidden">Quote</span>
+            <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+            Add to Cart
           </button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ── MODERN CATEGORY PARTS BOX ──────────────────────────────────────
-function ModernCategoryBox({ 
-  category, 
-  parts, 
-  onSelectPart, 
-  selectedParts, 
-  onQuoteAll, 
-  index,
-  brands,
-  openDropdownPart,
-  onBrandToggle,
-  onDropdownToggle
-}) {
-  // All categories use the same color - website primary blue
-  const color = { bg: 'from-[#005691] to-[#0077be]' }
-  
-  const getCategoryEmoji = (cat) => {
-    const emojis = {
-      'Engine Parts': '🔧',
-      'Transmission & Clutch': '⚙️',
-      'Fuel System': '⛽',
-      'Air Intake System': '💨',
-      'Exhaust System': '🔊',
-      'Cooling System': '❄️',
-      'Brake System': '🛑',
-      'Suspension & Steering': '🔩',
-      'Wheels & Tires': '🛞',
-      'Chain Drive': '⛓️',
-      'Electrical Parts': '⚡',
-      'Lighting': '💡',
-      'Controls': '🎮',
-      'Body Parts': '🚗',
-      'Rubber & Sealing Components': '🔄',
-      'Accessories': '🎯',
-      'Electric Drive System': '🔌',
-      'Battery System': '🔋',
-      'Electrical Components': '💻',
-      'Drivetrain': '🚲',
-      'Frame & Body Parts': '🏗️',
-      'Lighting & Safety': '🛡️',
-      'Fasteners & Hardware': '🔩',
-      'E-Bike Accessories': '🎒'
-    }
-    return emojis[cat] || '📦'
-  }
-
-  const selectedCount = parts.filter(p => selectedParts.some(sp => sp.name === p.name)).length
-
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 animate-fadeInUp" style={{ animationDelay: `${index * 0.08}s` }}>
-      <div className={`bg-gradient-to-r ${color.bg} px-3 sm:px-5 py-2 sm:py-3 flex items-center justify-between`}>
-        <div className="flex items-center gap-1 sm:gap-2 min-w-0">
-          <span className="text-base sm:text-xl flex-shrink-0">{getCategoryEmoji(category)}</span>
-          <h4 className="text-white font-bold text-[11px] sm:text-sm tracking-wide truncate">{category}</h4>
-          {selectedCount > 0 && (
-            <span className="bg-yellow-400 text-gray-800 text-[8px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold flex-shrink-0">
-              {selectedCount}
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-          <button
-            onClick={() => onQuoteAll(category, parts)}
-            className="bg-white/20 hover:bg-white/30 text-white text-[8px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-medium transition-all duration-200 flex items-center gap-0.5 sm:gap-1"
-          >
-            <span className="material-symbols-outlined text-[10px] sm:text-sm">request_quote</span>
-            <span className="hidden xs:inline">Quote All</span>
-            <span className="xs:hidden">Quote</span>
-          </button>
-        </div>
-      </div>
-      <div className="p-1.5 sm:p-3">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-1.5">
-          {parts.map((part, idx) => {
-            const partSelected = selectedParts.find(p => p.name === part.name)
-            const selectedBrands = partSelected ? partSelected.selectedBrands || [] : []
-            return (
-              <PartItem 
-                key={part.name} 
-                part={part} 
-                onSelect={onSelectPart}
-                isSelected={!!partSelected}
-                brands={brands}
-                selectedBrands={selectedBrands}
-                onBrandToggle={onBrandToggle}
-                isDropdownOpen={openDropdownPart === part.name}
-                onDropdownToggle={onDropdownToggle}
-              />
-            )
-          })}
         </div>
       </div>
     </div>
@@ -1109,10 +1257,13 @@ function ProductDetail({
   selectedParts,
   onSelectPart,
   onClearAllParts,
-  onProceedToQuote,
+  onAddToCart,
   onBrandToggle,
-  openDropdownPart,
-  onDropdownToggle
+  onModelToggle,
+  openBrandDropdownPart,
+  openModelDropdownPart,
+  onBrandDropdownToggle,
+  onModelDropdownToggle
 }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -1328,7 +1479,6 @@ function ProductDetail({
   }
 
   // ── PARTS VIEW FOR MOTORCYCLES & E-BIKE ──────────────────────
-  const categories = product.categories || []
   const allParts = product.parts || []
   const brands = product.brands || []
 
@@ -1348,97 +1498,107 @@ function ProductDetail({
 
   const uniqueCategories = [...new Set(allParts.map(p => p.category))]
 
-  const handleQuoteAll = (category, parts) => {
-    parts.forEach(part => {
-      if (!selectedParts.some(p => p.name === part.name)) {
-        onSelectPart(part)
-      }
-    })
-  }
-
   let totalItems = 0
   const totalBrandsSet = new Set()
+  const totalModelsSet = new Set()
   selectedParts.forEach(part => {
+    if (part.selectedModels && part.selectedModels.length > 0) {
+      totalItems += part.selectedModels.length
+      part.selectedModels.forEach(m => totalModelsSet.add(m))
+    }
     if (part.selectedBrands && part.selectedBrands.length > 0) {
-      totalItems += part.selectedBrands.length
       part.selectedBrands.forEach(b => totalBrandsSet.add(b))
     }
   })
   const brandCount = totalBrandsSet.size
+  const modelCount = totalModelsSet.size
 
   return (
-    <div className="space-y-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-        <div className="rounded-2xl overflow-hidden h-80 animate-zoomIn relative">
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div className="rounded-xl overflow-hidden h-64 bg-[#eceef0] relative">
           <img
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover"
             onError={(e) => { e.target.style.background = '#eceef0' }}
           />
-          <div className="absolute top-4 right-4 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg text-3xl">
+          <div className="absolute top-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-md text-2xl">
             {product.icon}
           </div>
         </div>
-        <div className="flex flex-col justify-center animate-fadeInRight">
-          <h2 className="text-3xl font-bold text-[#005691] mb-2">{product.name}</h2>
-          <p className="text-[#005691] font-semibold text-sm mb-5 uppercase tracking-widest">
+        <div className="flex flex-col justify-center">
+          <h2 className="text-2xl font-bold text-[#005691] mb-1">{product.name}</h2>
+          <p className="text-[#005691] font-semibold text-xs mb-3 uppercase tracking-widest">
             {product.tagline}
           </p>
-          <p className="text-[#505f76] leading-relaxed mb-8">{product.description}</p>
+          <p className="text-[#505f76] text-sm leading-relaxed mb-4">{product.description}</p>
           
-          <div className="flex flex-wrap gap-4 mb-6">
-            <div className="bg-gray-50 rounded-xl px-6 py-3 border border-gray-200 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
-              <div className="text-xs text-gray-500">Categories</div>
-              <div className="text-2xl font-bold text-[#005691]">{categories.length}</div>
+          <div className="flex flex-wrap gap-3 mb-4">
+            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
+              <div className="text-[10px] text-gray-500 uppercase tracking-wider">Categories</div>
+              <div className="text-xl font-bold text-[#005691]">{uniqueCategories.length}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl px-6 py-3 border border-gray-200 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-              <div className="text-xs text-gray-500">Brands Available</div>
-              <div className="text-2xl font-bold text-[#005691]">{brands.length}</div>
+            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
+              <div className="text-[10px] text-gray-500 uppercase tracking-wider">Brands</div>
+              <div className="text-xl font-bold text-[#005691]">{brands.length}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl px-6 py-3 border border-gray-200 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
-              <div className="text-xs text-gray-500">MOQ Options</div>
-              <div className="text-2xl font-bold text-[#005691]">Flexible</div>
+            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
+              <div className="text-[10px] text-gray-500 uppercase tracking-wider">MOQ</div>
+              <div className="text-xl font-bold text-[#005691]">Flexible</div>
             </div>
           </div>
           
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-3 flex-wrap">
             <button
               onClick={() => onNavigate('Contact Us')}
-              className="bg-[#005691] text-white px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
+              className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
             >
               <span className="material-symbols-outlined text-sm">request_quote</span>
               Request Quote
             </button>
-            {selectedParts.length > 0 && totalItems > 0 && (
-              <button
-                onClick={onProceedToQuote}
-                className="bg-yellow-400 text-gray-800 px-8 py-3 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-all flex items-center gap-2 hover:scale-105 duration-200"
-              >
-                <span className="material-symbols-outlined text-sm">shopping_cart</span>
-                {totalItems} Items ({selectedParts.length} parts × {brandCount} brands)
-              </button>
-            )}
           </div>
         </div>
       </div>
 
-      <div className="bg-white border border-[#c5c6cd] rounded-2xl p-6 shadow-sm animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-        <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-wrap justify-between items-center gap-3">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-sm text-[#45474c]">Active Filters:</span>
+          <span className="bg-[#eceef0] px-3 py-1 rounded-full text-xs flex items-center gap-1">
+            {product.name} <span className="material-symbols-outlined text-[16px] cursor-pointer hover:text-red-500">close</span>
+          </span>
+          {selectedCategory !== 'all' && (
+            <span className="bg-[#eceef0] px-3 py-1 rounded-full text-xs flex items-center gap-1">
+              {selectedCategory} <span className="material-symbols-outlined text-[16px] cursor-pointer hover:text-red-500" onClick={() => setSelectedCategory('all')}>close</span>
+            </span>
+          )}
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-[#45474c]">Sort by:</span>
+          <select className="border border-[#c5c6cd] rounded-lg bg-white text-sm py-1.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-[#005691]">
+            <option>Part Number (A-Z)</option>
+            <option>Most Popular</option>
+            <option>Newest Additions</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="bg-white border border-[#c5c6cd] rounded-xl p-4 shadow-sm">
+        <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
             <input
               type="text"
-              placeholder={`Search ${product.name} parts by name or part number...`}
+              placeholder={`Search ${product.name} parts...`}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#005691] focus:bg-white transition-all duration-300"
+              className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#005691] focus:bg-white transition-all duration-300"
             />
           </div>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#005691] transition-all duration-300 bg-gray-50 hover:bg-white min-w-[200px]"
+            className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#005691] transition-all duration-300 bg-gray-50 hover:bg-white min-w-[160px]"
           >
             <option value="all">📋 All Categories</option>
             {uniqueCategories.map((cat) => (
@@ -1447,34 +1607,34 @@ function ProductDetail({
           </select>
         </div>
         {searchTerm && (
-          <div className="mt-3 text-sm text-gray-500 flex items-center gap-2">
+          <div className="mt-2 text-xs text-gray-500 flex items-center gap-1">
             <span className="material-symbols-outlined text-sm">info</span>
-            Found <span className="font-semibold text-[#005691]">{filteredParts.length}</span> results for "{searchTerm}"
+            Found <span className="font-semibold text-[#005691]">{filteredParts.length}</span> results
           </div>
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {Object.entries(groupedParts).map(([category, parts], index) => (
-          <ModernCategoryBox 
+      <div className="space-y-4">
+        {Object.entries(groupedParts).map(([category, parts]) => (
+          <CategorySection 
             key={category}
             category={category}
             parts={parts}
+            brands={brands}
             onSelectPart={onSelectPart}
             selectedParts={selectedParts}
-            onQuoteAll={handleQuoteAll}
-            index={index}
-            brands={brands}
-            openDropdownPart={openDropdownPart}
             onBrandToggle={onBrandToggle}
-            onDropdownToggle={onDropdownToggle}
+            onModelToggle={onModelToggle}
+            openBrandDropdownPart={openBrandDropdownPart}
+            openModelDropdownPart={openModelDropdownPart}
+            onBrandDropdownToggle={onBrandDropdownToggle}
+            onModelDropdownToggle={onModelDropdownToggle}
           />
         ))}
         {filteredParts.length === 0 && (
-          <div className="col-span-2 text-center py-16 bg-white rounded-2xl border border-[#c5c6cd]">
-            <span className="material-symbols-outlined text-5xl text-gray-300">search_off</span>
-            <p className="text-gray-500 mt-3 text-lg">No parts found matching your search.</p>
-            <p className="text-gray-400 text-sm mt-1">Try adjusting your search terms or filters</p>
+          <div className="text-center py-12 bg-white rounded-xl border border-[#c5c6cd]">
+            <span className="material-symbols-outlined text-4xl text-gray-300">search_off</span>
+            <p className="text-gray-500 mt-2 text-sm">No parts found matching your search.</p>
           </div>
         )}
       </div>
@@ -1482,17 +1642,17 @@ function ProductDetail({
       <SelectionSummary 
         selectedParts={selectedParts}
         onClearAll={onClearAllParts}
-        onProceedToQuote={onProceedToQuote}
+        onAddToCart={onAddToCart}
       />
 
-      <div className="mt-10 bg-gradient-to-r from-[#005691] to-[#0077be] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+      <div className="bg-gradient-to-r from-[#005691] to-[#0077be] text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <h3 className="text-2xl font-bold mb-2">Need Custom Specifications?</h3>
-          <p className="text-white/80">We source bespoke sealing components to your exact drawings and technical requirements from our verified supplier network.</p>
+          <h3 className="text-lg font-bold mb-1">Need Custom Specifications?</h3>
+          <p className="text-white/80 text-sm">We source bespoke components to your exact requirements.</p>
         </div>
         <button
           onClick={() => onNavigate('Contact Us')}
-          className="bg-white text-[#005691] px-10 py-4 rounded-lg font-semibold text-sm hover:shadow-xl transition-all whitespace-nowrap flex items-center gap-2 hover:scale-105 duration-200"
+          className="bg-white text-[#005691] px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-xl transition-all whitespace-nowrap flex items-center gap-2 hover:scale-105 duration-200"
         >
           <span className="material-symbols-outlined text-sm">engineering</span>
           Discuss Custom Order
@@ -1512,8 +1672,10 @@ export default function Products({ onNavigate }) {
     motorcycle: [],
     'e-bike': []
   })
-  const [openDropdownPart, setOpenDropdownPart] = useState(null)
-  const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [basketItems, setBasketItems] = useState([])
+  const [isReviewOrderOpen, setIsReviewOrderOpen] = useState(false)
+  const [openBrandDropdownPart, setOpenBrandDropdownPart] = useState(null)
+  const [openModelDropdownPart, setOpenModelDropdownPart] = useState(null)
 
   const product = PRODUCTS.find((p) => p.id === active)
   const selectedParts = selectedPartsByTab[active] || []
@@ -1539,9 +1701,8 @@ export default function Products({ onNavigate }) {
       const exists = currentList.some(p => p.name === part.name)
       const newList = exists
         ? currentList.filter(p => p.name !== part.name)
-        : [...currentList, { ...part, selectedBrands: [] }]
+        : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
       
-      // Save to localStorage immediately with tab-specific key
       saveToStorage(newList, active)
       
       return { ...prev, [active]: newList }
@@ -1551,19 +1712,18 @@ export default function Products({ onNavigate }) {
   const handleClearAllParts = () => {
     setSelectedPartsByTab(prev => {
       const updated = { ...prev, [active]: [] }
-      // Clear from storage for this specific tab
       const storageKey = `selectedParts_${active}`
       localStorage.removeItem(storageKey)
       localStorage.removeItem(`productCategory_${active}`)
       sessionStorage.removeItem(storageKey)
       sessionStorage.removeItem(`productCategory_${active}`)
-      setOpenDropdownPart(null)
+      setOpenBrandDropdownPart(null)
+      setOpenModelDropdownPart(null)
       window.dispatchEvent(new Event('selectedPartsUpdated'))
       return updated
     })
   }
 
-  // Save to storage function with tab-specific keys
   const saveToStorage = (parts, tabId) => {
     const storageKey = `selectedParts_${tabId}`
     const categoryKey = `productCategory_${tabId}`
@@ -1577,82 +1737,121 @@ export default function Products({ onNavigate }) {
       localStorage.setItem(categoryKey, category)
       sessionStorage.setItem(storageKey, JSON.stringify(parts))
       sessionStorage.setItem(categoryKey, category)
-      
-      console.log(`💾 [Products] Saved to storage for ${tabId}:`, parts.length, 'parts')
     } else {
-      // If no parts, clear storage for this tab
       localStorage.removeItem(storageKey)
       localStorage.removeItem(categoryKey)
       sessionStorage.removeItem(storageKey)
       sessionStorage.removeItem(categoryKey)
-      console.log(`💾 [Products] Cleared storage for ${tabId}`)
     }
     window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
 
-  const handleOpenConfirmModal = () => {
+  const saveBasketToStorage = (items) => {
+    try {
+      localStorage.setItem('basketItems', JSON.stringify(items))
+      sessionStorage.setItem('basketItems', JSON.stringify(items))
+      console.log('💾 [Products] Basket saved to storage:', items.length, 'items')
+    } catch (err) {
+      console.error('Failed to save basket to storage:', err)
+    }
+  }
+
+  const handleAddToCart = () => {
     const currentParts = selectedPartsByTab[active] || []
-    const hasBrands = currentParts.some(p => p.selectedBrands && p.selectedBrands.length > 0)
-    if (currentParts.length > 0 && hasBrands) {
-      setShowConfirmModal(true)
-    }
-  }
-
-  const handleConfirmOrder = (updatedParts) => {
-    const currentParts = updatedParts || selectedPartsByTab[active] || []
-
-    let totalItems = 0
-    const allBrands = new Set()
-    currentParts.forEach(part => {
-      if (part.selectedBrands && part.selectedBrands.length > 0) {
-        totalItems += part.selectedBrands.length
-        part.selectedBrands.forEach(b => allBrands.add(b))
-      }
-    })
-    const brandCount = allBrands.size
+    const hasModels = currentParts.some(p => p.selectedModels && p.selectedModels.length > 0)
     
-    if (currentParts.length > 0 && totalItems > 0) {
-      const orderData = {
-        parts: currentParts,
-        totalBrands: brandCount,
-        totalItems: totalItems,
-        category: active === 'motorcycle' ? 'Motorcycle Parts & Accessories' : 
-                  active === 'e-bike' ? 'E-Bike Parts & Components' : 
-                  'Industrial Sealing Solutions'
-      }
+    if (currentParts.length > 0 && hasModels) {
+      // Add to basket - merge items with same part name
+      const updatedBasket = [...basketItems]
+      currentParts.forEach(part => {
+        const existingIndex = updatedBasket.findIndex(item => item.name === part.name)
+        if (existingIndex !== -1) {
+          // Merge models if part exists
+          const existingModels = updatedBasket[existingIndex].selectedModels || []
+          const newModels = part.selectedModels || []
+          const mergedModels = [...new Set([...existingModels, ...newModels])]
+          updatedBasket[existingIndex] = {
+            ...updatedBasket[existingIndex],
+            selectedModels: mergedModels,
+            selectedBrands: part.selectedBrands || updatedBasket[existingIndex].selectedBrands
+          }
+        } else {
+          updatedBasket.push({ ...part })
+        }
+      })
       
-      // Save to storage with tab-specific keys
-      const storageKey = `selectedParts_${active}`
-      const categoryKey = `productCategory_${active}`
-      localStorage.setItem(storageKey, JSON.stringify(currentParts))
-      localStorage.setItem(categoryKey, orderData.category)
-      sessionStorage.setItem(storageKey, JSON.stringify(currentParts))
-      sessionStorage.setItem(categoryKey, orderData.category)
+      setBasketItems(updatedBasket)
+      saveBasketToStorage(updatedBasket)
       
-      console.log('✅ Order Data:', orderData)
-      window.dispatchEvent(new Event('selectedPartsUpdated'))
+      // Clear selected parts
+      setSelectedPartsByTab(prev => {
+        const updated = { ...prev, [active]: [] }
+        const storageKey = `selectedParts_${active}`
+        localStorage.removeItem(storageKey)
+        localStorage.removeItem(`productCategory_${active}`)
+        sessionStorage.removeItem(storageKey)
+        sessionStorage.removeItem(`productCategory_${active}`)
+        return updated
+      })
       
-      setShowConfirmModal(false)
-      onNavigate('Contact Us')
+      setOpenBrandDropdownPart(null)
+      setOpenModelDropdownPart(null)
+      
+      // Open Review Order modal
+      setIsReviewOrderOpen(true)
+    } else {
+      alert('Please select at least one part with models before adding to cart.')
     }
   }
 
-  const handleUpdateSelection = (updatedParts) => {
-    setSelectedPartsByTab(prev => {
-      const result = { ...prev, [active]: updatedParts }
-      // Save to storage with tab-specific key
-      saveToStorage(updatedParts, active)
-      return result
-    })
+  const handleRemoveFromBasket = (partName) => {
+    const updated = basketItems.filter(item => item.name !== partName)
+    setBasketItems(updated)
+    saveBasketToStorage(updated)
+  }
+
+  const handleClearBasket = () => {
+    setBasketItems([])
+    saveBasketToStorage([])
+  }
+
+  const handleUpdateBasketItems = (updatedItems) => {
+    setBasketItems(updatedItems)
+    saveBasketToStorage(updatedItems)
+  }
+
+  const handleConfirmOrder = (finalItems) => {
+    if (!finalItems || finalItems.length === 0) return
+    
+    console.log('Confirming order with items:', finalItems)
+    
+    // Save to storage for ContactUs page
+    saveBasketToStorage(finalItems)
+    
+    // Also save as selected parts for the form
+    const category = active === 'motorcycle' ? 'Motorcycle Parts & Accessories' : 
+                    active === 'e-bike' ? 'E-Bike Parts & Components' : 
+                    'Industrial Sealing Solutions'
+    
+    // Save to the format ContactUs expects
+    localStorage.setItem('selectedParts', JSON.stringify(finalItems))
+    localStorage.setItem('productCategory', category)
+    sessionStorage.setItem('selectedParts', JSON.stringify(finalItems))
+    sessionStorage.setItem('productCategory', category)
+    
+    setIsReviewOrderOpen(false)
+    onNavigate('Contact Us')
+  }
+
+  const handleContinueShopping = () => {
+    setIsReviewOrderOpen(false)
   }
 
   const handleBrandToggle = (part, brandOrBrands) => {
-    console.log('🔄 Brand Toggle:', part.name, brandOrBrands)
-    
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const exists = currentList.some(p => p.name === part.name)
-      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [] }]
+      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
 
       updatedList = updatedList.map(p => {
         if (p.name === part.name) {
@@ -1670,24 +1869,65 @@ export default function Products({ onNavigate }) {
             }
           }
 
-          console.log('📦 Updated brands for', p.name, ':', newBrands)
-          return { ...p, selectedBrands: newBrands }
+          return { ...p, selectedBrands: newBrands, selectedModels: [] }
         }
         return p
       })
 
-      // Save to storage with tab-specific key
       saveToStorage(updatedList, active)
       
       return { ...prev, [active]: updatedList }
     })
   }
 
-  const handleDropdownToggle = (part, isOpen) => {
+  const handleModelToggle = (part, modelOrModels) => {
+    setSelectedPartsByTab(prev => {
+      const currentList = prev[active] || []
+      const exists = currentList.some(p => p.name === part.name)
+      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
+
+      updatedList = updatedList.map(p => {
+        if (p.name === part.name) {
+          let newModels = [...(p.selectedModels || [])]
+
+          if (Array.isArray(modelOrModels)) {
+            newModels = modelOrModels.length === 0 ? [] : [...modelOrModels]
+          } else if (modelOrModels === null) {
+            return p
+          } else {
+            if (newModels.includes(modelOrModels)) {
+              newModels = newModels.filter(m => m !== modelOrModels)
+            } else {
+              newModels = [...newModels, modelOrModels]
+            }
+          }
+
+          return { ...p, selectedModels: newModels }
+        }
+        return p
+      })
+
+      saveToStorage(updatedList, active)
+      
+      return { ...prev, [active]: updatedList }
+    })
+  }
+
+  const handleBrandDropdownToggle = (part, isOpen) => {
     if (isOpen === false) {
-      setOpenDropdownPart(null)
+      setOpenBrandDropdownPart(null)
     } else {
-      setOpenDropdownPart(openDropdownPart === part.name ? null : part.name)
+      setOpenBrandDropdownPart(openBrandDropdownPart === part.name ? null : part.name)
+      setOpenModelDropdownPart(null)
+    }
+  }
+
+  const handleModelDropdownToggle = (part, isOpen) => {
+    if (isOpen === false) {
+      setOpenModelDropdownPart(null)
+    } else {
+      setOpenModelDropdownPart(openModelDropdownPart === part.name ? null : part.name)
+      setOpenBrandDropdownPart(null)
     }
   }
 
@@ -1706,40 +1946,45 @@ export default function Products({ onNavigate }) {
     const parts = selectedPartsByTab[tabId] || []
     let totalItems = 0
     parts.forEach(part => {
-      if (part.selectedBrands && part.selectedBrands.length > 0) {
-        totalItems += part.selectedBrands.length
+      if (part.selectedModels && part.selectedModels.length > 0) {
+        totalItems += part.selectedModels.length
       }
     })
     return totalItems
   }
 
-  // Function to open confirm modal from permanent button
-  const handleOpenConfirmModalFromButton = () => {
-    const currentParts = selectedPartsByTab[active] || []
-    const hasBrands = currentParts.some(p => p.selectedBrands && p.selectedBrands.length > 0)
-    if (currentParts.length > 0 && hasBrands) {
-      setShowConfirmModal(true)
-    } else {
-      alert('Please select at least one part with brands before confirming your order.')
-    }
-  }
-
-  // Calculate total selected items for the permanent button
-  const getTotalSelectedItems = () => {
-    const parts = selectedPartsByTab[active] || []
+  const getTotalBasketItems = () => {
     let total = 0
-    parts.forEach(part => {
-      if (part.selectedBrands && part.selectedBrands.length > 0) {
-        total += part.selectedBrands.length
+    basketItems.forEach(item => {
+      if (item.selectedModels && item.selectedModels.length > 0) {
+        total += item.selectedModels.length
       }
     })
     return total
   }
 
-  const totalSelectedItems = getTotalSelectedItems()
-  const hasSelection = totalSelectedItems > 0
+  const totalBasketItems = getTotalBasketItems()
 
-  // Load selected parts from storage when component mounts or tab changes
+  // Load basket from storage on mount
+  useEffect(() => {
+    const loadBasketFromStorage = () => {
+      try {
+        const stored = localStorage.getItem('basketItems') || sessionStorage.getItem('basketItems')
+        if (stored) {
+          const parsed = JSON.parse(stored)
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setBasketItems(parsed)
+            console.log('📥 [Products] Loaded basket from storage:', parsed.length, 'items')
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load basket from storage:', err)
+      }
+    }
+    
+    loadBasketFromStorage()
+  }, [])
+
   useEffect(() => {
     const loadFromStorage = () => {
       try {
@@ -1752,7 +1997,6 @@ export default function Products({ onNavigate }) {
               ...prev,
               [active]: parsed
             }))
-            console.log(`📥 [Products] Loaded from storage for ${active}:`, parsed.length, 'parts')
           }
         }
       } catch (err) {
@@ -1772,15 +2016,18 @@ export default function Products({ onNavigate }) {
         />
       )}
 
-      <ConfirmOrderModal 
-        isOpen={showConfirmModal}
-        onClose={() => setShowConfirmModal(false)}
-        onConfirm={handleConfirmOrder}
-        selectedParts={selectedParts}
-        onUpdateSelection={handleUpdateSelection}
+      <ReviewOrderModal 
+        isOpen={isReviewOrderOpen}
+        onClose={() => setIsReviewOrderOpen(false)}
+        basketItems={basketItems}
+        onRemoveItem={handleRemoveFromBasket}
+        onClearAll={handleClearBasket}
+        onConfirmOrder={handleConfirmOrder}
+        onContinueShopping={handleContinueShopping}
+        onUpdateBasketItems={handleUpdateBasketItems}
       />
 
-      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
         <img
           src="/assets/vvv.png"
           alt="ATI Facility"
@@ -1788,11 +2035,11 @@ export default function Products({ onNavigate }) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
             Our Products
           </span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Industrial Product Catalogue</h1>
-          <p className="text-white/80 text-lg max-w-2xl">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Industrial Product Catalogue</h1>
+          <p className="text-white/80 text-base max-w-2xl">
             Quality-verified sealing components sourced from certified partner manufacturers, supplied for demanding industrial applications worldwide.
           </p>
         </div>
@@ -1800,7 +2047,7 @@ export default function Products({ onNavigate }) {
 
       <div className="bg-white shadow-md sticky top-20 z-40 border-b border-[#c5c6cd]">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="flex gap-9 overflow-x-auto py-4">
+          <div className="flex gap-6 overflow-x-auto py-3">
             {PRODUCTS.map((p) => {
               const tabTotalItems = getTabTotalItems(p.id)
               const tabHasSelection = (selectedPartsByTab[p.id]?.length || 0) > 0 && getTabBrandCount(p.id) > 0
@@ -1811,11 +2058,11 @@ export default function Products({ onNavigate }) {
                     setActive(p.id)
                     setActiveSubProduct(null)
                     setSheetOpen(false)
-                    setOpenDropdownPart(null)
-                    setShowConfirmModal(false)
+                    setOpenBrandDropdownPart(null)
+                    setOpenModelDropdownPart(null)
                   }}
                   className={`
-                    px-6 py-3 rounded-lg font-semibold text-md tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
+                    px-5 py-2.5 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
                     ${active === p.id 
                       ? 'bg-[#005691] text-white shadow-lg transform scale-105' 
                       : 'text-[#505f76] hover:text-[#005691] hover:bg-[#005691]/10'
@@ -1824,10 +2071,10 @@ export default function Products({ onNavigate }) {
                     hover:scale-105
                   `}
                 >
-                  <span className="text-xl">{p.icon || '📦'}</span>
+                  <span className="text-lg">{p.icon || '📦'}</span>
                   {p.name}
                   {p.id !== 'industrial-seals' && tabHasSelection && (
-                    <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full ml-2">
+                    <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full ml-1">
                       {tabTotalItems}
                     </span>
                   )}
@@ -1838,38 +2085,37 @@ export default function Products({ onNavigate }) {
         </div>
       </div>
 
-      {/* PERMANENT CONFIRM ORDER BUTTON */}
+      {/* Review Order Button */}
       {active !== 'industrial-seals' && (
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-4">
-          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-2 sm:p-4 flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-1 sm:gap-4">
-              <span className="material-symbols-outlined text-[#005691] text-base sm:text-2xl">shopping_cart</span>
+        <div className="max-w-[1280px] mx-auto px-8 py-3">
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-3 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-[#005691] text-xl">shopping_basket</span>
               <div>
-                <span className="font-semibold text-gray-700 text-xs sm:text-base">Your Selection</span>
-                <span className="text-[10px] sm:text-sm text-gray-500 ml-1 sm:ml-2">
-                  {hasSelection ? (
-                    <>{totalSelectedItems} item{totalSelectedItems > 1 ? 's' : ''} selected</>
+                <span className="font-semibold text-sm text-gray-700">Review Order</span>
+                <span className="text-xs text-gray-500 ml-2">
+                  {basketItems.length > 0 ? (
+                    <>{totalBasketItems} item{totalBasketItems > 1 ? 's' : ''} in cart</>
                   ) : (
-                    'No items selected'
+                    'Empty'
                   )}
                 </span>
               </div>
             </div>
             <button
-              onClick={handleOpenConfirmModalFromButton}
-              className={`px-2 sm:px-6 py-1 sm:py-2.5 rounded-lg text-[10px] sm:text-sm font-semibold transition-all flex items-center gap-1 sm:gap-2 ${
-                hasSelection 
+              onClick={() => setIsReviewOrderOpen(true)}
+              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${
+                basketItems.length > 0 
                   ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105' 
                   : 'bg-gray-200 text-gray-500 cursor-not-allowed'
               }`}
-              disabled={!hasSelection}
+              disabled={basketItems.length === 0}
             >
-              <span className="material-symbols-outlined text-sm sm:text-base">checklist</span>
-              <span className="hidden xs:inline">Review Order</span>
-              <span className="xs:hidden">Review</span>
-              {hasSelection && (
-                <span className="bg-white/20 text-white text-[8px] sm:text-xs px-1 sm:px-2 py-0.5 rounded-full ml-0.5 sm:ml-1">
-                  {totalSelectedItems}
+              <span className="material-symbols-outlined text-sm">visibility</span>
+              View Order
+              {basketItems.length > 0 && (
+                <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full ml-1">
+                  {totalBasketItems}
                 </span>
               )}
             </button>
@@ -1877,7 +2123,7 @@ export default function Products({ onNavigate }) {
         </div>
       )}
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-10">
+      <div className="max-w-[1280px] mx-auto px-8 py-6">
         <ProductDetail 
           key={product.id}
           product={product} 
@@ -1889,10 +2135,13 @@ export default function Products({ onNavigate }) {
           selectedParts={selectedParts}
           onSelectPart={handleSelectPart}
           onClearAllParts={handleClearAllParts}
-          onProceedToQuote={handleOpenConfirmModal}
+          onAddToCart={handleAddToCart}
           onBrandToggle={handleBrandToggle}
-          openDropdownPart={openDropdownPart}
-          onDropdownToggle={handleDropdownToggle}
+          onModelToggle={handleModelToggle}
+          openBrandDropdownPart={openBrandDropdownPart}
+          openModelDropdownPart={openModelDropdownPart}
+          onBrandDropdownToggle={handleBrandDropdownToggle}
+          onModelDropdownToggle={handleModelDropdownToggle}
         />
       </div>
 
@@ -1962,34 +2211,6 @@ export default function Products({ onNavigate }) {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-        }
-        /* Mobile responsive fixes */
-        @media (max-width: 480px) {
-          .material-symbols-outlined {
-            font-size: 18px !important;
-          }
-        }
-        /* Extra small devices */
-        @media (max-width: 380px) {
-          .material-symbols-outlined {
-            font-size: 16px !important;
-          }
-        }
-        .xs\:inline {
-          display: none;
-        }
-        @media (min-width: 480px) {
-          .xs\:inline {
-            display: inline;
-          }
-        }
-        .xs\:hidden {
-          display: inline;
-        }
-        @media (min-width: 480px) {
-          .xs\:hidden {
-            display: none;
-          }
         }
       `}</style>
     </div>
