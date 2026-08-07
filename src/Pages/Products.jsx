@@ -870,138 +870,267 @@ function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle
   )
 }
 
-// ── PRODUCT CARD ──────────────────────────────────────────────────
-function ProductCard({ part, brands, onSelectPart, isSelected, selectedBrands, selectedModels, onBrandToggle, onModelToggle, isBrandDropdownOpen, isModelDropdownOpen, onBrandDropdownToggle, onModelDropdownToggle }) {
+// ── CATEGORY ICON MAP ───────────────────────────────────────────
+const CATEGORY_ICONS = {
+  'Engine Parts':                'settings',
+  'Transmission & Clutch':      'cycle',
+  'Fuel System':                'local_gas_station',
+  'Air Intake System':          'air',
+  'Exhaust System':             'heat',
+  'Cooling System':             'ac_unit',
+  'Brake System':               'emergency_heat',
+  'Suspension & Steering':      'tune',
+  'Wheels & Tires':             'tire_repair',
+  'Chain Drive':                'link',
+  'Electrical Parts':           'bolt',
+  'Lighting':                   'light_mode',
+  'Controls':                   'tune',
+  'Body Parts':                 'directions_bike',
+  'Rubber & Sealing Components':'circle',
+  'Motorcycle Accessories':     'backpack',
+  'Electric Drive System':      'electric_bolt',
+  'Battery System':             'battery_charging_full',
+  'Electrical Components':      'power',
+  'Drivetrain':                 'settings_applications',
+  'Frame & Body Parts':         'pedal_bike',
+  'Lighting & Safety':          'lightbulb',
+  'Fasteners & Hardware':       'hardware',
+  'E-Bike Accessories':         'backpack',
+}
+
+// Returns a Material Symbols icon name string for a given category
+function getCategoryIcon(category) {
+  return CATEGORY_ICONS[category] || 'inventory_2'
+}
+
+// ── PRODUCT CARD (horizontal layout) ───────────────────────────────────
+function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, selectedPart, openBrandDropdownPart, openModelDropdownPart, onBrandDropdownToggle, onModelDropdownToggle }) {
+  // Local state — initialised from selectedPart when card is already in the order
+  const [localBrands, setLocalBrands] = useState(() => selectedPart?.selectedBrands || [])
+  const [localModels, setLocalModels] = useState(() => selectedPart?.selectedModels || [])
+  const [shake, setShake]             = useState(false)
+  const [showHint, setShowHint]       = useState('')
+
+  const hasBrand  = localBrands.length > 0
+  const hasModels = localModels.length > 0
+  const canAdd    = hasBrand && hasModels
+
+  // When the card goes from selected → unselected (removed), clear local state
+  const prevSelected = useRef(isSelected)
+  useEffect(() => {
+    if (prevSelected.current && !isSelected) {
+      setLocalBrands([])
+      setLocalModels([])
+    }
+    prevSelected.current = isSelected
+  }, [isSelected])
+
+  // Brand selection — always local; if already in order, also update cart live
+  const handleLocalBrandToggle = (_part, brandOrBrands) => {
+    const next = Array.isArray(brandOrBrands)
+      ? brandOrBrands
+      : localBrands.includes(brandOrBrands)
+        ? localBrands.filter(b => b !== brandOrBrands)
+        : [brandOrBrands]
+    setLocalBrands(next)
+    setLocalModels([])  // reset models whenever brand changes
+    if (isSelected) onUpdatePart(part, next, [])
+  }
+
+  // Model selection — local + live update if in order
+  const handleLocalModelToggle = (_part, modelOrModels) => {
+    const next = Array.isArray(modelOrModels)
+      ? modelOrModels
+      : localModels.includes(modelOrModels)
+        ? localModels.filter(m => m !== modelOrModels)
+        : [...localModels, modelOrModels]
+    setLocalModels(next)
+    if (isSelected) onUpdatePart(part, localBrands, next)
+  }
+
+  const handleAddClick = () => {
+    if (isSelected) {
+      // Remove from order AND clear local selections
+      onSelectPart(part, null, null)
+      setLocalBrands([])
+      setLocalModels([])
+      return
+    }
+    if (!hasBrand) {
+      setShake(true); setShowHint('Select a brand first')
+      setTimeout(() => { setShake(false); setShowHint('') }, 2000)
+      return
+    }
+    if (!hasModels) {
+      setShake(true); setShowHint('Select at least one model')
+      setTimeout(() => { setShake(false); setShowHint('') }, 2000)
+      return
+    }
+    onSelectPart(part, localBrands, localModels)
+  }
+
+  const isBrandOpen = openBrandDropdownPart === part.name
+  const isModelOpen = openModelDropdownPart === part.name
+
   return (
-    <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-md transition-shadow flex flex-col group">
-      <div className="h-40 bg-[#eceef0] relative overflow-hidden flex items-center justify-center border-b border-[#c5c6cd]">
-        <div className="w-full h-full flex items-center justify-center text-5xl opacity-20 group-hover:opacity-40 transition-opacity">
-          🔧
-        </div>
+    <div className={`bg-white rounded-xl flex flex-row overflow-hidden transition-all duration-200 ${
+      isSelected
+        ? 'ring-1 ring-[#005691] shadow-md'
+        : 'border border-gray-200 hover:border-gray-300 hover:shadow-sm'
+    } ${shake ? 'animate-cardShake' : ''}`}>
+
+      {/* ── LEFT: Image ────────────────────────────────────────── */}
+      <div className={`relative w-28 flex-shrink-0 flex items-center justify-center overflow-hidden ${
+        isSelected ? 'bg-gradient-to-b from-[#005691]/8 to-[#005691]/5' : 'bg-gradient-to-b from-gray-50 to-gray-100'
+      }`}>
+        <div className={`absolute left-0 top-0 bottom-0 w-0.5 ${isSelected ? 'bg-[#005691]' : 'bg-transparent'}`} />
+        {part.image ? (
+          <img src={part.image} alt={part.name} className="w-full h-full object-cover" />
+        ) : (
+          <span className="material-symbols-outlined text-gray-300" style={{fontSize:'36px'}}>
+            {getCategoryIcon(part.category)}
+          </span>
+        )}
         {isSelected && (
-          <div className="absolute top-2 right-2">
-            <span className="material-symbols-outlined text-yellow-400 text-4xl">check_circle</span>
+          <div className="absolute top-2 right-2 w-5 h-5 bg-[#005691] rounded-full flex items-center justify-center shadow">
+            <span className="material-symbols-outlined text-white" style={{fontSize:'12px'}}>check</span>
           </div>
         )}
       </div>
-      <div className="p-3 flex flex-col flex-grow">
-        <div className="flex justify-between items-start mb-1">
-          <h3 className="font-medium text-[#191c1e] text-sm leading-tight line-clamp-2">{part.name}</h3>
-        </div>
-        <div className="mb-2">
-          <span className="text-[10px] font-mono bg-[#eceef0] px-1.5 py-0.5 rounded">PN: {part.partNo}</span>
-        </div>
-        <div className="mb-2 text-xs text-[#45474c]">
-          <span className="font-medium text-[#191c1e]">MOQ:</span> {part.moq} units
-        </div>
-        <div className="mt-auto flex items-center justify-between border-t border-[#c5c6cd] pt-2">
-          <div className="flex items-center gap-2">
-            {brands && brands.length > 0 && (
-              <PartBrandDropdown 
-                part={part}
-                brands={brands}
-                selectedBrands={selectedBrands}
-                onBrandToggle={onBrandToggle}
-                isOpen={isBrandDropdownOpen}
-                onToggle={onBrandDropdownToggle}
-              />
-            )}
-            <PartModelDropdown 
-              part={part}
-              selectedBrands={selectedBrands}
-              selectedModels={selectedModels}
-              onModelToggle={onModelToggle}
-              isOpen={isModelDropdownOpen}
-              onToggle={onModelDropdownToggle}
-            />
-            <span className="text-[10px] text-[#505f76] max-w-[80px] truncate">
-              {selectedBrands && selectedBrands.length > 0 ? selectedBrands[0] : 'Select Brand'}
-              {selectedModels && selectedModels.length > 0 && `, ${selectedModels.length} models`}
-            </span>
+
+      {/* ── RIGHT: Content ────────────────────────────────────────── */}
+      <div className="flex-1 min-w-0 p-3 flex flex-col gap-2">
+
+        {/* Row 1: Part number + name + MOQ */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="text-[9px] font-mono text-gray-400 tracking-wider mb-0.5">{part.partNo}</p>
+            <h3 className="text-[12px] font-bold text-gray-900 leading-snug line-clamp-2">{part.name}</h3>
           </div>
-          <button
-            onClick={() => onSelectPart(part)}
-            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
-              isSelected 
-                ? 'bg-yellow-400 text-gray-800 hover:bg-yellow-500' 
-                : 'bg-[#005691] text-white hover:brightness-110'
-            }`}
-          >
-            <span className="material-symbols-outlined text-base">
-              {isSelected ? 'check' : 'add'}
-            </span>
-          </button>
+          <span className="text-[10px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 font-medium">
+            MOQ {part.moq.toLocaleString()}
+          </span>
         </div>
+
+        {/* Row 2: Brand + Model + Add/Remove — single line */}
+        <div className="flex items-center gap-1.5">
+          <PartBrandDropdown
+            part={part} brands={brands} selectedBrands={localBrands}
+            onBrandToggle={handleLocalBrandToggle}
+            isOpen={isBrandOpen} onToggle={onBrandDropdownToggle}
+          />
+          <span className={`text-[11px] truncate min-w-0 flex-1 ${
+            hasBrand ? 'text-gray-800 font-medium' : 'text-gray-400'
+          }`}>{hasBrand ? localBrands[0] : 'Brand'}</span>
+
+          <div className="w-px h-4 bg-gray-200 flex-shrink-0" />
+
+          <PartModelDropdown
+            part={part} selectedBrands={localBrands} selectedModels={localModels}
+            onModelToggle={handleLocalModelToggle}
+            isOpen={isModelOpen} onToggle={onModelDropdownToggle}
+          />
+          <span className={`text-[11px] truncate min-w-0 flex-1 ${
+            hasModels ? 'text-gray-800 font-medium' : hasBrand ? 'text-gray-400' : 'text-gray-300'
+          }`}>
+            {hasModels ? `${localModels.length} model${localModels.length > 1 ? 's' : ''}` : 'Model'}
+          </span>
+
+          {/* ─ Cart icon (add) or × (remove) ──────────────────────── */}
+          {isSelected ? (
+            <button
+              onClick={handleAddClick}
+              title="Remove from order"
+              className="flex-shrink-0 w-7 h-7 rounded-full bg-red-50 border border-red-200 text-red-500 hover:bg-red-100 hover:border-red-300 flex items-center justify-center transition-all"
+            >
+              <span className="material-symbols-outlined" style={{fontSize:'16px'}}>close</span>
+            </button>
+          ) : canAdd ? (
+            <button
+              onClick={handleAddClick}
+              title="Add to order"
+              className="flex-shrink-0 w-7 h-7 rounded-full bg-[#005691] text-white hover:bg-[#004a7c] flex items-center justify-center transition-all shadow-sm"
+            >
+              <span className="material-symbols-outlined" style={{fontSize:'15px'}}>shopping_cart</span>
+            </button>
+          ) : (
+            <button
+              onClick={handleAddClick}
+              title={!hasBrand ? 'Select a brand first' : 'Select at least one model'}
+              className="flex-shrink-0 w-7 h-7 rounded-full border border-dashed border-gray-300 text-gray-300 flex items-center justify-center"
+            >
+              <span className="material-symbols-outlined" style={{fontSize:'15px'}}>shopping_cart</span>
+            </button>
+          )}
+        </div>
+
+        {/* Error hint */}
+        {showHint && (
+          <p className="text-[10px] text-red-500 flex items-center gap-1">
+            <span className="material-symbols-outlined" style={{fontSize:'12px'}}>info</span>{showHint}
+          </p>
+        )}
       </div>
     </div>
   )
 }
 
+
+
 // ── CATEGORY SECTION ──────────────────────────────────────────────
 function CategorySection({ 
-  category, 
-  parts, 
-  brands,
-  onSelectPart,
-  selectedParts,
-  onBrandToggle,
-  onModelToggle,
-  openBrandDropdownPart,
-  openModelDropdownPart,
-  onBrandDropdownToggle,
-  onModelDropdownToggle
+  category, parts, brands, onSelectPart, onUpdatePart, selectedParts,
+  openBrandDropdownPart, openModelDropdownPart,
+  onBrandDropdownToggle, onModelDropdownToggle, categoryId
 }) {
+  const [collapsed, setCollapsed] = useState(false)
   const selectedCount = parts.filter(p => selectedParts.some(sp => sp.name === p.name)).length
 
   return (
-    <div className="mb-8">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-lg font-bold text-[#005691] flex items-center gap-2">
-          <span className="w-1 h-6 bg-[#005691] rounded-full inline-block" />
-          {category}
-          {selectedCount > 0 && (
-            <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full font-bold ml-2">
-              {selectedCount} selected
-            </span>
-          )}
-        </h3>
-        <button
-          onClick={() => {
-            parts.forEach(part => {
-              if (!selectedParts.some(p => p.name === part.name)) {
-                onSelectPart(part)
-              }
-            })
-          }}
-          className="text-xs text-[#005691] hover:text-[#0077be] font-medium px-3 py-1 border border-[#005691] rounded-lg hover:bg-[#005691]/5 transition-all"
-        >
-          Select All
-        </button>
+    <div id={categoryId} className="mb-8">
+      {/* Category header — blue background stripe */}
+      <div
+        className="flex items-center gap-3 cursor-pointer group mb-4 bg-[#005691] rounded-lg px-4 py-2.5"
+        onClick={() => setCollapsed(c => !c)}
+      >
+        <span className="material-symbols-outlined text-white/80" style={{fontSize:'18px'}}>{getCategoryIcon(category)}</span>
+        <div>
+          <h3 className="text-[13px] font-bold text-white leading-none tracking-tight">{category}</h3>
+          <span className="text-[11px] text-white/60 font-normal">{parts.length} parts</span>
+        </div>
+        {selectedCount > 0 && (
+          <span className="text-[10px] font-semibold text-[#005691] bg-white px-2 py-0.5 rounded-full">
+            {selectedCount}/{parts.length} in order
+          </span>
+        )}
+        <span className={`material-symbols-outlined text-white/50 text-lg ml-auto transition-transform duration-200 group-hover:text-white/80 ${collapsed ? '' : 'rotate-180'}`}>
+          expand_more
+        </span>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3">
-        {parts.map((part) => {
-          const partSelected = selectedParts.find(p => p.name === part.name)
-          const selectedBrands = partSelected ? partSelected.selectedBrands || [] : []
-          const selectedModels = partSelected ? partSelected.selectedModels || [] : []
-          return (
-            <ProductCard 
-              key={part.name}
-              part={part}
-              brands={brands}
-              onSelectPart={onSelectPart}
-              isSelected={!!partSelected}
-              selectedBrands={selectedBrands}
-              selectedModels={selectedModels}
-              onBrandToggle={onBrandToggle}
-              onModelToggle={onModelToggle}
-              isBrandDropdownOpen={openBrandDropdownPart === part.name}
-              isModelDropdownOpen={openModelDropdownPart === part.name}
-              onBrandDropdownToggle={(state) => onBrandDropdownToggle(part, state)}
-              onModelDropdownToggle={(state) => onModelDropdownToggle(part, state)}
-            />
-          )
-        })}
-      </div>
+
+      {/* Cards — 2-column grid of horizontal cards */}
+      {!collapsed && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {parts.map(part => {
+            const partSelected = selectedParts.find(p => p.name === part.name)
+            return (
+              <ProductCard
+                key={part.name}
+                part={part}
+                brands={brands}
+                onSelectPart={onSelectPart}
+                onUpdatePart={onUpdatePart}
+                isSelected={!!partSelected}
+                selectedPart={partSelected || null}
+                openBrandDropdownPart={openBrandDropdownPart}
+                openModelDropdownPart={openModelDropdownPart}
+                onBrandDropdownToggle={state => onBrandDropdownToggle(part, state)}
+                onModelDropdownToggle={state => onModelDropdownToggle(part, state)}
+              />
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }
@@ -1256,10 +1385,9 @@ function ProductDetail({
   onBackToMain,
   selectedParts,
   onSelectPart,
+  onUpdatePart,
   onClearAllParts,
   onAddToCart,
-  onBrandToggle,
-  onModelToggle,
   openBrandDropdownPart,
   openModelDropdownPart,
   onBrandDropdownToggle,
@@ -1510,154 +1638,205 @@ function ProductDetail({
       part.selectedBrands.forEach(b => totalBrandsSet.add(b))
     }
   })
-  const brandCount = totalBrandsSet.size
-  const modelCount = totalModelsSet.size
+
+  const scrollToCategory = (cat) => {
+    const el = document.getElementById(`cat-${cat.replace(/[^a-z0-9]/gi, '-')}`)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setSelectedCategory(cat)
+  }
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-        <div className="rounded-xl overflow-hidden h-64 bg-[#eceef0] relative">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
-            onError={(e) => { e.target.style.background = '#eceef0' }}
-          />
-          <div className="absolute top-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-md text-2xl">
-            {product.icon}
+    <div>
+
+      {/* ── Page Header ─────────────────────────────────────────── */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xl">{product.icon}</span>
+            <h2 className="text-xl font-bold text-gray-900">{product.name} Parts Catalogue</h2>
+          </div>
+          <p className="text-sm text-gray-500 max-w-lg">{product.description}</p>
+          <div className="flex items-center gap-4 mt-3">
+            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{uniqueCategories.length}</span> categories</span>
+            <span className="text-gray-300">·</span>
+            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{allParts.length}</span> parts</span>
+            <span className="text-gray-300">·</span>
+            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{brands.length}</span> brands</span>
+            {selectedParts.length > 0 && (
+              <>
+                <span className="text-gray-300">·</span>
+                <span className="text-sm font-semibold text-[#005691]">{selectedParts.length} selected</span>
+              </>
+            )}
           </div>
         </div>
-        <div className="flex flex-col justify-center">
-          <h2 className="text-2xl font-bold text-[#005691] mb-1">{product.name}</h2>
-          <p className="text-[#005691] font-semibold text-xs mb-3 uppercase tracking-widest">
-            {product.tagline}
-          </p>
-          <p className="text-[#505f76] text-sm leading-relaxed mb-4">{product.description}</p>
-          
-          <div className="flex flex-wrap gap-3 mb-4">
-            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wider">Categories</div>
-              <div className="text-xl font-bold text-[#005691]">{uniqueCategories.length}</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wider">Brands</div>
-              <div className="text-xl font-bold text-[#005691]">{brands.length}</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg px-4 py-2 border border-gray-200">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wider">MOQ</div>
-              <div className="text-xl font-bold text-[#005691]">Flexible</div>
-            </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {selectedParts.length > 0 && (
+            <button onClick={onAddToCart}
+              className="bg-[#005691] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#004a7c] transition-all flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+              Add {selectedParts.length} to Cart
+            </button>
+          )}
+          <button onClick={() => onNavigate('Contact Us')}
+            className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:border-gray-400 transition-all flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-sm">request_quote</span>
+            Request a Quote
+          </button>
+        </div>
+      </div>
+
+      {/* ── How-to steps (inline, minimal) ────────────────────────────── */}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
+        <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">How to order:</span>
+        {['Find a part', 'Select brand', 'Select models', 'Add to order', 'Add to cart'].map((s, i) => (
+          <div key={i} className="flex items-center gap-1.5">
+            {i > 0 && <span className="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>}
+            <span className="text-[11px] text-gray-600 font-medium">
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-[9px] font-bold text-gray-600 mr-1">{i+1}</span>
+              {s}
+            </span>
           </div>
-          
-          <div className="flex gap-3 flex-wrap">
+        ))}
+      </div>
+
+      {/* ── MAIN TWO-COLUMN LAYOUT ──────────────────────────────────────── */}
+      <div className="flex gap-6 items-start">
+
+        {/* ── LEFT SIDEBAR ────────────────────────────────────────── */}
+        <div className="w-52 flex-shrink-0 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3">
+
+          {/* Search */}
+          <div className="relative">
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+            <input
+              type="text"
+              placeholder="Search parts..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="w-full pl-8 pr-8 py-2 border border-gray-200 rounded-lg text-[12px] text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-all bg-white"
+            />
+            {searchTerm && (
+              <button onClick={() => setSearchTerm('')}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <span className="material-symbols-outlined text-sm">close</span>
+              </button>
+            )}
+          </div>
+
+          {/* Category list */}
+          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <div className="px-3 py-2 border-b border-gray-100 bg-[#005691]">
+              <span className="text-[10px] font-semibold text-white uppercase tracking-wider">Categories</span>
+            </div>
+
+            {/* All */}
             <button
-              onClick={() => onNavigate('Contact Us')}
-              className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
+              onClick={() => setSelectedCategory('all')}
+              className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors border-b border-gray-100 ${
+                selectedCategory === 'all' ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
+              }`}
             >
-              <span className="material-symbols-outlined text-sm">request_quote</span>
-              Request Quote
+              <span className="text-[12px] font-medium">All parts</span>
+              <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
+                selectedCategory === 'all' ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
+              }`}>{allParts.length}</span>
+            </button>
+
+            {uniqueCategories.map(cat => {
+              const catCount = allParts.filter(p => p.category === cat).length
+              const isActive = selectedCategory === cat
+              const selCount = selectedParts.filter(p => p.category === cat).length
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setSelectedCategory(isActive ? 'all' : cat)
+                    const el = document.getElementById(`cat-${cat.replace(/[^a-z0-9]/gi, '-')}`)
+                    if (el && !isActive) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }}
+                  className={`w-full flex items-center gap-2 px-3 py-2 text-left transition-colors border-b border-gray-100 last:border-b-0 ${
+                    isActive ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-gray-400" style={{fontSize:'15px'}}>{getCategoryIcon(cat)}</span>
+                  <span className={`text-[11px] flex-1 truncate leading-tight ${ isActive ? 'font-semibold' : 'font-normal' }`}>{cat}</span>
+                  <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${
+                    selCount > 0 ? 'bg-[#005691] text-white' :
+                    isActive ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
+                  }`}>{selCount > 0 ? selCount : catCount}</span>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Selection summary */}
+          {selectedParts.length > 0 && (
+            <div className="border border-gray-200 rounded-xl p-3 bg-white">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-semibold text-gray-700">{selectedParts.length} part{selectedParts.length !== 1 ? 's' : ''} selected</span>
+                <button onClick={onClearAllParts} className="text-[10px] text-gray-400 hover:text-gray-600 transition-colors">Clear</button>
+              </div>
+              <button
+                onClick={onAddToCart}
+                className="w-full bg-[#005691] text-white py-2 rounded-lg text-[12px] font-semibold hover:bg-[#004a7c] transition-all flex items-center justify-center gap-1.5"
+              >
+                <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+                Add to Cart
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* ── RIGHT CONTENT ─────────────────────────────────────────── */}
+        <div className="flex-1 min-w-0">
+          {searchTerm && (
+            <p className="text-sm text-gray-500 mb-4">
+              <span className="font-semibold text-gray-800">{filteredParts.length}</span> results for “{searchTerm}”
+            </p>
+          )}
+
+          {Object.entries(groupedParts).map(([category, parts]) => (
+            <CategorySection
+              key={category} category={category} parts={parts} brands={brands}
+              onSelectPart={onSelectPart}
+              onUpdatePart={onUpdatePart}
+              selectedParts={selectedParts}
+              openBrandDropdownPart={openBrandDropdownPart} openModelDropdownPart={openModelDropdownPart}
+              onBrandDropdownToggle={onBrandDropdownToggle} onModelDropdownToggle={onModelDropdownToggle}
+              categoryId={`cat-${category.replace(/[^a-z0-9]/gi, '-')}`}
+            />
+          ))}
+
+          {filteredParts.length === 0 && (
+            <div className="text-center py-16 border border-dashed border-gray-200 rounded-xl">
+              <span className="material-symbols-outlined text-3xl text-gray-300">search_off</span>
+              <p className="text-gray-500 mt-2 text-sm">No parts found</p>
+              <button onClick={() => { setSearchTerm(''); setSelectedCategory('all') }}
+                className="mt-3 text-[#005691] text-sm font-medium hover:underline">Clear filters</button>
+            </div>
+          )}
+
+          {/* Bottom CTA — minimal */}
+          <div className="mt-8 border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-0.5">Need custom specifications?</h3>
+              <p className="text-sm text-gray-500">We source components to your exact requirements from verified suppliers.</p>
+            </div>
+            <button onClick={() => onNavigate('Contact Us')}
+              className="flex-shrink-0 border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-sm">mail</span>
+              Contact Us
             </button>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-between items-center gap-3">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm text-[#45474c]">Active Filters:</span>
-          <span className="bg-[#eceef0] px-3 py-1 rounded-full text-xs flex items-center gap-1">
-            {product.name} <span className="material-symbols-outlined text-[16px] cursor-pointer hover:text-red-500">close</span>
-          </span>
-          {selectedCategory !== 'all' && (
-            <span className="bg-[#eceef0] px-3 py-1 rounded-full text-xs flex items-center gap-1">
-              {selectedCategory} <span className="material-symbols-outlined text-[16px] cursor-pointer hover:text-red-500" onClick={() => setSelectedCategory('all')}>close</span>
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="text-[#45474c]">Sort by:</span>
-          <select className="border border-[#c5c6cd] rounded-lg bg-white text-sm py-1.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-[#005691]">
-            <option>Part Number (A-Z)</option>
-            <option>Most Popular</option>
-            <option>Newest Additions</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="bg-white border border-[#c5c6cd] rounded-xl p-4 shadow-sm">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
-            <input
-              type="text"
-              placeholder={`Search ${product.name} parts...`}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#005691] focus:bg-white transition-all duration-300"
-            />
-          </div>
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#005691] transition-all duration-300 bg-gray-50 hover:bg-white min-w-[160px]"
-          >
-            <option value="all">📋 All Categories</option>
-            {uniqueCategories.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
-        </div>
-        {searchTerm && (
-          <div className="mt-2 text-xs text-gray-500 flex items-center gap-1">
-            <span className="material-symbols-outlined text-sm">info</span>
-            Found <span className="font-semibold text-[#005691]">{filteredParts.length}</span> results
-          </div>
-        )}
-      </div>
-
-      <div className="space-y-4">
-        {Object.entries(groupedParts).map(([category, parts]) => (
-          <CategorySection 
-            key={category}
-            category={category}
-            parts={parts}
-            brands={brands}
-            onSelectPart={onSelectPart}
-            selectedParts={selectedParts}
-            onBrandToggle={onBrandToggle}
-            onModelToggle={onModelToggle}
-            openBrandDropdownPart={openBrandDropdownPart}
-            openModelDropdownPart={openModelDropdownPart}
-            onBrandDropdownToggle={onBrandDropdownToggle}
-            onModelDropdownToggle={onModelDropdownToggle}
-          />
-        ))}
-        {filteredParts.length === 0 && (
-          <div className="text-center py-12 bg-white rounded-xl border border-[#c5c6cd]">
-            <span className="material-symbols-outlined text-4xl text-gray-300">search_off</span>
-            <p className="text-gray-500 mt-2 text-sm">No parts found matching your search.</p>
-          </div>
-        )}
-      </div>
-
-      <SelectionSummary 
+      <SelectionSummary
         selectedParts={selectedParts}
         onClearAll={onClearAllParts}
         onAddToCart={onAddToCart}
       />
-
-      <div className="bg-gradient-to-r from-[#005691] to-[#0077be] text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <h3 className="text-lg font-bold mb-1">Need Custom Specifications?</h3>
-          <p className="text-white/80 text-sm">We source bespoke components to your exact requirements.</p>
-        </div>
-        <button
-          onClick={() => onNavigate('Contact Us')}
-          className="bg-white text-[#005691] px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-xl transition-all whitespace-nowrap flex items-center gap-2 hover:scale-105 duration-200"
-        >
-          <span className="material-symbols-outlined text-sm">engineering</span>
-          Discuss Custom Order
-        </button>
-      </div>
     </div>
   )
 }
@@ -1695,16 +1874,36 @@ export default function Products({ onNavigate }) {
     window.scrollTo({ top: 200, behavior: 'smooth' })
   }
 
-  const handleSelectPart = (part) => {
+  // Called from ProductCard: brands/models = null means remove, else add with those values
+  const handleSelectPart = (part, brands, models) => {
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const exists = currentList.some(p => p.name === part.name)
-      const newList = exists
-        ? currentList.filter(p => p.name !== part.name)
-        : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
-      
+
+      let newList
+      if (brands === null || exists) {
+        // Remove
+        newList = currentList.filter(p => p.name !== part.name)
+      } else {
+        // Add with the brand+model selections made locally in the card
+        newList = [...currentList, { ...part, selectedBrands: brands || [], selectedModels: models || [] }]
+      }
+
       saveToStorage(newList, active)
-      
+      return { ...prev, [active]: newList }
+    })
+  }
+
+  // Called when user edits brand/model on a card that is already in the order
+  const handleUpdatePart = (part, brands, models) => {
+    setSelectedPartsByTab(prev => {
+      const currentList = prev[active] || []
+      const newList = currentList.map(p =>
+        p.name === part.name
+          ? { ...p, selectedBrands: brands, selectedModels: models }
+          : p
+      )
+      saveToStorage(newList, active)
       return { ...prev, [active]: newList }
     })
   }
@@ -2085,40 +2284,33 @@ export default function Products({ onNavigate }) {
         </div>
       </div>
 
-      {/* Review Order Button */}
-      {active !== 'industrial-seals' && (
-        <div className="max-w-[1280px] mx-auto px-8 py-3">
-          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-3 flex items-center justify-between">
+      {/* Review Order Cart Bar */}
+      {active !== 'industrial-seals' && basketItems.length > 0 && (
+        <div className="max-w-[1280px] mx-auto px-8 pt-3 pb-0">
+          <div className="bg-gradient-to-r from-[#003a5e] to-[#005691] rounded-xl shadow-lg p-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#005691] text-xl">shopping_basket</span>
+              <div className="relative">
+                <span className="material-symbols-outlined text-white text-2xl">shopping_cart</span>
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-400 text-gray-900 text-[10px] font-black rounded-full flex items-center justify-center shadow">
+                  {basketItems.length}
+                </span>
+              </div>
               <div>
-                <span className="font-semibold text-sm text-gray-700">Review Order</span>
-                <span className="text-xs text-gray-500 ml-2">
-                  {basketItems.length > 0 ? (
-                    <>{totalBasketItems} item{totalBasketItems > 1 ? 's' : ''} in cart</>
-                  ) : (
-                    'Empty'
-                  )}
+                <span className="font-bold text-sm text-white">Your Cart</span>
+                <span className="text-white/70 text-xs ml-2">
+                  {totalBasketItems} item{totalBasketItems !== 1 ? 's' : ''} across {basketItems.length} part{basketItems.length !== 1 ? 's' : ''}
                 </span>
               </div>
             </div>
-            <button
-              onClick={() => setIsReviewOrderOpen(true)}
-              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${
-                basketItems.length > 0 
-                  ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105' 
-                  : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              }`}
-              disabled={basketItems.length === 0}
-            >
-              <span className="material-symbols-outlined text-sm">visibility</span>
-              View Order
-              {basketItems.length > 0 && (
-                <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full ml-1">
-                  {totalBasketItems}
-                </span>
-              )}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsReviewOrderOpen(true)}
+                className="bg-yellow-400 text-gray-900 px-5 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 hover:scale-105 transition-all flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-sm">receipt_long</span>
+                Review & Confirm Order
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -2134,10 +2326,9 @@ export default function Products({ onNavigate }) {
           onBackToMain={handleBackToMain}
           selectedParts={selectedParts}
           onSelectPart={handleSelectPart}
+          onUpdatePart={handleUpdatePart}
           onClearAllParts={handleClearAllParts}
           onAddToCart={handleAddToCart}
-          onBrandToggle={handleBrandToggle}
-          onModelToggle={handleModelToggle}
           openBrandDropdownPart={openBrandDropdownPart}
           openModelDropdownPart={openModelDropdownPart}
           onBrandDropdownToggle={handleBrandDropdownToggle}
@@ -2206,6 +2397,16 @@ export default function Products({ onNavigate }) {
         .animate-sectionFade { animation: sectionFade 0.5s ease-out forwards; opacity: 0; }
         .animate-listItem { animation: listItem 0.3s ease-out forwards; opacity: 0; }
         .animate-imageFade { animation: imageFade 0.5s ease-out forwards; opacity: 0; }
+        @keyframes cardShake {
+          0%, 100% { transform: translateX(0); }
+          15% { transform: translateX(-6px) rotate(-0.5deg); }
+          30% { transform: translateX(6px) rotate(0.5deg); }
+          45% { transform: translateX(-5px); }
+          60% { transform: translateX(5px); }
+          75% { transform: translateX(-3px); }
+          90% { transform: translateX(3px); }
+        }
+        .animate-cardShake { animation: cardShake 0.5s ease-in-out; border-color: #ef4444 !important; box-shadow: 0 0 0 2px rgba(239,68,68,0.3) !important; }
         .line-clamp-2 {
           display: -webkit-box;
           -webkit-line-clamp: 2;
