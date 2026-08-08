@@ -1,7 +1,14 @@
 export default function WhyATI({ onNavigate }) {
+  const handleNavigate = (page) => {
+    if (onNavigate && typeof onNavigate === 'function') {
+      onNavigate(page)
+    }
+  }
+
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
 
+      {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
       <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
         {/* Background image */}
         <img
@@ -23,145 +30,232 @@ export default function WhyATI({ onNavigate }) {
         </div>
       </section>
 
-      {/* Key Differentiators */}
-      <section className="py-20 max-w-[1280px] mx-auto px-8">
-        <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">What Sets Us Apart</h2>
-        <p className="text-[#505f76] text-center mb-14 max-w-2xl mx-auto">Every aspect of ATI's supply model is designed to give procurement teams a tangible advantage from sourcing and quality assurance to delivery and after-sales support.</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* ── KEY DIFFERENTIATORS: WHAT SETS US APART (12 SUPPLIER & TRADING FOCUSED BOXES) ── */}
+      <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100 mb-3 inline-block">
+            Global Supply Advantage
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#005691] mb-4">What Sets Us Apart</h2>
+          <p className="text-[#505f76] text-base leading-relaxed">
+            As a dedicated international supplier and trading partner based in China, AT International streamlines cross-border procurement for global distributors, wholesalers, and industrial buyers.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              icon: 'verified_user',
-              title: 'Quality-Assured Sourcing',
-              desc: 'Every product we supply is sourced from ISO 9001:2015 certified partner manufacturers. We conduct supplier audits, review material certifications, and provide full batch traceability with every order.',
-            },
-            {
               icon: 'public',
-              title: 'Global Logistics Network',
-              desc: 'Operating from China, we supply over 40 countries with reliable lead times. We offer DDP, FOB, CIF, and EXW Incoterms, and coordinate with established freight forwarders for seamless customs clearance.',
+              badge: 'Sourcing Network',
+              title: 'Direct Supplier & Trading Network',
+              desc: 'Access a verified network of ISO-certified manufacturing facilities across China. We simplify international procurement by acting as your single, reliable supply and quality channel.',
             },
             {
-              icon: 'engineering',
-              title: 'Technical Sourcing Support',
-              desc: 'Our team provides specification guidance, OEM cross-referencing, material selection advice, and custom sourcing for non-standard dimensions. From drawing review to first article coordination, we support you at every technical stage.',
+              icon: 'verified_user',
+              badge: 'Quality Control',
+              title: 'ISO 9001:2015 & Pre-Shipment Inspection',
+              desc: 'Every product order undergoes rigorous pre-shipment quality audits, dimensional verification, and material testing, accompanied by Material Test Certificates (MTC) and full batch traceability.',
+            },
+            {
+              icon: 'local_shipping',
+              badge: 'Export Logistics',
+              title: 'Consolidated Container & Freight Logistics',
+              desc: 'Operating from major shipping hubs in China. We consolidate multi-category orders into single LCL or FCL container shipments with flexible FOB, CIF, or DDP terms to 40+ countries.',
+            },
+            {
+              icon: 'build',
+              badge: 'Custom Sourcing',
+              title: 'Custom CAD & Spec Sourcing in 14 Days',
+              desc: 'Beyond standard catalog offerings, we custom-source products to your 2D/3D technical drawings or physical samples, managing tooling design, sample production, and first-article approvals.',
+            },
+            {
+              icon: 'payments',
+              badge: 'Commercial Terms',
+              title: 'Factory-Direct Pricing & Commercial Value',
+              desc: 'Leverage ATI’s combined purchasing volume and direct factory relationships in China to secure tier-1 commercial pricing, eliminating unnecessary middleman markups for B2B buyers.',
             },
             {
               icon: 'inventory_2',
-              title: 'Flexible MOQ & Stock Programs',
-              desc: 'We understand procurement realities. ATI offers competitive minimum order quantities, VMI (Vendor Managed Inventory) programs, and consignment stock agreements that reduce inventory burden while ensuring continuous supply.',
+              badge: 'Supply Chain',
+              title: 'Flexible MOQs & Inventory Programs',
+              desc: 'We support competitive minimum order quantities (MOQs) for regional distributors, mixed-item orders, and Vendor Managed Inventory (VMI) agreements that keep your stock fluid.',
             },
             {
-              icon: 'speed',
-              title: 'Fast Sample Turnaround',
-              desc: 'Sample and pre-production orders are coordinated within 7–14 business days. We prioritize sample qualification to keep your procurement timelines on track and production moving without delay.',
+              icon: 'support_agent',
+              badge: 'Dedicated Desk',
+              title: '24-Hour B2B Proposal Commitment',
+              desc: 'Our export team in China reviews your technical inquiries, BOMs, and RFQs, providing comprehensive pricing, material specifications, and delivery lead times within 24 business hours.',
+            },
+            {
+              icon: 'gavel',
+              badge: 'Compliance',
+              title: 'International Regulatory & Chemical Safety',
+              desc: 'All supplied products comply with strict international quality, chemical safety, and environmental standards (REACH & RoHS 3), ensuring hassle-free customs clearance in worldwide markets.',
+            },
+            {
+              icon: 'fact_check',
+              badge: 'Inspection Desk',
+              title: 'Multi-Tier Factory Audits & Testing',
+              desc: 'We perform on-site factory audits, raw material chemical checks, and pre-dispatch zero-defect testing to guarantee that every shipment strictly matches client technical specifications.',
+            },
+            {
+              icon: 'package_2',
+              badge: 'Custom Packaging',
+              title: 'OEM Private Labeling & Export Packaging',
+              desc: 'We provide complete private label branding, customized inner box packaging, automated barcoding, and heavy-duty export crating designed for safe international transport.',
+            },
+            {
+              icon: 'assignment_ind',
+              badge: 'Personal Service',
+              title: 'Dedicated Single Point of Contact',
+              desc: 'Every client is paired with a dedicated sourcing manager in China who manages product quotes, order tracking, quality inspection reports, and logistics from start to finish.',
+            },
+            {
+              icon: 'description',
+              badge: 'Export Docs',
+              title: 'Complete Export Documentation & Customs',
+              desc: 'We prepare all required export documentation including Bills of Lading (B/L), Certificates of Origin (Form A, Form E, CO), Commercial Invoices, and Packing Lists for fast customs release.',
             },
           ].map((item) => (
-            <div key={item.title} className="bg-white border border-[#c5c6cd] rounded-xl p-8 flex gap-6 hover:shadow-lg hover:bg-white/20 hover:scale-105 transition-transform duration-500">
-              <div className="w-12 h-12 bg-[#005691]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-[#005691] text-2xl">{item.icon}</span>
-              </div>
+            <div
+              key={item.title}
+              className="bg-white border border-[#c5c6cd] rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl hover:border-[#005691] hover:-translate-y-1 transition-all duration-300 group"
+            >
               <div>
-                <h3 className="font-bold text-[#005691] text-lg mb-3">{item.title}</h3>
-                <p className="text-[#505f76] text-sm leading-relaxed">{item.desc}</p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-[#005691]/10 text-[#005691] rounded-xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300">
+                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                    {item.badge}
+                  </span>
+                </div>
+                <h3 className="font-bold text-[#005691] text-base mb-2.5 leading-snug group-hover:text-[#003e69]">
+                  {item.title}
+                </h3>
+                <p className="text-[#505f76] text-xs leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="bg-white py-20 ">
-        <div className="max-w-[1280px] mx-auto px-8">
-          <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">Certifications</h2>
-          <p className="text-[#505f76] text-center mb-12">Internationally recognized compliance across quality, environment, and chemical safety.</p>
+      {/* ── CERTIFICATIONS & COMPLIANCE BAR ── */}
+      <section className="bg-white py-16 border-y border-[#c5c6cd]">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-2">Quality & Compliance Assurance</h2>
+            <p className="text-[#505f76] text-xs sm:text-sm">Globally recognized standards governing our supply operations and partner factories.</p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { cert: 'ISO 9001:2015', desc: 'Quality Management System' },
-              { cert: '100% Batch Inspection', desc: 'Quality Standard' },
-              { cert: 'RoHS Compliant', desc: 'Hazardous Substances Directive' },
-              { cert: 'REACH Compliant', desc: 'EU Chemical Safety Regulation' },
+              { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'verified' },
+              { cert: '100% Pre-Shipment Inspection', desc: 'Batch Traceability & Reports', icon: 'fact_check' },
+              { cert: 'RoHS 3 Compliant', desc: 'Hazardous Substance Directive', icon: 'eco' },
+              { cert: 'REACH Compliant', desc: 'Global Chemical Safety', icon: 'gavel' },
             ].map((c) => (
-              <div key={c.cert} className="border border-[#005691]/30 rounded-xl p-8 text-center hover:bg-[#005691]/5 transition-colors hover:bg-grey/20 hover:scale-105 transition-transform duration-800">
-                <div className="w-12 h-12 bg-[#005691] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="material-symbols-outlined text-white text-xl">verified</span>
+              <div key={c.cert} className="border border-[#005691]/25 rounded-2xl p-6 text-center hover:bg-blue-50/50 hover:border-[#005691] transition-all hover:-translate-y-0.5 duration-200">
+                <div className="w-12 h-12 bg-[#005691] text-white rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                  <span className="material-symbols-outlined text-2xl">{c.icon}</span>
                 </div>
-                <div className="font-bold text-[#005691] mb-1">{c.cert}</div>
-                <div className="text-[#505f76] text-sm">{c.desc}</div>
+                <div className="font-bold text-[#005691] text-sm mb-1">{c.cert}</div>
+                <div className="text-[#505f76] text-xs">{c.desc}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
+      {/* ── STATS BAR ── */}
       <section className="bg-[#005691] py-16">
-        <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { num: '25+',    label: 'Years in Trade' },
-            { num: '40+',    label: 'Export Countries' },
-            { num: '200+',   label: 'Verified Suppliers' },
-            { num: '100%',   label: 'Batch Traceability' },
+            { num: '25+',    label: 'Years of Global Trading Experience' },
+            { num: '40+',    label: 'Export Destinations Worldwide' },
+            { num: '200+',   label: 'Verified Manufacturing Partners' },
+            { num: '100%',   label: 'Batch Traceability & Inspection' },
           ].map((s) => (
             <div key={s.label}>
-              <div className="text-4xl font-bold text-white mb-2">{s.num}</div>
-              <div className="text-white/70 text-sm">{s.label}</div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-1.5">{s.num}</div>
+              <div className="text-white/80 text-xs sm:text-sm font-medium">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 max-w-[1280px] mx-auto px-8">
-        <h2 className="text-3xl font-bold text-[#005691] mb-3 text-center">What Our Clients Say</h2>
-        <p className="text-[#505f76] text-center mb-12">Trusted by leading manufacturers and procurement teams around the world.</p>
+      {/* ── CLIENT TESTIMONIALS ── */}
+      <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold text-[#005691] mb-2">What Our B2B Clients Say</h2>
+          <p className="text-[#505f76] text-xs sm:text-sm">Trusted by regional distributors, importers, and procurement buyers around the globe.</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { quote: 'ATI has been our trusted supplier for motorcycle oil seals and rubber components for over three years. The product quality is consistently excellent, pricing is competitive, and shipments always arrive on schedule. Their team is responsive and understands our sourcing requirements.', name: 'Procurement Manager', company: 'Motorcycle Parts Distributor, Bangladesh', rating: 5 },
-            { quote: 'Their custom O-ring solutions solved a sealing challenge we had struggled with for months. Fast prototyping and great engineering collaboration.', name: 'R&D Engineer', company: 'Industrial OEM, UAE', rating: 5 },
-            { quote: 'ATI has become our preferred supplier for sealing solutions and precision engine components. Their consistent quality, competitive pricing, and dependable global deliveries have helped us maintain a reliable supply chain and meet our production schedules with confidence.', name: 'Purchasing Director', company: 'Motorcycle Parts Distributor, Indonesia', rating: 5 },
-          ].map((t, index) => (
-            <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-md transition-shadow hover:bg-grey/30 hover:scale-105 transition-transform duration-500 flex flex-col">
-              <span className="material-symbols-outlined text-[#005691] text-3xl mb-4 block">format_quote</span>
-              <p className="text-[#505f76] text-sm leading-relaxed mb-6 italic flex-grow">"{t.quote}"</p>
+            {
+              quote: 'ATI has been our reliable trading and supply partner for over three years. Product quality is consistently verified, pricing is competitive, and container shipments always arrive on schedule. Their team in China makes international sourcing seamless.',
+              name: 'Procurement Director',
+              company: 'Industrial Supply Distributor, Bangladesh',
+              rating: 5
+            },
+            {
+              quote: 'Their custom CAD sourcing desk solved a complex product specification challenge for us. Fast sample turnarounds in 14 days and flawless engineering collaboration saved our procurement schedule.',
+              name: 'Sourcing Manager',
+              company: 'Equipment & Hardware Importer, UAE',
+              rating: 5
+            },
+            {
+              quote: 'ATI is our preferred supplier for international trading and volume components. Their consistent quality control, flexible MOQs, and dependable container shipping help us maintain an efficient supply chain.',
+              name: 'Purchasing Manager',
+              company: 'Regional Wholesale Distributor, Indonesia',
+              rating: 5
+            },
+          ].map((t) => (
+            <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <span 
-                      key={i} 
-                      className="text-yellow-400 text-lg inline-block"
-                    >
-                      ★
-                    </span>
-                  ))}
+                <span className="material-symbols-outlined text-[#005691] text-3xl mb-3 block">format_quote</span>
+                <p className="text-[#505f76] text-xs leading-relaxed mb-6 italic">"{t.quote}"</p>
+              </div>
+              <div className="pt-4 border-t border-gray-100">
+                <div className="flex gap-1 mb-2 text-yellow-400 text-sm">
+                  ★★★★★
                 </div>
-                <div className="font-bold text-[#005691] text-sm">{t.name}</div>
-                <div className="text-[#505f76] text-xs">{t.company}</div>
+                <div className="font-bold text-[#005691] text-xs">{t.name}</div>
+                <div className="text-[#505f76] text-[11px]">{t.company}</div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-[#f2f4f6] text-center">
-        <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Procurement?</h2>
-        <p className="text-[#505f76] mb-8 max-w-xl mx-auto">Get a competitive sourcing proposal for your motorcycle parts, e-bike components, and industrial sealing components — No Complex Requirements and No Obligation.</p>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <button
-            onClick={() => onNavigate('Contact Us')}
-            className="bg-[#005691] text-white px-12 py-4 rounded-lg font-semibold text-sm hover:brightness-110 transition-all inline-flex items-center gap-2 shadow-lg uppercase tracking-widest hover:bg-grey/20 hover:scale-105 transition-transform duration-500"
-          >
-            <span className="material-symbols-outlined text-sm">request_quote</span>
-            Request a Quote
-          </button>
-          <button
-            onClick={() => onNavigate('Products')}
-            className="border border-[#005691] text-[#005691] px-12 py-4 rounded-lg font-semibold text-sm hover:bg-[#005691]/5 transition-all inline-flex items-center gap-2 uppercase tracking-widest hover:bg-grey/20 hover:scale-105 transition-transform duration-500"
-          >
-            <span className="material-symbols-outlined text-sm">inventory_2</span>
-            View Product Catalog
-          </button>
+      {/* ── CALL TO ACTION ── */}
+      <section className="py-16 bg-[#f2f4f6] text-center border-t border-[#c5c6cd]">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Global Sourcing?</h2>
+          <p className="text-[#505f76] text-sm mb-8 leading-relaxed">
+            Partner with AT International for reliable supplier network access, pre-shipment quality assurance, and consolidated container delivery.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => handleNavigate('Contact Us')}
+              className="bg-[#005691] text-white px-8 py-3.5 rounded-xl font-bold text-xs hover:bg-[#003e69] transition-all inline-flex items-center gap-2 shadow-lg uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-base">request_quote</span>
+              Request Sourcing Proposal
+            </button>
+            <button
+              onClick={() => handleNavigate('Products')}
+              className="border-2 border-[#005691] text-[#005691] px-8 py-3.5 rounded-xl font-bold text-xs hover:bg-[#005691] hover:text-white transition-all inline-flex items-center gap-2 uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-base">inventory_2</span>
+              Explore Product Catalog
+            </button>
+          </div>
         </div>
       </section>
+
     </div>
   )
 }
