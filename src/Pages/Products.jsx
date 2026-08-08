@@ -295,14 +295,43 @@ const BRAND_MODELS = {
   ]
 }
 
+// ── ENGINE PARTS IMAGES ───────────────────────────────────────────
+const ENGINE_PARTS_IMAGES = {
+  'Cylinder Head':          '/assets/parts/engine_cylinder_head.png',
+  'Cylinder Block':         '/assets/parts/engine_cylinder_block.png',
+  'Piston':                 '/assets/parts/engine_piston.png',
+  'Piston Rings':           '/assets/parts/engine_piston_rings.png',
+  'Piston Pin':             '/assets/parts/engine_piston_pin.png',
+  'Connecting Rod':         '/assets/parts/engine_connecting_rod.png',
+  'Crankshaft':             '/assets/parts/engine_crankshaft.png',
+  'Camshaft':              '/assets/parts/engine_camshaft.png',
+  'Valves':                '/assets/parts/engine_valves.png',
+  'Valve Stem Seals':      '/assets/parts/engine_valve_stem_seals.png',
+  'Valve Guides':          '/assets/parts/engine_valve_guides.png',
+  'Valve Springs':         '/assets/parts/engine_valve_springs.png',
+  'Rocker Arms':            '/assets/parts/engine_rocker_arms.png',
+  'Timing Chain':           '/assets/parts/Timing Chain.png',
+  'Timing Chain Tensioner': '/assets/parts/Timing Chain Tensioner.png',
+  'Cam Chain Guide':        '/assets/parts/Cam Chain Guide.png',
+  'Oil Pump':               '/assets/parts/Oil Pump.png',
+  'Oil Filter':             '/assets/parts/Oil Filter.png',
+  'Oil Seals':              '/assets/parts/Oil Seals.png',
+  'O-Rings':                '/assets/parts/O-Rings.png',
+  'Gaskets':                '/assets/parts/Gaskets.png',
+  'Engine Bearings':        '/assets/parts/Engine Bearings.png',
+  'Crankcase':              '/assets/parts/Crankcase.png',
+  'Clutch Cover':           '/assets/parts/Clutch Cover.png'
+}
+
 // ── GENERATE PRODUCT PARTS WITH CATEGORIES ────────────────────────
-function generatePartsWithCategories(partsData) {
+function generatePartsWithCategories(partsData, customImages = {}) {
   const result = []
   Object.entries(partsData).forEach(([category, items]) => {
     items.forEach(item => {
       result.push({
         name: item,
         category: category,
+        image: customImages[item] || null,
         partNo: `ATI-${item.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}`,
         moq: [500, 1000, 2000, 5000][Math.floor(Math.random() * 4)],
         selectedBrands: [],
@@ -395,7 +424,7 @@ const PRODUCTS = [
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
     description: 'ATI supplies a comprehensive range of sealing components specifically sourced for motorcycle engines.',
-    parts: generatePartsWithCategories(MOTORCYCLE_PARTS),
+    parts: generatePartsWithCategories(MOTORCYCLE_PARTS, ENGINE_PARTS_IMAGES),
     categories: Object.keys(MOTORCYCLE_PARTS),
     brands: MOTORCYCLE_BRANDS
   },
