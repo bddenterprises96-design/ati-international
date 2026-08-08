@@ -487,20 +487,28 @@ export default function ContactUS({ onNavigate }) {
   return (
     <div className="bg-[#f2f5f8] min-h-screen pb-24">
 
-      {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
-        <img src="/assets/icccc.png" alt="ATI Facility" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/65 to-[#005691]/10" />
+      {/* Hero */}
+      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
+        <img
+          src="/assets/icccc.png"
+          alt="ATI Facility"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest backdrop-blur-sm">Get In Touch</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">Contact & Procurement Inquiry</h1>
-          <p className="text-white/80 text-lg max-w-2xl leading-relaxed">Submit your requirements and our team will respond with a detailed proposal within 24 business hours.</p>
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
+            Get In Touch
+          </span>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Contact & Procurement Inquiry</h1>
+          <p className="text-white/80 text-base max-w-2xl">
+            Submit your requirements and our team will respond with a detailed proposal within 24 business hours.
+          </p>
         </div>
       </section>
 
       {/* ── TOP BANNER: "CAN'T FIND YOUR EXACT PRODUCT?" (PLACED BEFORE INQUIRY FORM & INFORMATION BOX) ── */}
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 mt-10 mb-8">
-        <div className="bg-gradient-to-r from-[#005691] via-[#004b7f] to-[#003861] text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#005691]/100 via-[#004b7f] to-[#003861] text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-contain bg-no-repeat bg-right pointer-events-none" style={{ backgroundImage: 'url(/assets/facto.png)' }} />
           
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">

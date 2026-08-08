@@ -598,7 +598,7 @@ export default function Blogs() {
 
       {/* Hero Section */}
       <section
-        className="-mt-20 pt-40 pb-20 relative px-8 overflow-hidden"
+        className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden"
         style={{
           backgroundImage: 'url(https://res.cloudinary.com/ybne3lvu/image/upload/v1784457971/wwe_siixmw.png)',
           backgroundSize: 'cover',
@@ -610,10 +610,10 @@ export default function Blogs() {
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest backdrop-blur-sm">
             Technical & Sourcing Knowledge Hub
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
             AT International Insights
           </h1>
-          <p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">
+          <p className="text-white/80 text-base max-w-2xl">
             Engineering breakdowns, technical guides, motorcycle spare parts standards, e-bike sealing innovations, and global procurement insights from our China sourcing desk.
           </p>
         </div>

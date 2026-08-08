@@ -9,7 +9,7 @@ export default function WhyATI({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-20 pt-40 pb-20 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/why.jpeg"
@@ -20,11 +20,11 @@ export default function WhyATI({ onNavigate }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/30" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
             Our Advantage
           </span>
-          <h1 className="text-4xl md:text-4xl font-bold text-white mb-4">Why Source Through AT International?</h1>
-          <p className="text-white/80 text-lg max-w-2xl">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Source Through AT International?</h1>
+          <p className="text-white/80 text-base max-w-2xl">
             Discover what makes AT International the preferred global sourcing & trading partner for procurement teams, distributors and industrial buyers worldwide.
           </p>
         </div>
