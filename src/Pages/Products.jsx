@@ -295,8 +295,9 @@ const BRAND_MODELS = {
   ]
 }
 
-// ── ENGINE PARTS IMAGES ───────────────────────────────────────────
-const ENGINE_PARTS_IMAGES = {
+// ── MOTORCYCLE PARTS IMAGES ───────────────────────────────────────────
+const MOTORCYCLE_PARTS_IMAGES = {
+  // Engine Parts
   'Cylinder Head':          '/assets/parts/engine_cylinder_head.png',
   'Cylinder Block':         '/assets/parts/engine_cylinder_block.png',
   'Piston':                 '/assets/parts/engine_piston.png',
@@ -320,7 +321,22 @@ const ENGINE_PARTS_IMAGES = {
   'Gaskets':                '/assets/parts/Gaskets.png',
   'Engine Bearings':        '/assets/parts/Engine Bearings.png',
   'Crankcase':              '/assets/parts/Crankcase.png',
-  'Clutch Cover':           '/assets/parts/Clutch Cover.png'
+  'Clutch Cover':           '/assets/parts/Clutch Cover.png',
+
+  // Transmission & Clutch
+  'Clutch Plates':          '/assets/parts/Clutch Plates.png',
+  'Clutch Friction Plates': '/assets/parts/Clutch Friction Plates.png',
+  'Clutch Basket':          '/assets/parts/Clutch Basket.png',
+  'Clutch Hub':             '/assets/parts/Clutch Hub.png',
+  'Clutch Springs':         '/assets/parts/Clutch Springs.png',
+  'Clutch Cable':           '/assets/parts/Clutch Cable.png',
+  'Gear Shift Drum':        '/assets/parts/Gear Shift Drum.png',
+  'Gear Shift Fork':        '/assets/parts/Gear Shift Fork.png',
+  'Transmission Gears':     '/assets/parts/Transmission Gears.png',
+  'Drive Shaft':            '/assets/parts/Drive Shaft.png',
+  'Counter Shaft':          '/assets/parts/Counter Shaft.png',
+  'Kick Starter':           '/assets/parts/Kick Starter.png',
+  'Gear Lever':             '/assets/parts/Gear Lever.png'
 }
 
 // ── GENERATE PRODUCT PARTS WITH CATEGORIES ────────────────────────
@@ -424,7 +440,7 @@ const PRODUCTS = [
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
     description: 'ATI supplies a comprehensive range of sealing components specifically sourced for motorcycle engines.',
-    parts: generatePartsWithCategories(MOTORCYCLE_PARTS, ENGINE_PARTS_IMAGES),
+    parts: generatePartsWithCategories(MOTORCYCLE_PARTS, MOTORCYCLE_PARTS_IMAGES),
     categories: Object.keys(MOTORCYCLE_PARTS),
     brands: MOTORCYCLE_BRANDS
   },
