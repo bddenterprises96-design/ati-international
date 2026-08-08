@@ -379,7 +379,7 @@ const PRODUCTS = [
     image: '/assets/industrial-seals.png',
     hasDataSheet: false,
     isIndustrialGroup: true,
-    icon: '⚙️',
+    icon: 'precision_manufacturing',
     description: 'ATI supplies a comprehensive range of industrial sealing components sourced from certified partner manufacturers.',
     subProducts: [
       {
@@ -436,7 +436,7 @@ const PRODUCTS = [
     image: '/assets/moto.png',
     hasDataSheet: false,
     partsOnly: true,
-    icon: '🏍️',
+    icon: 'two_wheeler',
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
     description: 'ATI supplies a comprehensive range of sealing components specifically sourced for motorcycle engines.',
@@ -451,7 +451,7 @@ const PRODUCTS = [
     image: '/assets/ebike.png',
     hasDataSheet: false,
     partsOnly: true,
-    icon: '⚡',
+    icon: 'electric_bike',
     color: '#10B981',
     gradient: 'from-emerald-500 to-teal-600',
     description: 'ATI supplies sealing components engineered for electric bicycle mid-drive and hub-drive motor systems.',
@@ -1706,7 +1706,7 @@ function ProductDetail({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xl">{product.icon}</span>
+            <span className="material-symbols-outlined text-2xl text-[#005691]">{product.icon}</span>
             <h2 className="text-xl font-bold text-gray-900">{product.name} Parts Catalogue</h2>
           </div>
           <p className="text-sm text-gray-500 max-w-lg">{product.description}</p>
@@ -1871,14 +1871,14 @@ function ProductDetail({
             </div>
           )}
 
-          {/* Bottom CTA — minimal */}
-          <div className="mt-8 border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          {/* Bottom CTA — Clean Solid Color */}
+          <div className="mt-8 bg-[#005691] text-white rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-0.5">Need custom specifications?</h3>
-              <p className="text-sm text-gray-500">We source components to your exact requirements from verified suppliers.</p>
+              <h3 className="text-lg font-bold text-white mb-1">Need custom specifications?</h3>
+              <p className="text-white/80 text-sm">We source components to your exact requirements from verified suppliers.</p>
             </div>
             <button onClick={() => onNavigate('Contact Us')}
-              className="flex-shrink-0 border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center gap-1.5">
+              className="flex-shrink-0 bg-white text-[#005691] px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-all flex items-center gap-1.5 shadow-sm">
               <span className="material-symbols-outlined text-sm">mail</span>
               Contact Us
             </button>
@@ -2324,7 +2324,7 @@ export default function Products({ onNavigate }) {
                     hover:scale-105
                   `}
                 >
-                  <span className="text-lg">{p.icon || '📦'}</span>
+                  <span className="material-symbols-outlined text-lg">{p.icon || 'inventory_2'}</span>
                   {p.name}
                   {p.id !== 'industrial-seals' && tabHasSelection && (
                     <span className="bg-yellow-400 text-gray-800 text-xs px-2 py-0.5 rounded-full ml-1">
