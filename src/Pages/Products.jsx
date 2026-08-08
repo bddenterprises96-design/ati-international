@@ -667,30 +667,37 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
     onToggle(false)
   }
 
+  const hasBrand = selectedBrands && selectedBrands.length > 0
+
   return (
-    <div className="relative inline-block flex-shrink-0">
+    <div className="relative inline-block flex-1 min-w-0">
       <button
         ref={buttonRef}
+        type="button"
         onClick={(e) => {
           e.stopPropagation()
           onToggle(!isOpen)
         }}
         className={`
-          w-9 h-9 rounded border-2 transition-all duration-200 flex items-center justify-center flex-shrink-0
+          w-full px-2.5 py-1.5 rounded-lg border text-[11px] font-medium flex items-center justify-between gap-1 transition-all duration-200 cursor-pointer group
           ${isOpen 
-            ? 'border-[#005691] bg-[#005691]/10 text-[#005691]' 
-            : 'border-gray-300 hover:border-[#005691] text-gray-400 hover:text-[#005691]'
+            ? 'border-[#005691] bg-[#005691]/10 text-[#005691] ring-2 ring-[#005691]/20 font-semibold' 
+            : hasBrand
+              ? 'border-[#005691]/40 bg-[#005691]/8 text-[#005691] hover:bg-[#005691]/15 hover:border-[#005691] font-semibold'
+              : 'border-blue-200 bg-blue-50/60 text-gray-700 hover:border-[#005691] hover:bg-blue-100/60 hover:text-[#005691]'
           }
-          ${selectedCount > 0 ? 'border-[#005691] bg-[#005691]/5' : ''}
         `}
-        title="Select a brand for this part"
+        title="Click to select brand"
       >
-        <span className="material-symbols-outlined text-base">expand_more</span>
-        {selectedCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#005691] text-white text-[9px] font-bold flex items-center justify-center">
-            {selectedCount}
+        <div className="flex items-center gap-1 min-w-0 truncate">
+          <span className="material-symbols-outlined text-[14px] text-[#005691] flex-shrink-0">apartment</span>
+          <span className="truncate leading-tight">
+            {hasBrand ? selectedBrands[0] : 'Brand'}
           </span>
-        )}
+        </div>
+        <span className={`material-symbols-outlined text-[15px] text-gray-400 group-hover:text-[#005691] transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180 text-[#005691]' : ''}`}>
+          expand_more
+        </span>
       </button>
 
       {isOpen && createPortal(
@@ -816,10 +823,13 @@ function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle
   const selectedCount = selectedModels ? selectedModels.length : 0
   const hasBrands = selectedBrands && selectedBrands.length > 0
 
+  const hasModels = selectedCount > 0
+
   return (
-    <div className="relative inline-block flex-shrink-0">
+    <div className="relative inline-block flex-1 min-w-0">
       <button
         ref={buttonRef}
+        type="button"
         onClick={(e) => {
           e.stopPropagation()
           if (hasBrands) {
@@ -827,23 +837,32 @@ function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle
           }
         }}
         className={`
-          w-9 h-9 rounded border-2 transition-all duration-200 flex items-center justify-center flex-shrink-0
-          ${!hasBrands ? 'opacity-50 cursor-not-allowed' : ''}
-          ${isOpen 
-            ? 'border-[#005691] bg-[#005691]/10 text-[#005691]' 
-            : 'border-gray-300 hover:border-[#005691] text-gray-400 hover:text-[#005691]'
+          w-full px-2.5 py-1.5 rounded-lg border text-[11px] font-medium flex items-center justify-between gap-1 transition-all duration-200 group
+          ${!hasBrands 
+            ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed opacity-75' 
+            : isOpen 
+              ? 'border-[#005691] bg-[#005691]/10 text-[#005691] ring-2 ring-[#005691]/20 font-semibold cursor-pointer' 
+              : hasModels
+                ? 'border-[#005691]/40 bg-[#005691]/8 text-[#005691] hover:bg-[#005691]/15 hover:border-[#005691] font-semibold cursor-pointer'
+                : 'border-blue-200 bg-blue-50/60 text-gray-700 hover:border-[#005691] hover:bg-blue-100/60 hover:text-[#005691] cursor-pointer'
           }
-          ${selectedCount > 0 ? 'border-[#005691] bg-[#005691]/5' : ''}
         `}
-        title={hasBrands ? "Select models for this part" : "Select a brand first"}
+        title={hasBrands ? "Click to select models" : "Select a brand first"}
         disabled={!hasBrands}
       >
-        <span className="material-symbols-outlined text-base">model_training</span>
-        {selectedCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#005691] text-white text-[9px] font-bold flex items-center justify-center">
-            {selectedCount}
+        <div className="flex items-center gap-1 min-w-0 truncate">
+          <span className={`material-symbols-outlined text-[14px] flex-shrink-0 ${hasBrands ? 'text-[#005691]' : 'text-gray-400'}`}>two_wheeler</span>
+          <span className="truncate leading-tight">
+            {hasModels 
+              ? `${selectedCount} model${selectedCount > 1 ? 's' : ''}` 
+              : 'Model'}
           </span>
-        )}
+        </div>
+        <span className={`material-symbols-outlined text-[15px] transition-transform duration-200 flex-shrink-0 ${
+          !hasBrands ? 'text-gray-300' : 'text-gray-400 group-hover:text-[#005691]'
+        } ${isOpen ? 'rotate-180 text-[#005691]' : ''}`}>
+          expand_more
+        </span>
       </button>
 
       {isOpen && hasBrands && createPortal(
@@ -1058,28 +1077,18 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
         </div>
 
         {/* Row 2: Brand + Model + Add/Remove — single line */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 mt-0.5">
           <PartBrandDropdown
             part={part} brands={brands} selectedBrands={localBrands}
             onBrandToggle={handleLocalBrandToggle}
             isOpen={isBrandOpen} onToggle={onBrandDropdownToggle}
           />
-          <span className={`text-[11px] truncate min-w-0 flex-1 ${
-            hasBrand ? 'text-gray-800 font-medium' : 'text-gray-400'
-          }`}>{hasBrand ? localBrands[0] : 'Brand'}</span>
-
-          <div className="w-px h-4 bg-gray-200 flex-shrink-0" />
 
           <PartModelDropdown
             part={part} selectedBrands={localBrands} selectedModels={localModels}
             onModelToggle={handleLocalModelToggle}
             isOpen={isModelOpen} onToggle={onModelDropdownToggle}
           />
-          <span className={`text-[11px] truncate min-w-0 flex-1 ${
-            hasModels ? 'text-gray-800 font-medium' : hasBrand ? 'text-gray-400' : 'text-gray-300'
-          }`}>
-            {hasModels ? `${localModels.length} model${localModels.length > 1 ? 's' : ''}` : 'Model'}
-          </span>
 
           {/* ─ Cart icon (add) or × (remove) ──────────────────────── */}
           {isSelected ? (
