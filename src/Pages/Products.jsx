@@ -1030,6 +1030,7 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
   const buttonRef = useRef(null)
   const [position, setPosition] = useState({ top: 0, left: 0 })
   const [modelQuantities, setModelQuantities] = useState({})
+  const [totalQtyError, setTotalQtyError] = useState('')
 
   const moq = part.moq || 1000
 
@@ -1037,14 +1038,22 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
   useEffect(() => {
     if (selectedModels && selectedModels.length > 0) {
       const newQuantities = {}
-      selectedModels.forEach(model => {
-        if (!modelQuantities[model]) {
-          newQuantities[model] = moq
-        } else {
-          newQuantities[model] = modelQuantities[model]
-        }
+      // Distribute MOQ evenly among selected models
+      const baseQty = Math.floor(moq / selectedModels.length)
+      const remainder = moq % selectedModels.length
+      
+      selectedModels.forEach((model, index) => {
+        const extra = index < remainder ? 1 : 0
+        const qty = modelQuantities[model] || (baseQty + extra)
+        newQuantities[model] = qty
       })
       setModelQuantities(prev => ({ ...prev, ...newQuantities }))
+      
+      // Notify parent of initial quantities
+      selectedModels.forEach(model => {
+        const qty = newQuantities[model] || (baseQty + (selectedModels.indexOf(model) < remainder ? 1 : 0))
+        onModelQuantityChange(part, model, qty)
+      })
     }
   }, [selectedModels, moq])
 
@@ -1077,7 +1086,7 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
       let top = rect.bottom + 4
       let left = rect.left
 
-      const dropdownHeight = Math.min(400, selectedModels.length * 60 + 120)
+      const dropdownHeight = Math.min(400, selectedModels.length * 60 + 140)
       if (top + dropdownHeight > window.innerHeight - 8) {
         const above = rect.top - dropdownHeight - 4
         top = above < 8 ? 8 : above
@@ -1104,14 +1113,69 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
   const totalModels = selectedModels ? selectedModels.length : 0
 
   const handleQuantityChange = (model, value) => {
-    const qty = parseInt(value) || 0
-    if (qty >= moq || qty === 0) {
-      setModelQuantities(prev => ({ ...prev, [model]: qty }))
+    // Allow empty string for manual typing
+    if (value === '') {
+      setModelQuantities(prev => ({ ...prev, [model]: '' }))
+      return
+    }
+    
+    const qty = parseInt(value)
+    if (isNaN(qty) || qty < 0) {
+      setModelQuantities(prev => ({ ...prev, [model]: 0 }))
+      return
+    }
+    
+    setModelQuantities(prev => ({ ...prev, [model]: qty }))
+    
+    // Calculate total quantity across all selected models
+    const allQuantities = { ...modelQuantities, [model]: qty }
+    let total = 0
+    selectedModels.forEach(m => {
+      total += (allQuantities[m] || 0)
+    })
+    
+    // Check if total meets MOQ
+    if (total >= moq && total > 0) {
+      setTotalQtyError('')
+      // Only notify parent if total meets MOQ
+      onModelQuantityChange(part, model, qty)
+    } else if (total === 0) {
+      setTotalQtyError('Total quantity cannot be zero')
+      onModelQuantityChange(part, model, qty)
+    } else {
+      setTotalQtyError(`Total quantity must be at least ${moq.toLocaleString()} units`)
+      // Still update parent but with a flag
       onModelQuantityChange(part, model, qty)
     }
   }
 
+  const handleBlur = (model, value) => {
+    // If empty or 0, set to minimum MOQ distribution
+    if (value === '' || parseInt(value) === 0) {
+      const baseQty = Math.floor(moq / selectedModels.length)
+      const remainder = moq % selectedModels.length
+      const index = selectedModels.indexOf(model)
+      const extra = index < remainder ? 1 : 0
+      const defaultQty = baseQty + extra
+      
+      setModelQuantities(prev => ({ ...prev, [model]: defaultQty }))
+      
+      // Check if total meets MOQ
+      let total = 0
+      const updatedQuantities = { ...modelQuantities, [model]: defaultQty }
+      selectedModels.forEach(m => {
+        total += (updatedQuantities[m] || 0)
+      })
+      
+      if (total >= moq) {
+        setTotalQtyError('')
+      }
+      onModelQuantityChange(part, model, defaultQty)
+    }
+  }
+
   const formatNumber = (num) => {
+    if (num === '' || num === undefined || num === null) return ''
     return num.toLocaleString()
   }
 
@@ -1119,11 +1183,17 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
     let total = 0
     if (selectedModels) {
       selectedModels.forEach(model => {
-        total += (modelQuantities[model] || moq)
+        const qty = modelQuantities[model]
+        if (qty !== '' && !isNaN(qty)) {
+          total += parseInt(qty) || 0
+        }
       })
     }
     return total
   }
+
+  const totalQuantity = getTotalQuantity()
+  const isValidTotal = totalQuantity >= moq && totalQuantity > 0
 
   return (
     <div className="relative inline-block flex-1 min-w-0">
@@ -1132,27 +1202,35 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
         type="button"
         onClick={(e) => {
           e.stopPropagation()
-          onToggle(!isOpen)
+          if (hasModels) {
+            onToggle(!isOpen)
+          }
         }}
         className={`
           w-full px-2.5 py-1.5 rounded-lg border text-[11px] font-medium flex items-center justify-between gap-1 transition-all duration-200 group
-          ${isOpen 
-            ? 'border-[#005691] bg-[#005691]/10 text-[#005691] ring-2 ring-[#005691]/20 font-semibold' 
-            : hasModels
-              ? 'border-[#005691]/40 bg-[#005691]/8 text-[#005691] hover:bg-[#005691]/15 hover:border-[#005691] font-semibold'
-              : 'border-blue-200 bg-blue-50/60 text-gray-700 hover:border-[#005691] hover:bg-blue-100/60 hover:text-[#005691]'
+          ${!hasModels 
+            ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed opacity-75' 
+            : isOpen 
+              ? 'border-[#005691] bg-[#005691]/10 text-[#005691] ring-2 ring-[#005691]/20 font-semibold' 
+              : totalQuantity > 0 && isValidTotal
+                ? 'border-[#005691]/40 bg-[#005691]/8 text-[#005691] hover:bg-[#005691]/15 hover:border-[#005691] font-semibold'
+                : totalQuantity > 0 && !isValidTotal
+                  ? 'border-yellow-400 bg-yellow-50 text-yellow-600 hover:bg-yellow-100/60 hover:border-yellow-500'
+                  : 'border-blue-200 bg-blue-50/60 text-gray-700 hover:border-[#005691] hover:bg-blue-100/60 hover:text-[#005691]'
           }
         `}
-        title="Set quantities for each model"
+        title={hasModels ? "Set quantities for each model" : "Select models first"}
         disabled={!hasModels}
       >
         <div className="flex items-center gap-1 min-w-0 truncate">
-          <span className="material-symbols-outlined text-[14px] text-[#005691] flex-shrink-0">numbers</span>
+          <span className={`material-symbols-outlined text-[14px] flex-shrink-0 ${hasModels ? 'text-[#005691]' : 'text-gray-400'}`}>numbers</span>
           <span className="truncate leading-tight">
-            {hasModels ? `${totalModels} models` : 'Qty'}
+            {hasModels ? `${formatNumber(totalQuantity)} units` : 'Qty'}
           </span>
         </div>
-        <span className={`material-symbols-outlined text-[15px] text-gray-400 group-hover:text-[#005691] transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180 text-[#005691]' : ''}`}>
+        <span className={`material-symbols-outlined text-[15px] transition-transform duration-200 flex-shrink-0 ${
+          !hasModels ? 'text-gray-300' : 'text-gray-400 group-hover:text-[#005691]'
+        } ${isOpen ? 'rotate-180 text-[#005691]' : ''}`}>
           expand_more
         </span>
       </button>
@@ -1167,15 +1245,24 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
             <span className="text-sm font-semibold text-gray-700 truncate pr-2" title={part.name}>
               {part.name} - Quantities
             </span>
-            <span className="text-[10px] text-gray-400 font-medium">
-              Total: {formatNumber(getTotalQuantity())}
-            </span>
+            <div className="flex flex-col items-end">
+              <span className={`text-[11px] font-bold ${isValidTotal ? 'text-emerald-600' : 'text-red-500'}`}>
+                Total: {formatNumber(totalQuantity)}
+              </span>
+              {totalQuantity > 0 && (
+                <span className={`text-[9px] font-medium ${isValidTotal ? 'text-emerald-500' : 'text-red-400'}`}>
+                  {isValidTotal ? '✓ MOQ met' : `Need ${(moq - totalQuantity).toLocaleString()} more`}
+                </span>
+              )}
+            </div>
           </div>
           
           <div className="space-y-2">
-            <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Per Model (min {formatNumber(moq)})</p>
+            <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+              Per Model (min total {formatNumber(moq)} across all models)
+            </p>
             {selectedModels.map((model) => {
-              const currentQty = modelQuantities[model] || moq
+              const currentQty = modelQuantities[model] !== undefined ? modelQuantities[model] : ''
               return (
                 <div key={model} className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                   <span className="text-xs text-gray-700 flex-1 truncate">{model}</span>
@@ -1183,9 +1270,11 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
                     type="number"
                     value={currentQty}
                     onChange={(e) => handleQuantityChange(model, e.target.value)}
-                    min={moq}
+                    onBlur={(e) => handleBlur(model, e.target.value)}
+                    min={0}
+                    step={1}
                     className="w-20 px-2 py-1 rounded-lg border border-gray-300 text-xs focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right"
-                    placeholder={formatNumber(moq)}
+                    placeholder="0"
                   />
                   <span className="text-[9px] text-gray-400 whitespace-nowrap">units</span>
                 </div>
@@ -1193,25 +1282,55 @@ function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isO
             })}
           </div>
 
-          <div className="mt-3 pt-2 border-t border-gray-200 flex justify-between">
+          {totalQtyError && (
+            <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-[10px] text-red-600">{totalQtyError}</p>
+            </div>
+          )}
+
+          <div className="mt-3 pt-2 border-t border-gray-200 flex justify-between items-center">
             <p className="text-[10px] text-gray-400">
               {selectedModels.length} model{selectedModels.length !== 1 ? 's' : ''}
             </p>
-            <button
-              onClick={() => {
-                const allQuantities = {}
-                selectedModels.forEach(model => {
-                  allQuantities[model] = moq
-                })
-                setModelQuantities(allQuantities)
-                selectedModels.forEach(model => {
-                  onModelQuantityChange(part, model, moq)
-                })
-              }}
-              className="text-[10px] text-[#005691] hover:underline font-medium"
-            >
-              Reset to MOQ
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  // Distribute MOQ evenly among selected models
+                  const baseQty = Math.floor(moq / selectedModels.length)
+                  const remainder = moq % selectedModels.length
+                  const newQuantities = {}
+                  selectedModels.forEach((model, index) => {
+                    const extra = index < remainder ? 1 : 0
+                    newQuantities[model] = baseQty + extra
+                  })
+                  setModelQuantities(newQuantities)
+                  setTotalQtyError('')
+                  selectedModels.forEach(model => {
+                    onModelQuantityChange(part, model, newQuantities[model])
+                  })
+                }}
+                className="text-[10px] text-[#005691] hover:underline font-medium"
+              >
+                Distribute evenly
+              </button>
+              <button
+                onClick={() => {
+                  // Set all to 0
+                  const zeroQuantities = {}
+                  selectedModels.forEach(model => {
+                    zeroQuantities[model] = 0
+                  })
+                  setModelQuantities(zeroQuantities)
+                  setTotalQtyError(`Total quantity must be at least ${moq.toLocaleString()} units`)
+                  selectedModels.forEach(model => {
+                    onModelQuantityChange(part, model, 0)
+                  })
+                }}
+                className="text-[10px] text-red-500 hover:underline font-medium"
+              >
+                Reset all
+              </button>
+            </div>
           </div>
         </div>,
         document.body
