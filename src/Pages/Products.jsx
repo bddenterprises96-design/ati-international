@@ -339,19 +339,34 @@ const MOTORCYCLE_PARTS_IMAGES = {
   'Gear Lever':             '/assets/parts/Gear Lever.png'
 }
 
+function getDeterministicHash(str) {
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i)
+    hash |= 0
+  }
+  return Math.abs(hash)
+}
+
 // ── GENERATE PRODUCT PARTS WITH CATEGORIES ────────────────────────
 function generatePartsWithCategories(partsData, customImages = {}) {
   const result = []
   Object.entries(partsData).forEach(([category, items]) => {
     items.forEach(item => {
+      const hash = getDeterministicHash(item)
+      const moqOptions = [500, 1000, 2000, 5000]
+      const partNumSuffix = 100 + (hash % 900)
+      const moq = moqOptions[hash % moqOptions.length]
+
       result.push({
         name: item,
         category: category,
         image: customImages[item] || null,
-        partNo: `ATI-${item.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}`,
-        moq: [500, 1000, 2000, 5000][Math.floor(Math.random() * 4)],
+        partNo: `ATI-${item.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, 'X')}-${partNumSuffix}`,
+        moq: moq,
         selectedBrands: [],
         selectedModels: [],
+        modelQuantities: {},
         quantity: 0
       })
     })
@@ -1378,6 +1393,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
   const [localBrands, setLocalBrands] = useState(() => selectedPart?.selectedBrands || [])
   const [localModels, setLocalModels] = useState(() => selectedPart?.selectedModels || [])
   const [localQuantity, setLocalQuantity] = useState(() => selectedPart?.quantity || part.moq || 1000)
+  const [localModelQuantities, setLocalModelQuantities] = useState(() => selectedPart?.modelQuantities || {})
   const [shake, setShake]             = useState(false)
   const [showHint, setShowHint]       = useState('')
 
@@ -1393,6 +1409,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
       setLocalBrands([])
       setLocalModels([])
       setLocalQuantity(part.moq || 1000)
+      setLocalModelQuantities({})
     }
     prevSelected.current = isSelected
   }, [isSelected, part.moq])
@@ -1406,7 +1423,8 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
         : [brandOrBrands]
     setLocalBrands(next)
     setLocalModels([])  // reset models whenever brand changes
-    if (isSelected) onUpdatePart(part, next, localModels, localQuantity)
+    setLocalModelQuantities({})
+    if (isSelected) onUpdatePart(part, next, localModels, localQuantity, {})
   }
 
   // Model selection — local + live update if in order
@@ -1417,17 +1435,18 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
         ? localModels.filter(m => m !== modelOrModels)
         : [...localModels, modelOrModels]
     setLocalModels(next)
-    if (isSelected) onUpdatePart(part, localBrands, next, localQuantity)
+    if (isSelected) onUpdatePart(part, localBrands, next, localQuantity, localModelQuantities)
   }
 
   // Handle model quantity change
   const handleModelQuantityChange = (_part, model, quantity) => {
-    // Store model quantities in the part data
-    if (isSelected) {
-      const updatedModelQuantities = { ...(selectedPart?.modelQuantities || {}) }
-      updatedModelQuantities[model] = quantity
-      onUpdatePart(part, localBrands, localModels, localQuantity, updatedModelQuantities)
-    }
+    setLocalModelQuantities(prev => {
+      const next = { ...prev, [model]: quantity }
+      if (isSelected) {
+        onUpdatePart(part, localBrands, localModels, localQuantity, next)
+      }
+      return next
+    })
   }
 
   const handleAddClick = () => {
@@ -1437,6 +1456,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
       setLocalBrands([])
       setLocalModels([])
       setLocalQuantity(part.moq || 1000)
+      setLocalModelQuantities({})
       return
     }
     if (!hasBrand) {
@@ -1454,7 +1474,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
       setTimeout(() => { setShake(false); setShowHint('') }, 2000)
       return
     }
-    onSelectPart(part, localBrands, localModels, localQuantity, {})
+    onSelectPart(part, localBrands, localModels, localQuantity, localModelQuantities)
   }
 
   const isBrandOpen = openBrandDropdownPart === part.name
@@ -1645,6 +1665,28 @@ function ReviewOrderModal({
 
   const totalItems = localBasketItems.reduce((sum, item) => sum + (item.selectedModels?.length || 0), 0)
 
+  // MOQ validation across all items
+  const moqErrors = []
+  localBasketItems.forEach(item => {
+    const selectedModels = item.selectedModels || []
+    const moq = item.moq || 1000
+    const partTotal = selectedModels.reduce((sum, m) => {
+      const q = item.modelQuantities?.[m] ?? item.quantity ?? Math.floor(moq / (selectedModels.length || 1))
+      return sum + (q !== '' && !isNaN(q) ? Number(q) : 0)
+    }, 0)
+
+    if (partTotal < moq) {
+      moqErrors.push({
+        name: item.name,
+        total: partTotal,
+        moq: moq,
+        shortage: moq - partTotal
+      })
+    }
+  })
+
+  const hasMoqErrors = moqErrors.length > 0
+
   const toggleModelSelection = (partName, modelToRemove) => {
     setLocalBasketItems(prev => {
       const updated = prev.map(item => {
@@ -1674,6 +1716,7 @@ function ReviewOrderModal({
   }
 
   const handleConfirm = () => {
+    if (hasMoqErrors) return
     onUpdateBasketItems(localBasketItems)
     onConfirmOrder(localBasketItems)
   }
@@ -1757,67 +1800,107 @@ function ReviewOrderModal({
                     </div>
                   </div>
 
-                  {/* Selected Models with Quantities */}
+                  {/* Selected Models with Editable Quantities */}
                   <div className="p-4 bg-white">
-                    <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5 mb-3">
-                      <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
-                      Selected Models with Quantities (min {moq.toLocaleString()}):
-                    </span>
+                    {(() => {
+                      const partTotal = selectedModels.reduce((sum, m) => {
+                        const q = item.modelQuantities?.[m] ?? item.quantity ?? moq
+                        return sum + (q !== '' && !isNaN(q) ? Number(q) : 0)
+                      }, 0)
+                      const isMoqMet = partTotal >= moq
 
-                    {selectedModels.length > 0 ? (
-                      <div className="space-y-2">
-                        {selectedModels.map((model) => {
-                          const currentQty = item.modelQuantities?.[model] || item.quantity || moq
-                          return (
-                            <div
-                              key={model}
-                              className="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-50 border border-blue-200 hover:border-[#005691] transition-all"
-                            >
-                              <span className="material-symbols-outlined text-sm text-[#005691]">check</span>
-                              <span className="text-sm font-medium text-gray-700 flex-1">{model}</span>
-                              <div className="flex items-center gap-2">
-                                <input
-                                  type="number"
-                                  value={currentQty}
-                                  onChange={(e) => {
-                                    const val = parseInt(e.target.value)
-                                    if (!isNaN(val) && val >= 0) {
-                                      const updatedItems = localBasketItems.map(i => {
-                                        if (i.name === item.name) {
-                                          return {
-                                            ...i,
-                                            modelQuantities: {
-                                              ...(i.modelQuantities || {}),
-                                              [model]: val
+                      return (
+                        <>
+                          <div className="flex items-center justify-between mb-3 pb-1 border-b border-gray-100">
+                            <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+                              <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
+                              Selected Models & Quantities ({selectedModels.length}):
+                            </span>
+                            <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                              isMoqMet ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-amber-100 text-amber-800 border border-amber-200'
+                            }`}>
+                              Total: {partTotal.toLocaleString()} units {isMoqMet ? '✓ (MOQ met)' : `(min MOQ ${moq.toLocaleString()})`}
+                            </span>
+                          </div>
+
+                          {selectedModels.length > 0 ? (
+                            <div className="space-y-2">
+                              {selectedModels.map((model) => {
+                                const currentQty = item.modelQuantities?.[model] ?? item.quantity ?? Math.floor(moq / selectedModels.length)
+                                return (
+                                  <div
+                                    key={model}
+                                    className="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-50/80 border border-blue-200 hover:border-[#005691] transition-all"
+                                  >
+                                    <span className="material-symbols-outlined text-xs text-[#005691]">check</span>
+                                    <span className="text-xs font-semibold text-gray-800 flex-1 truncate">{model}</span>
+                                    <div className="flex items-center gap-1.5">
+                                      <input
+                                        type="number"
+                                        value={currentQty === '' ? '' : currentQty}
+                                        onChange={(e) => {
+                                          const rawVal = e.target.value
+                                          const val = rawVal === '' ? '' : parseInt(rawVal)
+                                          const updatedItems = localBasketItems.map((i, index) => {
+                                            const isMatch = item.cartItemId ? i.cartItemId === item.cartItemId : index === idx
+                                            if (isMatch) {
+                                              return {
+                                                ...i,
+                                                modelQuantities: {
+                                                  ...(i.modelQuantities || {}),
+                                                  [model]: val
+                                                }
+                                              }
                                             }
+                                            return i
+                                          })
+                                          setLocalBasketItems(updatedItems)
+                                          saveBasketToStorage(updatedItems)
+                                        }}
+                                        onBlur={(e) => {
+                                          if (e.target.value === '' || parseInt(e.target.value) < 0) {
+                                            const fallbackQty = Math.floor(moq / (selectedModels.length || 1))
+                                            const updatedItems = localBasketItems.map((i, index) => {
+                                              const isMatch = item.cartItemId ? i.cartItemId === item.cartItemId : index === idx
+                                              if (isMatch) {
+                                                return {
+                                                  ...i,
+                                                  modelQuantities: {
+                                                    ...(i.modelQuantities || {}),
+                                                    [model]: fallbackQty
+                                                  }
+                                                }
+                                              }
+                                              return i
+                                            })
+                                            setLocalBasketItems(updatedItems)
+                                            saveBasketToStorage(updatedItems)
                                           }
-                                        }
-                                        return i
-                                      })
-                                      setLocalBasketItems(updatedItems)
-                                    }
-                                  }}
-                                  min={moq}
-                                  className="w-24 px-2 py-1 rounded-lg border border-gray-300 text-xs focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right"
-                                  placeholder={`Min ${moq.toLocaleString()}`}
-                                />
-                                <span className="text-[10px] text-gray-400 whitespace-nowrap">units</span>
-                              </div>
-                              <button
-                                type="button"
-                                onClick={() => toggleModelSelection(item.name, model)}
-                                className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center"
-                                title={`Remove ${model}`}
-                              >
-                                <span className="material-symbols-outlined text-sm">close</span>
-                              </button>
+                                        }}
+                                        min={0}
+                                        className="w-24 px-2 py-1 rounded-lg border border-gray-300 text-xs font-bold text-gray-800 focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right bg-white shadow-xs"
+                                        placeholder="Qty"
+                                      />
+                                      <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap">units</span>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      onClick={() => toggleModelSelection(item.cartItemId || item.name, model)}
+                                      className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center p-0.5"
+                                      title={`Remove ${model}`}
+                                    >
+                                      <span className="material-symbols-outlined text-sm">close</span>
+                                    </button>
+                                  </div>
+                                )
+                              })}
                             </div>
-                          )
-                        })}
-                      </div>
-                    ) : (
-                      <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
-                    )}
+                          ) : (
+                            <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
+                          )}
+                        </>
+                      )
+                    })()}
                   </div>
 
                 </div>
@@ -1825,6 +1908,23 @@ function ReviewOrderModal({
             })
           )}
         </div>
+
+        {/* MOQ Warning Banner if any item is under MOQ */}
+        {hasMoqErrors && (
+          <div className="mx-6 mb-3 p-3 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2.5">
+            <span className="material-symbols-outlined text-red-500 text-lg flex-shrink-0 mt-0.5">warning</span>
+            <div className="text-xs text-red-700">
+              <span className="font-bold block text-red-800">MOQ Requirement Not Met — Cannot Proceed:</span>
+              <ul className="list-disc list-inside mt-1 space-y-0.5">
+                {moqErrors.map((err, i) => (
+                  <li key={i}>
+                    <strong>{err.name}</strong>: {err.total.toLocaleString()} units selected (Minimum MOQ is {err.moq.toLocaleString()} units — Need {err.shortage.toLocaleString()} more)
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
 
         {/* Modal Bottom Action Footer */}
         <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-white rounded-b-2xl">
@@ -1845,15 +1945,16 @@ function ReviewOrderModal({
             </button>
             <button
               onClick={handleConfirm}
-              disabled={localBasketItems.length === 0 || totalItems === 0}
+              disabled={localBasketItems.length === 0 || totalItems === 0 || hasMoqErrors}
               className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider ${
-                localBasketItems.length > 0 && totalItems > 0
+                localBasketItems.length > 0 && totalItems > 0 && !hasMoqErrors
                   ? 'bg-[#005691] text-white hover:bg-[#003e69] hover:scale-105 active:scale-95 cursor-pointer'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
               }`}
+              title={hasMoqErrors ? 'Increase quantities to meet MOQ for all items before proceeding' : 'Proceed to Procurement Inquiry'}
             >
-              <span className="material-symbols-outlined text-base">check_circle</span>
-              Confirm Order & Proceed to Inquiry
+              <span className="material-symbols-outlined text-base">request_quote</span>
+              {hasMoqErrors ? 'MOQ Not Met' : 'Confirm Order & Proceed to Inquiry'}
             </button>
           </div>
         </div>
@@ -2803,46 +2904,53 @@ export default function Products({ onNavigate }) {
 
   const totalBasketItems = getTotalBasketItems()
 
-  // Load basket from storage on mount
+  // Load basket from storage on mount AND listen for selectedPartsUpdated in real-time
   useEffect(() => {
-    const loadBasketFromStorage = () => {
+    const syncBasketFromStorage = () => {
       try {
-        const stored = localStorage.getItem('basketItems') || sessionStorage.getItem('basketItems')
+        const stored = localStorage.getItem('basketItems') || sessionStorage.getItem('basketItems') ||
+                       localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
         if (stored) {
           const parsed = JSON.parse(stored)
-          if (Array.isArray(parsed) && parsed.length > 0) {
+          if (Array.isArray(parsed)) {
             setBasketItems(parsed)
-            console.log('📥 [Products] Loaded basket from storage:', parsed.length, 'items')
+            console.log('📥 [Products] Synced basket from storage:', parsed.length, 'items')
           }
+        } else {
+          setBasketItems([])
         }
-      } catch (err) {
-        console.error('Failed to load basket from storage:', err)
-      }
-    }
-    
-    loadBasketFromStorage()
-  }, [])
 
-  useEffect(() => {
-    const loadFromStorage = () => {
-      try {
-        const storageKey = `selectedParts_${active}`
-        const storedParts = localStorage.getItem(storageKey) || sessionStorage.getItem(storageKey)
-        if (storedParts) {
-          const parsed = JSON.parse(storedParts)
-          if (Array.isArray(parsed) && parsed.length > 0) {
+        // Also sync tab-specific parts
+        const activeKey = `selectedParts_${active}`
+        const activeStored = localStorage.getItem(activeKey) || sessionStorage.getItem(activeKey)
+        if (activeStored) {
+          const parsedActive = JSON.parse(activeStored)
+          if (Array.isArray(parsedActive)) {
             setSelectedPartsByTab(prev => ({
               ...prev,
-              [active]: parsed
+              [active]: parsedActive
             }))
           }
+        } else if (!stored) {
+          setSelectedPartsByTab(prev => ({
+            ...prev,
+            [active]: []
+          }))
         }
       } catch (err) {
-        console.error('Failed to load parts from storage:', err)
+        console.error('Failed to sync basket from storage:', err)
       }
     }
     
-    loadFromStorage()
+    syncBasketFromStorage()
+
+    window.addEventListener('selectedPartsUpdated', syncBasketFromStorage)
+    window.addEventListener('storage', syncBasketFromStorage)
+
+    return () => {
+      window.removeEventListener('selectedPartsUpdated', syncBasketFromStorage)
+      window.removeEventListener('storage', syncBasketFromStorage)
+    }
   }, [active])
 
   return (

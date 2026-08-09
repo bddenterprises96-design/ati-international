@@ -48,7 +48,7 @@ const POSTS = [
     readTime: '6 min read',
     author: 'ATI Polymer & Materials Engineering Team',
     icon: 'science',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371147/Understanding_Valve_Stem_Seal_Materials_FKM_vs_VMQ_vs_NBR_boayxp.png',
+    image: '/assets/blog_valve_stem_seal_materials.png',
     summary: 'Valve stem seals are subjected to severe engine conditions, high operational temperatures, continuous mechanical friction, and aggressive synthetic engine oils. Selecting the correct elastomeric material determines engine oil consumption, valve guide wear, and long-term seal reliability.',
     sections: [
       {
@@ -155,7 +155,7 @@ const POSTS = [
     readTime: '8 min read',
     author: 'ATI Technical Quality Division',
     icon: 'build',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784460023/O-Ring_Failure_Analysis_The_7_Most_Common_Causes_and_How_to_Prevent_Them_nwlqs1.png',
+    image: '/assets/blog_oring_analysis.png',
     summary: 'O-Rings are simple in design yet critical in performance. A single failed O-ring can halt hydraulic machinery, cause industrial fluid leaks, or lead to costly equipment downtime. Understanding root causes is key to prevention.',
     sections: [
       {
@@ -267,7 +267,7 @@ const POSTS = [
     readTime: '5 min read',
     author: 'ATI Global Supply Intelligence Desk',
     icon: 'trending_up',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784460351/Global_Sealing_Market_Trends_2026_What_Manufacturers_Need_to_Know_oej8ip.png',
+    image: '/assets/blog_market_trends.png',
     summary: 'As global manufacturing demand accelerates across North America, Europe, the Middle East, and Asia-Pacific, procurement managers face changing lead times, raw material pricing dynamics, and stricter compliance rules.',
     sections: [
       {
@@ -294,7 +294,7 @@ const POSTS = [
     readTime: '5 min read',
     author: 'Quality Management System Auditor',
     icon: 'verified',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371583/What_ISO_90012015_Really_Means_for_Your_Sealing_Component_Supplier_nojlle.png',
+    image: '/assets/blog_iso_compliance.png',
     summary: 'ISO certification is far more than a certificate on a wall. A genuinely implemented QMS guarantees incoming raw material inspection, precise vulcanization process controls, 100% batch traceability, and formal corrective action protocols.',
     sections: [
       {
@@ -321,7 +321,7 @@ const POSTS = [
     readTime: '6 min read',
     author: 'Guangzhou Logistics Operations Desk',
     icon: 'local_shipping',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784371797/Exporting_Industrial_Components_from_Pakistan_ATI_s_Logistics_Playbook_grhybl.png',
+    image: '/assets/blog_export_logistics.png',
     summary: 'Exporting manufactured goods requires seamless coordination between factory schedules, container loading, customs documentation, and international shipping lines. ATI handles the entire process to make global sourcing hassle-free.',
     sections: [
       {
@@ -344,7 +344,7 @@ const POSTS = [
     readTime: '7 min read',
     author: 'ATI Custom Tooling & Prototyping Group',
     icon: 'design_services',
-    image: 'https://res.cloudinary.com/ybne3lvu/image/upload/v1784459659/Custom_Seal_Design_From_Drawing_to_First_Article_in_14_Days_jq01oi.png',
+    image: '/assets/blog_custom_seal_design.png',
     summary: 'Standard off-the-shelf catalog parts don\'t always meet specialized engineering demands. When you need custom cross-sections, non-standard dimensions, or proprietary elastomer formulations, ATI delivers rapid custom prototyping.',
     sections: [
       {

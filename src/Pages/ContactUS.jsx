@@ -268,94 +268,73 @@ export default function ContactUS({ onNavigate }) {
     }
   }, [])
 
-  // ── HANDLE REMOVE SPECIFIC BRAND FROM A PART ──────────────────
-  const handleRemoveBrandFromPart = (partName, brandToRemove) => {
-    const partIndex = selectedParts.findIndex(p => p.name === partName)
-    if (partIndex === -1) return
-    
-    const part = selectedParts[partIndex]
-    const currentBrands = part.selectedBrands || []
-    
-    if (!currentBrands.includes(brandToRemove)) return
-    
-    const updatedBrands = currentBrands.filter(b => b !== brandToRemove)
-    const updatedPart = { ...part, selectedBrands: updatedBrands }
-    
-    let updatedParts = [...selectedParts]
-    updatedParts[partIndex] = updatedPart
-    
-    if (updatedBrands.length === 0) {
-      updatedParts = updatedParts.filter(p => p.name !== partName)
-    }
-    
+  // ── HANDLE REMOVE SPECIFIC BRAND / ITEM FROM ORDER SUMMARY ─────────
+  const handleRemoveBrandFromPart = (uniqueId, partName, brandToRemove) => {
+    let updatedParts = selectedParts.filter((p, idx) => {
+      if (uniqueId && p.cartItemId) {
+        return p.cartItemId !== uniqueId
+      }
+      if (uniqueId && p.uniqueId) {
+        return p.uniqueId !== uniqueId
+      }
+      if (partName) {
+        if (brandToRemove && p.selectedBrands && p.selectedBrands.includes(brandToRemove)) {
+          p.selectedBrands = p.selectedBrands.filter(b => b !== brandToRemove)
+          return p.selectedBrands.length > 0
+        }
+        return p.name !== partName
+      }
+      return idx !== uniqueId
+    })
+
     setSelectedParts(updatedParts)
-    
-    const updatedMotorcycle = updatedParts.filter(p => p.category && (
-      p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' || 
-      p.category === 'Fuel System' || p.category === 'Air Intake System' ||
-      p.category === 'Exhaust System' || p.category === 'Cooling System' ||
-      p.category === 'Brake System' || p.category === 'Suspension & Steering' ||
-      p.category === 'Wheels & Tires' || p.category === 'Chain Drive' ||
-      p.category === 'Electrical Parts' || p.category === 'Lighting' ||
-      p.category === 'Controls' || p.category === 'Body Parts' ||
-      p.category === 'Rubber & Sealing Components' || p.category === 'Accessories'
-    ))
-    
-    const updatedEbike = updatedParts.filter(p => p.category && (
-      p.category === 'Electric Drive System' || p.category === 'Battery System' ||
-      p.category === 'Electrical Components' || p.category === 'Drivetrain' ||
-      p.category === 'Suspension & Steering' || p.category === 'Frame & Body Parts' ||
-      p.category === 'Lighting & Safety' || p.category === 'Fasteners & Hardware' ||
-      p.category === 'E-Bike Accessories'
-    ))
-    
+
+    const updatedMotorcycle = updatedParts.filter(p => !p.category || !p.category.toLowerCase().includes('e-bike'))
+    const updatedEbike = updatedParts.filter(p => p.category && p.category.toLowerCase().includes('e-bike'))
+
     setMotorcycleItems(updatedMotorcycle)
     setEbikeItems(updatedEbike)
-    
+
     let mCount = 0
     updatedMotorcycle.forEach(p => {
-      if (p.selectedBrands && p.selectedBrands.length > 0) {
+      if (p.selectedModels && p.selectedModels.length > 0) {
+        mCount += p.selectedModels.length
+      } else if (p.selectedBrands && p.selectedBrands.length > 0) {
         mCount += p.selectedBrands.length
       }
     })
     setMotorcycleCount(mCount)
-    
+
     let eCount = 0
     updatedEbike.forEach(p => {
-      if (p.selectedBrands && p.selectedBrands.length > 0) {
+      if (p.selectedModels && p.selectedModels.length > 0) {
+        eCount += p.selectedModels.length
+      } else if (p.selectedBrands && p.selectedBrands.length > 0) {
         eCount += p.selectedBrands.length
       }
     })
     setEbikeCount(eCount)
-    
+
     let count = 0
     updatedParts.forEach(p => {
-      if (p.selectedBrands && p.selectedBrands.length > 0) {
+      if (p.selectedModels && p.selectedModels.length > 0) {
+        count += p.selectedModels.length
+      } else if (p.selectedBrands && p.selectedBrands.length > 0) {
         count += p.selectedBrands.length
       }
     })
     setTotalItems(count)
-    
-    const isMotorcycle = motorcycleItems.some(p => p.name === partName)
-    const isEbike = ebikeItems.some(p => p.name === partName)
-    
-    if (isMotorcycle) {
-      const motorParts = updatedParts.filter(p => 
-        updatedMotorcycle.some(m => m.name === p.name)
-      )
-      localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
-      sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
-    } else if (isEbike) {
-      const ebikeParts = updatedParts.filter(p => 
-        updatedEbike.some(e => e.name === p.name)
-      )
-      localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
-      sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
-    }
-    
+
+    // Save back to ALL storage keys so every cart updates in real time
+    localStorage.setItem('basketItems', JSON.stringify(updatedParts))
+    sessionStorage.setItem('basketItems', JSON.stringify(updatedParts))
     localStorage.setItem('selectedParts', JSON.stringify(updatedParts))
     sessionStorage.setItem('selectedParts', JSON.stringify(updatedParts))
-    
+    localStorage.setItem('selectedParts_motorcycle', JSON.stringify(updatedMotorcycle))
+    sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(updatedMotorcycle))
+    localStorage.setItem('selectedParts_e-bike', JSON.stringify(updatedEbike))
+    sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(updatedEbike))
+
     window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
 
@@ -483,16 +462,36 @@ export default function ContactUS({ onNavigate }) {
                 </button>
               </div>
 
-              {/* Models List Display */}
+              {/* Models & Quantities List Display */}
               {item.selectedModels && item.selectedModels.length > 0 && (
-                <div className="mt-2 pt-2 border-t border-gray-100 flex flex-wrap items-center gap-1 pl-7">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mr-1">Models:</span>
-                  {item.selectedModels.map((m, mIdx) => (
-                    <span key={mIdx} className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md text-[10px] font-semibold border border-emerald-200/80 flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[10px] text-emerald-600">check</span>
-                      {m}
-                    </span>
-                  ))}
+                <div className="mt-2 pt-2 border-t border-gray-100 space-y-1.5 pl-7">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Models & Quantities:</span>
+                    {(() => {
+                      const totalPartQty = item.selectedModels.reduce((sum, m) => {
+                        return sum + (Number(item.modelQuantities?.[m]) || Number(item.quantity) || Number(item.moq) || 1000)
+                      }, 0)
+                      return (
+                        <span className="text-[10px] bg-blue-100 text-[#005691] font-bold px-2 py-0.5 rounded">
+                          Total: {totalPartQty.toLocaleString()} units
+                        </span>
+                      )
+                    })()}
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.selectedModels.map((m, mIdx) => {
+                      const modelQty = item.modelQuantities?.[m] || item.quantity || item.moq || 1000
+                      return (
+                        <span key={mIdx} className="bg-emerald-50 text-emerald-800 px-2 py-1 rounded-md text-[10px] font-semibold border border-emerald-200 flex items-center gap-1.5 shadow-xs">
+                          <span className="material-symbols-outlined text-[11px] text-emerald-600">check_circle</span>
+                          <span>{m}</span>
+                          <span className="bg-emerald-700 text-white px-1.5 py-0.2 rounded text-[9px] font-mono font-bold">
+                            {Number(modelQty).toLocaleString()} units
+                          </span>
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
               )}
             </div>

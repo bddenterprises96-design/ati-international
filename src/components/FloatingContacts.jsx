@@ -248,52 +248,25 @@ export default function FloatingContacts() {
     }
   }
 
-  // Handle removing a part (supports both partName and cartItemId)
+  // Handle removing a part (supports cartItemId, partName, or index)
   const handleRemovePart = (identifier, index) => {
-    // Check if called with partName (string) or cartItemId (any)
-    const isPartName = typeof identifier === 'string';
-    const partName = isPartName ? identifier : null;
-    const cartItemId = !isPartName ? identifier : null;
-    
-    // For partName removal (from segment view)
-    if (isPartName) {
-      // Check which tab this part belongs to
-      const isMotorcycle = motorcycleItems.some(p => p.name === partName);
-      const isEbike = ebikeItems.some(p => p.name === partName);
-      
-      const updated = selectedParts.filter((p) => p.name !== partName);
-      setSelectedParts(updated);
-      
-      // Save back to the appropriate storage
-      if (isMotorcycle) {
-        const motorParts = updated.filter(p => 
-          motorcycleItems.some(m => m.name === p.name)
-        );
-        localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts));
-        sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts));
-      } else if (isEbike) {
-        const ebikeParts = updated.filter(p => 
-          ebikeItems.some(e => e.name === p.name)
-        );
-        localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts));
-        sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts));
-      }
-      
-      window.dispatchEvent(new Event('selectedPartsUpdated'));
-      loadSelectedParts();
-    } 
-    // For cart item removal (from cart popup)
-    else {
-      setSelectedParts(prev => {
-        const updated = prev.filter((p, idx) => {
-          if (p.cartItemId && cartItemId) return p.cartItemId !== cartItemId;
-          return idx !== index;
-        });
-        saveUpdatedPartsToStorage(updated);
-        return updated;
-      });
-    }
-  };
+    setSelectedParts(prev => {
+      const updated = prev.filter((p, idx) => {
+        if (identifier && p.cartItemId && p.cartItemId === identifier) {
+          return false
+        }
+        if (identifier && p.name && p.name === identifier) {
+          return false
+        }
+        if (typeof index === 'number' && idx === index) {
+          return false
+        }
+        return true
+      })
+      saveUpdatedPartsToStorage(updated)
+      return updated
+    })
+  }
 
   // Handle clearing all parts
   const handleClearAll = () => {
@@ -325,6 +298,27 @@ export default function FloatingContacts() {
     window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
 
+  // Update model quantity
+  const updateModelQuantity = (cartItemId, idx, model, newQuantity) => {
+    setSelectedParts(prev => {
+      const updated = prev.map((item, index) => {
+        const isMatch = item.cartItemId ? item.cartItemId === cartItemId : index === idx;
+        if (isMatch) {
+          return {
+            ...item,
+            modelQuantities: {
+              ...(item.modelQuantities || {}),
+              [model]: newQuantity
+            }
+          };
+        }
+        return item;
+      });
+      saveUpdatedPartsToStorage(updated);
+      return updated;
+    });
+  };
+
   // Toggle model selection
   const toggleModelSelection = (cartItemId, idx, modelToRemove) => {
     setSelectedParts(prev => {
@@ -341,59 +335,6 @@ export default function FloatingContacts() {
       return updated;
     });
   };
-
-  // Render a segment of items with colored header
-  const renderSegment = (title, items, icon, count, bgColor, textColor, borderColor) => {
-    if (items.length === 0) return null
-    
-    return (
-      <div className="mb-4">
-        <div className={`flex items-center gap-2 mb-2 px-3 py-2 rounded-lg ${bgColor} border ${borderColor}`}>
-          <span className="text-lg">{icon}</span>
-          <h3 className={`font-semibold ${textColor} text-sm`}>{title}</h3>
-          <span className={`text-xs px-2 py-0.5 rounded-full ${bgColor} ${textColor} border ${borderColor} ml-auto`}>
-            {count} items
-          </span>
-        </div>
-        <div className="space-y-1">
-          {items.map((item, idx) => (
-            <div key={`${item.name}-${item.brand || 'no-brand'}-${idx}`} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-2 bg-gray-50/50 border-b border-gray-100">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <span className="w-6 h-6 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
-                    {idx + 1}
-                  </span>
-                  <span className="text-sm font-medium text-gray-800">{item.name}</span>
-                  <span className="text-xs text-gray-400 font-mono">{item.partNo}</span>
-                  {item.brand && (
-                    <span className="text-xs bg-[#005691]/10 text-[#005691] px-2 py-0.5 rounded-full font-medium">
-                      {item.brand}
-                    </span>
-                  )}
-                </div>
-                <button
-                  onClick={() => handleRemovePart(item.name)}
-                  className="text-gray-400 hover:text-red-500 transition-all p-1"
-                  title="Remove this part"
-                >
-                  <span className="material-symbols-outlined text-sm">delete</span>
-                </button>
-              </div>
-              <div className="px-4 py-2 flex items-center gap-4 text-xs text-gray-400">
-                <span>MOQ: {item.moq || 'N/A'}</span>
-                {item.brand && (
-                  <span className="text-green-600 font-medium">✓ Brand selected</span>
-                )}
-                {item.category && (
-                  <span className="text-blue-600">Category: {item.category}</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
 
   // Default model presets for fallback
   const DEFAULT_MOTORCYCLE_MODELS = ['Honda CG125', 'Honda CD70', 'Yamaha YBR125', 'Suzuki GS150', 'Bajaj Pulsar 150', 'TVS Apache RTR 160', 'Hero Splendor Plus', 'Kawasaki Ninja 250']
@@ -413,6 +354,160 @@ export default function FloatingContacts() {
   }
 
   const totalSelectedModels = selectedParts.reduce((sum, item) => sum + (item.selectedModels?.length || 0), 0)
+
+  // MOQ validation across all cart items
+  const moqErrors = []
+  selectedParts.forEach(item => {
+    const selectedModels = item.selectedModels || []
+    const moq = item.moq || 1000
+    const partTotal = selectedModels.reduce((sum, m) => {
+      const q = item.modelQuantities?.[m] ?? item.quantity ?? Math.floor(moq / (selectedModels.length || 1))
+      return sum + (q !== '' && !isNaN(q) ? Number(q) : 0)
+    }, 0)
+
+    if (partTotal < moq) {
+      moqErrors.push({
+        name: item.name,
+        total: partTotal,
+        moq: moq,
+        shortage: moq - partTotal
+      })
+    }
+  })
+
+  const hasMoqErrors = moqErrors.length > 0
+
+  // Group cart items into Motorcycle and E-Bike segments
+  const motorcycleCartItems = selectedParts.filter(p => !p.category || !p.category.toLowerCase().includes('e-bike'))
+  const ebikeCartItems = selectedParts.filter(p => p.category && p.category.toLowerCase().includes('e-bike'))
+
+  const renderCartSegment = (segmentTitle, segmentItems, icon, badgeBg) => {
+    if (segmentItems.length === 0) return null
+    return (
+      <div className="space-y-3 mb-6">
+        <div className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl border border-gray-200 shadow-xs">
+          <div className="flex items-center gap-2 text-sm font-bold text-gray-800">
+            <span className="text-base">{icon}</span>
+            <span>{segmentTitle}</span>
+          </div>
+          <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${badgeBg}`}>
+            {segmentItems.length} part{segmentItems.length !== 1 ? 's' : ''}
+          </span>
+        </div>
+
+        <div className="space-y-3">
+          {segmentItems.map((item, idx) => {
+            const selectedModels = item.selectedModels || []
+            const moq = item.moq || 1000
+            const partTotal = selectedModels.reduce((sum, m) => {
+              const q = item.modelQuantities?.[m] ?? item.quantity ?? Math.floor(moq / (selectedModels.length || 1))
+              return sum + (q !== '' && !isNaN(q) ? Number(q) : 0)
+            }, 0)
+            const isMoqMet = partTotal >= moq
+
+            return (
+              <div key={item.cartItemId || `${item.name}-${idx}`} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:border-[#005691]/40 transition-colors">
+                
+                {/* Part Header */}
+                <div className="flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#005691] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-gray-900">{item.name}</span>
+                        {item.partNo && <span className="text-[11px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-mono border border-gray-200">{item.partNo}</span>}
+                      </div>
+                      {item.selectedBrands && item.selectedBrands.length > 0 && (
+                        <p className="text-xs text-[#005691] font-semibold mt-0.5">
+                          Brand: {item.selectedBrands.join(', ')}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => handleRemovePart(item.cartItemId, idx)}
+                      className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                      title="Remove item entry"
+                    >
+                      <span className="material-symbols-outlined text-base">delete</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Selected Models Grid with Editable Quantities */}
+                <div className="p-4 bg-white">
+                  <div className="flex items-center justify-between mb-3 pb-1 border-b border-gray-100">
+                    <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
+                      Selected Models & Quantities ({selectedModels.length}):
+                    </span>
+                    <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                      isMoqMet ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-amber-100 text-amber-800 border border-amber-200'
+                    }`}>
+                      Total: {partTotal.toLocaleString()} units {isMoqMet ? '✓ (MOQ met)' : `(min MOQ ${moq.toLocaleString()})`}
+                    </span>
+                  </div>
+
+                  {selectedModels.length > 0 ? (
+                    <div className="space-y-2">
+                      {selectedModels.map((model) => {
+                        const currentQty = item.modelQuantities?.[model] ?? item.quantity ?? Math.floor(moq / (selectedModels.length || 1))
+                        return (
+                          <div
+                            key={model}
+                            className="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-50/80 border border-blue-200 hover:border-[#005691] transition-all"
+                          >
+                            <span className="material-symbols-outlined text-xs text-[#005691]">check</span>
+                            <span className="text-xs font-semibold text-gray-800 flex-1 truncate">{model}</span>
+                            <div className="flex items-center gap-1.5">
+                              <input
+                                type="number"
+                                value={currentQty === '' ? '' : currentQty}
+                                onChange={(e) => {
+                                  const rawVal = e.target.value
+                                  const val = rawVal === '' ? '' : parseInt(rawVal)
+                                  updateModelQuantity(item.cartItemId, idx, model, val)
+                                }}
+                                onBlur={(e) => {
+                                  if (e.target.value === '' || parseInt(e.target.value) < 0) {
+                                    const fallbackQty = Math.floor(moq / (selectedModels.length || 1))
+                                    updateModelQuantity(item.cartItemId, idx, model, fallbackQty)
+                                  }
+                                }}
+                                min={0}
+                                className="w-24 px-2 py-1 rounded-lg border border-gray-300 text-xs font-bold text-gray-800 focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right bg-white shadow-xs"
+                                placeholder="Qty"
+                              />
+                              <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap">units</span>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => toggleModelSelection(item.cartItemId, idx, model)}
+                              className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center p-0.5"
+                              title={`Remove ${model}`}
+                            >
+                              <span className="material-symbols-outlined text-sm">close</span>
+                            </button>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
+                  )}
+                </div>
+
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
@@ -444,80 +539,10 @@ export default function FloatingContacts() {
             {/* Scrollable Body */}
             <div className="flex-1 overflow-y-auto p-5 bg-gray-50 space-y-4">
               {selectedParts.length > 0 ? (
-                selectedParts.map((item, idx) => {
-                  const selectedModels = item.selectedModels || []
-
-                  return (
-                    <div key={item.cartItemId || `${item.name}-${idx}`} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:border-[#005691]/40 transition-colors">
-                      
-                      {/* Part Header */}
-                      <div className="flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
-                        <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#005691] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
-                            {idx + 1}
-                          </span>
-                          <div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold text-gray-900">{item.name}</span>
-                              {item.partNo && <span className="text-[11px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-mono border border-gray-200">{item.partNo}</span>}
-                            </div>
-                            {item.selectedBrands && item.selectedBrands.length > 0 && (
-                              <p className="text-xs text-[#005691] font-semibold mt-0.5">
-                                Brand: {item.selectedBrands.join(', ')}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs bg-emerald-50 text-emerald-700 font-bold px-3 py-1 rounded-full border border-emerald-200">
-                            {selectedModels.length} model{selectedModels.length !== 1 ? 's' : ''} selected
-                          </span>
-                          <button
-                            onClick={() => handleRemovePart(item.cartItemId, idx)}
-                            className="text-gray-400 hover:text-red-500 transition-colors p-1"
-                            title="Remove item entry"
-                          >
-                            <span className="material-symbols-outlined text-base">delete</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* ONLY Selected Models Grid */}
-                      <div className="p-4 bg-white">
-                        <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5 mb-2.5">
-                          <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
-                          Selected Models ({selectedModels.length}):
-                        </span>
-
-                        {selectedModels.length > 0 ? (
-                          <div className="flex flex-wrap gap-2">
-                            {selectedModels.map((model) => (
-                              <div
-                                key={model}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 text-[#005691] border border-blue-200 text-xs font-bold shadow-xs hover:border-[#005691] transition-all"
-                              >
-                                <span className="material-symbols-outlined text-xs text-[#005691]">check</span>
-                                <span>{model}</span>
-                                <button
-                                  type="button"
-                                  onClick={() => toggleModelSelection(item.cartItemId, idx, model)}
-                                  className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center"
-                                  title={`Remove ${model}`}
-                                >
-                                  <span className="material-symbols-outlined text-xs">close</span>
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
-                        )}
-                      </div>
-
-                    </div>
-                  )
-                })
+                <>
+                  {renderCartSegment('Motorcycle Parts', motorcycleCartItems, '🏍️', 'bg-blue-100 text-[#005691] border border-blue-200')}
+                  {renderCartSegment('E-Bike Parts', ebikeCartItems, '⚡', 'bg-emerald-100 text-emerald-800 border border-emerald-200')}
+                </>
               ) : (
                 <div className="text-center py-16 bg-white rounded-2xl border border-gray-200 p-8">
                   <span className="material-symbols-outlined text-6xl text-gray-300 block mx-auto mb-4">shopping_bag</span>
@@ -533,6 +558,23 @@ export default function FloatingContacts() {
                 </div>
               )}
             </div>
+
+            {/* MOQ Warning Banner if any item is under MOQ */}
+            {hasMoqErrors && (
+              <div className="mx-6 mb-2 p-3 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-red-500 text-lg flex-shrink-0 mt-0.5">warning</span>
+                <div className="text-xs text-red-700">
+                  <span className="font-bold block text-red-800">MOQ Requirement Not Met — Cannot Proceed:</span>
+                  <ul className="list-disc list-inside mt-1 space-y-0.5">
+                    {moqErrors.map((err, i) => (
+                      <li key={i}>
+                        <strong>{err.name}</strong>: {err.total.toLocaleString()} units selected (Minimum MOQ is {err.moq.toLocaleString()} units — Need {err.shortage.toLocaleString()} more)
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
 
             {/* Footer */}
             <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-white rounded-b-2xl">
@@ -553,11 +595,19 @@ export default function FloatingContacts() {
                 </button>
                 {selectedParts.length > 0 && (
                   <button
-                    onClick={navigateToContactUs}
-                    className="bg-[#005691] text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-[#003e69] hover:scale-105 active:scale-95 transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider cursor-pointer"
+                    onClick={() => {
+                      if (!hasMoqErrors) navigateToContactUs()
+                    }}
+                    disabled={hasMoqErrors}
+                    className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider ${
+                      hasMoqErrors
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
+                        : 'bg-[#005691] text-white hover:bg-[#003e69] hover:scale-105 active:scale-95 cursor-pointer'
+                    }`}
+                    title={hasMoqErrors ? 'Increase quantities to meet MOQ for all items before proceeding' : 'Proceed to Procurement Inquiry'}
                   >
                     <span className="material-symbols-outlined text-base">request_quote</span>
-                    Proceed to Quote ({totalSelectedModels} models)
+                    {hasMoqErrors ? 'MOQ Not Met' : `Proceed to Quote (${totalSelectedModels} models)`}
                   </button>
                 )}
               </div>
