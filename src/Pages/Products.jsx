@@ -351,7 +351,8 @@ function generatePartsWithCategories(partsData, customImages = {}) {
         partNo: `ATI-${item.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}`,
         moq: [500, 1000, 2000, 5000][Math.floor(Math.random() * 4)],
         selectedBrands: [],
-        selectedModels: []
+        selectedModels: [],
+        quantity: 0
       })
     })
   })
@@ -749,6 +750,80 @@ function PartBrandDropdown({ part, brands, selectedBrands, onBrandToggle, isOpen
   )
 }
 
+// ── E-BIKE BRAND MODELS DATA ─────────────────────────────────────────────
+const EBIKE_BRAND_MODELS = {
+  'Bafang': [
+    'Bafang M400 (MM G330)', 'Bafang M500 (MM G520)', 'Bafang M600 (MM G521)', 'Bafang M510 (MM G522)', 
+    'Bafang M820 Mid Drive', 'Bafang H400 Rear Hub', 'Bafang H600 Front Hub', 'Bafang H700 Rear Hub', 
+    'Bafang BBS01B 250W', 'Bafang BBS02B 750W', 'Bafang BBSHD 1000W'
+  ],
+  'Bosch': [
+    'Bosch Performance Line CX Gen 4', 'Bosch Performance Line CX Race', 'Bosch Active Line Plus', 
+    'Bosch Cargo Line', 'Bosch Performance Line SX', 'Bosch PowerTube 500Wh', 'Bosch PowerTube 625Wh', 
+    'Bosch PowerTube 750Wh', 'Bosch Kiox 300 / Intuvia 100 Display'
+  ],
+  'Shimano Steps': [
+    'Shimano Steps E8000', 'Shimano EP8 (EP800)', 'Shimano EP6 (EP600)', 'Shimano Steps E6100', 
+    'Shimano Steps E5000', 'Shimano BT-E8036 630Wh Battery', 'Shimano EW-SD300 Di2 Wire'
+  ],
+  'Shimano': [
+    'Shimano Steps E8000', 'Shimano EP8 (EP800)', 'Shimano EP6 (EP600)', 'Shimano Steps E6100', 
+    'Shimano Steps E5000', 'Shimano BT-E8036 630Wh Battery', 'Shimano EW-SD300 Di2 Wire'
+  ],
+  'Yamaha': [
+    'Yamaha PW-X3', 'Yamaha PW-S2', 'Yamaha PW-ST', 'Yamaha PW-CE', 
+    'Yamaha CrossCore RC', 'Yamaha Wabash RT', 'Yamaha Moro 07', 'Yamaha 500Wh Crossover Battery'
+  ],
+  'Panasonic': [
+    'Panasonic GX Ultimate', 'Panasonic GX Power Plus', 'Panasonic GX Option', 
+    'Panasonic GX Drive Unit', 'Panasonic 630Wh Integrated Battery'
+  ],
+  'Trek': [
+    'Trek Fuel EXe (TQ HPR50)', 'Trek Rail 9.8 (Bosch CX)', 'Trek Powerfly 5', 
+    'Trek Allant+ 7', 'Trek FX+ 2', 'Trek Marlin+ 8'
+  ],
+  'Specialized': [
+    'Specialized Turbo Levo Comp', 'Specialized Turbo Kenevo Expert', 'Specialized Turbo Vado 4.0', 
+    'Specialized Turbo Como SL', 'Specialized SL 1.1 Motor', 'Specialized SL 1.2 Motor'
+  ],
+  'Giant': [
+    'Giant Trance X E+ (SyncDrive Pro2)', 'Giant Reign E+ 1', 'Giant Stance E+ 2', 
+    'Giant Explore E+ 1', 'Giant EnergyPak Smart 800 Battery'
+  ],
+  'Cannondale': [
+    'Cannondale Moterra Neo Carbon', 'Cannondale Habit Neo', 'Cannondale Tesoro Neo X', 
+    'Cannondale Adventure Neo Allroad', 'Cannondale Topstone Neo SL'
+  ],
+  'Cube': [
+    'Cube Stereo Hybrid 140 HPC', 'Cube Reaction Hybrid Pro 750', 'Cube Kathmandu Hybrid EXC', 
+    'Cube Supreme Hybrid Pro', 'Cube Touring Hybrid ONE'
+  ],
+  'Haibike': [
+    'Haibike AllMtn 7 (Yamaha PW-X3)', 'Haibike Nduro 6 (Bosch CX)', 'Haibike Adventr FS 9', 
+    'Haibike Trekking 4 High', 'Haibike SDURO FullSeven'
+  ],
+  'Riese & Müller': [
+    'Riese & Müller Superdelite GT', 'Riese & Müller Delite Mountain', 'Riese & Müller Charger4 GT', 
+    'Riese & Müller Load 75 Cargo', 'Riese & Müller Nevo4'
+  ],
+  'Gazelle': [
+    'Gazelle Ultimate C380 HMB', 'Gazelle Medeo T10+ HMB', 'Gazelle Arroyo C8 HMB', 
+    'Gazelle Bloom C380 HMS', 'Gazelle Avignon C380 HMB'
+  ],
+  'KTM': [
+    'KTM Macina Kapoho 791', 'KTM Macina Lycan 271', 'KTM Macina Team 691', 
+    'KTM Macina Cross LFC', 'KTM Macina City 610'
+  ],
+  'Bulls': [
+    'Bulls Copperhead EVO AM 3', 'Bulls E-Stream EVO AM 4 (Brose Mag S)', 'Bulls Desert Falcon EVO', 
+    'Bulls Urban EVO 10', 'Bulls Lacuba EVO Lite'
+  ]
+}
+
+// DEFAULT MODELS PRESETS FOR FALLBACK
+const DEFAULT_MOTORCYCLE_MODELS = ['Honda CG125', 'Honda CD70', 'Yamaha YBR125', 'Suzuki GS150', 'Bajaj Pulsar 150', 'TVS Apache RTR 160', 'Hero Splendor Plus', 'Kawasaki Ninja 250']
+const DEFAULT_EBIKE_MODELS = ['Bafang M400 / M500 / M600', 'Bosch Performance Line CX', 'Shimano Steps E8000', 'Yamaha PW-X3', 'Ananda M230', 'TongSheng TSDZ2', 'Generic 250W-1000W Hub Motor']
+
 // ── MODEL DROPDOWN ─────────────────────────────────────────────────
 function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle, isOpen, onToggle }) {
   const dropdownRef = useRef(null)
@@ -757,13 +832,28 @@ function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle
 
   const getAvailableModels = () => {
     const models = new Set()
+
+    if (part.applicableModels && part.applicableModels.length > 0) {
+      part.applicableModels.forEach(m => models.add(m))
+    }
+
     if (selectedBrands && selectedBrands.length > 0) {
       selectedBrands.forEach(brand => {
         if (BRAND_MODELS[brand]) {
           BRAND_MODELS[brand].forEach(model => models.add(model))
         }
+        if (EBIKE_BRAND_MODELS[brand]) {
+          EBIKE_BRAND_MODELS[brand].forEach(model => models.add(model))
+        }
       })
     }
+
+    if (models.size === 0) {
+      const isEbike = part.category && part.category.toLowerCase().includes('e-bike')
+      const fallbackList = isEbike ? DEFAULT_EBIKE_MODELS : DEFAULT_MOTORCYCLE_MODELS
+      fallbackList.forEach(m => models.add(m))
+    }
+
     return Array.from(models)
   }
 
@@ -934,6 +1024,202 @@ function PartModelDropdown({ part, selectedBrands, selectedModels, onModelToggle
   )
 }
 
+// ── QUANTITY DROPDOWN ─────────────────────────────────────────────────
+function PartQuantityDropdown({ part, selectedModels, onModelQuantityChange, isOpen, onToggle }) {
+  const dropdownRef = useRef(null)
+  const buttonRef = useRef(null)
+  const [position, setPosition] = useState({ top: 0, left: 0 })
+  const [modelQuantities, setModelQuantities] = useState({})
+
+  const moq = part.moq || 1000
+
+  // Initialize quantities for selected models
+  useEffect(() => {
+    if (selectedModels && selectedModels.length > 0) {
+      const newQuantities = {}
+      selectedModels.forEach(model => {
+        if (!modelQuantities[model]) {
+          newQuantities[model] = moq
+        } else {
+          newQuantities[model] = modelQuantities[model]
+        }
+      })
+      setModelQuantities(prev => ({ ...prev, ...newQuantities }))
+    }
+  }, [selectedModels, moq])
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current && 
+        !buttonRef.current.contains(event.target)
+      ) {
+        onToggle(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen, onToggle])
+
+  useEffect(() => {
+    if (!isOpen || !buttonRef.current) return
+
+    const computePosition = () => {
+      const rect = buttonRef.current.getBoundingClientRect()
+      let top = rect.bottom + 4
+      let left = rect.left
+
+      const dropdownHeight = Math.min(400, selectedModels.length * 60 + 120)
+      if (top + dropdownHeight > window.innerHeight - 8) {
+        const above = rect.top - dropdownHeight - 4
+        top = above < 8 ? 8 : above
+      }
+
+      if (left + DROPDOWN_WIDTH > window.innerWidth - 8) {
+        left = window.innerWidth - DROPDOWN_WIDTH - 8
+      }
+      if (left < 8) left = 8
+
+      setPosition({ top, left })
+    }
+
+    computePosition()
+    window.addEventListener('scroll', computePosition, true)
+    window.addEventListener('resize', computePosition)
+    return () => {
+      window.removeEventListener('scroll', computePosition, true)
+      window.removeEventListener('resize', computePosition)
+    }
+  }, [isOpen, selectedModels.length])
+
+  const hasModels = selectedModels && selectedModels.length > 0
+  const totalModels = selectedModels ? selectedModels.length : 0
+
+  const handleQuantityChange = (model, value) => {
+    const qty = parseInt(value) || 0
+    if (qty >= moq || qty === 0) {
+      setModelQuantities(prev => ({ ...prev, [model]: qty }))
+      onModelQuantityChange(part, model, qty)
+    }
+  }
+
+  const formatNumber = (num) => {
+    return num.toLocaleString()
+  }
+
+  const getTotalQuantity = () => {
+    let total = 0
+    if (selectedModels) {
+      selectedModels.forEach(model => {
+        total += (modelQuantities[model] || moq)
+      })
+    }
+    return total
+  }
+
+  return (
+    <div className="relative inline-block flex-1 min-w-0">
+      <button
+        ref={buttonRef}
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          onToggle(!isOpen)
+        }}
+        className={`
+          w-full px-2.5 py-1.5 rounded-lg border text-[11px] font-medium flex items-center justify-between gap-1 transition-all duration-200 group
+          ${isOpen 
+            ? 'border-[#005691] bg-[#005691]/10 text-[#005691] ring-2 ring-[#005691]/20 font-semibold' 
+            : hasModels
+              ? 'border-[#005691]/40 bg-[#005691]/8 text-[#005691] hover:bg-[#005691]/15 hover:border-[#005691] font-semibold'
+              : 'border-blue-200 bg-blue-50/60 text-gray-700 hover:border-[#005691] hover:bg-blue-100/60 hover:text-[#005691]'
+          }
+        `}
+        title="Set quantities for each model"
+        disabled={!hasModels}
+      >
+        <div className="flex items-center gap-1 min-w-0 truncate">
+          <span className="material-symbols-outlined text-[14px] text-[#005691] flex-shrink-0">numbers</span>
+          <span className="truncate leading-tight">
+            {hasModels ? `${totalModels} models` : 'Qty'}
+          </span>
+        </div>
+        <span className={`material-symbols-outlined text-[15px] text-gray-400 group-hover:text-[#005691] transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180 text-[#005691]' : ''}`}>
+          expand_more
+        </span>
+      </button>
+
+      {isOpen && hasModels && createPortal(
+        <div 
+          ref={dropdownRef}
+          className="fixed bg-white rounded-xl shadow-2xl border border-gray-200 z-[9999] p-4"
+          style={{ top: position.top, left: position.left, width: DROPDOWN_WIDTH, minWidth: '280px', maxHeight: '400px', overflowY: 'auto' }}
+        >
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-gray-200">
+            <span className="text-sm font-semibold text-gray-700 truncate pr-2" title={part.name}>
+              {part.name} - Quantities
+            </span>
+            <span className="text-[10px] text-gray-400 font-medium">
+              Total: {formatNumber(getTotalQuantity())}
+            </span>
+          </div>
+          
+          <div className="space-y-2">
+            <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Per Model (min {formatNumber(moq)})</p>
+            {selectedModels.map((model) => {
+              const currentQty = modelQuantities[model] || moq
+              return (
+                <div key={model} className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                  <span className="text-xs text-gray-700 flex-1 truncate">{model}</span>
+                  <input
+                    type="number"
+                    value={currentQty}
+                    onChange={(e) => handleQuantityChange(model, e.target.value)}
+                    min={moq}
+                    className="w-20 px-2 py-1 rounded-lg border border-gray-300 text-xs focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right"
+                    placeholder={formatNumber(moq)}
+                  />
+                  <span className="text-[9px] text-gray-400 whitespace-nowrap">units</span>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-3 pt-2 border-t border-gray-200 flex justify-between">
+            <p className="text-[10px] text-gray-400">
+              {selectedModels.length} model{selectedModels.length !== 1 ? 's' : ''}
+            </p>
+            <button
+              onClick={() => {
+                const allQuantities = {}
+                selectedModels.forEach(model => {
+                  allQuantities[model] = moq
+                })
+                setModelQuantities(allQuantities)
+                selectedModels.forEach(model => {
+                  onModelQuantityChange(part, model, moq)
+                })
+              }}
+              className="text-[10px] text-[#005691] hover:underline font-medium"
+            >
+              Reset to MOQ
+            </button>
+          </div>
+        </div>,
+        document.body
+      )}
+    </div>
+  )
+}
+
 // ── CATEGORY ICON MAP ───────────────────────────────────────────
 const CATEGORY_ICONS = {
   'Engine Parts':                'settings',
@@ -968,16 +1254,18 @@ function getCategoryIcon(category) {
 }
 
 // ── PRODUCT CARD (horizontal layout) ───────────────────────────────────
-function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, selectedPart, openBrandDropdownPart, openModelDropdownPart, onBrandDropdownToggle, onModelDropdownToggle }) {
+function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, selectedPart, openBrandDropdownPart, openModelDropdownPart, openQuantityDropdownPart, onBrandDropdownToggle, onModelDropdownToggle, onQuantityDropdownToggle }) {
   // Local state — initialised from selectedPart when card is already in the order
   const [localBrands, setLocalBrands] = useState(() => selectedPart?.selectedBrands || [])
   const [localModels, setLocalModels] = useState(() => selectedPart?.selectedModels || [])
+  const [localQuantity, setLocalQuantity] = useState(() => selectedPart?.quantity || part.moq || 1000)
   const [shake, setShake]             = useState(false)
   const [showHint, setShowHint]       = useState('')
 
   const hasBrand  = localBrands.length > 0
   const hasModels = localModels.length > 0
-  const canAdd    = hasBrand && hasModels
+  const hasQuantity = localQuantity > 0
+  const canAdd    = hasBrand && hasModels && hasQuantity
 
   // When the card goes from selected → unselected (removed), clear local state
   const prevSelected = useRef(isSelected)
@@ -985,9 +1273,10 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
     if (prevSelected.current && !isSelected) {
       setLocalBrands([])
       setLocalModels([])
+      setLocalQuantity(part.moq || 1000)
     }
     prevSelected.current = isSelected
-  }, [isSelected])
+  }, [isSelected, part.moq])
 
   // Brand selection — always local; if already in order, also update cart live
   const handleLocalBrandToggle = (_part, brandOrBrands) => {
@@ -998,7 +1287,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
         : [brandOrBrands]
     setLocalBrands(next)
     setLocalModels([])  // reset models whenever brand changes
-    if (isSelected) onUpdatePart(part, next, [])
+    if (isSelected) onUpdatePart(part, next, localModels, localQuantity)
   }
 
   // Model selection — local + live update if in order
@@ -1009,15 +1298,26 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
         ? localModels.filter(m => m !== modelOrModels)
         : [...localModels, modelOrModels]
     setLocalModels(next)
-    if (isSelected) onUpdatePart(part, localBrands, next)
+    if (isSelected) onUpdatePart(part, localBrands, next, localQuantity)
+  }
+
+  // Handle model quantity change
+  const handleModelQuantityChange = (_part, model, quantity) => {
+    // Store model quantities in the part data
+    if (isSelected) {
+      const updatedModelQuantities = { ...(selectedPart?.modelQuantities || {}) }
+      updatedModelQuantities[model] = quantity
+      onUpdatePart(part, localBrands, localModels, localQuantity, updatedModelQuantities)
+    }
   }
 
   const handleAddClick = () => {
     if (isSelected) {
       // Remove from order AND clear local selections
-      onSelectPart(part, null, null)
+      onSelectPart(part, null, null, null, null)
       setLocalBrands([])
       setLocalModels([])
+      setLocalQuantity(part.moq || 1000)
       return
     }
     if (!hasBrand) {
@@ -1030,11 +1330,17 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
       setTimeout(() => { setShake(false); setShowHint('') }, 2000)
       return
     }
-    onSelectPart(part, localBrands, localModels)
+    if (!hasQuantity) {
+      setShake(true); setShowHint('Set quantity (min MOQ)')
+      setTimeout(() => { setShake(false); setShowHint('') }, 2000)
+      return
+    }
+    onSelectPart(part, localBrands, localModels, localQuantity, {})
   }
 
   const isBrandOpen = openBrandDropdownPart === part.name
   const isModelOpen = openModelDropdownPart === part.name
+  const isQuantityOpen = openQuantityDropdownPart === part.name
 
   return (
     <div className={`bg-white rounded-xl flex flex-row overflow-hidden transition-all duration-200 ${
@@ -1076,7 +1382,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
           </span>
         </div>
 
-        {/* Row 2: Brand + Model + Add/Remove — single line */}
+        {/* Row 2: Brand + Model + Quantity + Add/Remove — single line */}
         <div className="flex items-center gap-1.5 mt-0.5">
           <PartBrandDropdown
             part={part} brands={brands} selectedBrands={localBrands}
@@ -1088,6 +1394,14 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
             part={part} selectedBrands={localBrands} selectedModels={localModels}
             onModelToggle={handleLocalModelToggle}
             isOpen={isModelOpen} onToggle={onModelDropdownToggle}
+          />
+
+          <PartQuantityDropdown
+            part={part} 
+            selectedModels={localModels}
+            onModelQuantityChange={handleModelQuantityChange}
+            isOpen={isQuantityOpen} 
+            onToggle={onQuantityDropdownToggle}
           />
 
           {/* ─ Cart icon (add) or × (remove) ──────────────────────── */}
@@ -1110,7 +1424,7 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
           ) : (
             <button
               onClick={handleAddClick}
-              title={!hasBrand ? 'Select a brand first' : 'Select at least one model'}
+              title={!hasBrand ? 'Select a brand first' : !hasModels ? 'Select at least one model' : 'Set quantity (min MOQ)'}
               className="flex-shrink-0 w-7 h-7 rounded-full border border-dashed border-gray-300 text-gray-300 flex items-center justify-center"
             >
               <span className="material-symbols-outlined" style={{fontSize:'15px'}}>shopping_cart</span>
@@ -1129,13 +1443,11 @@ function ProductCard({ part, brands, onSelectPart, onUpdatePart, isSelected, sel
   )
 }
 
-
-
 // ── CATEGORY SECTION ──────────────────────────────────────────────
 function CategorySection({ 
   category, parts, brands, onSelectPart, onUpdatePart, selectedParts,
-  openBrandDropdownPart, openModelDropdownPart,
-  onBrandDropdownToggle, onModelDropdownToggle, categoryId
+  openBrandDropdownPart, openModelDropdownPart, openQuantityDropdownPart,
+  onBrandDropdownToggle, onModelDropdownToggle, onQuantityDropdownToggle, categoryId
 }) {
   const [collapsed, setCollapsed] = useState(false)
   const selectedCount = parts.filter(p => selectedParts.some(sp => sp.name === p.name)).length
@@ -1178,8 +1490,10 @@ function CategorySection({
                 selectedPart={partSelected || null}
                 openBrandDropdownPart={openBrandDropdownPart}
                 openModelDropdownPart={openModelDropdownPart}
+                openQuantityDropdownPart={openQuantityDropdownPart}
                 onBrandDropdownToggle={state => onBrandDropdownToggle(part, state)}
                 onModelDropdownToggle={state => onModelDropdownToggle(part, state)}
+                onQuantityDropdownToggle={state => onQuantityDropdownToggle(part, state)}
               />
             )
           })}
@@ -1212,27 +1526,27 @@ function ReviewOrderModal({
 
   const totalItems = localBasketItems.reduce((sum, item) => sum + (item.selectedModels?.length || 0), 0)
 
-  const toggleModelSelection = (partName, model) => {
+  const toggleModelSelection = (partName, modelToRemove) => {
     setLocalBasketItems(prev => {
-      return prev.map(item => {
+      const updated = prev.map(item => {
         if (item.name === partName) {
           const currentModels = item.selectedModels || []
-          let newModels
-          if (currentModels.includes(model)) {
-            newModels = currentModels.filter(m => m !== model)
-          } else {
-            newModels = [...currentModels, model]
-          }
-          return { ...item, selectedModels: newModels }
+          const updatedModels = currentModels.filter(m => m !== modelToRemove)
+          return { ...item, selectedModels: updatedModels }
         }
         return item
       })
+      return updated.filter(item => (item.selectedModels && item.selectedModels.length > 0) || (item.selectedBrands && item.selectedBrands.length > 0))
     })
   }
 
-  const handleRemovePart = (partName) => {
-    setLocalBasketItems(prev => prev.filter(item => item.name !== partName))
-    onRemoveItem(partName)
+  const handleRemovePart = (cartItemId, idx) => {
+    const updated = localBasketItems.filter((item, index) => {
+      if (item.cartItemId && cartItemId) return item.cartItemId !== cartItemId
+      return index !== idx
+    })
+    setLocalBasketItems(updated)
+    onRemoveItem(cartItemId, idx)
   }
 
   const handleClearAll = () => {
@@ -1241,107 +1555,171 @@ function ReviewOrderModal({
   }
 
   const handleConfirm = () => {
-    // Update parent with modified items
     onUpdateBasketItems(localBasketItems)
     onConfirmOrder(localBasketItems)
   }
 
   return createPortal(
     <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn" onClick={onClose}>
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col animate-scaleIn" onClick={e => e.stopPropagation()}>
-        <div className="bg-gradient-to-r from-[#005691] to-[#0077be] rounded-t-2xl px-6 py-4 flex items-center justify-between">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col animate-scaleIn" onClick={e => e.stopPropagation()}>
+        
+        {/* Modal Top Header */}
+        <div className="bg-gradient-to-r from-[#005691] via-[#004f87] to-[#003861] rounded-t-2xl px-6 py-4 flex items-center justify-between text-white border-b border-white/10">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-white text-2xl">shopping_basket</span>
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20">
+              <span className="material-symbols-outlined text-white text-xl">shopping_basket</span>
+            </div>
             <div>
-              <h2 className="text-white font-bold text-lg">Review Order</h2>
-              <p className="text-white/70 text-sm">{totalItems} items from {localBasketItems.length} parts</p>
+              <h2 className="font-bold text-lg leading-tight">Review Order & Selected Models</h2>
+              <p className="text-white/80 text-xs mt-0.5">
+                {totalItems} selected model{totalItems !== 1 ? 's' : ''} across {localBasketItems.length} part{localBasketItems.length !== 1 ? 's' : ''}
+              </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all hover:rotate-90 duration-300"
+            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:rotate-90 duration-300"
           >
             <span className="material-symbols-outlined text-white text-lg">close</span>
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-5">
+        {/* Modal Scrollable Content Body */}
+        <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gray-50">
           {localBasketItems.length === 0 ? (
-            <div className="text-center py-8">
+            <div className="text-center py-12 bg-white rounded-2xl border border-gray-200 p-8">
               <span className="material-symbols-outlined text-5xl text-gray-300">shopping_basket</span>
-              <p className="text-gray-500 mt-3 text-sm">Your order is empty</p>
+              <p className="text-gray-600 mt-3 text-sm font-semibold">Your order cart is currently empty</p>
               <button
                 onClick={onContinueShopping}
-                className="mt-4 bg-[#005691] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
+                className="mt-4 bg-[#005691] text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:brightness-110 transition-all shadow"
               >
                 Continue Shopping
               </button>
             </div>
           ) : (
-            <div className="space-y-3">
-              {localBasketItems.map((item, idx) => (
-                <div key={`${item.name}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-100">
+            localBasketItems.map((item, idx) => {
+              const selectedModels = item.selectedModels || []
+              const moq = item.moq || 1000
+
+              return (
+                <div key={`${item.name}-${idx}`} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:border-[#005691]/40 transition-colors">
+                  
+                  {/* Part Header */}
+                  <div className="flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
                     <div className="flex items-center gap-3">
-                      <span className="w-6 h-6 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-xs font-bold flex-shrink-0">
+                      <span className="w-6 h-6 rounded-full bg-[#005691] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
                         {idx + 1}
                       </span>
-                      <span className="text-sm font-medium text-gray-800">{item.name}</span>
-                      <span className="text-xs text-gray-400 font-mono">{item.partNo}</span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-bold text-gray-900">{item.name}</span>
+                          {item.partNo && <span className="text-[11px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-mono border border-gray-200">{item.partNo}</span>}
+                        </div>
+                        {item.selectedBrands && item.selectedBrands.length > 0 && (
+                          <p className="text-xs text-[#005691] font-semibold mt-0.5">
+                            Brand: {item.selectedBrands.join(', ')}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-400">{item.selectedModels?.length || 0} models</span>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs bg-emerald-50 text-emerald-700 font-bold px-3 py-1 rounded-full border border-emerald-200">
+                        {selectedModels.length} model{selectedModels.length !== 1 ? 's' : ''}
+                      </span>
                       <button
-                        onClick={() => handleRemovePart(item.name)}
-                        className="text-gray-400 hover:text-red-500 transition-all p-1"
-                        title="Remove this part"
+                        onClick={() => handleRemovePart(item.cartItemId, idx)}
+                        className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                        title="Remove item entry"
                       >
-                        <span className="material-symbols-outlined text-sm">delete</span>
+                        <span className="material-symbols-outlined text-base">delete</span>
                       </button>
                     </div>
                   </div>
-                  <div className="p-3">
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="text-xs font-medium text-[#005691]">Brand:</span>
-                      <span className="text-xs text-gray-700">{item.selectedBrands?.join(', ') || 'N/A'}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="text-xs font-medium text-[#005691]">Models:</span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {item.selectedModels?.map((model, mi) => (
-                          <span 
-                            key={mi} 
-                            className="text-xs bg-blue-50 text-gray-700 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer hover:bg-blue-100 transition-colors"
-                            onClick={() => toggleModelSelection(item.name, model)}
-                          >
-                            {model}
-                            <span className="text-gray-400 hover:text-red-500 text-xs ml-0.5">×</span>
-                          </span>
-                        ))}
+
+                  {/* Selected Models with Quantities */}
+                  <div className="p-4 bg-white">
+                    <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5 mb-3">
+                      <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
+                      Selected Models with Quantities (min {moq.toLocaleString()}):
+                    </span>
+
+                    {selectedModels.length > 0 ? (
+                      <div className="space-y-2">
+                        {selectedModels.map((model) => {
+                          const currentQty = item.modelQuantities?.[model] || item.quantity || moq
+                          return (
+                            <div
+                              key={model}
+                              className="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-50 border border-blue-200 hover:border-[#005691] transition-all"
+                            >
+                              <span className="material-symbols-outlined text-sm text-[#005691]">check</span>
+                              <span className="text-sm font-medium text-gray-700 flex-1">{model}</span>
+                              <div className="flex items-center gap-2">
+                                <input
+                                  type="number"
+                                  value={currentQty}
+                                  onChange={(e) => {
+                                    const val = parseInt(e.target.value)
+                                    if (!isNaN(val) && val >= 0) {
+                                      const updatedItems = localBasketItems.map(i => {
+                                        if (i.name === item.name) {
+                                          return {
+                                            ...i,
+                                            modelQuantities: {
+                                              ...(i.modelQuantities || {}),
+                                              [model]: val
+                                            }
+                                          }
+                                        }
+                                        return i
+                                      })
+                                      setLocalBasketItems(updatedItems)
+                                    }
+                                  }}
+                                  min={moq}
+                                  className="w-24 px-2 py-1 rounded-lg border border-gray-300 text-xs focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691] text-right"
+                                  placeholder={`Min ${moq.toLocaleString()}`}
+                                />
+                                <span className="text-[10px] text-gray-400 whitespace-nowrap">units</span>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => toggleModelSelection(item.name, model)}
+                                className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center"
+                                title={`Remove ${model}`}
+                              >
+                                <span className="material-symbols-outlined text-sm">close</span>
+                              </button>
+                            </div>
+                          )
+                        })}
                       </div>
-                    </div>
-                    <div className="mt-2 text-xs text-gray-400">
-                      MOQ: {item.moq} units
-                    </div>
+                    ) : (
+                      <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
+                    )}
                   </div>
+
                 </div>
-              ))}
-            </div>
+              )
+            })
           )}
         </div>
 
-        <div className="border-t border-gray-200 px-6 py-3.5 flex items-center justify-between bg-gray-50 rounded-b-2xl">
+        {/* Modal Bottom Action Footer */}
+        <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-white rounded-b-2xl">
           <button
             onClick={handleClearAll}
-            className="text-sm text-red-500 hover:text-red-600 transition-all flex items-center gap-1"
+            className="text-xs font-bold text-red-500 hover:text-red-700 transition-colors flex items-center gap-1"
           >
-            <span className="material-symbols-outlined text-sm">delete_forever</span>
-            Clear All
+            <span className="material-symbols-outlined text-base">delete_forever</span>
+            Clear Order Cart
           </button>
           <div className="flex gap-3">
             <button
               onClick={onContinueShopping}
-              className="text-gray-500 hover:text-gray-700 transition-all flex items-center gap-2 text-sm font-medium"
+              className="text-gray-600 hover:text-gray-800 transition-colors flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-xl border border-gray-200"
             >
               <span className="material-symbols-outlined text-sm">arrow_back</span>
               Continue Shopping
@@ -1349,14 +1727,14 @@ function ReviewOrderModal({
             <button
               onClick={handleConfirm}
               disabled={localBasketItems.length === 0 || totalItems === 0}
-              className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 shadow-md ${
+              className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider ${
                 localBasketItems.length > 0 && totalItems > 0
-                  ? 'bg-[#005691] text-white hover:brightness-110 hover:scale-105'
+                  ? 'bg-[#005691] text-white hover:bg-[#003e69] hover:scale-105 active:scale-95 cursor-pointer'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
-              <span className="material-symbols-outlined text-sm">check_circle</span>
-              Confirm Order
+              <span className="material-symbols-outlined text-base">check_circle</span>
+              Confirm Order & Proceed to Inquiry
             </button>
           </div>
         </div>
@@ -1444,8 +1822,10 @@ function ProductDetail({
   onAddToCart,
   openBrandDropdownPart,
   openModelDropdownPart,
+  openQuantityDropdownPart,
   onBrandDropdownToggle,
-  onModelDropdownToggle
+  onModelDropdownToggle,
+  onQuantityDropdownToggle
 }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -1624,8 +2004,7 @@ function ProductDetail({
                         onSelectSubProduct(sub.id)
                       }}
                     >
-                      View Details
-                    </button>
+                      View Details                    </button>
                     {sub.hasDataSheet && (
                       <button
                         className="border border-[#005691] text-[#005691] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all hover:scale-105 duration-200"
@@ -1743,7 +2122,7 @@ function ProductDetail({
       {/* ── How-to steps (inline, minimal) ────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
         <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">How to order:</span>
-        {['Find a part', 'Select brand', 'Select models', 'Add to order', 'Add to cart'].map((s, i) => (
+        {['Find a part', 'Select brand', 'Select models', 'Set quantities per model', 'Add to order', 'Add to cart'].map((s, i) => (
           <div key={i} className="flex items-center gap-1.5">
             {i > 0 && <span className="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>}
             <span className="text-[11px] text-gray-600 font-medium">
@@ -1856,8 +2235,12 @@ function ProductDetail({
               onSelectPart={onSelectPart}
               onUpdatePart={onUpdatePart}
               selectedParts={selectedParts}
-              openBrandDropdownPart={openBrandDropdownPart} openModelDropdownPart={openModelDropdownPart}
-              onBrandDropdownToggle={onBrandDropdownToggle} onModelDropdownToggle={onModelDropdownToggle}
+              openBrandDropdownPart={openBrandDropdownPart} 
+              openModelDropdownPart={openModelDropdownPart}
+              openQuantityDropdownPart={openQuantityDropdownPart}
+              onBrandDropdownToggle={onBrandDropdownToggle} 
+              onModelDropdownToggle={onModelDropdownToggle}
+              onQuantityDropdownToggle={onQuantityDropdownToggle}
               categoryId={`cat-${category.replace(/[^a-z0-9]/gi, '-')}`}
             />
           ))}
@@ -1909,6 +2292,7 @@ export default function Products({ onNavigate }) {
   const [isReviewOrderOpen, setIsReviewOrderOpen] = useState(false)
   const [openBrandDropdownPart, setOpenBrandDropdownPart] = useState(null)
   const [openModelDropdownPart, setOpenModelDropdownPart] = useState(null)
+  const [openQuantityDropdownPart, setOpenQuantityDropdownPart] = useState(null)
 
   const product = PRODUCTS.find((p) => p.id === active)
   const selectedParts = selectedPartsByTab[active] || []
@@ -1929,7 +2313,7 @@ export default function Products({ onNavigate }) {
   }
 
   // Called from ProductCard: brands/models = null means remove, else add with those values
-  const handleSelectPart = (part, brands, models) => {
+  const handleSelectPart = (part, brands, models, quantity, modelQuantities) => {
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const exists = currentList.some(p => p.name === part.name)
@@ -1940,7 +2324,13 @@ export default function Products({ onNavigate }) {
         newList = currentList.filter(p => p.name !== part.name)
       } else {
         // Add with the brand+model selections made locally in the card
-        newList = [...currentList, { ...part, selectedBrands: brands || [], selectedModels: models || [] }]
+        newList = [...currentList, { 
+          ...part, 
+          selectedBrands: brands || [], 
+          selectedModels: models || [], 
+          quantity: quantity || part.moq || 1000,
+          modelQuantities: modelQuantities || {}
+        }]
       }
 
       saveToStorage(newList, active)
@@ -1949,12 +2339,18 @@ export default function Products({ onNavigate }) {
   }
 
   // Called when user edits brand/model on a card that is already in the order
-  const handleUpdatePart = (part, brands, models) => {
+  const handleUpdatePart = (part, brands, models, quantity, modelQuantities) => {
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const newList = currentList.map(p =>
         p.name === part.name
-          ? { ...p, selectedBrands: brands, selectedModels: models }
+          ? { 
+              ...p, 
+              selectedBrands: brands, 
+              selectedModels: models, 
+              quantity: quantity || p.quantity || p.moq || 1000,
+              modelQuantities: modelQuantities || p.modelQuantities || {}
+            }
           : p
       )
       saveToStorage(newList, active)
@@ -1972,6 +2368,7 @@ export default function Products({ onNavigate }) {
       sessionStorage.removeItem(`productCategory_${active}`)
       setOpenBrandDropdownPart(null)
       setOpenModelDropdownPart(null)
+      setOpenQuantityDropdownPart(null)
       window.dispatchEvent(new Event('selectedPartsUpdated'))
       return updated
     })
@@ -2003,7 +2400,10 @@ export default function Products({ onNavigate }) {
     try {
       localStorage.setItem('basketItems', JSON.stringify(items))
       sessionStorage.setItem('basketItems', JSON.stringify(items))
-      console.log('💾 [Products] Basket saved to storage:', items.length, 'items')
+      localStorage.setItem('selectedParts', JSON.stringify(items))
+      sessionStorage.setItem('selectedParts', JSON.stringify(items))
+      window.dispatchEvent(new Event('selectedPartsUpdated'))
+      console.log('💾 [Products] Basket saved to storage & event dispatched:', items.length, 'items')
     } catch (err) {
       console.error('Failed to save basket to storage:', err)
     }
@@ -2011,25 +2411,50 @@ export default function Products({ onNavigate }) {
 
   const handleAddToCart = () => {
     const currentParts = selectedPartsByTab[active] || []
-    const hasModels = currentParts.some(p => p.selectedModels && p.selectedModels.length > 0)
+    const hasSelections = currentParts.some(p => (p.selectedModels && p.selectedModels.length > 0) || (p.selectedBrands && p.selectedBrands.length > 0))
     
-    if (currentParts.length > 0 && hasModels) {
-      // Add to basket - merge items with same part name
+    if (currentParts.length > 0 && hasSelections) {
       const updatedBasket = [...basketItems]
+
       currentParts.forEach(part => {
-        const existingIndex = updatedBasket.findIndex(item => item.name === part.name)
-        if (existingIndex !== -1) {
-          // Merge models if part exists
-          const existingModels = updatedBasket[existingIndex].selectedModels || []
-          const newModels = part.selectedModels || []
-          const mergedModels = [...new Set([...existingModels, ...newModels])]
-          updatedBasket[existingIndex] = {
-            ...updatedBasket[existingIndex],
-            selectedModels: mergedModels,
-            selectedBrands: part.selectedBrands || updatedBasket[existingIndex].selectedBrands
+        const brands = part.selectedBrands || []
+        const models = part.selectedModels || []
+        const quantity = part.quantity || part.moq || 1000
+        const modelQuantities = part.modelQuantities || {}
+        
+        if (brands.length > 0) {
+          brands.forEach(brand => {
+            const brandSpecificModels = models.filter(m => m.toLowerCase().includes(brand.toLowerCase()))
+            const assignedModels = brandSpecificModels.length > 0 ? brandSpecificModels : [...models]
+            
+            const newItem = {
+              cartItemId: `cart_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+              name: part.name,
+              partNo: part.partNo,
+              category: part.category,
+              moq: part.moq,
+              quantity: quantity,
+              applicableModels: part.applicableModels,
+              selectedBrands: [brand],
+              selectedModels: assignedModels,
+              modelQuantities: modelQuantities
+            }
+            updatedBasket.push(newItem)
+          })
+        } else if (models.length > 0) {
+          const newItem = {
+            cartItemId: `cart_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+            name: part.name,
+            partNo: part.partNo,
+            category: part.category,
+            moq: part.moq,
+            quantity: quantity,
+            applicableModels: part.applicableModels,
+            selectedBrands: [],
+            selectedModels: [...models],
+            modelQuantities: modelQuantities
           }
-        } else {
-          updatedBasket.push({ ...part })
+          updatedBasket.push(newItem)
         }
       })
       
@@ -2049,16 +2474,20 @@ export default function Products({ onNavigate }) {
       
       setOpenBrandDropdownPart(null)
       setOpenModelDropdownPart(null)
+      setOpenQuantityDropdownPart(null)
       
       // Open Review Order modal
       setIsReviewOrderOpen(true)
     } else {
-      alert('Please select at least one part with models before adding to cart.')
+      alert('Please select at least one brand or model before adding to cart.')
     }
   }
 
-  const handleRemoveFromBasket = (partName) => {
-    const updated = basketItems.filter(item => item.name !== partName)
+  const handleRemoveFromBasket = (cartItemId, index) => {
+    const updated = basketItems.filter((item, idx) => {
+      if (item.cartItemId && cartItemId) return item.cartItemId !== cartItemId
+      return idx !== index
+    })
     setBasketItems(updated)
     saveBasketToStorage(updated)
   }
@@ -2104,7 +2533,7 @@ export default function Products({ onNavigate }) {
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const exists = currentList.some(p => p.name === part.name)
-      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
+      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [], quantity: part.moq || 1000, modelQuantities: {} }]
 
       updatedList = updatedList.map(p => {
         if (p.name === part.name) {
@@ -2137,7 +2566,7 @@ export default function Products({ onNavigate }) {
     setSelectedPartsByTab(prev => {
       const currentList = prev[active] || []
       const exists = currentList.some(p => p.name === part.name)
-      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [] }]
+      let updatedList = exists ? currentList : [...currentList, { ...part, selectedBrands: [], selectedModels: [], quantity: part.moq || 1000, modelQuantities: {} }]
 
       updatedList = updatedList.map(p => {
         if (p.name === part.name) {
@@ -2166,12 +2595,38 @@ export default function Products({ onNavigate }) {
     })
   }
 
+  const handleModelQuantityChange = (part, model, quantity) => {
+    setSelectedPartsByTab(prev => {
+      const currentList = prev[active] || []
+      const exists = currentList.some(p => p.name === part.name)
+      if (!exists) return prev
+
+      const updatedList = currentList.map(p => {
+        if (p.name === part.name) {
+          const currentModelQuantities = p.modelQuantities || {}
+          return {
+            ...p,
+            modelQuantities: {
+              ...currentModelQuantities,
+              [model]: quantity
+            }
+          }
+        }
+        return p
+      })
+
+      saveToStorage(updatedList, active)
+      return { ...prev, [active]: updatedList }
+    })
+  }
+
   const handleBrandDropdownToggle = (part, isOpen) => {
     if (isOpen === false) {
       setOpenBrandDropdownPart(null)
     } else {
       setOpenBrandDropdownPart(openBrandDropdownPart === part.name ? null : part.name)
       setOpenModelDropdownPart(null)
+      setOpenQuantityDropdownPart(null)
     }
   }
 
@@ -2181,6 +2636,17 @@ export default function Products({ onNavigate }) {
     } else {
       setOpenModelDropdownPart(openModelDropdownPart === part.name ? null : part.name)
       setOpenBrandDropdownPart(null)
+      setOpenQuantityDropdownPart(null)
+    }
+  }
+
+  const handleQuantityDropdownToggle = (part, isOpen) => {
+    if (isOpen === false) {
+      setOpenQuantityDropdownPart(null)
+    } else {
+      setOpenQuantityDropdownPart(openQuantityDropdownPart === part.name ? null : part.name)
+      setOpenBrandDropdownPart(null)
+      setOpenModelDropdownPart(null)
     }
   }
 
@@ -2313,6 +2779,7 @@ export default function Products({ onNavigate }) {
                     setSheetOpen(false)
                     setOpenBrandDropdownPart(null)
                     setOpenModelDropdownPart(null)
+                    setOpenQuantityDropdownPart(null)
                   }}
                   className={`
                     px-5 py-2.5 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
@@ -2385,8 +2852,10 @@ export default function Products({ onNavigate }) {
           onAddToCart={handleAddToCart}
           openBrandDropdownPart={openBrandDropdownPart}
           openModelDropdownPart={openModelDropdownPart}
+          openQuantityDropdownPart={openQuantityDropdownPart}
           onBrandDropdownToggle={handleBrandDropdownToggle}
           onModelDropdownToggle={handleModelDropdownToggle}
+          onQuantityDropdownToggle={handleQuantityDropdownToggle}
         />
       </div>
 

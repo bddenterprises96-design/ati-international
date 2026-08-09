@@ -427,22 +427,25 @@ export default function ContactUS({ onNavigate }) {
 
   const getFlattenedPartsForCategory = (parts) => {
     const flattened = []
-    parts.forEach(part => {
+    parts.forEach((part, idx) => {
       const brands = part.selectedBrands || []
+      const models = part.selectedModels || []
       if (brands.length === 0) {
         flattened.push({
           ...part,
           brand: null,
+          selectedModels: models,
           displayName: part.name,
-          uniqueId: `${part.name}-no-brand`
+          uniqueId: part.cartItemId || `${part.name}-no-brand-${idx}`
         })
       } else {
         brands.forEach(brand => {
           flattened.push({
             ...part,
             brand: brand,
+            selectedModels: models,
             displayName: `${part.name} (${brand})`,
-            uniqueId: `${part.name}-${brand}`
+            uniqueId: part.cartItemId || `${part.name}-${brand}-${idx}`
           })
         })
       }
@@ -461,22 +464,37 @@ export default function ContactUS({ onNavigate }) {
           <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm flex-shrink-0">{icon}</span> {title}</span>
           <span className={`px-2 py-0.5 rounded-full text-[10px] text-white font-bold ${badgeBg}`}>{count} items</span>
         </div>
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           {items.map((item, idx) => (
-            <div key={item.uniqueId || `${item.name}-${item.brand}-${idx}`} className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-gray-200 text-xs shadow-sm hover:border-[#005691] transition-colors">
-              <div className="flex items-center gap-2 truncate">
-                <span className="w-5 h-5 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-[10px] font-bold flex-shrink-0">{idx + 1}</span>
-                <span className="font-semibold text-gray-800 truncate">{item.name}</span>
-                {item.brand && <span className="bg-blue-50 text-[#005691] px-2 py-0.5 rounded text-[10px] font-bold border border-blue-100">{item.brand}</span>}
+            <div key={item.uniqueId || `${item.name}-${item.brand}-${idx}`} className="bg-white p-3 rounded-xl border border-gray-200 text-xs shadow-sm hover:border-[#005691] transition-colors">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 truncate">
+                  <span className="w-5 h-5 rounded-full bg-[#005691]/10 text-[#005691] flex items-center justify-center text-[10px] font-bold flex-shrink-0">{idx + 1}</span>
+                  <span className="font-semibold text-gray-800 truncate">{item.name}</span>
+                  {item.brand && <span className="bg-blue-50 text-[#005691] px-2 py-0.5 rounded text-[10px] font-bold border border-blue-100">{item.brand}</span>}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveBrandFromPart(item.uniqueId, item.name, item.brand)}
+                  className="text-gray-400 hover:text-red-500 p-1 transition-colors flex-shrink-0"
+                  title="Remove item"
+                >
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => handleRemoveBrandFromPart(item.name, item.brand)}
-                className="text-gray-400 hover:text-red-500 p-1 transition-colors"
-                title="Remove item"
-              >
-                <span className="material-symbols-outlined text-sm">close</span>
-              </button>
+
+              {/* Models List Display */}
+              {item.selectedModels && item.selectedModels.length > 0 && (
+                <div className="mt-2 pt-2 border-t border-gray-100 flex flex-wrap items-center gap-1 pl-7">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mr-1">Models:</span>
+                  {item.selectedModels.map((m, mIdx) => (
+                    <span key={mIdx} className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md text-[10px] font-semibold border border-emerald-200/80 flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[10px] text-emerald-600">check</span>
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

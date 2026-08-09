@@ -20,51 +20,36 @@ export default function FloatingContacts() {
       let allParts = []
       let storedCategory = 'Selected Items'
       
-      // Try to load from tab-specific keys first (new format)
-      const motorcycleKey = 'selectedParts_motorcycle'
-      const ebikeKey = 'selectedParts_e-bike'
-      const motorcycleCategoryKey = 'productCategory_motorcycle'
-      const ebikeCategoryKey = 'productCategory_e-bike'
+      // Check basketItems / selectedParts first (canonical real-time cart data)
+      const cartData = localStorage.getItem('basketItems') || sessionStorage.getItem('basketItems') ||
+                       localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
       
-      const motorcycleData = localStorage.getItem(motorcycleKey) || sessionStorage.getItem(motorcycleKey)
-      const ebikeData = localStorage.getItem(ebikeKey) || sessionStorage.getItem(ebikeKey)
-      
-      console.log('📦 [FloatingContacts] Motorcycle data:', motorcycleData)
-      console.log('📦 [FloatingContacts] E-Bike data:', ebikeData)
-      
-      // Load motorcycle parts
-      if (motorcycleData) {
-        const parsed = JSON.parse(motorcycleData)
+      if (cartData) {
+        const parsed = JSON.parse(cartData)
         if (Array.isArray(parsed) && parsed.length > 0) {
-          allParts = [...allParts, ...parsed]
-          storedCategory = localStorage.getItem(motorcycleCategoryKey) || sessionStorage.getItem(motorcycleCategoryKey) || 'Motorcycle Parts'
-          console.log('✅ [FloatingContacts] Loaded motorcycle parts:', parsed.length)
+          allParts = parsed
+          storedCategory = localStorage.getItem('productCategory') || sessionStorage.getItem('productCategory') || 'Selected Items'
+          console.log('✅ [FloatingContacts] Loaded from cartData:', parsed.length)
         }
       }
       
-      // Load e-bike parts
-      if (ebikeData) {
-        const parsed = JSON.parse(ebikeData)
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          allParts = [...allParts, ...parsed]
-          if (!storedCategory || storedCategory === 'Selected Items') {
-            storedCategory = localStorage.getItem(ebikeCategoryKey) || sessionStorage.getItem(ebikeCategoryKey) || 'E-Bike Parts'
-          } else {
-            storedCategory = 'Motorcycle & E-Bike Parts'
-          }
-          console.log('✅ [FloatingContacts] Loaded e-bike parts:', parsed.length)
-        }
-      }
-      
-      // If no tab-specific data, try old format
+      // Fallback to tab-specific keys if cartData is empty
       if (allParts.length === 0) {
-        const oldData = localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
-        if (oldData) {
-          const parsed = JSON.parse(oldData)
+        const motorcycleKey = 'selectedParts_motorcycle'
+        const ebikeKey = 'selectedParts_e-bike'
+        const motorcycleData = localStorage.getItem(motorcycleKey) || sessionStorage.getItem(motorcycleKey)
+        const ebikeData = localStorage.getItem(ebikeKey) || sessionStorage.getItem(ebikeKey)
+        
+        if (motorcycleData) {
+          const parsed = JSON.parse(motorcycleData)
           if (Array.isArray(parsed) && parsed.length > 0) {
-            allParts = parsed
-            storedCategory = localStorage.getItem('productCategory') || sessionStorage.getItem('productCategory') || 'Selected Items'
-            console.log('✅ [FloatingContacts] Loaded from old format:', parsed.length)
+            allParts = [...allParts, ...parsed]
+          }
+        }
+        if (ebikeData) {
+          const parsed = JSON.parse(ebikeData)
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allParts = [...allParts, ...parsed]
           }
         }
       }
@@ -75,50 +60,19 @@ export default function FloatingContacts() {
         setSelectedParts(allParts)
         setCategory(storedCategory)
         
-        // Separate motorcycle and e-bike items based on category
-        const motorcycle = allParts.filter(p => p.category && (
-          p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' || 
-          p.category === 'Fuel System' || p.category === 'Air Intake System' ||
-          p.category === 'Exhaust System' || p.category === 'Cooling System' ||
-          p.category === 'Brake System' || p.category === 'Suspension & Steering' ||
-          p.category === 'Wheels & Tires' || p.category === 'Chain Drive' ||
-          p.category === 'Electrical Parts' || p.category === 'Lighting' ||
-          p.category === 'Controls' || p.category === 'Body Parts' ||
-          p.category === 'Rubber & Sealing Components' || p.category === 'Accessories'
-        ))
-        
-        const ebike = allParts.filter(p => p.category && (
-          p.category === 'Electric Drive System' || p.category === 'Battery System' ||
-          p.category === 'Electrical Components' || p.category === 'Drivetrain' ||
-          p.category === 'Suspension & Steering' || p.category === 'Frame & Body Parts' ||
-          p.category === 'Lighting & Safety' || p.category === 'Fasteners & Hardware' ||
-          p.category === 'E-Bike Accessories'
-        ))
-        
-        // Also catch any that might have been mis-categorized
-        const remaining = allParts.filter(p => 
-          !motorcycle.includes(p) && !ebike.includes(p)
-        )
-        
-        // If there are remaining items, try to guess their category
-        remaining.forEach(p => {
-          if (p.category && p.category.includes('Motorcycle')) {
-            motorcycle.push(p)
-          } else if (p.category && p.category.includes('E-Bike')) {
-            ebike.push(p)
-          } else {
-            // Default to motorcycle if we can't determine
-            motorcycle.push(p)
-          }
-        })
+        // Calculate motorcycle & ebike categories
+        const motorcycle = allParts.filter(p => !p.category || !p.category.toLowerCase().includes('e-bike'))
+        const ebike = allParts.filter(p => p.category && p.category.toLowerCase().includes('e-bike'))
         
         setMotorcycleItems(motorcycle)
         setEbikeItems(ebike)
         
-        // Calculate counts
+        // Calculate model / brand counts
         let mCount = 0
         motorcycle.forEach(part => {
-          if (part.selectedBrands && part.selectedBrands.length > 0) {
+          if (part.selectedModels && part.selectedModels.length > 0) {
+            mCount += part.selectedModels.length
+          } else if (part.selectedBrands && part.selectedBrands.length > 0) {
             mCount += part.selectedBrands.length
           }
         })
@@ -126,24 +80,27 @@ export default function FloatingContacts() {
         
         let eCount = 0
         ebike.forEach(part => {
-          if (part.selectedBrands && part.selectedBrands.length > 0) {
+          if (part.selectedModels && part.selectedModels.length > 0) {
+            eCount += part.selectedModels.length
+          } else if (part.selectedBrands && part.selectedBrands.length > 0) {
             eCount += part.selectedBrands.length
           }
         })
         setEbikeCount(eCount)
         
-        // Calculate total items
-        let count = 0
-        let partsCount = 0
+        // Calculate total items (sum of selected models across all parts)
+        let totalModelItems = 0
         allParts.forEach(part => {
-          if (part.selectedBrands && part.selectedBrands.length > 0) {
-            count += part.selectedBrands.length
-            partsCount++
+          if (part.selectedModels && part.selectedModels.length > 0) {
+            totalModelItems += part.selectedModels.length
+          } else if (part.selectedBrands && part.selectedBrands.length > 0) {
+            totalModelItems += part.selectedBrands.length
           }
         })
-        setTotalItems(count)
-        setTotalParts(partsCount)
-        console.log('✅ [FloatingContacts] Loaded:', allParts.length, 'parts,', count, 'total items')
+        
+        setTotalItems(totalModelItems)
+        setTotalParts(allParts.length)
+        console.log('✅ [FloatingContacts] Loaded:', allParts.length, 'parts,', totalModelItems, 'total items')
       } else {
         console.log('⚠️ [FloatingContacts] No parts found')
         setSelectedParts([])
@@ -261,33 +218,82 @@ export default function FloatingContacts() {
     window.location.href = '/contact'
   }
 
-  // Handle removing a part
-  const handleRemovePart = (partName) => {
-    // Check which tab this part belongs to
-    const isMotorcycle = motorcycleItems.some(p => p.name === partName)
-    const isEbike = ebikeItems.some(p => p.name === partName)
-    
-    const updated = selectedParts.filter((p) => p.name !== partName)
-    setSelectedParts(updated)
-    
-    // Save back to the appropriate storage
-    if (isMotorcycle) {
-      const motorParts = updated.filter(p => 
-        motorcycleItems.some(m => m.name === p.name)
+  // Save updated parts to storage
+  const saveUpdatedPartsToStorage = (updatedParts) => {
+    try {
+      localStorage.setItem('selectedParts', JSON.stringify(updatedParts))
+      localStorage.setItem('basketItems', JSON.stringify(updatedParts))
+      sessionStorage.setItem('selectedParts', JSON.stringify(updatedParts))
+      sessionStorage.setItem('basketItems', JSON.stringify(updatedParts))
+
+      const motorParts = updatedParts.filter(p => 
+        !p.category || !p.category.toLowerCase().includes('e-bike')
       )
-      localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
-      sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
-    } else if (isEbike) {
-      const ebikeParts = updated.filter(p => 
-        ebikeItems.some(e => e.name === p.name)
+      const ebikeParts = updatedParts.filter(p => 
+        p.category && p.category.toLowerCase().includes('e-bike')
       )
-      localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
-      sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
+
+      if (motorParts.length > 0) {
+        localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
+        sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts))
+      }
+      if (ebikeParts.length > 0) {
+        localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
+        sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts))
+      }
+
+      window.dispatchEvent(new Event('selectedPartsUpdated'))
+    } catch (err) {
+      console.error('Failed to save updated parts:', err)
     }
-    
-    window.dispatchEvent(new Event('selectedPartsUpdated'))
-    loadSelectedParts()
   }
+
+  // Handle removing a part (supports both partName and cartItemId)
+  const handleRemovePart = (identifier, index) => {
+    // Check if called with partName (string) or cartItemId (any)
+    const isPartName = typeof identifier === 'string';
+    const partName = isPartName ? identifier : null;
+    const cartItemId = !isPartName ? identifier : null;
+    
+    // For partName removal (from segment view)
+    if (isPartName) {
+      // Check which tab this part belongs to
+      const isMotorcycle = motorcycleItems.some(p => p.name === partName);
+      const isEbike = ebikeItems.some(p => p.name === partName);
+      
+      const updated = selectedParts.filter((p) => p.name !== partName);
+      setSelectedParts(updated);
+      
+      // Save back to the appropriate storage
+      if (isMotorcycle) {
+        const motorParts = updated.filter(p => 
+          motorcycleItems.some(m => m.name === p.name)
+        );
+        localStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts));
+        sessionStorage.setItem('selectedParts_motorcycle', JSON.stringify(motorParts));
+      } else if (isEbike) {
+        const ebikeParts = updated.filter(p => 
+          ebikeItems.some(e => e.name === p.name)
+        );
+        localStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts));
+        sessionStorage.setItem('selectedParts_e-bike', JSON.stringify(ebikeParts));
+      }
+      
+      window.dispatchEvent(new Event('selectedPartsUpdated'));
+      loadSelectedParts();
+    } 
+    // For cart item removal (from cart popup)
+    else {
+      setSelectedParts(prev => {
+        const updated = prev.filter((p, idx) => {
+          if (p.cartItemId && cartItemId) return p.cartItemId !== cartItemId;
+          return idx !== index;
+        });
+        saveUpdatedPartsToStorage(updated);
+        return updated;
+      });
+    }
+  };
 
   // Handle clearing all parts
   const handleClearAll = () => {
@@ -318,6 +324,23 @@ export default function FloatingContacts() {
     
     window.dispatchEvent(new Event('selectedPartsUpdated'))
   }
+
+  // Toggle model selection
+  const toggleModelSelection = (cartItemId, idx, modelToRemove) => {
+    setSelectedParts(prev => {
+      const updated = prev.map((item, index) => {
+        const isMatch = item.cartItemId ? item.cartItemId === cartItemId : index === idx;
+        if (isMatch) {
+          const currentModels = item.selectedModels || [];
+          const updatedModels = currentModels.filter(m => m !== modelToRemove);
+          return { ...item, selectedModels: updatedModels };
+        }
+        return item;
+      }).filter(item => (item.selectedModels && item.selectedModels.length > 0) || (item.selectedBrands && item.selectedBrands.length > 0));
+      saveUpdatedPartsToStorage(updated);
+      return updated;
+    });
+  };
 
   // Render a segment of items with colored header
   const renderSegment = (title, items, icon, count, bgColor, textColor, borderColor) => {
@@ -372,149 +395,174 @@ export default function FloatingContacts() {
     )
   }
 
+  // Default model presets for fallback
+  const DEFAULT_MOTORCYCLE_MODELS = ['Honda CG125', 'Honda CD70', 'Yamaha YBR125', 'Suzuki GS150', 'Bajaj Pulsar 150', 'TVS Apache RTR 160', 'Hero Splendor Plus', 'Kawasaki Ninja 250']
+  const DEFAULT_EBIKE_MODELS = ['Bafang M400 / M500 / M600', 'Bosch Performance Line CX', 'Shimano Steps E8000', 'Yamaha PW-X3', 'Ananda M230', 'TongSheng TSDZ2', 'Generic 250W-1000W Hub Motor']
+
+  const getAvailableModelsForItem = (item) => {
+    let baseModels = []
+    if (item.applicableModels && item.applicableModels.length > 0) {
+      baseModels = item.applicableModels
+    } else if (item.category && item.category.toLowerCase().includes('e-bike')) {
+      baseModels = DEFAULT_EBIKE_MODELS
+    } else {
+      baseModels = DEFAULT_MOTORCYCLE_MODELS
+    }
+    const currentSelected = item.selectedModels || []
+    return [...new Set([...currentSelected, ...baseModels])]
+  }
+
+  const totalSelectedModels = selectedParts.reduce((sum, item) => sum + (item.selectedModels?.length || 0), 0)
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
 
       {/* Cart Popup - Review Order Box */}
       {showCart && createPortal(
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn" onClick={() => setShowCart(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col animate-modalFade" onClick={e => e.stopPropagation()}>
-            <div className="bg-gradient-to-r from-[#005691] to-[#0077be] rounded-t-2xl px-6 py-5 flex items-center justify-between">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn" onClick={() => setShowCart(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col animate-modalFade" onClick={e => e.stopPropagation()}>
+            
+            {/* Header */}
+            <div className="bg-gradient-to-r from-[#005691] via-[#004f87] to-[#003861] rounded-t-2xl px-6 py-4 flex items-center justify-between text-white">
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-white text-2xl">shopping_cart</span>
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20">
+                  <span className="material-symbols-outlined text-white text-xl">shopping_cart</span>
+                </div>
                 <div>
-                  <h2 className="text-white font-bold text-lg">Review Order</h2>
-                  <p className="text-white/70 text-sm">{category} ({totalItems} total items)</p>
+                  <h2 className="text-white font-bold text-lg leading-tight">Review Order & Selected Models</h2>
+                  <p className="text-white/80 text-xs mt-0.5">{totalSelectedModels} selected model{totalSelectedModels !== 1 ? 's' : ''} across {selectedParts.length} part{selectedParts.length !== 1 ? 's' : ''}</p>
                 </div>
               </div>
               <button
                 onClick={() => setShowCart(false)}
-                className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all hover:rotate-90 duration-300"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:rotate-90 duration-300"
               >
                 <span className="material-symbols-outlined text-white text-lg">close</span>
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-6">
-              {flattenedMotorcycle.length > 0 || flattenedEbike.length > 0 ? (
-                <>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex gap-2">
-                      <button
-                        onClick={handleClearAll}
-                        className="text-xs text-gray-500 hover:text-red-600 font-medium px-3 py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
-                      >
-                        Clear All
-                      </button>
-                    </div>
-                    <span className="text-xs text-gray-500">
-                      <span className="font-semibold text-[#005691]">{totalItems}</span> items selected
-                    </span>
-                  </div>
+            {/* Scrollable Body */}
+            <div className="flex-1 overflow-y-auto p-5 bg-gray-50 space-y-4">
+              {selectedParts.length > 0 ? (
+                selectedParts.map((item, idx) => {
+                  const selectedModels = item.selectedModels || []
 
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
-                      <div className="text-2xl font-bold text-[#005691]">{totalParts}</div>
-                      <div className="text-xs text-gray-500">Parts with Brands</div>
-                    </div>
-                    <div className="bg-green-50 rounded-xl p-4 text-center border border-green-100">
-                      <div className="text-2xl font-bold text-green-600">{selectedParts.length}</div>
-                      <div className="text-xs text-gray-500">Total Parts</div>
-                    </div>
-                    <div className="bg-yellow-50 rounded-xl p-4 text-center border border-yellow-100">
-                      <div className="text-2xl font-bold text-yellow-600">{totalItems}</div>
-                      <div className="text-xs text-gray-500">Total Items</div>
-                    </div>
-                  </div>
-
-                  <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-                    <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center justify-between">
-                      <span className="text-sm font-semibold text-gray-700">Selected Items</span>
-                      <span className="text-xs text-gray-400">{totalItems} items</span>
-                    </div>
-                    <div className="max-h-64 overflow-y-auto p-3">
-                      {/* Motorcycle Segment - Orange Theme */}
-                      {renderSegment(
-                        'Motorcycle Parts', 
-                        flattenedMotorcycle, 
-                        '🏍️', 
-                        motorcycleCount,
-                        'bg-orange-50',
-                        'text-orange-700',
-                        'border-orange-200'
-                      )}
+                  return (
+                    <div key={item.cartItemId || `${item.name}-${idx}`} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:border-[#005691]/40 transition-colors">
                       
-                      {/* E-Bike Segment - Green Theme */}
-                      {renderSegment(
-                        'E-Bike Parts', 
-                        flattenedEbike, 
-                        '⚡', 
-                        ebikeCount,
-                        'bg-emerald-50',
-                        'text-emerald-700',
-                        'border-emerald-200'
-                      )}
-                    </div>
-                  </div>
+                      {/* Part Header */}
+                      <div className="flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-[#005691] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-sm">
+                            {idx + 1}
+                          </span>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-bold text-gray-900">{item.name}</span>
+                              {item.partNo && <span className="text-[11px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-mono border border-gray-200">{item.partNo}</span>}
+                            </div>
+                            {item.selectedBrands && item.selectedBrands.length > 0 && (
+                              <p className="text-xs text-[#005691] font-semibold mt-0.5">
+                                Brand: {item.selectedBrands.join(', ')}
+                              </p>
+                            )}
+                          </div>
+                        </div>
 
-                  <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                    <p className="text-sm text-gray-600">
-                      <span className="font-semibold text-[#005691]">{selectedParts.length}</span> part{selectedParts.length > 1 ? 's' : ''} · 
-                      {motorcycleCount > 0 && (
-                        <span className="ml-1">🏍️ <span className="font-semibold text-orange-600">{motorcycleCount}</span> motorcycle</span>
-                      )}
-                      {motorcycleCount > 0 && ebikeCount > 0 && <span className="mx-1">·</span>}
-                      {ebikeCount > 0 && (
-                        <span className="ml-1">⚡ <span className="font-semibold text-emerald-600">{ebikeCount}</span> e-bike</span>
-                      )}
-                    </p>
-                  </div>
-                </>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs bg-emerald-50 text-emerald-700 font-bold px-3 py-1 rounded-full border border-emerald-200">
+                            {selectedModels.length} model{selectedModels.length !== 1 ? 's' : ''} selected
+                          </span>
+                          <button
+                            onClick={() => handleRemovePart(item.cartItemId, idx)}
+                            className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                            title="Remove item entry"
+                          >
+                            <span className="material-symbols-outlined text-base">delete</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* ONLY Selected Models Grid */}
+                      <div className="p-4 bg-white">
+                        <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5 mb-2.5">
+                          <span className="material-symbols-outlined text-sm text-[#005691]">check_circle</span>
+                          Selected Models ({selectedModels.length}):
+                        </span>
+
+                        {selectedModels.length > 0 ? (
+                          <div className="flex flex-wrap gap-2">
+                            {selectedModels.map((model) => (
+                              <div
+                                key={model}
+                                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 text-[#005691] border border-blue-200 text-xs font-bold shadow-xs hover:border-[#005691] transition-all"
+                              >
+                                <span className="material-symbols-outlined text-xs text-[#005691]">check</span>
+                                <span>{model}</span>
+                                <button
+                                  type="button"
+                                  onClick={() => toggleModelSelection(item.cartItemId, idx, model)}
+                                  className="text-gray-400 hover:text-red-500 ml-1 transition-colors flex items-center"
+                                  title={`Remove ${model}`}
+                                >
+                                  <span className="material-symbols-outlined text-xs">close</span>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-xs text-gray-400 italic">No specific models selected for this part</p>
+                        )}
+                      </div>
+
+                    </div>
+                  )
+                })
               ) : (
-                <div className="text-center py-16">
+                <div className="text-center py-16 bg-white rounded-2xl border border-gray-200 p-8">
                   <span className="material-symbols-outlined text-6xl text-gray-300 block mx-auto mb-4">shopping_bag</span>
-                  <p className="text-gray-500 text-lg">No items selected</p>
-                  <p className="text-gray-400 text-sm mt-1">Select parts and brands from the Products page</p>
+                  <p className="text-gray-600 text-base font-bold">No items currently selected</p>
+                  <p className="text-gray-400 text-xs mt-1">Select parts, brands and models from the Products page</p>
                   <button
                     onClick={navigateToProducts}
-                    className="mt-4 bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 mx-auto hover:scale-105 duration-200"
+                    className="mt-4 bg-[#005691] text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:brightness-110 transition-all flex items-center gap-2 mx-auto hover:scale-105 duration-200 shadow-md"
                   >
                     <span className="material-symbols-outlined text-sm">add</span>
-                    Go to Products
+                    Browse Catalogue & Add Parts
                   </button>
                 </div>
               )}
             </div>
 
-            <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-gray-50 rounded-b-2xl">
+            {/* Footer */}
+            <div className="border-t border-gray-200 px-6 py-4 flex items-center justify-between bg-white rounded-b-2xl">
               <button
-                onClick={() => setShowCart(false)}
-                className="text-gray-500 hover:text-gray-700 transition-all flex items-center gap-2 text-sm font-medium"
+                onClick={handleClearAll}
+                className="text-xs font-bold text-red-500 hover:text-red-700 transition-colors flex items-center gap-1"
               >
-                <span className="material-symbols-outlined text-sm">arrow_back</span>
-                Close
+                <span className="material-symbols-outlined text-base">delete_forever</span>
+                Clear Order Cart
               </button>
               <div className="flex gap-3">
-                {(flattenedMotorcycle.length > 0 || flattenedEbike.length > 0) && (
-                  <>
-                    <button
-                      onClick={handleClearAll}
-                      className="text-sm text-red-500 hover:text-red-700 transition-all flex items-center gap-1"
-                    >
-                      <span className="material-symbols-outlined text-sm">clear</span>
-                      Clear All
-                    </button>
-                    <button
-                      onClick={navigateToContactUs}
-                      className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2 hover:scale-105 duration-200"
-                    >
-                      <span className="material-symbols-outlined text-sm">request_quote</span>
-                      Proceed to Quote ({totalItems} items)
-                    </button>
-                  </>
+                <button
+                  onClick={() => setShowCart(false)}
+                  className="text-gray-600 hover:text-gray-800 transition-colors flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-xl border border-gray-200"
+                >
+                  <span className="material-symbols-outlined text-sm">arrow_back</span>
+                  Close
+                </button>
+                {selectedParts.length > 0 && (
+                  <button
+                    onClick={navigateToContactUs}
+                    className="bg-[#005691] text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-[#003e69] hover:scale-105 active:scale-95 transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-base">request_quote</span>
+                    Proceed to Quote ({totalSelectedModels} models)
+                  </button>
                 )}
               </div>
             </div>
+
           </div>
         </div>,
         document.body
