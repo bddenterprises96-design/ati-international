@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Skills & embedded tools
+.ui-ux-pro-max-skill
+
