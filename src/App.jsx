@@ -24,6 +24,7 @@ export default function App() {
 
   const onNavigate = (page) => {
     const routes = {
+      'Home':       '/',
       'About':      '/',
       'Products':   '/products',
       'Why ATI?':   '/why-ati',
@@ -31,6 +32,21 @@ export default function App() {
       'Blogs':      '/blogs',
       "FAQ's":      '/faqs',
     }
+
+    if (typeof page === 'string' && page.includes('#')) {
+      const [basePage, hash] = page.split('#')
+      const targetRoute = routes[basePage] || '/products'
+      navigate(`${targetRoute}#${hash}`)
+      return
+    }
+
+    if (typeof page === 'string' && page.includes('?')) {
+      const [basePage, query] = page.split('?')
+      const targetRoute = routes[basePage] || '/products'
+      navigate(`${targetRoute}?${query}`)
+      return
+    }
+
     navigate(routes[page] ?? '/')
   }
 

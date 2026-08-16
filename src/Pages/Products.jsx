@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { useLocation } from 'react-router-dom'
 
 const DATA_SHEETS = {
   'valve-stem': {
@@ -51,6 +52,54 @@ const DATA_SHEETS = {
       { heading: 'Handling Instructions', list: ['Store horizontally in original packaging to prevent lip deformation.', 'Clean shaft and housing bore thoroughly before installation.', 'Apply light grease to the sealing lip and shaft before fitting.', 'Use a sleeve or installation tool never hammer directly on the seal face.', 'Verify shaft hardness (55–65 HRC) and surface finish (Ra 0.2–0.8 μm) before installation.'] },
       { heading: 'Usage Example', content: 'Gearboxes, axles and differials, hydraulic pumps, electric motors, wind turbine gearboxes, and heavy construction equipment where shaft sealing and contamination exclusion are critical.' },
     ],
+  },
+  'moto-engine': {
+    title: 'Motorcycle Engine & Cylinder Components',
+    subtitle: 'High-precision cylinder blocks, pistons, valve stem seals, and head gaskets engineered for OEM & replacement motorcycle engines.',
+    structureImage: '/assets/cylinder.png',
+    structureCaption: 'Cylinder Block & Piston Assembly Cross-Section Diagram',
+    theoryImage: '/assets/cyy.png',
+    theoryCaption: 'Combustion Chamber & Valve Sealing Heat Flow Diagram',
+    sections: [
+      { heading: 'Product Description', content: 'ATI supplies comprehensive engine components including precision cylinder blocks, forged/cast pistons, piston rings, valve stem seals, and head gaskets engineered for high-RPM motorcycle engines.' },
+      { heading: 'Features & Benefits', list: ['High thermal resistance withstands continuous operating temperatures up to 280°C.', 'Precision ground manufacturing tolerances within ±0.01mm for optimal compression ratio.', 'Compatible with major OEM motorcycle brands including Honda, Yamaha, Kawasaki, Suzuki, BMW, and KTM.'] },
+      { heading: 'Basic Structure', content: 'The cylinder and piston assembly consists of a high-grade aluminum alloy cylinder wall coated with NikaSil or cast iron sleeve, fitted with multi-ring piston configurations to maintain cylinder compression.', showImageAfter: 'structure' },
+      { heading: 'Sealing & Thermal Control', content: 'Engine head gaskets and valve stem seals prevent high-pressure combustion gas blow-by while metering essential lubricant to valve stems, preventing oil burning and power loss.', showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Store in original rust-inhibiting packaging until installation.', 'Clean cylinder bore and crankcase surfaces with solvent before assembly.', 'Coat piston rings and cylinder walls with clean engine oil prior to fitting.', 'Torque cylinder head bolts in proper sequence to manufacturer specs.'] },
+      { heading: 'Usage Example', content: 'Street motorcycles, off-road dirt bikes, scooters, racing motorcycles, and commercial delivery fleets.' }
+    ]
+  },
+  'moto-clutch': {
+    title: 'Motorcycle Transmission & Clutch Assemblies',
+    subtitle: 'Heavy-duty clutch friction plates, steel plates, clutch baskets, and gear shift components built for high-torque motorcycle drivetrains.',
+    structureImage: '/assets/il.png',
+    structureCaption: 'Multi-Plate Motorcycle Clutch Pack Explosion Diagram',
+    theoryImage: '/assets/oo1.png',
+    theoryCaption: 'Clutch Engagement & Friction Coefficient Analysis Diagram',
+    sections: [
+      { heading: 'Product Description', content: 'ATI Transmission & Clutch Assemblies feature high-coefficient friction plates, heat-treated steel drive plates, reinforced clutch springs, and precision shift forks designed for seamless gear shifting and maximum torque transfer.' },
+      { heading: 'Features & Benefits', list: ['Advanced aramid/paper friction lining delivers high static and dynamic friction coefficients.', 'Heat-treated alloy steel drive plates resist warping under extreme temperature spikes.', 'Provides smooth clutch engagement with zero slippage under full acceleration.'] },
+      { heading: 'Basic Structure', content: 'A multi-plate wet motorcycle clutch consists of alternating friction discs and steel drive plates stacked inside an aluminum clutch basket, compressed by heavy-duty coil springs.', showImageAfter: 'structure' },
+      { heading: 'Transmission Dynamics', content: 'When the clutch lever is pulled, the pressure plate lifts, releasing compression on the friction pack so power flow from the crankshaft to the transmission main shaft is temporarily disengaged.', showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Pre-soak wet clutch friction plates in recommended motorcycle engine oil for 40 minutes before installation.', 'Inspect clutch basket fingers for notch wear before installing new plates.', 'Replace clutch springs as a set to ensure even clamping pressure across the pack.'] },
+      { heading: 'Usage Example', content: 'Cruisers, adventure touring motorcycles, sports bikes, and high-load commercial tricycles.' }
+    ]
+  },
+  'moto-seals': {
+    title: 'Motorcycle Rubber & Oil Sealing Kits',
+    subtitle: 'Complete rotary shaft oil seal kits, front fork seals, FKM Viton O-rings, and full engine gasket kits.',
+    structureImage: '/assets/il2.png',
+    structureCaption: 'Motorcycle Engine Oil Seal & O-Ring Placement Diagram',
+    theoryImage: '/assets/oo.png',
+    theoryCaption: 'Dual-Lip Rotary Shaft Oil Seal Contamination Barrier Diagram',
+    sections: [
+      { heading: 'Product Description', content: 'ATI Motorcycle Rubber & Oil Sealing Kits contain high-grade Fluororubber (FKM) and Nitrile (NBR) seals formulated specifically to withstand motorcycle engine oil additives, high RPM shaft rotation, and harsh road dirt.' },
+      { heading: 'Features & Benefits', list: ['Double-lip oil seals with stainless steel garter spring ensure zero fluid leakage and dust exclusion.', 'FKM Viton O-rings maintain elasticity from -20°C to +220°C.', 'Complete engine overhaul sets include crankshaft seals, countershaft seals, shift shaft seals, and valve stem seals.'] },
+      { heading: 'Basic Structure', content: 'Radial shaft seals incorporate an elastomeric sealing lip held firmly against the shaft surface by a steel garter spring, enclosed within a rigid steel reinforcement casing.', showImageAfter: 'structure' },
+      { heading: 'Sealing Mechanism', content: 'The primary sealing lip forms a microscopic oil lubricant film against the rotating shaft surface while the secondary dust lip blocks dirt, grit, and water from entering the crankcase.', showImageAfter: 'theory' },
+      { heading: 'Handling Instructions', list: ['Verify shaft surface finish is smooth and free of burrs before pressing seals.', 'Apply a thin coat of multi-purpose grease to the sealing lip before assembly.', 'Use dedicated installation drivers to prevent cocking or lip damage during press-fitting.'] },
+      { heading: 'Usage Example', content: 'Engine crankcases, gearbox output shafts, front suspension forks, and wheel hub bearings.' }
+    ]
   },
 }
 
@@ -374,6 +423,42 @@ function generatePartsWithCategories(partsData, customImages = {}) {
   return result
 }
 
+function generateSpecsFromCategories(categoriesList) {
+  const specs = []
+  categoriesList.forEach(catName => {
+    const items = MOTORCYCLE_PARTS[catName] || []
+    items.forEach(item => {
+      const hash = getDeterministicHash(item)
+      const partNumSuffix = 100 + (hash % 900)
+      const moqOptions = [500, 1000, 2000, 5000]
+      const moq = moqOptions[hash % moqOptions.length]
+      
+      const materials = ['Viton (FKM)', 'Cast Iron / Nikasil', 'High-Grade NBR', 'Forged Aluminum', 'Aramid Friction Matrix', 'High-Tensile Alloy Steel', 'Silicone VMQ', 'Stainless Steel AISI 304']
+      const temps = ['-40 to +230°C', '-20 to +280°C', '-30 to +180°C', '-40 to +120°C', '-50 to +200°C']
+      
+      specs.push({
+        part: `ATI-M-${item.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, 'X')}-${partNumSuffix}`,
+        name: item,
+        category: catName,
+        material: materials[hash % materials.length],
+        dim: `Standard OEM (${(hash % 40) + 10}mm)`,
+        temp: temps[hash % temps.length],
+        moq: moq.toLocaleString()
+      })
+    })
+  })
+  return specs
+}
+
+function getIncludedPartsList(categoriesList) {
+  const list = []
+  categoriesList.forEach(catName => {
+    const items = MOTORCYCLE_PARTS[catName] || []
+    items.forEach(item => list.push(item))
+  })
+  return list
+}
+
 // ── BRAND DATA ──────────────────────────────────────────────────────
 const MOTORCYCLE_BRANDS = [
   'Honda', 'Yamaha', 'Kawasaki', 'Suzuki', 'Harley-Davidson',
@@ -447,15 +532,77 @@ const PRODUCTS = [
   },
   {
     id: 'motorcycle',
-    name: 'Motorcycles',
-    tagline: 'Complete sealing parts catalogue for motorcycle engines',
-    image: '/assets/moto.png',
+    name: 'Motorcycle',
+    tagline: 'High-precision motorcycle engine components & sealing assemblies',
+    image: '/assets/homepage_3d_bento_motorcycle.png',
     hasDataSheet: false,
-    partsOnly: true,
+    isIndustrialGroup: true,
     icon: 'two_wheeler',
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
-    description: 'ATI supplies a comprehensive range of sealing components specifically sourced for motorcycle engines.',
+    description: 'ATI supplies a comprehensive range of high-precision motorcycle components, engine sealing kits, and transmission parts sourced for global markets.',
+    subProducts: [
+      {
+        id: 'moto-engine',
+        name: 'Motorcycle Engine & Cylinder Components',
+        tagline: 'Precision cylinder blocks, pistons, valve stems & head gaskets',
+        image: '/assets/motorcycle_engine_sealing.png',
+        hasDataSheet: true,
+        description: 'ATI supplies high-precision cylinder blocks, forged/cast pistons, piston rings, valve stem seals, and head gaskets engineered for high-RPM motorcycle engines.',
+        features: [
+          'High thermal resistance withstands continuous operating temperatures up to 280°C',
+          'Precision ground manufacturing tolerances within ±0.01mm for high compression',
+          'OEM spec compatibility across Honda, Yamaha, Kawasaki, Suzuki, BMW, KTM, etc.'
+        ],
+        includedParts: getIncludedPartsList(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
+        specs: generateSpecsFromCategories(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
+        applications: ['4-Stroke Engines', '2-Stroke Engines', 'Performance Racing', 'OEM Replacements'],
+      },
+      {
+        id: 'moto-clutch',
+        name: 'Transmission & Clutch Assemblies',
+        tagline: 'Heavy-duty clutch friction plates, baskets & shift drums',
+        image: '/assets/motorcycle_clutch_parts.png',
+        hasDataSheet: true,
+        description: 'ATI Transmission & Clutch Assemblies feature high-coefficient friction plates, heat-treated steel drive plates, and precision shift forks designed for seamless gear shifting.',
+        features: [
+          'Advanced aramid/paper friction lining delivers high static & dynamic friction',
+          'Heat-treated alloy steel drive plates resist warping under extreme loads',
+          'Provides smooth clutch engagement with zero slippage under full acceleration'
+        ],
+        includedParts: getIncludedPartsList(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
+        specs: generateSpecsFromCategories(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
+        applications: ['Sport Bikes', 'Cruisers', 'Off-Road / Enduro', 'Commuter Motorcycles'],
+      },
+      {
+        id: 'moto-seals',
+        name: 'Motorcycle Rubber & Oil Sealing Kits',
+        tagline: 'Engine oil seal kits, front fork seals & FKM O-ring sets',
+        image: '/assets/rotary_oil_seals.png',
+        hasDataSheet: true,
+        description: 'ATI Motorcycle Rubber & Oil Sealing Kits contain high-grade Fluororubber (FKM) and Nitrile (NBR) seals formulated to withstand engine oil additives and high RPM shaft rotation.',
+        features: [
+          'Double-lip oil seals with garter spring ensure zero fluid leakage and dust exclusion',
+          'FKM Viton O-rings maintain elasticity from -20°C to +220°C',
+          'Complete engine overhaul sets include crankshaft, countershaft & valve seals'
+        ],
+        includedParts: getIncludedPartsList(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
+        specs: generateSpecsFromCategories(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
+        applications: ['Crankcases & Gearboxes', 'Front Fork Suspension', 'Wheel Hubs', 'Valve Train'],
+      },
+    ],
+  },
+  {
+    id: 'motorcycle-parts',
+    name: 'Motorcycle Parts',
+    tagline: 'Complete 16-category parts catalogue with OEM brand & model picker',
+    image: '/assets/moto.png',
+    hasDataSheet: false,
+    partsOnly: true,
+    icon: 'build',
+    color: '#FF6B35',
+    gradient: 'from-orange-500 to-red-600',
+    description: 'ATI supplies a comprehensive range of motorcycle spare parts across 16 categories with brand and model selection.',
     parts: generatePartsWithCategories(MOTORCYCLE_PARTS, MOTORCYCLE_PARTS_IMAGES),
     categories: Object.keys(MOTORCYCLE_PARTS),
     brands: MOTORCYCLE_BRANDS
@@ -2050,6 +2197,226 @@ function ProductDetail({
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
+  const renderPartsCatalogue = () => {
+    const allParts = product.parts || []
+    const brands = product.brands || []
+
+    const filteredParts = allParts.filter(part => {
+      const matchSearch = part.name.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchCategory = selectedCategory === 'all' || part.category === selectedCategory
+      return matchSearch && matchCategory
+    })
+
+    const groupedParts = {}
+    filteredParts.forEach(part => {
+      if (!groupedParts[part.category]) {
+        groupedParts[part.category] = []
+      }
+      groupedParts[part.category].push(part)
+    })
+
+    const uniqueCategories = [...new Set(allParts.map(p => p.category))]
+
+    return (
+      <div>
+        {!product.isIndustrialGroup && (
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="material-symbols-outlined text-2xl text-[#005691]">{product.icon}</span>
+                <h2 className="text-xl font-bold text-gray-900">{product.name} Parts Catalogue</h2>
+              </div>
+              <p className="text-sm text-gray-500 max-w-lg">{product.description}</p>
+              <div className="flex items-center gap-4 mt-3">
+                <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{uniqueCategories.length}</span> categories</span>
+                <span className="text-gray-300">·</span>
+                <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{allParts.length}</span> parts</span>
+                <span className="text-gray-300">·</span>
+                <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{brands.length}</span> brands</span>
+                {selectedParts.length > 0 && (
+                  <>
+                    <span className="text-gray-300">·</span>
+                    <span className="text-sm font-semibold text-[#005691]">{selectedParts.length} selected</span>
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {selectedParts.length > 0 && (
+                <button onClick={onAddToCart}
+                  className="bg-[#005691] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#004a7c] transition-all flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+                  Add {selectedParts.length} to Cart
+                </button>
+              )}
+              <button onClick={() => onNavigate('Contact Us')}
+                className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:border-gray-400 transition-all flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm">request_quote</span>
+                Request a Quote
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ── How-to steps (inline, minimal) ────────────────────────────── */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
+          <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">How to order:</span>
+          {['Find a part', 'Select brand', 'Select models', 'Set quantities per model', 'Add to order', 'Add to cart'].map((s, i) => (
+            <div key={i} className="flex items-center gap-1.5">
+              {i > 0 && <span className="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>}
+              <span className="text-[11px] text-gray-600 font-medium">
+                <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-[9px] font-bold text-gray-600 mr-1">{i+1}</span>
+                {s}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* ── MAIN TWO-COLUMN LAYOUT ──────────────────────────────────────── */}
+        <div className="flex gap-6 items-start">
+
+          {/* ── LEFT SIDEBAR ────────────────────────────────────────── */}
+          <div className="w-52 flex-shrink-0 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3">
+
+            {/* Search */}
+            <div className="relative">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+              <input
+                type="text"
+                placeholder="Search parts..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                className="w-full pl-8 pr-8 py-2 border border-gray-200 rounded-lg text-[12px] text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-all bg-white"
+              />
+              {searchTerm && (
+                <button onClick={() => setSearchTerm('')}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
+              )}
+            </div>
+
+            {/* Category list */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="px-3 py-2 border-b border-gray-100 bg-[#005691]">
+                <span className="text-[10px] font-semibold text-white uppercase tracking-wider">Categories</span>
+              </div>
+
+              {/* All */}
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors border-b border-gray-100 ${
+                  selectedCategory === 'all' ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                <span className="text-[12px] font-medium">All parts</span>
+                <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
+                  selectedCategory === 'all' ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
+                }`}>{allParts.length}</span>
+              </button>
+
+              {uniqueCategories.map(cat => {
+                const catCount = allParts.filter(p => p.category === cat).length
+                const isActive = selectedCategory === cat
+                const selCount = selectedParts.filter(p => p.category === cat).length
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setSelectedCategory(isActive ? 'all' : cat)
+                      const el = document.getElementById(`cat-${cat.replace(/[^a-z0-9]/gi, '-')}`)
+                      if (el && !isActive) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
+                    className={`w-full flex items-center gap-2 px-3 py-2 text-left transition-colors border-b border-gray-100 last:border-b-0 ${
+                      isActive ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-gray-400" style={{fontSize:'15px'}}>{getCategoryIcon(cat)}</span>
+                    <span className={`text-[11px] flex-1 truncate leading-tight ${ isActive ? 'font-semibold' : 'font-normal' }`}>{cat}</span>
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${
+                      selCount > 0 ? 'bg-[#005691] text-white' :
+                      isActive ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
+                    }`}>{selCount > 0 ? selCount : catCount}</span>
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Selection summary */}
+            {selectedParts.length > 0 && (
+              <div className="border border-gray-200 rounded-xl p-3 bg-white">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-semibold text-gray-700">{selectedParts.length} part{selectedParts.length !== 1 ? 's' : ''} selected</span>
+                  <button onClick={onClearAllParts} className="text-[10px] text-gray-400 hover:text-gray-600 transition-colors">Clear</button>
+                </div>
+                <button
+                  onClick={onAddToCart}
+                  className="w-full bg-[#005691] text-white py-2 rounded-lg text-[12px] font-semibold hover:bg-[#004a7c] transition-all flex items-center justify-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
+                  Add to Cart
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* ── RIGHT CONTENT ─────────────────────────────────────────── */}
+          <div className="flex-1 min-w-0">
+            {searchTerm && (
+              <p className="text-sm text-gray-500 mb-4">
+                <span className="font-semibold text-gray-800">{filteredParts.length}</span> results for “{searchTerm}”
+              </p>
+            )}
+
+            {Object.entries(groupedParts).map(([category, parts]) => (
+              <CategorySection
+                key={category} category={category} parts={parts} brands={brands}
+                onSelectPart={onSelectPart}
+                onUpdatePart={onUpdatePart}
+                selectedParts={selectedParts}
+                openBrandDropdownPart={openBrandDropdownPart} 
+                openModelDropdownPart={openModelDropdownPart}
+                openQuantityDropdownPart={openQuantityDropdownPart}
+                onBrandDropdownToggle={onBrandDropdownToggle} 
+                onModelDropdownToggle={onModelDropdownToggle}
+                onQuantityDropdownToggle={onQuantityDropdownToggle}
+                categoryId={`cat-${category.replace(/[^a-z0-9]/gi, '-')}`}
+              />
+            ))}
+
+            {filteredParts.length === 0 && (
+              <div className="text-center py-16 border border-dashed border-gray-200 rounded-xl">
+                <span className="material-symbols-outlined text-3xl text-gray-300">search_off</span>
+                <p className="text-gray-500 mt-2 text-sm">No parts found</p>
+                <button onClick={() => { setSearchTerm(''); setSelectedCategory('all') }}
+                  className="mt-3 text-[#005691] text-sm font-medium hover:underline">Clear filters</button>
+              </div>
+            )}
+
+            {/* Bottom CTA */}
+            <div className="mt-8 bg-[#005691] text-white rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">Need custom specifications?</h3>
+                <p className="text-white/80 text-sm">We source components to your exact requirements from verified suppliers.</p>
+              </div>
+              <button onClick={() => onNavigate('Contact Us')}
+                className="flex-shrink-0 bg-white text-[#005691] px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-all flex items-center gap-1.5 shadow-sm">
+                <span className="material-symbols-outlined text-sm">mail</span>
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <SelectionSummary
+          selectedParts={selectedParts}
+          onClearAll={onClearAllParts}
+          onAddToCart={onAddToCart}
+        />
+      </div>
+    )
+  }
+
   if (product.isIndustrialGroup) {
     if (selectedSubProduct) {
       const sub = product.subProducts.find(p => p.id === selectedSubProduct)
@@ -2127,38 +2494,39 @@ function ProductDetail({
               </div>
             </div>
             <div className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden shadow-sm animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-[#eceef0] px-8 py-4">
-                <h3 className="font-bold text-[#005691] text-sm uppercase tracking-widest">Standard Part Numbers & MOQ</h3>
+              <div className="bg-[#eceef0] px-8 py-4 flex items-center justify-between border-b border-[#c5c6cd]">
+                <h3 className="font-bold text-[#005691] text-sm uppercase tracking-widest flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base">grid_view</span>
+                  Included Parts & Components ({sub.specs.length} Items)
+                </h3>
+                <span className="text-xs text-gray-500 font-medium">Arranged in Columns & Rows</span>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-[#c5c6cd]">
-                      {['Part Number', 'Material', 'Dimensions (mm)', 'Temp Range', 'MOQ (units)', 'Action'].map((h) => (
-                        <th key={h} className="p-5 font-semibold text-left text-xs uppercase tracking-widest text-[#005691]">{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sub.specs.map((row, i) => (
-                      <tr key={row.part} className={`border-b border-[#c5c6cd] hover:bg-[#f2f4f6] transition-colors ${i % 2 === 1 ? 'bg-[#f1f5f9]' : ''} animate-fadeIn`} style={{ animationDelay: `${i * 0.1}s` }}>
-                        <td className="p-5 font-mono font-semibold text-[#005691]">{row.part}</td>
-                        <td className="p-5 text-[#505f76]">{row.material}</td>
-                        <td className="p-5 text-[#505f76]">{row.dim}</td>
-                        <td className="p-5 text-[#505f76]">{row.temp}</td>
-                        <td className="p-5 font-semibold text-[#005691]">{row.moq}</td>
-                        <td className="p-5">
-                          <button
-                            onClick={() => onNavigate('Contact Us')}
-                            className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all hover:scale-105 duration-200"
-                          >
-                            Add to Inquiry
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              
+              <div className="p-6 bg-gray-50/50">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[550px] overflow-y-auto pr-2">
+                  {sub.specs.map((row, i) => (
+                    <div 
+                      key={i} 
+                      className="flex items-center gap-3 p-3.5 bg-white border border-gray-200 hover:border-[#005691] hover:shadow-sm rounded-lg transition-all group"
+                    >
+                      <span className="w-7 h-7 rounded-full bg-[#005691]/10 text-[#005691] font-bold text-xs flex items-center justify-center flex-shrink-0 group-hover:bg-[#005691] group-hover:text-white transition-colors">
+                        {i + 1}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-bold text-gray-900 text-sm truncate">{row.name || row.part}</h4>
+                        {row.category && (
+                          <span className="text-[11px] text-gray-500 font-medium">{row.category}</span>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => onNavigate('Contact Us')}
+                        className="text-xs text-[#005691] font-semibold hover:underline flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        Inquire
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="mt-5 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
@@ -2190,21 +2558,26 @@ function ProductDetail({
           {product.subProducts.map((sub, index) => (
             <div 
               key={sub.id} 
-              className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-lg transition-all hover:scale-105 duration-300 cursor-pointer group animate-scaleIn"
+              className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-lg transition-all hover:scale-105 duration-300 cursor-pointer group animate-scaleIn flex flex-col justify-between"
               style={{ animationDelay: `${index * 0.15}s` }}
               onClick={() => onSelectSubProduct(sub.id)}
             >
-              <div className="h-48 overflow-hidden bg-[#f7f9fb]">
-                <img
-                  src={sub.image}
-                  alt={sub.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => { e.target.style.background = '#eceef0' }}
-                />
+              <div>
+                <div className="h-48 overflow-hidden bg-[#f7f9fb] relative">
+                  <img
+                    src={sub.image}
+                    alt={sub.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => { e.target.style.background = '#eceef0' }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-[#005691] mb-2">{sub.name}</h3>
+                  <p className="text-sm text-[#505f76] leading-relaxed mb-4">{sub.tagline}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-[#005691] mb-2">{sub.name}</h3>
-                <p className="text-sm text-[#505f76] leading-relaxed mb-4">{sub.tagline}</p>
+
+              <div className="p-6 pt-0">
                 <div className="flex flex-col gap-2">
                   <button 
                     className="w-full bg-[#005691] text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2"
@@ -2224,7 +2597,8 @@ function ProductDetail({
                         onSelectSubProduct(sub.id)
                       }}
                     >
-                      View Details                    </button>
+                      View Details
+                    </button>
                     {sub.hasDataSheet && (
                       <button
                         className="border border-[#005691] text-[#005691] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all hover:scale-105 duration-200"
@@ -2242,6 +2616,7 @@ function ProductDetail({
             </div>
           ))}
         </div>
+
         <div className="mt-10 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
           <div>
             <h3 className="text-2xl font-bold mb-2">Need Custom Specifications?</h3>
@@ -2255,254 +2630,53 @@ function ProductDetail({
             Discuss Custom Order
           </button>
         </div>
+
+        {/* ── Complete Parts Catalogue Shown Directly Under the Item Boxes ──────────────── */}
+        {product.parts && product.parts.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-gray-200">
+            <div className="mb-8">
+              <span className="inline-block px-3.5 py-1.5 bg-[#005691]/10 text-[#005691] text-xs font-bold rounded-lg mb-2 uppercase tracking-widest">
+                Interactive Parts Catalogue
+              </span>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Complete {product.name} Parts Catalogue & Model Picker</h2>
+              <p className="text-sm text-gray-600">Select components across all categories, filter by OEM brand & model, and specify quantities for custom order inquiry.</p>
+            </div>
+            {renderPartsCatalogue()}
+          </div>
+        )}
+
       </div>
     )
   }
 
-  // ── PARTS VIEW FOR MOTORCYCLES & E-BIKE ──────────────────────
-  const allParts = product.parts || []
-  const brands = product.brands || []
-
-  const filteredParts = allParts.filter(part => {
-    const matchSearch = part.name.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchCategory = selectedCategory === 'all' || part.category === selectedCategory
-    return matchSearch && matchCategory
-  })
-
-  const groupedParts = {}
-  filteredParts.forEach(part => {
-    if (!groupedParts[part.category]) {
-      groupedParts[part.category] = []
-    }
-    groupedParts[part.category].push(part)
-  })
-
-  const uniqueCategories = [...new Set(allParts.map(p => p.category))]
-
-  let totalItems = 0
-  const totalBrandsSet = new Set()
-  const totalModelsSet = new Set()
-  selectedParts.forEach(part => {
-    if (part.selectedModels && part.selectedModels.length > 0) {
-      totalItems += part.selectedModels.length
-      part.selectedModels.forEach(m => totalModelsSet.add(m))
-    }
-    if (part.selectedBrands && part.selectedBrands.length > 0) {
-      part.selectedBrands.forEach(b => totalBrandsSet.add(b))
-    }
-  })
-
-  const scrollToCategory = (cat) => {
-    const el = document.getElementById(`cat-${cat.replace(/[^a-z0-9]/gi, '-')}`)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    setSelectedCategory(cat)
-  }
-
-  return (
-    <div>
-
-      {/* ── Page Header ─────────────────────────────────────────── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="material-symbols-outlined text-2xl text-[#005691]">{product.icon}</span>
-            <h2 className="text-xl font-bold text-gray-900">{product.name} Parts Catalogue</h2>
-          </div>
-          <p className="text-sm text-gray-500 max-w-lg">{product.description}</p>
-          <div className="flex items-center gap-4 mt-3">
-            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{uniqueCategories.length}</span> categories</span>
-            <span className="text-gray-300">·</span>
-            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{allParts.length}</span> parts</span>
-            <span className="text-gray-300">·</span>
-            <span className="text-sm text-gray-600"><span className="font-semibold text-gray-900">{brands.length}</span> brands</span>
-            {selectedParts.length > 0 && (
-              <>
-                <span className="text-gray-300">·</span>
-                <span className="text-sm font-semibold text-[#005691]">{selectedParts.length} selected</span>
-              </>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          {selectedParts.length > 0 && (
-            <button onClick={onAddToCart}
-              className="bg-[#005691] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#004a7c] transition-all flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
-              Add {selectedParts.length} to Cart
-            </button>
-          )}
-          <button onClick={() => onNavigate('Contact Us')}
-            className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:border-gray-400 transition-all flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm">request_quote</span>
-            Request a Quote
-          </button>
-        </div>
-      </div>
-
-      {/* ── How-to steps (inline, minimal) ────────────────────────────── */}
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
-        <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">How to order:</span>
-        {['Find a part', 'Select brand', 'Select models', 'Set quantities per model', 'Add to order', 'Add to cart'].map((s, i) => (
-          <div key={i} className="flex items-center gap-1.5">
-            {i > 0 && <span className="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>}
-            <span className="text-[11px] text-gray-600 font-medium">
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 text-[9px] font-bold text-gray-600 mr-1">{i+1}</span>
-              {s}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      {/* ── MAIN TWO-COLUMN LAYOUT ──────────────────────────────────────── */}
-      <div className="flex gap-6 items-start">
-
-        {/* ── LEFT SIDEBAR ────────────────────────────────────────── */}
-        <div className="w-52 flex-shrink-0 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3">
-
-          {/* Search */}
-          <div className="relative">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
-            <input
-              type="text"
-              placeholder="Search parts..."
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-8 pr-8 py-2 border border-gray-200 rounded-lg text-[12px] text-gray-700 placeholder-gray-400 focus:outline-none focus:border-gray-400 transition-all bg-white"
-            />
-            {searchTerm && (
-              <button onClick={() => setSearchTerm('')}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                <span className="material-symbols-outlined text-sm">close</span>
-              </button>
-            )}
-          </div>
-
-          {/* Category list */}
-          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-            <div className="px-3 py-2 border-b border-gray-100 bg-[#005691]">
-              <span className="text-[10px] font-semibold text-white uppercase tracking-wider">Categories</span>
-            </div>
-
-            {/* All */}
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors border-b border-gray-100 ${
-                selectedCategory === 'all' ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
-              }`}
-            >
-              <span className="text-[12px] font-medium">All parts</span>
-              <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
-                selectedCategory === 'all' ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
-              }`}>{allParts.length}</span>
-            </button>
-
-            {uniqueCategories.map(cat => {
-              const catCount = allParts.filter(p => p.category === cat).length
-              const isActive = selectedCategory === cat
-              const selCount = selectedParts.filter(p => p.category === cat).length
-              return (
-                <button
-                  key={cat}
-                  onClick={() => {
-                    setSelectedCategory(isActive ? 'all' : cat)
-                    const el = document.getElementById(`cat-${cat.replace(/[^a-z0-9]/gi, '-')}`)
-                    if (el && !isActive) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }}
-                  className={`w-full flex items-center gap-2 px-3 py-2 text-left transition-colors border-b border-gray-100 last:border-b-0 ${
-                    isActive ? 'bg-gray-50 text-[#005691]' : 'text-gray-600 hover:bg-gray-50'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-gray-400" style={{fontSize:'15px'}}>{getCategoryIcon(cat)}</span>
-                  <span className={`text-[11px] flex-1 truncate leading-tight ${ isActive ? 'font-semibold' : 'font-normal' }`}>{cat}</span>
-                  <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${
-                    selCount > 0 ? 'bg-[#005691] text-white' :
-                    isActive ? 'bg-[#005691]/10 text-[#005691]' : 'bg-gray-100 text-gray-500'
-                  }`}>{selCount > 0 ? selCount : catCount}</span>
-                </button>
-              )
-            })}
-          </div>
-
-          {/* Selection summary */}
-          {selectedParts.length > 0 && (
-            <div className="border border-gray-200 rounded-xl p-3 bg-white">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-semibold text-gray-700">{selectedParts.length} part{selectedParts.length !== 1 ? 's' : ''} selected</span>
-                <button onClick={onClearAllParts} className="text-[10px] text-gray-400 hover:text-gray-600 transition-colors">Clear</button>
-              </div>
-              <button
-                onClick={onAddToCart}
-                className="w-full bg-[#005691] text-white py-2 rounded-lg text-[12px] font-semibold hover:bg-[#004a7c] transition-all flex items-center justify-center gap-1.5"
-              >
-                <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
-                Add to Cart
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* ── RIGHT CONTENT ─────────────────────────────────────────── */}
-        <div className="flex-1 min-w-0">
-          {searchTerm && (
-            <p className="text-sm text-gray-500 mb-4">
-              <span className="font-semibold text-gray-800">{filteredParts.length}</span> results for “{searchTerm}”
-            </p>
-          )}
-
-          {Object.entries(groupedParts).map(([category, parts]) => (
-            <CategorySection
-              key={category} category={category} parts={parts} brands={brands}
-              onSelectPart={onSelectPart}
-              onUpdatePart={onUpdatePart}
-              selectedParts={selectedParts}
-              openBrandDropdownPart={openBrandDropdownPart} 
-              openModelDropdownPart={openModelDropdownPart}
-              openQuantityDropdownPart={openQuantityDropdownPart}
-              onBrandDropdownToggle={onBrandDropdownToggle} 
-              onModelDropdownToggle={onModelDropdownToggle}
-              onQuantityDropdownToggle={onQuantityDropdownToggle}
-              categoryId={`cat-${category.replace(/[^a-z0-9]/gi, '-')}`}
-            />
-          ))}
-
-          {filteredParts.length === 0 && (
-            <div className="text-center py-16 border border-dashed border-gray-200 rounded-xl">
-              <span className="material-symbols-outlined text-3xl text-gray-300">search_off</span>
-              <p className="text-gray-500 mt-2 text-sm">No parts found</p>
-              <button onClick={() => { setSearchTerm(''); setSelectedCategory('all') }}
-                className="mt-3 text-[#005691] text-sm font-medium hover:underline">Clear filters</button>
-            </div>
-          )}
-
-          {/* Bottom CTA — Clean Solid Color */}
-          <div className="mt-8 bg-[#005691] text-white rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-1">Need custom specifications?</h3>
-              <p className="text-white/80 text-sm">We source components to your exact requirements from verified suppliers.</p>
-            </div>
-            <button onClick={() => onNavigate('Contact Us')}
-              className="flex-shrink-0 bg-white text-[#005691] px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-all flex items-center gap-1.5 shadow-sm">
-              <span className="material-symbols-outlined text-sm">mail</span>
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <SelectionSummary
-        selectedParts={selectedParts}
-        onClearAll={onClearAllParts}
-        onAddToCart={onAddToCart}
-      />
-    </div>
-  )
+  return renderPartsCatalogue()
 }
 
 // ── Main Products Page ────────────────────────────────────────────
 export default function Products({ onNavigate }) {
+  const location = useLocation()
   const [active, setActive] = useState('industrial-seals')
   const [sheetOpen, setSheetOpen] = useState(false)
   const [activeSubProduct, setActiveSubProduct] = useState(null)
+
+  // Listen to hash or search parameters (e.g. #motorcycle, #motorcycle-parts, #e-bike, #industrial-seals)
+  useEffect(() => {
+    const rawHash = location.hash ? location.hash.replace('#', '') : ''
+    const params = new URLSearchParams(location.search)
+    const targetTab = params.get('tab') || rawHash
+
+    if (targetTab) {
+      if (targetTab === 'motorcycle-parts' || targetTab === 'parts') {
+        setActive('motorcycle-parts')
+      } else if (targetTab.includes('motorcycle')) {
+        setActive('motorcycle')
+      } else if (targetTab.includes('e-bike') || targetTab.includes('ebike')) {
+        setActive('e-bike')
+      } else if (targetTab.includes('industrial') || targetTab.includes('seal') || targetTab.includes('valve') || targetTab.includes('o-ring')) {
+        setActive('industrial-seals')
+      }
+    }
+  }, [location.hash, location.search])
 
   const [selectedPartsByTab, setSelectedPartsByTab] = useState({
     motorcycle: [],
