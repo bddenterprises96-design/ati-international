@@ -146,11 +146,20 @@ export default function Footer({ onNavigate }) {
           <ul className="space-y-6">
             <li>
               <button
+                onClick={() => handleNavigate('Products', 'industrial-seals')}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+              >
+                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">precision_manufacturing</span>
+                Industrial Seals
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => handleNavigate('Products', 'motorcycle')}
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
-                Motorcycle Parts & Components
+                Motorcycle Components
               </button>
             </li>
             <li>
@@ -159,7 +168,7 @@ export default function Footer({ onNavigate }) {
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
-                E-Bike Powertrain & Battery Seals
+                E-Bike Powertrain Seals
               </button>
             </li>
             <li>
@@ -176,17 +185,8 @@ export default function Footer({ onNavigate }) {
                 onClick={() => handleNavigate('Products', 'industrial-seals')}
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
-                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">cached</span>
-                Rotary Oil Seals & Shaft Seals
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleNavigate('Products', 'industrial-seals')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
-              >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">adjust</span>
-                High-Precision Rubber O-Rings
+                O-Rings & Rotary Oil Seals
               </button>
             </li>
             <li>
@@ -195,7 +195,7 @@ export default function Footer({ onNavigate }) {
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">engineering</span>
-                Custom Sourcing & CAD Requests
+                Custom Order Sourcing
               </button>
             </li>
           </ul>

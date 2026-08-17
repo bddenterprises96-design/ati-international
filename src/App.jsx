@@ -28,26 +28,36 @@ export default function App() {
       'About':      '/',
       'Products':   '/products',
       'Why ATI?':   '/why-ati',
+      'Why ATI':    '/why-ati',
+      'WhyATI':     '/why-ati',
+      'why-ati':    '/why-ati',
+      '/why-ati':   '/why-ati',
       'Contact Us': '/contact',
       'Blogs':      '/blogs',
       "FAQ's":      '/faqs',
     }
 
+    if (!page) {
+      navigate('/')
+      return
+    }
+
     if (typeof page === 'string' && page.includes('#')) {
       const [basePage, hash] = page.split('#')
-      const targetRoute = routes[basePage] || '/products'
+      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : '/products')
       navigate(`${targetRoute}#${hash}`)
       return
     }
 
     if (typeof page === 'string' && page.includes('?')) {
       const [basePage, query] = page.split('?')
-      const targetRoute = routes[basePage] || '/products'
+      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : '/products')
       navigate(`${targetRoute}?${query}`)
       return
     }
 
-    navigate(routes[page] ?? '/')
+    const matched = routes[page] || (typeof page === 'string' && page.toLowerCase().includes('why') ? '/why-ati' : null)
+    navigate(matched ?? (typeof page === 'string' && page.startsWith('/') ? page : '/'))
   }
 
   return (

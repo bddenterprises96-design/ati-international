@@ -112,17 +112,8 @@ export default function Navbar({ onNavigate }) {
 
         {/* Right Side */}
         <div className="flex items-center gap-3 flex-shrink-0">
-          {/* Search — desktop only */}
-          <div className="relative hidden lg:block">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#75777d]">search</span>
-            <input
-              type="text"
-              placeholder="Search specs..."
-              className="pl-10 pr-4 py-2.5 rounded-lg text-sm w-40 outline-none bg-white border border-[#c5c6cd] text-[#191c1e] placeholder-[#9aa0a6] focus:ring-2 focus:ring-[#005691]/30"
-            />
-          </div>
 
-          {/* Language Selector Dropdown with Arrow */}
+          {/* Language Selector Dropdown Box with Arrow */}
           <div className="relative" ref={langRef}>
             <button
               type="button"
@@ -141,7 +132,7 @@ export default function Navbar({ onNavigate }) {
               </span>
             </button>
 
-            {/* Language Dropdown Box */}
+            {/* Language Dropdown Menu */}
             {langDropdownOpen && (
               <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="px-3 py-1.5 border-b border-gray-100 mb-1 flex items-center justify-between">
@@ -178,7 +169,7 @@ export default function Navbar({ onNavigate }) {
             )}
           </div>
 
-          {/* Generate Inquiry button */}
+          {/* Request a Quote button */}
           <button
             onClick={() => onNavigate('Contact Us')}
             className={`px-5 py-3 text-sm font-semibold rounded-lg flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all duration-200 ${
@@ -205,22 +196,8 @@ export default function Navbar({ onNavigate }) {
 
       {/* ── Mobile Menu ── */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-[#c5c6cd] shadow-lg">
-
-          {/* Search bar — mobile */}
-          <div className="px-6 pt-4 pb-2">
-            <div className="relative">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#75777d] text-lg">search</span>
-              <input
-                type="text"
-                placeholder="Search technical specs..."
-                className="w-full pl-10 pr-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-lg text-sm outline-none focus:ring-2 focus:ring-[#005691]/30"
-              />
-            </div>
-          </div>
-
-          {/* Nav Links */}
-          <div className="px-6 pb-2 flex flex-col gap-1">
+        <div className="md:hidden bg-white border-t border-[#c5c6cd] shadow-lg py-3">
+          <div className="px-6 flex flex-col gap-1">
             {NAV_LINKS.map(({ label, path }) => {
               const active = isActive(path)
               return (
@@ -243,7 +220,7 @@ export default function Navbar({ onNavigate }) {
           </div>
 
           {/* Language Selector — Mobile Menu Section */}
-          <div className="px-6 pt-2 pb-4 border-t border-gray-100">
+          <div className="px-6 pt-3 pb-2 border-t border-gray-100 mt-2">
             <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
               <span className="material-symbols-outlined text-sm">language</span>
               Select Language
