@@ -46,38 +46,38 @@ const POSTS = [
     excerpt: 'A deep-dive into the three most common elastomers used in valve stem seals comparing thermal resistance, chemical compatibility, and long-term durability across real engine environments.',
     date: 'May 20, 2026',
     readTime: '6 min read',
-    author: 'ATI Polymer & Materials Engineering Team',
+    author: 'AT International Insights',
     icon: 'science',
     image: '/assets/blog_valve_stem_seal_materials.png',
-    summary: 'Valve stem seals are subjected to severe engine conditions, high operational temperatures, continuous mechanical friction, and aggressive synthetic engine oils. Selecting the correct elastomeric material determines engine oil consumption, valve guide wear, and long-term seal reliability.',
+    summary: 'Valve stem seals are subjected to demanding engine conditions, high operational temperatures, continuous mechanical friction, and engine oils. Selecting the correct elastomeric material helps optimize engine oil consumption, valve guide protection, and long-term seal performance.',
     sections: [
       {
         heading: '1. Introduction to Valve Stem Seal Elastomers',
-        text: 'In internal combustion engines, valve stem seals regulate lubricant flow between the valve stem and valve guide. Choosing the right compound prevents excess oil from leaking into the combustion chamber while ensuring sufficient lubrication to avoid valve seizure.',
+        text: 'In internal combustion engines, valve stem seals regulate lubricant flow between the valve stem and valve guide. Choosing the right compound helps manage oil flow while ensuring sufficient lubrication to maintain engine operating efficiency.',
       },
       {
-        heading: '2. Material Comparison: FKM (Viton) vs VMQ (Silicone) vs NBR (Nitrile)',
+        heading: '2. Material Comparison: FKM vs VMQ vs NBR',
         table: {
-          headers: ['Property', 'FKM (Fluoroelastomer / Viton)', 'VMQ (Silicone Rubber)', 'NBR (Nitrile Butadiene Rubber)'],
+          headers: ['Property', 'FKM (Fluoroelastomer)', 'VMQ (Silicone Rubber)', 'NBR (Nitrile Rubber)'],
           rows: [
             ['Continuous Temp Range', '-20°C to +200°C (peak +230°C)', '-60°C to +225°C', '-40°C to +120°C'],
-            ['Oil & Additive Resistance', 'Outstanding (Synthetic & Bio-oils)', 'Moderate (Attacked by acidic oils)', 'Good in mineral oil, fair in synthetics'],
+            ['Oil & Chemical Resistance', 'Outstanding (Synthetic & Bio-oils)', 'Moderate (Application dependent)', 'Good in standard oils'],
             ['Compression Set Resistance', 'Excellent at high temperatures', 'Good at high temperatures', 'Moderate at high temps'],
             ['Wear & Abrasion Resistance', 'High', 'Moderate to Low', 'High'],
-            ['Primary Application', 'High-performance automotive & motorcycle engines', 'Extreme cold/heat specialized valve train', 'Standard duty engines & low-temp sealing'],
+            ['Primary Application', 'High-performance automotive & motorcycle engines', 'Specialized thermal cycling valve trains', 'Standard duty engines & low-temp sealing'],
           ],
         },
       },
       {
-        heading: '3. FKM (Viton): The Gold Standard for Modern Engines',
-        text: 'FKM fluoroelastomers offer unparalleled resistance to modern synthetic lubricants containing aggressive friction modifiers and detergent packages. For motorcycle high-RPM engines and heavy-duty automotive engines, FKM valve stem seals maintain lip flexibility and spring tension over 100,000+ kilometers.',
+        heading: '3. FKM: High-Performance Sealing for Demanding Applications',
+        text: 'FKM fluoroelastomers offer strong resistance to modern synthetic lubricants and high operating temperatures. For motorcycle and automotive engine applications, FKM valve stem seals maintain flexibility and lip tension under continuous thermal exposure.',
       },
       {
         heading: '4. Selection Recommendations for Procurement Managers',
         list: [
-          'For High RPM Motorcycles & Turbo Automotive Engines: Specify FKM (Viton-75 Shore A) with stainless steel garter spring.',
+          'For High RPM & Turbocharged Applications: Consider FKM (Viton® grade) with stainless steel garter spring.',
           'For Extreme Thermal Cycling: Consider VMQ Silicone seals with reinforced steel retaining jackets.',
-          'For Budget OEM Replacement / Economy Engines: NBR-70 provides cost-effective performance under standard temperature limits.',
+          'For Standard Replacement / Economy Applications: NBR provides cost-effective sealing within standard temperature limits.',
         ],
       },
     ],
@@ -86,31 +86,31 @@ const POSTS = [
     id: 2,
     featured: false,
     category: 'Motorcycle Parts',
-    title: 'Motorcycle Engine Sealing: Key Failure Points & OEM Sourcing Standards',
-    excerpt: 'High RPM vibrations, rapid thermal cycles, and oil pressure fluctuations place intense demands on motorcycle engine seals. Here is how ATI sources high-durability replacement and OEM sealing parts.',
+    title: 'Motorcycle Engine Sealing: Key Failure Points & Sourcing Standards',
+    excerpt: 'High RPM vibrations, rapid thermal cycles, and oil pressure fluctuations place intense demands on motorcycle engine seals. Here is how ATI sources reliable replacement and component sealing parts through verified supplier partners.',
     date: 'May 12, 2026',
     readTime: '7 min read',
-    author: 'ATI Motorcycle Sourcing Specialist',
+    author: 'ATI Motorcycle Sourcing Team',
     icon: 'two_wheeler',
     image: '/assets/motorcycle_engine_sealing.png',
-    summary: 'Motorcycle engines operate at significantly higher RPMs and operating temperatures than conventional automotive engines. Reliable sealing across cylinder heads, crankcases, valve stems, and transmission shafts is essential to prevent power loss and oil leaks.',
+    summary: 'Motorcycle engines can operate under demanding RPM, temperature, vibration, and lubrication conditions. Reliable sealing across cylinder heads, crankcases, valve stems, and transmission shafts is important for preventing oil leakage and maintaining component performance.',
     sections: [
       {
         heading: '1. The Unique Sealing Demands of Motorcycle Powertrains',
-        text: 'Whether supplying parts for Honda, Yamaha, Kawasaki, Suzuki, Bajaj, or TVS motorcycles, replacement components must withstand up to 14,000 RPM continuous operation, high oil pressure peaks, and rapid heat dissipation.',
+        text: 'Whether supplying parts for popular commuter, touring, and performance motorcycle models, replacement components must withstand demanding operating conditions, high oil pressure peaks, and rapid heat dissipation.',
       },
       {
         heading: '2. Top 4 Motorcycle Engine Sealing Failure Modes',
         list: [
-          'Valve Stem Lip Hardening: Caused by excessive exhaust heat leading to blue exhaust smoke and high oil consumption.',
+          'Valve Stem Lip Hardening: Caused by excessive exhaust heat leading to blue exhaust smoke and elevated oil consumption.',
           'Crankshaft Oil Seal Extrusion: Caused by blow-by pressure build-up and improper shaft surface hardness.',
           'Cylinder Head Gasket Blowby: Resulting from thermal warping or poor torque retention of sub-standard gasket composite layers.',
           'Clutch Cover O-Ring Compression Set: Hardening due to repeated exposure to hot engine oil and clutch friction debris.',
         ],
       },
       {
-        heading: '3. ATI Sourcing & Quality Standards for Motorcycle Parts',
-        text: 'All ATI motorcycle sealing kits and engine spare parts are manufactured to strict OEM dimensional tolerances. We provide comprehensive kit packaging options for aftermarket distributors, including full engine overhaul gasket sets, valve stem seal pairs, and oil seal packages.',
+        heading: '3. ATI Sourcing & Quality Review for Motorcycle Parts',
+        text: 'ATI sources motorcycle sealing kits and engine components through trusted supplier partners. Product specifications, dimensions, materials, and applicable quality requirements are reviewed according to customer and sourcing requirements before supply.',
       },
     ],
   },
@@ -118,30 +118,30 @@ const POSTS = [
     id: 3,
     featured: false,
     category: 'E-Bike Powertrain',
-    title: 'Waterproofing E-Bike Motors: Sealing Mid-Drive & Hub Systems to IP67/IP68',
-    excerpt: 'Electric bicycles operate in rain, mud, and water splash conditions. Learn how specialized rotary oil seals and custom O-rings protect Bafang, Bosch, and Shimano e-bike motors.',
+    title: 'Waterproofing E-Bike Motors: Sealing Mid-Drive & Hub Systems to IP Standards',
+    excerpt: 'Electric bicycles can operate in rain, mud, and water-splash conditions, making effective sealing important for protecting motors and other sensitive components. Learn how rotary shaft seals, O-rings, gaskets, and other sealing solutions can help protect mid-drive and hub motor systems from moisture and contamination.',
     date: 'April 28, 2026',
     readTime: '5 min read',
     author: 'E-Bike Powertrain Engineering Desk',
     icon: 'electric_bike',
     image: '/assets/ebike_motor_sealing.png',
-    summary: 'Electric bike drive units combine high-speed electric motors, reduction gearboxes, and sensitive electronic controllers into compact housings. Water or dust ingress can ruin electrical insulation, corrode copper windings, and cause premature bearing failure.',
+    summary: 'Electric bike drive units combine electric motors, reduction gearboxes, and electronic controllers into compact housings. Water or dust ingress can impact electrical insulation and cause premature bearing or component wear.',
     sections: [
       {
         heading: '1. Ingress Protection (IP) Requirements for E-Bike Motors',
-        text: 'Modern e-bike drive systems demand IP65 to IP68 rating. Achieving this requires precision sealing at three critical junctions: the drive shaft exit, housing split lines, and cable entry grommets.',
+        text: 'E-bike drive systems may require different levels of ingress protection depending on their design, application, and operating environment. Where higher protection is required, sealing must be carefully considered at critical points such as the drive shaft exit, housing interfaces, and cable entry points.',
       },
       {
         heading: '2. Specialized Sealing Solutions for Mid-Drive & Hub Motors',
         list: [
-          'Double-Lip PTFE Radial Shaft Seals: Protect rotating pedal and motor shafts against low-friction water ingress without creating drag that drains battery range.',
+          'Double-Lip PTFE Radial Shaft Seals: Protect rotating pedal and motor shafts against low-friction water ingress without creating excessive drag.',
           'Low-Closure Force Silicone Gaskets: Ensure watertight sealing on die-cast aluminum motor casings without warping thin cover walls.',
           'Overmolded Rubber Cable Grommets: Seal power and sensor wiring looms against high-pressure water spray during bike cleaning.',
         ],
       },
       {
-        heading: '3. Materials Engineered for EV Efficiency',
-        text: 'ATI supplies e-bike manufacturers with friction-optimized Fluorosilicone and Viton seals engineered to minimize torque loss while maintaining IP68 water tightness across 20,000+ operating kilometers.',
+        heading: '3. Material Selection for E-Bike Sealing',
+        text: 'Material selection depends on temperature, moisture exposure, chemical compatibility, friction, compression, and other application requirements. Depending on the operating conditions, materials such as silicone, FKM (Viton®), EPDM, or PTFE-based solutions may be considered through our supplier network. Final material and sealing performance should be confirmed against the specific application and supplier/product data.',
       },
     ],
   },
@@ -149,30 +149,30 @@ const POSTS = [
     id: 4,
     featured: false,
     category: 'Technical',
-    title: 'O-Ring Failure Analysis: The 7 Most Common Causes and How to Prevent Them',
-    excerpt: 'From compression set and extrusion to spiral failure and chemical attack, learn how to identify O-ring failure modes early and select the correct material compounds to eliminate them.',
+    title: 'O-Ring Failure Analysis: Common Causes and How to Prevent Them',
+    excerpt: 'From compression set and extrusion to spiral failure and chemical attack, learn how to identify O-ring failure modes early and evaluate suitable material compounds to eliminate them.',
     date: 'April 18, 2026',
     readTime: '8 min read',
-    author: 'ATI Technical Quality Division',
+    author: 'AT International Insights',
     icon: 'build',
     image: '/assets/blog_oring_analysis.png',
-    summary: 'O-Rings are simple in design yet critical in performance. A single failed O-ring can halt hydraulic machinery, cause industrial fluid leaks, or lead to costly equipment downtime. Understanding root causes is key to prevention.',
+    summary: 'O-Rings are simple in design yet critical in performance. A failed O-ring can halt hydraulic machinery, cause fluid leaks, or lead to equipment downtime. Understanding root causes is key to prevention.',
     sections: [
       {
         heading: '1. Compression Set',
-        text: 'Occurs when an elastomer loses its elasticity after prolonged compression under heat, leaving flat surfaces on the ring cross-section. Prevention: Upgrade to high-grade FKM or peroxide-cured EPDM with superior compression set resistance.',
+        text: 'Occurs when an elastomer loses its elasticity after prolonged compression under heat, leaving flat surfaces on the ring cross-section. Prevention: Evaluate high-grade FKM or peroxide-cured EPDM with superior compression set resistance.',
       },
       {
         heading: '2. High-Pressure Extrusion & Nibbling',
-        text: 'Under high system pressure, rubber material is forced into the clearance gap between metal mating parts, tearing the ring edges. Prevention: Install hard PTFE back-up rings or select 90 Shore A hardness O-rings.',
+        text: 'Under high system pressure, rubber material is forced into the clearance gap between metal mating parts, tearing the ring edges. Prevention: Install PTFE back-up rings or select higher Shore A hardness O-rings.',
       },
       {
         heading: '3. Chemical Swelling & Degradation',
-        text: 'Incompatible chemical exposure causes the O-ring to absorb fluid, swell significantly, and lose mechanical strength. Prevention: Verify chemical compatibility charts before specifying NBR, Viton, EPDM, or FFKM.',
+        text: 'Incompatible chemical exposure causes the O-ring to absorb fluid, swell, and lose mechanical strength. Prevention: Verify chemical compatibility charts before specifying NBR, Viton®, EPDM, or FFKM.',
       },
       {
         heading: '4. Explosive Decompression & Spiral Failure',
-        text: 'Common in high-pressure gas or dynamic hydraulic applications. Rapid pressure drops cause trapped gas inside the rubber matrix to expand explosively. Prevention: Specify Explosive Decompression Resistant (EDR/AED) fluoroelastomers.',
+        text: 'Common in high-pressure gas or dynamic hydraulic applications. Rapid pressure drops cause trapped gas inside the rubber matrix to expand. Prevention: Specify Explosive Decompression Resistant (EDR/AED) fluoroelastomers.',
       },
     ],
   },
@@ -181,29 +181,29 @@ const POSTS = [
     featured: false,
     category: 'Motorcycle Parts',
     title: 'Sourcing High-Performance Motorcycle Clutch & Transmission Components',
-    excerpt: 'A comprehensive buyer’s guide on evaluating friction plate materials, steel drive plates, clutch springs, and gear shaft oil seals for motorcycle assembly and spare parts distribution.',
+    excerpt: 'A comprehensive buyer guide on evaluating friction plate materials, steel drive plates, clutch springs, and gear shaft oil seals for motorcycle assembly and spare parts distribution.',
     date: 'April 02, 2026',
     readTime: '6 min read',
-    author: 'Automotive & Drivetrain Sourcing Group',
+    author: 'ATI Motorcycle Sourcing Team',
     icon: 'settings_bipolar',
     image: '/assets/motorcycle_clutch_parts.png',
-    summary: 'The motorcycle clutch transmits engine torque to the transmission under continuous sliding friction, extreme heat, and oil immersion. High-quality friction plates and seals prevent slippage and deliver smooth gear engagement.',
+    summary: 'The motorcycle clutch transmits engine torque to the transmission under continuous sliding friction, operating heat, and oil immersion. High-quality friction plates and seals help prevent slippage and support smooth gear engagement.',
     sections: [
       {
-        heading: '1. Paper-Based vs Cork vs Kevlar Friction Plates',
-        text: 'Different motorcycle segments require specialized friction lining materials. Paper-composite friction plates deliver smooth engagement and long life in commuter motorcycles, while Kevlar-reinforced and carbon-friction plates cater to high-performance sportbikes.',
+        heading: '1. Paper-Based vs Cork vs Heavy-Duty Friction Plates',
+        text: 'Different motorcycle segments require specialized friction lining materials. Paper-composite friction plates deliver smooth engagement and long life in commuter motorcycles, while reinforced friction plates cater to higher-performance applications.',
       },
       {
         heading: '2. Essential Drivetrain Sealing Components',
         list: [
-          'Countershaft Oil Seals: Must withstand dirt, chain fling, and shaft rotation under high radial load.',
-          'Gear Shift Shaft Seals: Prevent slow oil weeping along the gear lever stem.',
+          'Countershaft Oil Seals: Designed to withstand dirt, chain fling, and shaft rotation under radial load.',
+          'Gear Shift Shaft Seals: Help prevent oil weeping along the gear lever stem.',
           'Clutch Pushrod Seals: Retain crankcase lubricant where the actuator rod enters the engine casing.',
         ],
       },
       {
         heading: '3. Complete Sourcing Solutions from ATI',
-        text: 'ATI supplies full motorcycle clutch assembly kits, replacement friction plate sets, and complete rubber oil seal sets packaged to distributor specifications with private label options.',
+        text: 'ATI sources motorcycle clutch assembly kits, replacement friction plate sets, oil seals, and related components through trusted supplier partners. Products can be supplied according to distributor requirements, including suitable packaging and private-label options where available.',
       },
     ],
   },
@@ -215,21 +215,21 @@ const POSTS = [
     excerpt: 'How custom-molded silicone gaskets, EPDM foam seals, and moisture vents protect lithium battery cells against water intrusion, vibration, and thermal expansion.',
     date: 'March 22, 2026',
     readTime: '6 min read',
-    author: 'EV Battery & Sealing Solutions Team',
+    author: 'AT International Insights',
     icon: 'battery_charging_full',
     image: '/assets/ebike_battery_sealing.png',
-    summary: 'The lithium-ion battery pack is the single most valuable component on an electric bicycle. Moisture ingress into 36V, 48V, or 52V battery packs can lead to short circuits, BMS failure, and hazardous thermal events.',
+    summary: 'The lithium-ion battery pack is a central component on an electric bicycle. Moisture ingress into battery enclosures can lead to electrical short circuits, BMS failure, or thermal issues.',
     sections: [
       {
         heading: '1. Challenges in Battery Enclosure Sealing',
-        text: 'Battery casings experience thermal expansion during charging and rapid cooling in outdoor riding conditions. Seals must accommodate dimensional expansion without breaking the moisture barrier.',
+        text: 'Battery casings experience thermal expansion during charging and rapid cooling in outdoor riding conditions. Seals must accommodate dimensional expansion while maintaining the moisture barrier.',
       },
       {
         heading: '2. Gasket Compound Selection: EPDM Foam vs Liquid Silicone Gaskets',
         list: [
-          'Closed-Cell EPDM Foam Gaskets: Excellent compression recovery, low cost, and outstanding resistance to rain and UV exposure.',
-          'Liquid Silicone Rubber (LSR) Molded Gaskets: Superior temperature stability (-50°C to +200°C), precise dimensional fit, and long-term flame retardancy (UL 94 V-0 options).',
-          'Pressure Relief & Gore Membrane Vents: Equalize internal air pressure during thermal cycles while blocking liquid water.',
+          'Closed-Cell EPDM Foam Gaskets: Excellent compression recovery, cost-effective, and strong resistance to weather exposure.',
+          'Liquid Silicone Rubber (LSR) Molded Gaskets: Superior temperature stability, precise fit, and flame retardancy options.',
+          'Pressure Relief Vents: Equalize internal air pressure during thermal cycles while helping block liquid water.',
         ],
       },
     ],
@@ -239,21 +239,21 @@ const POSTS = [
     featured: false,
     category: 'Technical',
     title: 'Rotary Oil Seal Selection for Heavy-Duty Gearboxes & Pumps',
-    excerpt: 'Selecting radial shaft oil seals with hydrodynamic wave lips, garter spring tensions, and auxiliary dust lips for extreme industrial and automotive applications.',
+    excerpt: 'Selecting radial shaft oil seals with hydrodynamic wave lips, garter spring tensions, and auxiliary dust lips for industrial and automotive equipment.',
     date: 'March 15, 2026',
     readTime: '7 min read',
-    author: 'Fluid Power & Sealing Specialist',
+    author: 'AT International Insights',
     icon: 'cached',
     image: '/assets/rotary_oil_seals.png',
-    summary: 'Rotary shaft seals retain lubricating oils and greases while excluding ambient dust, dirt, and water in rotating equipment. Selecting the right lip design and material compound prevents shaft wear and fluid leaks.',
+    summary: 'Rotary shaft seals retain lubricating oils and greases while excluding ambient dust, dirt, and water in rotating equipment. Selecting the right lip design and material compound helps prevent shaft wear and fluid leaks.',
     sections: [
       {
         heading: '1. Hydrodynamic Wave Lip Seals',
-        text: 'Wave lip oil seals feature a bi-directional sine wave lip geometry that pumps oil back into the lubricant reservoir during shaft rotation. This design reduces friction temperature by up to 30% compared to standard straight lips.',
+        text: 'Wave lip oil seals feature a sine wave lip geometry that pumps oil back into the lubricant reservoir during shaft rotation, helping reduce friction temperatures compared to standard straight lips.',
       },
       {
-        heading: '2. Single Lip vs Double Lip (TC / TB / TA Profiles)',
-        text: 'Single-lip (SC/SB) oil seals are used for primary lubricant retention in clean environments. Double-lip (TC/TB) seals incorporate a secondary dust lip to exclude heavy contaminants in agricultural, motorcycle, and industrial machinery.',
+        heading: '2. Single Lip vs Double Lip Profiles',
+        text: 'Single-lip seals are used for primary lubricant retention in clean environments. Double-lip seals incorporate a secondary dust lip to exclude contaminants in agricultural, motorcycle, and industrial machinery.',
       },
     ],
   },
@@ -262,25 +262,25 @@ const POSTS = [
     featured: false,
     category: 'Logistics & Sourcing',
     title: 'Global Sealing & Parts Market Trends 2026: Supply Chain Insights',
-    excerpt: 'Supply chain shifts, raw material volatility, and the expansion of electric powertrains are reshaping global industrial sourcing. Here is what procurement teams need to know.',
+    excerpt: 'Supply chain shifts, raw material volatility, changing compliance requirements, and the growth of electric powertrains are reshaping global sourcing. Here are key procurement trends buyers should understand when planning international parts supply.',
     date: 'March 01, 2026',
     readTime: '5 min read',
-    author: 'ATI Global Supply Intelligence Desk',
+    author: 'AT International Insights',
     icon: 'trending_up',
     image: '/assets/blog_market_trends.png',
-    summary: 'As global manufacturing demand accelerates across North America, Europe, the Middle East, and Asia-Pacific, procurement managers face changing lead times, raw material pricing dynamics, and stricter compliance rules.',
+    summary: 'As global demand for industrial, motorcycle, and e-bike components evolves across major markets, procurement teams face changing lead times, material costs, supplier risks, and compliance requirements. Understanding these trends can help buyers plan sourcing strategies and manage supply more effectively.',
     sections: [
       {
         heading: '1. Key Industry Drivers in 2026',
         list: [
-          'Shift to EV & Hybrid Powertrains: Growing demand for high-grade Fluorosilicone and low-friction PTFE seals.',
-          'RoHS 3 & REACH SVHC Expansion: Stricter regulation on chemical plasticizers and heavy metals in rubber compounds.',
-          'Consolidation of Supply Chain Partners: Buyers seeking unified sourcing partners capable of supplying seals, motorcycle spare parts, and e-bike hardware together.',
+          'Growth of Electric Powertrains: The expansion of e-bikes and other electric mobility applications is increasing demand for application-specific sealing, gasket, and component solutions. Material selection depends on temperature, moisture, chemical exposure, friction, and other operating conditions.',
+          'Evolving REACH & RoHS Requirements: Buyers increasingly need greater visibility into restricted substances, declarations, and supporting compliance documentation when sourcing components for regulated markets.',
+          'Supplier Consolidation: Buyers are increasingly looking for reliable sourcing partners who can coordinate multiple product categories—such as sealing products, motorcycle parts, e-bike components, and other industrial products—through one supply network.',
         ],
       },
       {
-        heading: '2. How ATI Mitigates Procurement Risks',
-        text: 'ATI leverages dual-sourcing partner networks in China, maintains safety stock reserves, and offers transparent freight tracking to ensure uninterrupted supply lines for our international clients.',
+        heading: '2. How ATI Helps Buyers Manage Procurement Risks',
+        text: 'ATI helps buyers manage procurement risks by coordinating suitable supplier options, supporting supplier communication, reviewing available quality and product documentation, and coordinating international shipment requirements. Where applicable, multiple supplier options, inventory planning, and shipment tracking can be discussed according to product and order requirements.',
       },
     ],
   },
@@ -289,25 +289,25 @@ const POSTS = [
     featured: false,
     category: 'Quality & Compliance',
     title: 'What ISO 9001:2015 & REACH Compliance Mean for Sourcing Partners',
-    excerpt: 'Understanding quality management systems, material test reports (MTR), PPAP documentation, and chemical compliance for industrial and automotive components.',
+    excerpt: 'Understanding quality management systems, material test reports (MTR), PPAP documentation, and chemical compliance for industrial, motorcycle, and e-bike components.',
     date: 'February 18, 2026',
     readTime: '5 min read',
-    author: 'Quality Management System Auditor',
+    author: 'AT International Insights',
     icon: 'verified',
     image: '/assets/blog_iso_compliance.png',
-    summary: 'ISO certification is far more than a certificate on a wall. A genuinely implemented QMS guarantees incoming raw material inspection, precise vulcanization process controls, 100% batch traceability, and formal corrective action protocols.',
+    summary: 'A well-implemented quality management system helps organizations establish consistent processes for supplier quality, material verification, production controls, traceability, and corrective actions. For sourcing partners, reviewing relevant quality documentation can provide greater visibility into supplier capabilities and product requirements.',
     sections: [
       {
-        heading: '1. Key Pillars of ATI Quality Assurance',
+        heading: '1. Key Elements of Supplier Quality Verification',
         list: [
-          'Rheometer & Compound Vulcanization Testing: Verifying rubber cure curves and hardness on every raw material batch.',
-          '100% Optical Automated Inspection: Automated vision sorting systems eliminate dimensional outliers and surface flash.',
-          'PPAP Level 3 Documentation: Production Part Approval Process documentation including dimensional results, material test reports, and control plans.',
+          'Rheometer & Compound Testing: Depending on the supplier and product requirements, relevant testing may include rubber cure characteristics, hardness, and other material properties. ATI can review available supplier test records and material documentation as part of the sourcing and quality review process.',
+          'Automated Visual & Dimensional Inspection: Depending on the supplier, product, and agreed quality requirements, automated or manual inspection may be used to identify dimensional variations, surface defects, and other quality issues.',
+          'PPAP Documentation: Where required by the customer or applicable to the project, PPAP documentation may include dimensional results, material test reports, control plans, and other production approval records. ATI coordinates the collection and review of applicable supplier documentation.',
         ],
       },
       {
-        heading: '2. REACH & RoHS 3 Environmental Compliance',
-        text: 'All sealing products, motorcycle components, and e-bike parts supplied by ATI comply strictly with EU REACH Regulations and RoHS 3 directives, free from restricted phthalates, heavy metals, and polycyclic aromatic hydrocarbons (PAHs).',
+        heading: '2. REACH & RoHS Compliance',
+        text: 'Depending on the product, market, and customer requirements, ATI can coordinate relevant REACH and RoHS declarations or compliance documentation through its supplier network. Customers with specific regulatory requirements can share them with our sourcing team so the appropriate documentation can be reviewed before supply. Relevant restricted substances and chemical requirements should be assessed according to the applicable regulation, product, material, and market. Supporting supplier declarations or test documentation can be reviewed where available and required.',
       },
     ],
   },
@@ -315,22 +315,26 @@ const POSTS = [
     id: 10,
     featured: false,
     category: 'Logistics & Sourcing',
-    title: 'Exporting Industrial & Automotive Components: ATI\'s Logistics Playbook',
-    excerpt: 'How ATI manages end-to-end export logistics from Guangzhou to 40+ countries covering documentation, Incoterms 2020 (FOB, CIF, DDP), transit times, and customs clearance.',
+    title: 'Exporting Industrial, Motorcycle & E-Bike Components: AT International Logistics Playbook',
+    excerpt: 'How ATI coordinates international export logistics from China to global customers, including documentation, Incoterms 2020, shipment planning, transit considerations, and customs requirements.',
     date: 'February 04, 2026',
     readTime: '6 min read',
-    author: 'Guangzhou Logistics Operations Desk',
+    author: 'AT International Insights',
     icon: 'local_shipping',
     image: '/assets/blog_export_logistics.png',
-    summary: 'Exporting manufactured goods requires seamless coordination between factory schedules, container loading, customs documentation, and international shipping lines. ATI handles the entire process to make global sourcing hassle-free.',
+    summary: 'International component sourcing involves coordination between suppliers, documentation, freight arrangements, customs requirements, and delivery schedules. ATI helps simplify this process by coordinating with supplier and logistics partners and supporting customers with the documentation and shipping requirements relevant to their orders.',
     sections: [
       {
-        heading: '1. Navigating Incoterms 2020: FOB vs CIF vs DDP',
-        text: 'We support flexible trade terms tailored to your logistics capabilities: EXW for buyers with local freight forwarders, FOB Guangzhou/Shenzhen for standard sea freight, CIF for port delivery, and DDP for hassle-free door-to-door delivery with customs duties paid.',
+        heading: '1. Navigating Incoterms 2020: EXW, FOB, CFR, CIF & DDP',
+        text: 'ATI can support commonly used Incoterms such as EXW, FOB, CFR, CIF, and DDP, depending on the product, destination, shipment requirements, and agreed commercial terms. We coordinate FOB shipments through agreed Chinese ports to align with buyer freight arrangements.',
       },
       {
         heading: '2. Consolidated Container Shipments',
-        text: 'Combine industrial sealing products, motorcycle engine spare parts, and e-bike hardware into single consolidated container loads (LCL / FCL), maximizing freight cost efficiency and simplifying import clearance.',
+        text: 'Where order volumes and product requirements allow, buyers can consolidate industrial sealing products, motorcycle parts, e-bike components, and other compatible products into LCL or FCL shipments. Consolidation can help optimize freight utilization and simplify shipment coordination.',
+      },
+      {
+        heading: '3. What Buyers Should Prepare for International Sourcing',
+        text: 'Before requesting an international shipment, buyers should provide product specifications, required quantities, destination details, preferred Incoterms, packaging requirements, and any applicable documentation or compliance requirements. Clear information helps suppliers and logistics partners coordinate quotations and shipment planning more efficiently.',
       },
     ],
   },
@@ -338,26 +342,26 @@ const POSTS = [
     id: 11,
     featured: false,
     category: 'Technical',
-    title: 'Custom Seal & Component Design: From Drawing to First Article in 14 Days',
-    excerpt: 'Walk through ATI\'s rapid custom sourcing process: drawing review, mold design, sample vulcanization, and first article inspection report (FAIR).',
+    title: 'Custom Component Sourcing: From Drawing to First Article',
+    excerpt: 'Learn how ATI coordinates custom sourcing from drawing review and supplier communication to sample evaluation and first-article verification.',
     date: 'January 20, 2026',
     readTime: '7 min read',
-    author: 'ATI Custom Tooling & Prototyping Group',
+    author: 'AT International Insights',
     icon: 'design_services',
     image: '/assets/blog_custom_seal_design.png',
-    summary: 'Standard off-the-shelf catalog parts don\'t always meet specialized engineering demands. When you need custom cross-sections, non-standard dimensions, or proprietary elastomer formulations, ATI delivers rapid custom prototyping.',
+    summary: 'Standard catalog parts do not always meet specialized engineering demands. When you need custom cross-sections, non-standard dimensions, or specific material formulations, ATI facilitates custom sourcing through qualified manufacturing partners.',
     sections: [
       {
-        heading: '1. Step 1: CAD Drawing & Application Analysis (Days 1–3)',
-        text: 'Our engineering team reviews your 2D/3D CAD drawings (STEP, DWG, PDF), checking groove dimensions, compression percentages, fluid contact, and operating temperatures.',
+        heading: '1. Step 1: Technical Review & Application Analysis',
+        text: 'Our sourcing team reviews your 2D/3D CAD drawings (STEP, DWG, PDF), checking groove dimensions, compression requirements, fluid contact, and operating temperature parameters with supplier engineers.',
       },
       {
-        heading: '2. Step 2: Precision Mold Tooling & Compound Mixing (Days 4–9)',
-        text: 'CNC machining of multi-cavity prototype steel molds and custom elastomer compound mixing tailored to your hardness (Shore A) and color requirements.',
+        heading: '2. Step 2: Tooling Coordination & Compound Formulation',
+        text: 'Coordination of prototype tooling and material compound preparation tailored to your required hardness (Shore A) and performance criteria through verified supplier factories.',
       },
       {
-        heading: '3. Step 3: Sample Vulcanization & First Article Inspection (Days 10–14)',
-        text: 'Production of initial sample batches, complete with optical CMM dimensional inspection reports and material test certificates shipped via express courier for immediate client testing.',
+        heading: '3. Step 3: Sample Verification & First Article Review',
+        text: 'Production of initial sample batches, complete with dimensional inspection records and available material test certificates for client review and testing prior to volume production.',
       },
     ],
   },
@@ -508,14 +512,14 @@ function ArticleModal({ post, onClose, onSelectPost }) {
           {/* CTA Box inside modal */}
           <div className="bg-gradient-to-r from-[#005691] to-[#003d66] text-white p-6 sm:p-8 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h4 className="font-bold text-lg mb-1">Need Sourcing or Technical Support?</h4>
-              <p className="text-xs sm:text-sm text-white/80">Connect with ATI's engineering team for custom samples, drawings, or volume quotes.</p>
+              <h4 className="font-bold text-lg mb-1">Planning Your Next International Shipment?</h4>
+              <p className="text-xs sm:text-sm text-white/80">Share your product requirements, quantities, destination, and preferred shipping terms with ATI, and our team can help coordinate suitable sourcing and logistics options.</p>
             </div>
             <button
               onClick={onClose}
-              className="bg-white text-[#005691] px-6 py-3 rounded-lg font-bold text-sm hover:bg-gray-100 whitespace-nowrap transition-all shadow-md"
+              className="bg-white text-[#005691] px-6 py-3 rounded-lg font-bold text-sm hover:bg-gray-100 whitespace-nowrap transition-all shadow-md cursor-pointer"
             >
-              Contact Engineering
+              Discuss Your Requirements
             </button>
           </div>
 
@@ -600,12 +604,12 @@ export default function Blogs() {
       <section
         className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden"
         style={{
-          backgroundImage: 'url(https://res.cloudinary.com/ybne3lvu/image/upload/v1784457971/wwe_siixmw.png)',
+          backgroundImage: 'url(/assets/blogs_hero_bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest backdrop-blur-sm">
             Technical & Sourcing Knowledge Hub
@@ -614,7 +618,7 @@ export default function Blogs() {
             AT International Insights
           </h1>
           <p className="text-white/80 text-base max-w-2xl">
-            Engineering breakdowns, technical guides, motorcycle spare parts standards, e-bike sealing innovations, and global procurement insights from our China sourcing desk.
+            Practical technical guides, motorcycle and e-bike component insights, quality standards, and procurement knowledge from our China sourcing team.
           </p>
         </div>
       </section>
@@ -765,7 +769,7 @@ export default function Blogs() {
             <span className="material-symbols-outlined text-4xl mb-3 text-white/90">mark_email_unread</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-3">NEWSLETTER</h3>
             <p className="text-white/80 text-sm mb-8 leading-relaxed">
-              Get technical compound guides, motorcycle & e-bike part updates, and global freight insights sent straight to your inbox monthly.
+              Get practical sourcing insights, motorcycle and e-bike component updates, quality guidance, and global procurement news delivered monthly.
             </p>
 
             {subscribed ? (

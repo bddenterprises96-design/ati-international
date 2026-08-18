@@ -110,8 +110,8 @@ const INQUIRY_MODES = [
 const PRODUCT_CATEGORIES = [
   { id: 'Motorcycle Parts & Engine Components', label: 'Motorcycle Parts', icon: 'two_wheeler', tag: 'Valves, Pistons, Clutch' },
   { id: 'E-Bike Drive Systems & Electronics', label: 'E-Bike Components', icon: 'electric_bike', tag: 'Motors, Battery Seals' },
-  { id: 'Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)', label: 'Industrial Seals', icon: 'settings', tag: 'FKM, Viton, NBR' },
-  { id: 'Custom Sourcing to Technical Drawing', label: 'Custom CAD Spec', icon: 'build', tag: 'Rapid Tooling' },
+  { id: 'Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)', label: 'Industrial Seals', icon: 'settings', tag: 'Valve Stem,Oil Seals, O Rings' },
+  { id: 'Custom Sourcing to Technical Drawing', label: 'Request Custom Sourcing', icon: 'build', tag: 'Custom Specification Sourcing' },
 ]
 
 export default function ContactUS({ onNavigate }) {
@@ -537,7 +537,7 @@ export default function ContactUS({ onNavigate }) {
                 <span className="inline-block px-2.5 py-0.5 rounded bg-white/20 text-white text-[10px] font-bold tracking-wider uppercase mb-1">Custom Sourcing Desk</span>
                 <h3 className="text-xl font-bold text-white mb-1">Can't Find Your Exact Product?</h3>
                 <p className="text-white/85 text-xs sm:text-sm leading-relaxed">
-                  Beyond our online catalog, AT International custom-sources motorcycle parts, e-bike components, and industrial seals to drawing. Share your CAD, drawing, or sample with us.
+                  Beyond our online catalogue, AT International sources motorcycle parts, e-bike components, and industrial sealing products to your drawings, specifications, or samples.
                 </p>
               </div>
             </div>
@@ -552,7 +552,7 @@ export default function ContactUS({ onNavigate }) {
               }}
               className="bg-white text-[#005691] px-6 py-3.5 rounded-xl text-xs font-bold hover:bg-gray-100 transition-all shadow-lg hover:scale-105 active:scale-95 duration-200 whitespace-nowrap cursor-pointer"
             >
-              Request Custom CAD Sourcing
+              Request Custom Sourcing
             </button>
           </div>
         </div>

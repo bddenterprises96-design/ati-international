@@ -618,24 +618,6 @@ export default function FloatingContacts() {
         document.body
       )}
 
-      {/* Basket/Cart Button */}
-      <button
-        onClick={() => {
-          console.log('🛒 [FloatingContacts] Basket clicked, loading parts...')
-          loadSelectedParts()
-          setShowCart(true)
-        }}
-        title="Review Order"
-        className="relative w-14 h-14 rounded-lg bg-[#005691] text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-transform"
-      >
-        <span className="material-symbols-outlined text-3xl">shopping_cart</span>
-        {totalItems > 0 && (
-          <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-yellow-400 text-gray-800 text-xs font-bold flex items-center justify-center border-2 border-white animate-pulse">
-            {totalItems > 99 ? '99+' : totalItems}
-          </span>
-        )}
-      </button>
-
       {/* WeChat Popup */}
       {showWeChat && (
         <div className="bg-white border border-[#c5c6cd] rounded-xl shadow-2xl p-5 w-52 text-center mb-2 animate-fadeInUp">

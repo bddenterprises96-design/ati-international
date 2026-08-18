@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const NAV_LINKS = [
@@ -10,27 +10,9 @@ const NAV_LINKS = [
   { label: "FAQ's",      path: '/faqs' },
 ]
 
-const LANGUAGES = [
-  { code: 'EN', name: 'English', flag: '🇺🇸' },
-  { code: 'ZH', name: '中文 (Chinese)', flag: '🇨🇳' },
-  { code: 'ES', name: 'Español (Spanish)', flag: '🇪🇸' },
-  { code: 'AR', name: 'العربية (Arabic)', flag: '🇦🇪' },
-  { code: 'FR', name: 'Français (French)', flag: '🇫🇷' },
-  { code: 'DE', name: 'Deutsch (German)', flag: '🇩🇪' },
-  { code: 'PT', name: 'Português (Portuguese)', flag: '🇵🇹' },
-  { code: 'RU', name: 'Русский (Russian)', flag: '🇷🇺' },
-  { code: 'JA', name: '日本語 (Japanese)', flag: '🇯🇵' },
-  { code: 'UR', name: 'اردو (Urdu)', flag: '🇵🇰' },
-]
-
 export default function Navbar({ onNavigate }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false)
-  const [selectedLang, setSelectedLang] = useState(() => {
-    return localStorage.getItem('selectedLanguage') || 'EN'
-  })
-  const langRef = useRef(null)
   const { pathname } = useLocation()
 
   // Turn opaque once user scrolls past 10px
@@ -41,19 +23,7 @@ export default function Navbar({ onNavigate }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
-  // Click outside to close language dropdown
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (langRef.current && !langRef.current.contains(event.target)) {
-        setLangDropdownOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
   const isActive = (path) => pathname === path
-  const currentLang = LANGUAGES.find(l => l.code === selectedLang) || LANGUAGES[0]
 
   return (
     <header
@@ -113,62 +83,6 @@ export default function Navbar({ onNavigate }) {
         {/* Right Side */}
         <div className="flex items-center gap-3 flex-shrink-0">
 
-          {/* Language Selector Dropdown Box with Arrow */}
-          <div className="relative" ref={langRef}>
-            <button
-              type="button"
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className={`px-3 py-2 text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm border transition-all duration-200 cursor-pointer ${
-                scrolled
-                  ? 'bg-white text-[#005691] border-gray-200 hover:bg-gray-50 hover:border-[#005691]'
-                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-              }`}
-              title="Select Language"
-            >
-              <span className="text-base leading-none">{currentLang.flag}</span>
-              <span className="font-semibold uppercase tracking-wider">{currentLang.code}</span>
-              <span className={`material-symbols-outlined text-sm transition-transform duration-200 ${langDropdownOpen ? 'rotate-180' : ''}`}>
-                keyboard_arrow_down
-              </span>
-            </button>
-
-            {/* Language Dropdown Menu */}
-            {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                <div className="px-3 py-1.5 border-b border-gray-100 mb-1 flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Select Language</span>
-                  <span className="material-symbols-outlined text-sm text-gray-400">language</span>
-                </div>
-                <div className="max-h-64 overflow-y-auto space-y-0.5 px-1">
-                  {LANGUAGES.map((lang) => (
-                    <button
-                      key={lang.code}
-                      type="button"
-                      onClick={() => {
-                        setSelectedLang(lang.code)
-                        localStorage.setItem('selectedLanguage', lang.code)
-                        setLangDropdownOpen(false)
-                      }}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-xs font-medium rounded-lg transition-colors ${
-                        selectedLang === lang.code
-                          ? 'bg-[#005691]/10 text-[#005691] font-bold'
-                          : 'text-gray-700 hover:bg-gray-100'
-                      }`}
-                    >
-                      <span className="flex items-center gap-2.5">
-                        <span className="text-base leading-none">{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </span>
-                      {selectedLang === lang.code && (
-                        <span className="material-symbols-outlined text-sm text-[#005691]">check</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
           {/* Request a Quote button */}
           <button
             onClick={() => onNavigate('Contact Us')}
@@ -217,35 +131,6 @@ export default function Navbar({ onNavigate }) {
                 </button>
               )
             })}
-          </div>
-
-          {/* Language Selector — Mobile Menu Section */}
-          <div className="px-6 pt-3 pb-2 border-t border-gray-100 mt-2">
-            <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">language</span>
-              Select Language
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {LANGUAGES.map((lang) => (
-                <button
-                  key={lang.code}
-                  type="button"
-                  onClick={() => {
-                    setSelectedLang(lang.code)
-                    localStorage.setItem('selectedLanguage', lang.code)
-                    setMenuOpen(false)
-                  }}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors border ${
-                    selectedLang === lang.code
-                      ? 'bg-[#005691] text-white border-[#005691] font-bold'
-                      : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
-                  }`}
-                >
-                  <span className="text-sm">{lang.flag}</span>
-                  <span className="truncate">{lang.name.split(' ')[0]}</span>
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       )}

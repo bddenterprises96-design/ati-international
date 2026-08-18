@@ -156,7 +156,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── VALUE PROPS BAR ── */}
-      <section className="bg-white border-b border-[#c5c6cd] py-1">
+      <section className="bg-white border-b border-[#c5c6cd] py-8">
         <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
           {[
             { icon: 'verified_user',    title: 'Quality-Assured Sourcing', desc: 'All products sourced from ISO 9001:2015 certified partner manufacturers.' },
@@ -187,9 +187,7 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
             <p className="text-[#505f76] leading-relaxed mb-5">
-              AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions. We supply Valve Stem Seals, O-Rings,
-              Oil Seals, and custom-sourced sealing solutions to procurement teams, distributors,
-              and industrial buyers worldwide.
+              AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions. We supply a wide range of motorcycle parts, e-bike components, Valve Stem Seals, O-Rings, Oil Seals, and custom-sourced sealing solutions to procurement teams, distributors, and industrial buyers worldwide.
             </p>
             <p className="text-[#505f76] leading-relaxed mb-5">
               Operating from China, we source exclusively from verified, ISO-certified
@@ -207,6 +205,159 @@ export default function AboutUs({ onNavigate }) {
             {STATS.map((s) => (
               <StatCard key={s.label} num={s.num} label={s.label} startCounting={countStarted} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORE SUPPLY DIVISIONS ── */}
+      <section className="py-20 max-w-[1440px] mx-auto px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-4xl font-extrabold text-[#005691] mb-4 tracking-tight">Core Supply Divisions</h2>
+          <p className="text-[#505f76] text-base leading-relaxed">
+            Explore our primary export product lines engineered for demanding industrial, automotive, and electric mobility applications worldwide.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Industrial Division Card */}
+          <div 
+            onClick={() => onNavigate('Products#industrial-seals')}
+            className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+          >
+            <div>
+              <div className="h-64 overflow-hidden relative bg-gray-100">
+                <span className="absolute top-4 left-4 z-10 bg-[#005691] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  Industrial Division
+                </span>
+                <img
+                  src="/assets/homepage_3d_bento_industrial.png"
+                  alt="Industrial Sealing Solutions"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.target.src = '/assets/industrial-seals.png' }}
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
+                  Industrial Sealing Solutions
+                </h3>
+                <p className="text-[#505f76] text-sm leading-relaxed mb-6">
+                  High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, and Heavy-Duty Rotary Shaft Oil Seals for hydraulic and engine systems.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {['Valve Stem Seals', 'O-Rings', 'Oil Seals'].map((tag) => (
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="p-8 pt-0">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onNavigate('Products#industrial-seals')
+                }}
+                className="w-full bg-[#005691] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-md"
+              >
+                Explore Industrial Seals
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Motorcycle Division Card */}
+          <div 
+            onClick={() => onNavigate('Products#motorcycle')}
+            className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+          >
+            <div>
+              <div className="h-64 overflow-hidden relative bg-gray-100">
+                <span className="absolute top-4 left-4 z-10 bg-[#FF6B35] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  Motorcycle Division
+                </span>
+                <img
+                  src="/assets/homepage_3d_bento_motorcycle.png"
+                  alt="Motorcycle Components & Gaskets"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.target.src = '/assets/moto.png' }}
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
+                  Motorcycle Components & Gaskets
+                </h3>
+                <p className="text-[#505f76] text-sm leading-relaxed mb-6">
+                  Precision cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and complete engine overhaul gaskets.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {['Engine Parts', 'Clutch Kits', 'Rubber Seals'].map((tag) => (
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="p-8 pt-0">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onNavigate('Products#motorcycle')
+                }}
+                className="w-full bg-[#005691] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-md"
+              >
+                Explore Motorcycle Division
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          {/* E-Bike Division Card */}
+          <div 
+            onClick={() => onNavigate('Products#e-bike')}
+            className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+          >
+            <div>
+              <div className="h-64 overflow-hidden relative bg-gray-100">
+                <span className="absolute top-4 left-4 z-10 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  E-Bike Division
+                </span>
+                <img
+                  src="/assets/homepage_3d_bento_ebike.png"
+                  alt="E-Bike Powertrain & Battery Seals"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.target.src = '/assets/ebike.png' }}
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
+                  E-Bike Powertrain & Battery Seals
+                </h3>
+                <p className="text-[#505f76] text-sm leading-relaxed mb-6">
+                  IP67 mid-drive motor rotary shaft seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {['Motor Seals', 'Battery Gaskets', 'Powertrain'].map((tag) => (
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="p-8 pt-0">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onNavigate('Products#e-bike')
+                }}
+                className="w-full bg-[#005691] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-md"
+              >
+                Explore E-Bike Division
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -263,7 +414,7 @@ export default function AboutUs({ onNavigate }) {
               { cert: 'ISO 9001:2015', desc: 'Quality Management System'     },
               { cert: 'RoHS',          desc: 'Hazardous Substance Compliance' },
               { cert: 'REACH',         desc: 'Chemical Safety Regulation'    },
-              { cert: '100% Batch Inspection',      desc: ' Quality Standard'   },
+              { cert: 'Quality Verification & Traceability',      desc: ' ATI: Verify Third-Party Inspection Records'   },
             ].map((c) => (
               <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 hover:scale-105 transition-transform duration-500">
                 <div className="text-xl font-bold text-white mb-2">{c.cert}</div>
@@ -287,7 +438,7 @@ export default function AboutUs({ onNavigate }) {
               selection and quality verification to export documentation and international delivery.
             </p>
             {[
-              { icon: 'check_circle', title: 'Full Documentation',    desc: 'CoC, material data sheets, PPAP, RoHS and REACH declarations provided with every order.' },
+              { icon: 'check_circle', title: 'Full Documentation',    desc: 'CoC, material data sheets, RoHS and REACH declarations provided with every order.' },
               { icon: 'check_circle', title: 'Flexible Incoterms',    desc: 'EXW, FOB, CFR, CIF and DDP terms available to suit your logistics and import requirements.' },
               { icon: 'check_circle', title: 'Custom Sourcing',       desc: 'We source to your drawings, specifications, and OEM cross-references from our verified supplier network.' },
             ].map((item) => (

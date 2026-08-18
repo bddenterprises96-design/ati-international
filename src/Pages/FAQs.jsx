@@ -14,11 +14,11 @@ const FAQS = [
       },
       {
         q: 'Can ATI source seals to my custom dimensions and drawings?',
-        a: 'Yes. We coordinate custom procurement on your behalf. Submit your technical drawings (DXF, PDF, or STEP format), material requirements, and application details our sourcing team will review your specifications, coordinate with our supplier network, and deliver first article samples within 7–14 business days.',
+        a: 'Yes. ATI coordinates custom sourcing based on your drawings, specifications, samples, and application requirements. Share your DXF, PDF, STEP, or other technical information with our sourcing team, and we will coordinate with suitable partner suppliers to develop samples for your approval.',
       },
       {
         q: 'What are the maximum operating temperatures for your seals?',
-        a: 'It depends on the material. NBR: -40°C to +120°C. FKM (Viton): -20°C to +200°C. Silicone (VMQ): -60°C to +230°C. PTFE-based: -60°C to +260°C. FFKM: up to +300°C. We recommend sharing your full application details so we can recommend the optimal material.',
+        a: 'Operating temperature depends on the specific material compound, formulation, grade, and application. Share your operating conditions with our sourcing team and we can help identify suitable material options through our supplier network.',
       },
       {
         q: 'Do you provide material certifications and test reports?',
@@ -31,11 +31,11 @@ const FAQS = [
     items: [
       {
         q: 'What is the Minimum Order Quantity (MOQ)?',
-        a: 'MOQ varies by product. For standard O-Rings: 2,000–5,000 units. For Valve Stem Seals: 5,000–10,000 units. For Oil Seals: 500–2,000 units. For custom components, MOQ is discussed during the engineering review. We also offer VMI and consignment programs for high-volume customers.',
+        a: 'MOQ varies by product, specification, material, and sourcing requirements. Share your required quantity with our team and we will confirm the applicable MOQ and commercial terms.',
       },
       {
         q: 'Can I order samples before placing a bulk order?',
-        a: 'Absolutely. We encourage sample qualification before bulk production. Sample orders are processed within 7–14 business days. Sample costs are typically refunded against the first production order above MOQ.',
+        a: 'Sample availability and charges depend on the product and sourcing requirements. Our team will confirm sample costs and lead times before proceeding.',
       },
       {
         q: 'How do I submit a procurement inquiry?',
@@ -52,7 +52,7 @@ const FAQS = [
       },
       {
         q: 'What quality control processes do you use?',
-        a: 'Our partner manufacturers conduct quality inspections including dimensional inspection (CMM and optical comparators), hardness testing (Shore A/D), material verification (FTIR spectroscopy), and visual inspection. AT International verifies supplier quality records and inspection results to ensure consistent quality, accuracy, and compliance with international standards before global shipment.',
+        a: 'Quality checks are carried out through our verified supplier network according to the product and customer requirements. Depending on the application, inspections may include dimensional checks, material verification, hardness testing, visual inspection, and other relevant tests. AT International reviews available quality records and inspection documentation before shipment to help ensure the supplied products meet the agreed specifications.',
       },
       {
         q: 'Can you match competitor part numbers?',
@@ -73,11 +73,11 @@ const FAQS = [
       },
       {
         q: 'What are typical lead times for bulk orders?',
-        a: 'Standard catalogue items: 3–4 weeks after order confirmation. Custom or new tooling orders: 6–10 weeks including tooling, sampling, and approval. We provide a detailed production schedule at order confirmation and provide regular updates throughout.',
+        a: 'Standard catalogue items typically follow shorter sourcing and delivery timelines, while custom-sourced products may require additional time for supplier coordination, sampling, approval, and production. Lead times depend on the product, specifications, quantity, and destination and will be confirmed with your quotation.',
       },
       {
         q: 'Is ATI a manufacturer or a trading company?',
-        a: 'AT International is a global trading company, supplier, and exporter. We work with verified manufacturing partners to provide reliable products, competitive pricing, and customized sourcing solutions for customers worldwide.',
+        a: 'AT International is a global sourcing, trading, supply, and export company. We work with verified manufacturing partners to source and supply motorcycle parts, e-bike components, industrial sealing products, and other components according to customer requirements. Our role is to simplify procurement, coordinate with suitable suppliers, and manage the supply process from sourcing through export for customers worldwide.',
       },
     ],
   },
@@ -108,7 +108,7 @@ export default function FAQs() {
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Frequently Asked Questions</h1>
           <p className="text-white/80 text-base max-w-2xl">
-            Answers to the most common questions from our global procurement and engineering customers.
+            Answers to common questions from global buyers, distributors, procurement teams, and sourcing partners.
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function FAQs() {
         <div className="bg-[#005691] text-white rounded-2xl p-10 text-center mt-8">
           <span className="material-symbols-outlined text-4xl mb-4 block">help</span>
           <h3 className="text-2xl font-bold mb-3">Still Have Questions?</h3>
-          <p className="text-white/80 mb-8 max-w-md mx-auto">Our technical and procurement team is available Mon–Sat to answer your specific requirements.</p>
+          <p className="text-white/80 mb-8 max-w-md mx-auto">Our sourcing team is available Mon–Sat to help with your product requirements, specifications, and procurement needs.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="https://wa.me/8618523210975"

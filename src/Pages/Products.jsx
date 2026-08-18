@@ -337,7 +337,7 @@ const PRODUCTS = [
     icon: 'two_wheeler',
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
-    description: 'ATI supplies a comprehensive range of high-precision motorcycle components, engine sealing kits, and transmission parts sourced for global markets.',
+    description: 'ATI supplies a wide range of motorcycle parts and components, sourced from trusted partners to meet diverse procurement needs worldwide.',
     subProducts: [
       {
         id: 'moto-engine',
@@ -398,7 +398,7 @@ const PRODUCTS = [
     icon: 'electric_bike',
     color: '#10B981',
     gradient: 'from-emerald-500 to-teal-600',
-    description: 'ATI supplies sealing components and powerpack enclosure solutions engineered for electric bicycle mid-drive and hub-drive systems.',
+    description: 'AT International supplies versatile e-bike parts and components for mid-drive and hub-drive systems, helping buyers source the right components with confidence through a reliable global supply network.',
     subProducts: [
       {
         id: 'ebike-motor',
@@ -887,9 +887,9 @@ export default function Products({ onNavigate }) {
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
             Our Products
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Industrial Product Catalogue</h1>
-          <p className="text-white/80 text-base max-w-2xl">
-            Quality-verified sealing components sourced from certified partner manufacturers, supplied for demanding industrial applications worldwide.
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Everything You Need</h1>
+          <p className="text-white/80 text-base max-w-1xl">
+            Looking for the right parts without the sourcing hassle? From industrial sealing solutions to motorcycle and e-bike components, AT International brings quality-verified products together under one trusted roof — helping buyers source with confidence and keep their businesses moving forward.
           </p>
         </div>
       </section>

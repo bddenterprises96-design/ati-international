@@ -24,13 +24,232 @@ export default function WhyATI({ onNavigate }) {
             Our Advantage
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Source Through AT International?</h1>
-          <p className="text-white/80 text-base max-w-2xl">
-            Discover what makes AT International the preferred global sourcing & trading partner for procurement teams, distributors and industrial buyers worldwide.
+          <p className="text-white/90 text-base max-w-3xl leading-relaxed">
+            AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white underline decoration-white/50">Motorcycle Parts</strong>, <strong className="text-white underline decoration-white/50">E-Bike Parts & Components</strong>, and <strong className="text-white underline decoration-white/50">Industrial Sealing Solutions</strong>.
           </p>
         </div>
       </section>
 
-      {/* ── KEY DIFFERENTIATORS: WHAT SETS US APART (12 SUPPLIER & TRADING FOCUSED BOXES) ── */}
+      {/* ── CORE PRODUCT DIVISIONS WE SUPPLY (CLEAR HIGHLIGHT BAR) ── */}
+      <section className="py-16 max-w-[1280px] mx-auto px-6 sm:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
+            Our 3 Dedicated Product Lines
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#005691] mb-3">
+            What AT International Supplies
+          </h2>
+          <p className="text-[#505f76] text-sm sm:text-base leading-relaxed">
+            We are a specialized international supplier and trading channel connecting global distributors and B2B buyers with 3 core component divisions:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Division 1: Motorcycle Parts */}
+          <div className="bg-white border-2 border-orange-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#FF6B35] transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 bg-orange-50 text-[#FF6B35] rounded-2xl flex items-center justify-center group-hover:bg-[#FF6B35] group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <span className="material-symbols-outlined text-3xl">two_wheeler</span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B35] bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
+                  Division 01
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#FF6B35] transition-colors">
+                Motorcycle Parts
+              </h3>
+              <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
+                Engine cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and complete engine overhaul gasket sets.
+              </p>
+              <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
+                {[
+                  'Engine Cylinder & Piston Kits',
+                  'Clutch Friction Plates & Assemblies',
+                  'Crankshaft & Overhaul Oil Seal Kits',
+                  'Complete Engine Head Gaskets'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
+                    <span className="material-symbols-outlined text-[#FF6B35] text-base">check_circle</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={() => handleNavigate('Products#motorcycle')}
+              className="w-full bg-[#FF6B35] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-orange-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+            >
+              Explore Motorcycle Parts
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </div>
+
+          {/* Division 2: E-Bike Parts & Components */}
+          <div className="bg-white border-2 border-emerald-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#10B981] transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 bg-emerald-50 text-[#10B981] rounded-2xl flex items-center justify-center group-hover:bg-[#10B981] group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <span className="material-symbols-outlined text-3xl">electric_bike</span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#10B981] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                  Division 02
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#10B981] transition-colors">
+                E-Bike Parts & Components
+              </h3>
+              <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
+                IP67 mid-drive motor rotary shaft seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
+              </p>
+              <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
+                {[
+                  'Mid-Drive Motor Rotary Shaft Seals (IP67)',
+                  'Silicone Battery Pack Enclosure Gaskets',
+                  'Multi-Wire Controller Sealing Grommets',
+                  'Powertrain & Hub Seals'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
+                    <span className="material-symbols-outlined text-[#10B981] text-base">check_circle</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={() => handleNavigate('Products#e-bike')}
+              className="w-full bg-[#10B981] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+            >
+              Explore E-Bike Parts
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </div>
+
+          {/* Division 3: Industrial Sealing Solutions */}
+          <div className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#005691] transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 bg-blue-50 text-[#005691] rounded-2xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <span className="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Division 03
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
+                Industrial Sealing Solutions
+              </h3>
+              <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
+                High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, and Heavy-Duty Rotary Shaft Oil Seals for hydraulic and engine systems.
+              </p>
+              <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
+                {[
+                  'FKM / Viton Valve Stem Seals',
+                  'Precision Fluororubber & NBR O-Rings',
+                  'Heavy-Duty Rotary Shaft Oil Seals',
+                  'Custom Spec Molded Rubber Seals'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
+                    <span className="material-symbols-outlined text-[#005691] text-base">check_circle</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={() => handleNavigate('Products#industrial-seals')}
+              className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+            >
+              Explore Industrial Seals
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── END-TO-END SUPPLY CHAIN WORKFLOW (6 STAGES) ── */}
+      <section className="bg-white py-16 border-y border-[#c5c6cd]">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
+              End-to-End Supply Chain Value
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#005691] mb-3">
+              Our 6-Step Global Supply Chain Workflow
+            </h2>
+            <p className="text-[#505f76] text-sm sm:text-base leading-relaxed">
+              AT International seamlessly manages your entire cross-border procurement process from supplier verification to final destination delivery:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+            {[
+              {
+                step: '01',
+                title: 'Verified Supplier Network',
+                desc: 'Access ISO-certified partner factories across China verified for technical compliance.',
+                icon: 'verified'
+              },
+              {
+                step: '02',
+                title: 'Sourcing Support',
+                desc: 'CAD drawing reviews, 14-day sample production, and custom spec sourcing.',
+                icon: 'engineering'
+              },
+              {
+                step: '03',
+                title: 'Quality Verification',
+                desc: 'Pre-shipment audit, dimensional checks, MTC material testing & inspection.',
+                icon: 'fact_check'
+              },
+              {
+                step: '04',
+                title: 'Documentation',
+                desc: 'Complete B/L, Certificates of Origin (Form A/E), RoHS/REACH & Invoices.',
+                icon: 'description'
+              },
+              {
+                step: '05',
+                title: 'Logistics',
+                desc: 'Container consolidation (LCL/FCL) with flexible FOB, CIF, or DDP terms.',
+                icon: 'local_shipping'
+              },
+              {
+                step: '06',
+                title: 'Delivery',
+                desc: 'Dependable, on-time global cargo dispatch to 40+ destinations worldwide.',
+                icon: 'mark_email_read'
+              },
+            ].map((s, idx) => (
+              <div key={s.step} className="relative bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl p-5 hover:border-[#005691] hover:bg-blue-50/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-black text-[#005691] bg-blue-100 px-2 py-0.5 rounded-md">
+                      {s.step}
+                    </span>
+                    <span className="material-symbols-outlined text-[#005691] text-2xl group-hover:scale-110 transition-transform">
+                      {s.icon}
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-[#005691] text-sm mb-2 leading-snug">
+                    {s.title}
+                  </h4>
+                  <p className="text-[#505f76] text-[11px] leading-relaxed">
+                    {s.desc}
+                  </p>
+                </div>
+                {idx < 5 && (
+                  <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-[#005691]">
+                    <span className="material-symbols-outlined text-base">chevron_right</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── KEY DIFFERENTIATORS: WHAT SETS US APART ── */}
       <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100 mb-3 inline-block">
@@ -54,7 +273,7 @@ export default function WhyATI({ onNavigate }) {
               icon: 'verified_user',
               badge: 'Quality Control',
               title: 'ISO 9001:2015 & Pre-Shipment Inspection',
-              desc: 'Every product order undergoes rigorous pre-shipment quality audits, dimensional verification, and material testing, accompanied by Material Test Certificates (MTC) and full batch traceability.',
+              desc: 'Partner manufacturers perform the required inspections/testing, while AT International manages supplier verification, reviews quality records and inspection reports, and coordinates quality documentation before shipment.',
             },
             {
               icon: 'local_shipping',
@@ -66,13 +285,7 @@ export default function WhyATI({ onNavigate }) {
               icon: 'build',
               badge: 'Custom Sourcing',
               title: 'Custom CAD & Spec Sourcing in 14 Days',
-              desc: 'Beyond standard catalog offerings, we custom-source products to your 2D/3D technical drawings or physical samples, managing tooling design, sample production, and first-article approvals.',
-            },
-            {
-              icon: 'payments',
-              badge: 'Commercial Terms',
-              title: 'Factory-Direct Pricing & Commercial Value',
-              desc: 'Leverage ATI’s combined purchasing volume and direct factory relationships in China to secure tier-1 commercial pricing, eliminating unnecessary middleman markups for B2B buyers.',
+              desc: 'Beyond standard catalog offerings, we coordinate custom-source products to your 2D/3D technical drawings or physical samples, sample production, and first-article approvals.',
             },
             {
               icon: 'inventory_2',
@@ -90,7 +303,7 @@ export default function WhyATI({ onNavigate }) {
               icon: 'gavel',
               badge: 'Compliance',
               title: 'International Regulatory & Chemical Safety',
-              desc: 'All supplied products comply with strict international quality, chemical safety, and environmental standards (REACH & RoHS 3), ensuring hassle-free customs clearance in worldwide markets.',
+              desc: 'AT International sources products with applicable RoHS/REACH documentation and compliance declarations through qualified suppliers, where applicable.',
             },
             {
               icon: 'fact_check',
@@ -185,45 +398,66 @@ export default function WhyATI({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── CLIENT TESTIMONIALS ── */}
+      {/* ── HOW WE WORK WITH YOU (4 COMMITMENT CARDS) ── */}
       <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold text-[#005691] mb-2">What Our B2B Clients Say</h2>
-          <p className="text-[#505f76] text-xs sm:text-sm">Trusted by regional distributors, importers, and procurement buyers around the globe.</p>
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
+            Our Process
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#005691] mb-3">
+            How We Work With You
+          </h2>
+          <p className="text-[#505f76] text-sm sm:text-base leading-relaxed">
+            A simple, transparent process from your first inquiry to final delivery.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              quote: 'ATI has been our reliable trading and supply partner for over three years. Product quality is consistently verified, pricing is competitive, and container shipments always arrive on schedule. Their team in China makes international sourcing seamless.',
-              name: 'Procurement Director',
-              company: 'Industrial Supply Distributor, Bangladesh',
-              rating: 5
+              step: '01',
+              title: 'Share Your Requirement',
+              desc: 'Send us your product specs, drawings, or quantity needs — no minimum complexity.',
+              icon: 'assignment_add',
             },
             {
-              quote: 'Their custom CAD sourcing desk solved a complex product specification challenge for us. Fast sample turnarounds in 14 days and flawless engineering collaboration saved our procurement schedule.',
-              name: 'Sourcing Manager',
-              company: 'Equipment & Hardware Importer, UAE',
-              rating: 5
+              step: '02',
+              title: 'Get a Transparent Quote',
+              desc: 'Receive clear pricing and lead times within 24 business hours, no hidden costs.',
+              icon: 'request_quote',
             },
             {
-              quote: 'ATI is our preferred supplier for international trading and volume components. Their consistent quality control, flexible MOQs, and dependable container shipping help us maintain an efficient supply chain.',
-              name: 'Purchasing Manager',
-              company: 'Regional Wholesale Distributor, Indonesia',
-              rating: 5
+              step: '03',
+              title: 'Quality-Verified Sourcing',
+              desc: 'We coordinate with ISO-certified partner manufacturers and share documentation on request.',
+              icon: 'fact_check',
             },
-          ].map((t) => (
-            <div key={t.company} className="bg-white border border-[#c5c6cd] rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            {
+              step: '04',
+              title: 'Reliable Global Delivery',
+              desc: 'Consolidated shipping and full export documentation to 40+ countries.',
+              icon: 'local_shipping',
+            },
+          ].map((item) => (
+            <div
+              key={item.step}
+              className="bg-white border border-[#c5c6cd] rounded-2xl p-7 flex flex-col justify-between hover:shadow-xl hover:border-[#005691] hover:-translate-y-1 transition-all duration-300 group"
+            >
               <div>
-                <span className="material-symbols-outlined text-[#005691] text-3xl mb-3 block">format_quote</span>
-                <p className="text-[#505f76] text-xs leading-relaxed mb-6 italic">"{t.quote}"</p>
-              </div>
-              <div className="pt-4 border-t border-gray-100">
-                <div className="flex gap-1 mb-2 text-yellow-400 text-sm">
-                  ★★★★★
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-blue-50 text-[#005691] rounded-xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
+                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                  </div>
+                  <span className="text-xs font-black text-[#005691] bg-blue-100/70 px-2.5 py-1 rounded-md">
+                    Step {item.step}
+                  </span>
                 </div>
-                <div className="font-bold text-[#005691] text-xs">{t.name}</div>
-                <div className="text-[#505f76] text-[11px]">{t.company}</div>
+                <h3 className="font-bold text-[#005691] text-lg mb-3 leading-snug group-hover:text-[#003e69]">
+                  {item.title}
+                </h3>
+                <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
