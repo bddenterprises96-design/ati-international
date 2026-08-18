@@ -159,7 +159,7 @@ export default function Footer({ onNavigate }) {
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
-                Motorcycle Components
+                Motorcycle Parts
               </button>
             </li>
             <li>
@@ -168,25 +168,7 @@ export default function Footer({ onNavigate }) {
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
-                E-Bike Powertrain Seals
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleNavigate('Products', 'industrial-seals')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
-              >
-                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">settings</span>
-                Valve Stem Seals (FKM / Viton)
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleNavigate('Products', 'industrial-seals')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
-              >
-                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">adjust</span>
-                O-Rings & Rotary Oil Seals
+                E-Bike Components
               </button>
             </li>
             <li>
@@ -203,10 +185,10 @@ export default function Footer({ onNavigate }) {
 
         {/* Contact & Global Head Office */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-4 text-white/80">Global Export Desk</h4>
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
           <ul className="space-y-3 text-white/60 text-sm mb-4">
             <li className="flex items-start gap-2.5">
-              <span className="material-symbols-outlined text-sm mt-0.5 text-[#005691] flex-shrink-0">location_on</span>
+              <span className="material-symbols-outlined text-md mt-5.5 text-[#005691] flex-shrink-0">location_on</span>
               <span>Guangzhou City, Guangdong, China </span>
             </li>
             <li className="flex items-center gap-2.5">
@@ -215,7 +197,7 @@ export default function Footer({ onNavigate }) {
             </li>
             <li className="flex items-center gap-2.5">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">call</span>
-              <span>+86 185 2321 0975 (WhatsApp / WeChat: ATI-Guangzhou)</span>
+              <span>+86 185 2321 0975 (WhatsApp / WeChat)</span>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-white/50 pt-1 border-t border-white/5">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">schedule</span>
@@ -234,7 +216,7 @@ export default function Footer({ onNavigate }) {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-5 px-8 text-center text-white/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
-        <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, Guangdong, China</div>
+        <div>© {2026} AT International. All rights reserved. | Guangzhou City, China</div>
         <div className="flex items-center gap-4 text-white/50">
           <span>Global Trade & Export Supplier</span>
           <span>•</span>

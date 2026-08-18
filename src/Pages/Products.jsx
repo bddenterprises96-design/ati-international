@@ -436,7 +436,7 @@ const PRODUCTS = [
         id: 'ebike-drive',
         name: 'E-Bike Powertrain & Drive System Components',
         tagline: 'Controller housing seals, brake sensors & wiring harness entry grommets',
-        image: '/assets/ebike.png',
+        image: '/assets/homepage_3d_bento_ebike.png',
         hasDataSheet: false,
         description: 'ATI supplies complete powertrain sealing components including speed sensor seals, planetary reduction gear seals, controller box gaskets, and multi-wire rubber grommets.',
         features: [
