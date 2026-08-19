@@ -206,7 +206,7 @@ export default function Footer({ onNavigate }) {
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
-            className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2 w-full sm:w-auto shadow-xl hover:scale-105 transition-transform duration-500"
           >
             <span className="material-symbols-outlined text-sm">request_quote</span>
             Request a Quote

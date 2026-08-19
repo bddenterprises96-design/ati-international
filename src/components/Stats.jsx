@@ -1,12 +1,19 @@
-import React from "react";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useEffect, useRef } from "react";
 
 const Stats = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   const stats = [
     {
@@ -42,15 +49,7 @@ const Stats = () => {
               className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 p-10 text-center"
             >
               <h2 className="text-6xl font-bold text-blue-800">
-                {inView ? (
-                  <CountUp
-                    start={0}
-                    end={item.number}
-                    duration={2.5}
-                  />
-                ) : (
-                  0
-                )}
+                {inView ? item.number : 0}
                 {item.suffix}
               </h2>
 
