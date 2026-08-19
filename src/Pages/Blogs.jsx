@@ -562,6 +562,10 @@ function ArticleModal({ post, onClose, onSelectPost }) {
 }
 
 export default function Blogs() {
+  useEffect(() => {
+    document.title = 'Blogs & News | AT International'
+  }, [])
+
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedPost, setSelectedPost] = useState(null)

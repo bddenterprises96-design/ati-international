@@ -44,7 +44,7 @@ const SOCIAL = [
   },
   {
     name: 'WeChat',
-    href: '#',
+    href: 'https://weixin.qq.com/',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
         <rect width="48" height="48" rx="12" fill="#07C160"/>
@@ -256,6 +256,7 @@ export default function ContactUS({ onNavigate }) {
   }
 
   useEffect(() => {
+    document.title = 'Contact Us | AT International'
     loadSelectedParts()
     window.addEventListener('selectedPartsUpdated', loadSelectedParts)
     window.addEventListener('storage', loadSelectedParts)

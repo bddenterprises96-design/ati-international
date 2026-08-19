@@ -6,7 +6,7 @@ import FloatingContacts from './components/FloatingContacts'
 import AboutUs from './Pages/AboutUs'
 import Products from './Pages/Products'
 import WhyATI from './Pages/WhyATI'
-import ContactUS from './Pages/ContactUS'
+import ContactUs from './Pages/ContactUs'
 import Blogs from './Pages/Blogs'
 import FAQs from './Pages/FAQs'
 
@@ -14,7 +14,7 @@ import FAQs from './Pages/FAQs'
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'auto' })
   }, [pathname])
   return null
 }
@@ -69,7 +69,7 @@ export default function App() {
           <Route path="/"         element={<AboutUs   onNavigate={onNavigate} />} />
           <Route path="/products" element={<Products  onNavigate={onNavigate} />} />
           <Route path="/why-ati"  element={<WhyATI    onNavigate={onNavigate} />} />
-          <Route path="/contact"  element={<ContactUS onNavigate={onNavigate} />} />
+          <Route path="/contact"  element={<ContactUs onNavigate={onNavigate} />} />
           <Route path="/blogs"    element={<Blogs     onNavigate={onNavigate} />} />
           <Route path="/faqs"     element={<FAQs      onNavigate={onNavigate} />} />
           {/* Fallback */}

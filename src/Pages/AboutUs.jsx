@@ -44,8 +44,9 @@ export default function AboutUs({ onNavigate }) {
   const [countStarted, setCountStarted] = useState(false)
   const statsRef                        = useRef(null)
 
-  // Hero entrance animation
+  // Hero entrance animation & document title
   useEffect(() => {
+    document.title = 'About Us | AT International'
     const timer = setTimeout(() => setVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])

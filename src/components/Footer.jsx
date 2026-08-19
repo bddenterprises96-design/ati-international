@@ -31,7 +31,7 @@ export default function Footer({ onNavigate }) {
               />
               <span className="font-bold text-white text-lg">AT International</span>
             </div>
-            <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4">
+            <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-4">
               AT International is a premier global supplier, exporter, and specialized trading company for motorcycle spare parts, e-bike drive systems, and high-precision industrial sealing components.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function Footer({ onNavigate }) {
               </a>
               
               <a
-                href="https://linkedin.com/atiinternational"
+                href="https://linkedin.com/company/atiinternational"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 bg-white/10 hover:bg-[#0a66c2] transition-all duration-300 flex items-center justify-center group overflow-hidden rounded-lg"
@@ -189,7 +189,7 @@ export default function Footer({ onNavigate }) {
           <ul className="space-y-3 text-white/60 text-sm mb-4">
             <li className="flex items-start gap-2.5">
               <span className="material-symbols-outlined text-md mt-5.5 text-[#005691] flex-shrink-0">location_on</span>
-              <span>Guangzhou City, Guangdong, China </span>
+              <span>Guangzhou City, China </span>
             </li>
             <li className="flex items-center gap-2.5">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">mail</span>

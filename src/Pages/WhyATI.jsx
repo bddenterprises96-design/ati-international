@@ -1,4 +1,10 @@
+import { useEffect } from 'react'
+
 export default function WhyATI({ onNavigate }) {
+  useEffect(() => {
+    document.title = 'Why ATI? | AT International'
+  }, [])
+
   const handleNavigate = (page) => {
     if (onNavigate && typeof onNavigate === 'function') {
       onNavigate(page)
@@ -25,7 +31,7 @@ export default function WhyATI({ onNavigate }) {
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Source Through AT International?</h1>
           <p className="text-white/90 text-base max-w-3xl leading-relaxed">
-            AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white underline decoration-white/50">Motorcycle Parts</strong>, <strong className="text-white underline decoration-white/50">E-Bike Parts & Components</strong>, and <strong className="text-white underline decoration-white/50">Industrial Sealing Solutions</strong>.
+            AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white underline decoration-white/50">Industrial Sealing Solutions</strong>, <strong className="text-white underline decoration-white/50">Motorcycle Parts</strong>, and <strong className="text-white underline decoration-white/50">E-Bike Parts & Components</strong>.
           </p>
         </div>
       </section>
@@ -45,7 +51,47 @@ export default function WhyATI({ onNavigate }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Division 1: Motorcycle Parts */}
+          {/* Division 1: Industrial Sealing Solutions */}
+          <div className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#005691] transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 bg-blue-50 text-[#005691] rounded-2xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <span className="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Division 01
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
+                Industrial Sealing Solutions
+              </h3>
+              <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
+                High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, and Heavy-Duty Rotary Shaft Oil Seals for hydraulic and engine systems.
+              </p>
+              <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
+                {[
+                  'FKM / Viton Valve Stem Seals',
+                  'Precision Fluororubber & NBR O-Rings',
+                  'Heavy-Duty Rotary Shaft Oil Seals',
+                  'Custom Spec Molded Rubber Seals'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
+                    <span className="material-symbols-outlined text-[#005691] text-base">check_circle</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={() => handleNavigate('Products#industrial-seals')}
+              className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+            >
+              Explore Industrial Seals
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </div>
+
+          {/* Division 2: Motorcycle Parts */}
           <div className="bg-white border-2 border-orange-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#FF6B35] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
@@ -53,7 +99,7 @@ export default function WhyATI({ onNavigate }) {
                   <span className="material-symbols-outlined text-3xl">two_wheeler</span>
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B35] bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
-                  Division 01
+                  Division 02
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#FF6B35] transition-colors">
@@ -85,7 +131,7 @@ export default function WhyATI({ onNavigate }) {
             </button>
           </div>
 
-          {/* Division 2: E-Bike Parts & Components */}
+          {/* Division 3: E-Bike Parts & Components */}
           <div className="bg-white border-2 border-emerald-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#10B981] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
@@ -93,7 +139,7 @@ export default function WhyATI({ onNavigate }) {
                   <span className="material-symbols-outlined text-3xl">electric_bike</span>
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#10B981] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                  Division 02
+                  Division 03
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#10B981] transition-colors">
@@ -121,46 +167,6 @@ export default function WhyATI({ onNavigate }) {
               className="w-full bg-[#10B981] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               Explore E-Bike Parts
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
-            </button>
-          </div>
-
-          {/* Division 3: Industrial Sealing Solutions */}
-          <div className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#005691] transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 bg-blue-50 text-[#005691] rounded-2xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
-                  <span className="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                  Division 03
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
-                Industrial Sealing Solutions
-              </h3>
-              <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, and Heavy-Duty Rotary Shaft Oil Seals for hydraulic and engine systems.
-              </p>
-              <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
-                {[
-                  'FKM / Viton Valve Stem Seals',
-                  'Precision Fluororubber & NBR O-Rings',
-                  'Heavy-Duty Rotary Shaft Oil Seals',
-                  'Custom Spec Molded Rubber Seals'
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
-                    <span className="material-symbols-outlined text-[#005691] text-base">check_circle</span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={() => handleNavigate('Products#industrial-seals')}
-              className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-            >
-              Explore Industrial Seals
               <span className="material-symbols-outlined text-base">arrow_forward</span>
             </button>
           </div>

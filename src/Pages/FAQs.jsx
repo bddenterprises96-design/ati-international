@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const FAQS = [
   {
@@ -83,7 +83,11 @@ const FAQS = [
   },
 ]
 
-export default function FAQs() {
+export default function FAQs({ onNavigate }) {
+  useEffect(() => {
+    document.title = "FAQ's | AT International"
+  }, [])
+
   const [open, setOpen] = useState(null)
 
   const toggle = (key) => setOpen(open === key ? null : key)

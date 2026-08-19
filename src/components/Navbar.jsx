@@ -98,6 +98,7 @@ export default function Navbar({ onNavigate }) {
 
           {/* Hamburger — mobile only */}
           <button
+            aria-label="Toggle Navigation Menu"
             className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'hover:bg-[#f2f4f6]' : 'hover:bg-white/10'}`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -108,31 +109,37 @@ export default function Navbar({ onNavigate }) {
         </div>
       </div>
 
-      {/* ── Mobile Menu ── */}
+      {/* ── Mobile Menu Backdrop & Drawer ── */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-[#c5c6cd] shadow-lg py-3">
-          <div className="px-6 flex flex-col gap-1">
-            {NAV_LINKS.map(({ label, path }) => {
-              const active = isActive(path)
-              return (
-                <button
-                  key={label}
-                  onClick={() => { onNavigate(label); setMenuOpen(false) }}
-                  className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all flex items-center justify-between ${
-                    active
-                      ? 'text-[#005691] bg-[#e6f1fb] border-l-4 border-[#005691]'
-                      : 'text-[#505f76] hover:text-[#005691] hover:bg-[#f2f4f6]'
-                  }`}
-                >
-                  {label}
-                  {active && (
-                    <span className="material-symbols-outlined text-[#005691] text-sm">chevron_right</span>
-                  )}
-                </button>
-              )
-            })}
+        <>
+          <div
+            className="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 md:hidden"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="relative z-50 md:hidden bg-white border-t border-[#c5c6cd] shadow-xl py-3 animate-fadeIn">
+            <div className="px-6 flex flex-col gap-1">
+              {NAV_LINKS.map(({ label, path }) => {
+                const active = isActive(path)
+                return (
+                  <button
+                    key={label}
+                    onClick={() => { onNavigate(label); setMenuOpen(false) }}
+                    className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all flex items-center justify-between ${
+                      active
+                        ? 'text-[#005691] bg-[#e6f1fb] border-l-4 border-[#005691]'
+                        : 'text-[#505f76] hover:text-[#005691] hover:bg-[#f2f4f6]'
+                    }`}
+                  >
+                    {label}
+                    {active && (
+                      <span className="material-symbols-outlined text-[#005691] text-sm">chevron_right</span>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   )

@@ -549,7 +549,7 @@ function DataSheetModal({ productId, onClose }) {
 // ── Sub-Product Navigation Bar ──────────────────────────────────
 function SubProductNav({ subProducts, activeSub, onSelect, onBack }) {
   return (
-    <div className="sticky top-40 z-30 bg-gradient-to-r from-[#005691]/100 to-[#0077be]/0 shadow-sm transition-all duration-300 rounded-xl mb-6">
+    <div className="sticky top-36 z-30 bg-gradient-to-r from-[#005691]/100 to-[#0077be]/100 shadow-sm transition-all duration-300 rounded-xl mb-6">
       <div className="max-w-[1280px] mx-auto px-6 py-2">
         <div className="flex flex-wrap items-center gap-2">
           <button
@@ -834,6 +834,7 @@ export default function Products({ onNavigate }) {
 
   // Listen to hash or search parameters (e.g. #motorcycle, #e-bike, #industrial-seals)
   useEffect(() => {
+    document.title = 'Products | AT International'
     const rawHash = location.hash ? location.hash.replace('#', '') : ''
     const params = new URLSearchParams(location.search)
     const targetTab = params.get('tab') || rawHash
@@ -897,7 +898,7 @@ export default function Products({ onNavigate }) {
       {/* Sticky Products Sub-Navigation Bar */}
       <div className="bg-white shadow-md sticky top-20 z-40 border-b border-[#c5c6cd]">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="flex gap-6 overflow-x-auto py-3">
+          <div className="flex gap-6 overflow-x-auto h-16 items-center">
             {PRODUCTS.map((p) => (
               <button
                 key={p.id}
