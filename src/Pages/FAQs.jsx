@@ -160,14 +160,15 @@ export default function FAQs({ onNavigate }) {
               href="https://wa.me/8618523210975"
               target="_blank"
               rel="noreferrer"
-              className="bg-[#25D366] text-white px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-110 transition-all flex items-center gap-2 shadow-xl hover:scale-105 transition-transform duration-500"
+              className="bg-[#25D366] text-white px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-110 flex items-center gap-2 shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <span className="material-symbols-outlined text-sm">chat</span>
               WhatsApp Us
             </a>
             <button 
-            onClick={() => onNavigate('Contact Us')}
-            className="bg-white text-[#005691] px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-105 transition-all flex items-center gap-2" shadow-xl hover:scale-105 transition-transform duration-500>
+              onClick={() => onNavigate('Contact Us')}
+              className="bg-white text-[#005691] px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-105 flex items-center gap-2 shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
+            >
               <span className="material-symbols-outlined text-sm">mail</span>
               Email Our Team
             </button>
