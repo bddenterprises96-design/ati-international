@@ -403,12 +403,14 @@ export default function ContactUS({ onNavigate }) {
       ? selectedParts.map(p => `- ${p.displayName || p.name} (${p.category || 'General'})`).join('\n')
       : 'None'
 
-    const templateParams = {
+    // 1. Send Admin Notification Email to AT International (theatinternational@gmail.com)
+    const adminTemplateParams = {
       from_name: form.name,
       to_name: 'AT International',
       to_email: 'theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
+      email: form.email,
       company: form.company || 'N/A',
       phone: form.phone || 'N/A',
       country: form.country || 'N/A',
@@ -417,21 +419,33 @@ export default function ContactUS({ onNavigate }) {
       quantity: form.quantity || 'Not Specified',
       message: form.message || 'No additional message provided',
       selected_items: selectedItemsSummary,
-
-      // Standard EmailJS template field compatibility fallbacks
       name: form.name,
-      email: form.email,
       title: `Inquiry from ${form.name} (${form.company || 'B2B Client'})`
+    }
+
+    // 2. Send Auto-Reply Confirmation Email to User (form.email)
+    const userConfirmationParams = {
+      from_name: 'AT International Sourcing Desk',
+      to_name: form.name,
+      to_email: form.email,
+      user_email: form.email,
+      reply_to: 'theatinternational@gmail.com',
+      email: form.email,
+      company: form.company || 'N/A',
+      product_category: form.product || 'Not Specified',
+      message: `Dear ${form.name},\n\nThank you for reaching out to AT International. We have successfully received your inquiry regarding ${form.product || 'our products'}.\n\nOur sourcing engineering team is reviewing your requirements and will follow up with you directly within 24 business hours.\n\nBest regards,\nAT International Sourcing Team\ntheatinternational@gmail.com`,
+      title: 'Inquiry Received - AT International'
     }
 
     emailjs.send(
       'service_hrbqaj9',
       'template_l94ixmr',
-      templateParams,
+      adminTemplateParams,
       'l9K4E835PGcGZMP2Z'
     ).then(
-      (response) => {
-        console.log('EmailJS Success:', response.status, response.text)
+      () => {
+        // Send confirmation email to customer
+        emailjs.send('service_hrbqaj9', 'template_l94ixmr', userConfirmationParams, 'l9K4E835PGcGZMP2Z').catch(() => {})
         setSending(false)
         setSubmitted(true)
         handleClearSelectedParts()
@@ -714,7 +728,7 @@ export default function ContactUS({ onNavigate }) {
                 </div>
                 <h3 className="text-3xl font-bold text-[#005691] mb-3">Inquiry Sent Successfully!</h3>
                 <p className="text-gray-600 text-base max-w-md mx-auto mb-8 leading-relaxed">
-                  Thank you, <strong className="text-gray-900">{form.name}</strong>. Our Guangzhou sales engineering team has received your request and will follow up within <strong>24 business hours</strong> with pricing and lead times.
+                  Thank you, <strong className="text-gray-900">{form.name}</strong>. Our sourcing team has received your request and will follow up within <strong>24 business hours</strong> with pricing and lead times.
                 </p>
                 <button
                   type="button"

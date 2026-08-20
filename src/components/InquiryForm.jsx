@@ -22,12 +22,13 @@ export default function InquiryForm() {
     if (!form.email.trim()) return
 
     setSending(true)
-    const templateParams = {
+    const adminTemplateParams = {
       from_name: form.company || 'Website Inquiry',
       to_name: 'AT International',
       to_email: 'theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
+      email: form.email,
       company: form.company || 'N/A',
       product_category: form.category || 'Not Specified',
       quantity: form.quantity || 'Not Specified',
@@ -35,13 +36,25 @@ export default function InquiryForm() {
       title: `Quick Inquiry from ${form.email}`
     }
 
+    const userConfirmationParams = {
+      from_name: 'AT International Sourcing Desk',
+      to_name: form.company || 'Valued Partner',
+      to_email: form.email,
+      user_email: form.email,
+      reply_to: 'theatinternational@gmail.com',
+      email: form.email,
+      message: `Thank you for submitting your inquiry regarding ${form.category || 'our products'}. Our engineering and sourcing team has received your request and will follow up with you directly within 24 business hours.\n\nBest regards,\nAT International Sourcing Desk\ntheatinternational@gmail.com`,
+      title: 'Inquiry Received - AT International'
+    }
+
     emailjs.send(
       'service_hrbqaj9',
       'template_l94ixmr',
-      templateParams,
+      adminTemplateParams,
       'l9K4E835PGcGZMP2Z'
     ).then(
       () => {
+        emailjs.send('service_hrbqaj9', 'template_l94ixmr', userConfirmationParams, 'l9K4E835PGcGZMP2Z').catch(() => {})
         setSending(false)
         setSubmitted(true)
       },
