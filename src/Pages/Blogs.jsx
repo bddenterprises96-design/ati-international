@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 // Inject Cloudinary transformations for fast delivery (auto format, auto quality, width-capped)
 const optimizeCloudinaryUrl = (url) => {
@@ -587,6 +588,22 @@ export default function Blogs() {
   const handleSubscribe = (e) => {
     e.preventDefault()
     if (emailInput.trim()) {
+      const templateParams = {
+        from_name: 'Newsletter Subscriber',
+        to_name: 'AT International',
+        reply_to: emailInput,
+        user_email: emailInput,
+        message: `New Technical Insights Newsletter subscription from: ${emailInput}`,
+        title: `Newsletter Subscription: ${emailInput}`
+      }
+
+      emailjs.send(
+        'service_hrbqaj9',
+        'template_l94ixmr',
+        templateParams,
+        'l9K4E835PGcGZMP2Z'
+      ).catch((err) => console.error('EmailJS Newsletter Error:', err))
+
       setSubscribed(true)
       setEmailInput('')
       setTimeout(() => setSubscribed(false), 5000)

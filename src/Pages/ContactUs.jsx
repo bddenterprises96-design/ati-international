@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 const SOCIAL = [
   {
@@ -121,6 +122,7 @@ export default function ContactUS({ onNavigate }) {
   })
   const [inquiryMode, setInquiryMode] = useState('standard')
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
   const [errors, setErrors] = useState({})
   const [copiedField, setCopiedField] = useState(null)
 
@@ -395,8 +397,51 @@ export default function ContactUS({ onNavigate }) {
       return
     }
     setErrors({})
-    setSubmitted(true)
-    handleClearSelectedParts()
+    setSending(true)
+
+    const selectedItemsSummary = selectedParts && selectedParts.length > 0
+      ? selectedParts.map(p => `- ${p.displayName || p.name} (${p.category || 'General'})`).join('\n')
+      : 'None'
+
+    const templateParams = {
+      from_name: form.name,
+      to_name: 'AT International',
+      reply_to: form.email,
+      user_email: form.email,
+      company: form.company || 'N/A',
+      phone: form.phone || 'N/A',
+      country: form.country || 'N/A',
+      inquiry_mode: inquiryMode,
+      product_category: form.product || 'Not Specified',
+      quantity: form.quantity || 'Not Specified',
+      message: form.message || 'No additional message provided',
+      selected_items: selectedItemsSummary,
+
+      // Standard EmailJS template field compatibility fallbacks
+      name: form.name,
+      email: form.email,
+      title: `Inquiry from ${form.name} (${form.company || 'B2B Client'})`
+    }
+
+    emailjs.send(
+      'service_hrbqaj9',
+      'template_l94ixmr',
+      templateParams,
+      'l9K4E835PGcGZMP2Z'
+    ).then(
+      (response) => {
+        console.log('EmailJS Success:', response.status, response.text)
+        setSending(false)
+        setSubmitted(true)
+        handleClearSelectedParts()
+      },
+      (error) => {
+        console.error('EmailJS Error:', error)
+        setSending(false)
+        setSubmitted(true)
+        handleClearSelectedParts()
+      }
+    )
   }
 
   const copyToClipboard = (text, fieldName) => {
@@ -958,15 +1003,25 @@ export default function ContactUS({ onNavigate }) {
                 <div className="mt-8 pt-6 border-t border-gray-100">
                   <button
                     type="button"
+                    disabled={sending}
                     onClick={submit}
-                    className="w-full bg-[#005691] hover:brightness-110 text-white py-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 uppercase tracking-widest shadow-lg hover:scale-[1.01] active:scale-[0.99] duration-200 cursor-pointer"
+                    className="w-full bg-[#005691] hover:brightness-110 text-white py-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 uppercase tracking-widest shadow-lg hover:scale-[1.01] active:scale-[0.99] duration-200 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                   >
-                    <span className="material-symbols-outlined text-xl">send</span>
-                    Submit Inquiry
-                    {selectedParts.length > 0 && (
-                      <span className="bg-yellow-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded-full ml-2">
-                        {selectedParts.length} parts · {totalItems} items
-                      </span>
+                    {sending ? (
+                      <>
+                        <span className="material-symbols-outlined text-xl animate-spin">sync</span>
+                        Sending Email...
+                      </>
+                    ) : (
+                      <>
+                        <span className="material-symbols-outlined text-xl">send</span>
+                        Submit Inquiry
+                        {selectedParts.length > 0 && (
+                          <span className="bg-yellow-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded-full ml-2">
+                            {selectedParts.length} parts · {totalItems} items
+                          </span>
+                        )}
+                      </>
                     )}
                   </button>
                   <p className="text-xs text-[#505f76] text-center mt-4">
