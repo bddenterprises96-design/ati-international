@@ -25,6 +25,7 @@ export default function InquiryForm() {
     const templateParams = {
       from_name: form.company || 'Website Inquiry',
       to_name: 'AT International',
+      to_email: 'theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
       company: form.company || 'N/A',

@@ -406,6 +406,7 @@ export default function ContactUS({ onNavigate }) {
     const templateParams = {
       from_name: form.name,
       to_name: 'AT International',
+      to_email: 'theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
       company: form.company || 'N/A',
