@@ -406,8 +406,10 @@ export default function ContactUS({ onNavigate }) {
     // 1. Send Admin Notification Email to AT International (theatinternational@gmail.com)
     const adminTemplateParams = {
       from_name: form.name,
+      from_email: form.email,
       to_name: 'AT International',
       to_email: 'theatinternational@gmail.com',
+      recipient_email: 'theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
       email: form.email,
@@ -417,24 +419,28 @@ export default function ContactUS({ onNavigate }) {
       inquiry_mode: inquiryMode,
       product_category: form.product || 'Not Specified',
       quantity: form.quantity || 'Not Specified',
-      message: form.message || 'No additional message provided',
+      message: `Client Name: ${form.name}\nClient Email: ${form.email}\nPhone/WhatsApp: ${form.phone || 'N/A'}\nCompany: ${form.company || 'N/A'}\nCountry: ${form.country || 'N/A'}\nProduct: ${form.product || 'Not Specified'}\nQuantity: ${form.quantity || 'Not Specified'}\nInquiry Mode: ${inquiryMode}\n\nTechnical Requirements / Message:\n${form.message || 'No additional message provided'}\n\nSelected Parts Summary:\n${selectedItemsSummary}`,
       selected_items: selectedItemsSummary,
       name: form.name,
-      title: `Inquiry from ${form.name} (${form.company || 'B2B Client'})`
+      title: `Inquiry from ${form.name} (${form.company || 'B2B Client'})`,
+      subject: `New Sourcing Inquiry from ${form.name}`
     }
 
     // 2. Send Auto-Reply Confirmation Email to User (form.email)
     const userConfirmationParams = {
       from_name: 'AT International Sourcing Desk',
+      from_email: 'theatinternational@gmail.com',
       to_name: form.name,
       to_email: form.email,
+      recipient_email: form.email,
       user_email: form.email,
       reply_to: 'theatinternational@gmail.com',
       email: form.email,
       company: form.company || 'N/A',
       product_category: form.product || 'Not Specified',
       message: `Dear ${form.name},\n\nThank you for reaching out to AT International. We have successfully received your inquiry regarding ${form.product || 'our products'}.\n\nOur sourcing engineering team is reviewing your requirements and will follow up with you directly within 24 business hours.\n\nBest regards,\nAT International Sourcing Team\ntheatinternational@gmail.com`,
-      title: 'Inquiry Received - AT International'
+      title: 'Inquiry Received - AT International',
+      subject: 'Inquiry Received - AT International'
     }
 
     emailjs.send(
@@ -443,15 +449,17 @@ export default function ContactUS({ onNavigate }) {
       adminTemplateParams,
       'l9K4E835PGcGZMP2Z'
     ).then(
-      () => {
-        // Send confirmation email to customer
-        emailjs.send('service_hrbqaj9', 'template_l94ixmr', userConfirmationParams, 'l9K4E835PGcGZMP2Z').catch(() => {})
+      (res) => {
+        console.log('EmailJS Admin Notification Sent:', res.status, res.text)
+        emailjs.send('service_hrbqaj9', 'template_l94ixmr', userConfirmationParams, 'l9K4E835PGcGZMP2Z')
+          .then(uRes => console.log('EmailJS User Confirmation Sent:', uRes.status, uRes.text))
+          .catch(uErr => console.warn('EmailJS User Confirmation Error:', uErr))
         setSending(false)
         setSubmitted(true)
         handleClearSelectedParts()
       },
       (error) => {
-        console.error('EmailJS Error:', error)
+        console.error('EmailJS Admin Notification Error:', error)
         setSending(false)
         setSubmitted(true)
         handleClearSelectedParts()
