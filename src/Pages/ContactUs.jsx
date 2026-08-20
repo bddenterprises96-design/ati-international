@@ -123,6 +123,7 @@ export default function ContactUS({ onNavigate }) {
   const [inquiryMode, setInquiryMode] = useState('standard')
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
+  const [emailError, setEmailError] = useState(null)
   const [errors, setErrors] = useState({})
   const [copiedField, setCopiedField] = useState(null)
 
@@ -443,6 +444,7 @@ export default function ContactUS({ onNavigate }) {
       subject: 'Inquiry Received - AT International'
     }
 
+    setEmailError(null)
     emailjs.send(
       'service_hrbqaj9',
       'template_l94ixmr',
@@ -461,8 +463,8 @@ export default function ContactUS({ onNavigate }) {
       (error) => {
         console.error('EmailJS Admin Notification Error:', error)
         setSending(false)
-        setSubmitted(true)
-        handleClearSelectedParts()
+        const errDetail = error?.text || error?.message || 'Check EmailJS Dashboard Service & Public Key'
+        setEmailError(`Email dispatch error (${errDetail}). Please verify EmailJS Dashboard setup or contact us directly via email.`)
       }
     )
   }
@@ -1021,6 +1023,24 @@ export default function ContactUS({ onNavigate }) {
                   </div>
 
                 </div>
+
+                {/* Email Error Banner */}
+                {emailError && (
+                  <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs flex flex-col gap-2">
+                    <div className="flex items-center gap-2 font-bold text-sm text-red-800">
+                      <span className="material-symbols-outlined text-base text-red-600">error</span>
+                      Email Sending Error
+                    </div>
+                    <p>{emailError}</p>
+                    <a
+                      href={`mailto:theatinternational@gmail.com?subject=Sourcing Inquiry from ${encodeURIComponent(form.name || 'Client')}&body=${encodeURIComponent(`Client Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCompany: ${form.company}\n\nMessage:\n${form.message}`)}`}
+                      className="inline-flex items-center gap-1.5 text-[#005691] font-bold underline hover:text-blue-900 mt-1 text-xs"
+                    >
+                      <span className="material-symbols-outlined text-sm">mail</span>
+                      Click here to email us directly at theatinternational@gmail.com
+                    </a>
+                  </div>
+                )}
 
                 {/* Submit Action */}
                 <div className="mt-8 pt-6 border-t border-gray-100">
