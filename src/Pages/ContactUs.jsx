@@ -404,13 +404,13 @@ export default function ContactUS({ onNavigate }) {
       ? selectedParts.map(p => `- ${p.displayName || p.name} (${p.category || 'General'})`).join('\n')
       : 'None'
 
-    // 1. Send Admin Notification Email to AT International (theatinternational@gmail.com)
+    // 1. Send Admin Notification Email to AT International (usmankhalid1234@hotmail.com & theatinternational@gmail.com)
     const adminTemplateParams = {
       from_name: form.name,
       from_email: form.email,
       to_name: 'AT International',
-      to_email: 'theatinternational@gmail.com',
-      recipient_email: 'theatinternational@gmail.com',
+      to_email: 'usmankhalid1234@hotmail.com, theatinternational@gmail.com',
+      recipient_email: 'usmankhalid1234@hotmail.com, theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
       email: form.email,
@@ -430,12 +430,12 @@ export default function ContactUS({ onNavigate }) {
     // 2. Send Auto-Reply Confirmation Email to User (form.email)
     const userConfirmationParams = {
       from_name: 'AT International Sourcing Desk',
-      from_email: 'theatinternational@gmail.com',
+      from_email: 'usmankhalid1234@hotmail.com',
       to_name: form.name,
       to_email: form.email,
       recipient_email: form.email,
       user_email: form.email,
-      reply_to: 'theatinternational@gmail.com',
+      reply_to: 'usmankhalid1234@hotmail.com',
       email: form.email,
       company: form.company || 'N/A',
       product_category: form.product || 'Not Specified',

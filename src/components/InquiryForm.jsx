@@ -25,7 +25,7 @@ export default function InquiryForm() {
     const adminTemplateParams = {
       from_name: form.company || 'Website Inquiry',
       to_name: 'AT International',
-      to_email: 'theatinternational@gmail.com',
+      to_email: 'usmankhalid1234@hotmail.com, theatinternational@gmail.com',
       reply_to: form.email,
       user_email: form.email,
       email: form.email,
@@ -41,7 +41,7 @@ export default function InquiryForm() {
       to_name: form.company || 'Valued Partner',
       to_email: form.email,
       user_email: form.email,
-      reply_to: 'theatinternational@gmail.com',
+      reply_to: 'usmankhalid1234@hotmail.com',
       email: form.email,
       message: `Thank you for submitting your inquiry regarding ${form.category || 'our products'}. Our engineering and sourcing team has received your request and will follow up with you directly within 24 business hours.\n\nBest regards,\nAT International Sourcing Desk\ntheatinternational@gmail.com`,
       title: 'Inquiry Received - AT International'

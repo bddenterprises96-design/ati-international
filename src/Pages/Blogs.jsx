@@ -591,7 +591,7 @@ export default function Blogs() {
       const templateParams = {
         from_name: 'Newsletter Subscriber',
         to_name: 'AT International',
-        to_email: 'theatinternational@gmail.com',
+        to_email: 'usmankhalid1234@hotmail.com, theatinternational@gmail.com',
         reply_to: emailInput,
         user_email: emailInput,
         message: `New Technical Insights Newsletter subscription from: ${emailInput}`,
