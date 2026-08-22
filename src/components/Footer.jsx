@@ -124,13 +124,13 @@ export default function Footer({ onNavigate }) {
 
         {/* Navigation */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Navigation</h4>
-          <ul className="space-y-6">
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/90">Navigation</h4>
+          <ul className="space-y-4">
             {NAV_LINKS.map((link) => (
               <li key={link}>
                 <button
                   onClick={() => handleNavigate(link)}
-                  className="text-white/60 text-sm hover:text-white transition-colors flex items-center gap-1.5 group"
+                  className="text-white/85 text-sm hover:text-white transition-colors flex items-center gap-1.5 group"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">chevron_right</span>
                   {link}
@@ -142,12 +142,12 @@ export default function Footer({ onNavigate }) {
 
         {/* Products */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Products</h4>
-          <ul className="space-y-6">
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/90">Products</h4>
+          <ul className="space-y-4">
             <li>
               <button
                 onClick={() => handleNavigate('Products', 'industrial-seals')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+                className="text-white/85 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">precision_manufacturing</span>
                 Industrial Seals
@@ -156,7 +156,7 @@ export default function Footer({ onNavigate }) {
             <li>
               <button
                 onClick={() => handleNavigate('Products', 'motorcycle')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+                className="text-white/85 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
                 Motorcycle Parts
@@ -165,7 +165,7 @@ export default function Footer({ onNavigate }) {
             <li>
               <button
                 onClick={() => handleNavigate('Products', 'e-bike')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+                className="text-white/85 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
                 E-Bike Components
@@ -174,7 +174,7 @@ export default function Footer({ onNavigate }) {
             <li>
               <button
                 onClick={() => handleNavigate('Contact Us')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+                className="text-white/85 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">engineering</span>
                 Custom Order Sourcing
@@ -185,10 +185,10 @@ export default function Footer({ onNavigate }) {
 
         {/* Contact & Global Head Office */}
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
-          <ul className="space-y-3 text-white/60 text-sm mb-4">
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/90">Global Export Desk</h4>
+          <ul className="space-y-3 text-white/85 text-sm mb-4">
             <li className="flex items-start gap-2.5">
-              <span className="material-symbols-outlined text-md mt-5.5 text-[#005691] flex-shrink-0">location_on</span>
+              <span className="material-symbols-outlined text-md mt-0.5 text-[#005691] flex-shrink-0">location_on</span>
               <span>Guangzhou City, China </span>
             </li>
             <li className="flex items-center gap-2.5">
@@ -199,7 +199,7 @@ export default function Footer({ onNavigate }) {
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">call</span>
               <span>+86 185 2321 0975 (WhatsApp / WeChat)</span>
             </li>
-            <li className="flex items-center gap-2.5 text-xs text-white/50 pt-1 border-t border-white/5">
+            <li className="flex items-center gap-2.5 text-xs text-white/70 pt-2 border-t border-white/10">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">schedule</span>
               <span>Mon – Sat: 8:30 AM – 6:30 PM (GMT+8)</span>
             </li>
@@ -215,9 +215,9 @@ export default function Footer({ onNavigate }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-5 px-8 text-center text-white/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
+      <div className="border-t border-white/10 py-5 px-8 text-center text-white/70 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
         <div>© {2026} AT International. All rights reserved. | Guangzhou City, China</div>
-        <div className="flex items-center gap-4 text-white/50">
+        <div className="flex items-center gap-4 text-white/70">
           <span>Global Trade & Export Supplier</span>
           <span>•</span>
           <span>Worldwide Freight Shipping</span>
