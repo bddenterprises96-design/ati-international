@@ -58,7 +58,7 @@ function MotorcycleTireCard({ type, title, icon, description, imageSrc }) {
         <img
           src={imageSrc}
           alt={`${title} Real Motorcycle Tire`}
-          style={{ clipPath: isMission ? 'circle(43.8% at 50% 50%)' : 'circle(43.2% at 50% 50%)' }}
+          style={{ clipPath: 'circle(43.8% at 50% 50%)' }}
           className="w-full h-full object-contain pointer-events-none group-hover:rotate-6 transition-transform duration-1000 ease-out"
         />
 
@@ -440,7 +440,7 @@ export default function AboutUs({ onNavigate }) {
               type="vision"
               title="Our Vision"
               icon="visibility"
-              imageSrc="/assets/real_moto_tire_vision.jpg"
+              imageSrc="/assets/real_moto_tire_mission.jpg"
               description="To become a trusted global sourcing partner for motorcycle, e-bike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets."
             />
           </div>
