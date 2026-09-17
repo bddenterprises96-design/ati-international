@@ -1090,7 +1090,7 @@ export default function Blogs() {
                 Featured Article
               </span>
             </div>
-            <div className="lg:col-span-5 p-8 lg:p-10 flex flex-col justify-between">
+            <div className="lg:col-span-5 p-8 lg:p-10 bg-[#f0f7ff] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-bold border ${CATEGORY_COLORS[featuredPost.category]}`}>
@@ -1144,10 +1144,10 @@ export default function Blogs() {
               className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-1"
             >
               <div>
-                <div className="h-56 bg-white overflow-hidden relative border-b border-gray-200 p-2 flex items-center justify-center">
+                <div className="h-56 bg-white overflow-hidden relative border-b border-[#e2effa] p-2 flex items-center justify-center">
                   <BlogImage src={post.image} alt={post.title} />
                 </div>
-                <div className="p-6">
+                <div className="p-6 bg-[#f0f7ff]">
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${CATEGORY_COLORS[post.category]}`}>
                       {post.category}
@@ -1164,7 +1164,7 @@ export default function Blogs() {
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+              <div className="px-6 pb-6 pt-3 bg-[#f0f7ff] border-t border-[#e2effa] flex items-center justify-between text-xs">
                 <span className="text-[#505f76]">{post.date}</span>
                 <span className="text-[#005691] font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
                   Read Article <span className="material-symbols-outlined text-sm">arrow_forward</span>

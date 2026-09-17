@@ -971,7 +971,7 @@ function ProductDetail({
             onClick={() => onSelectSubProduct(subItem.id)}
           >
             <div>
-              <div className="h-52 overflow-hidden bg-white relative p-4 border-b border-gray-200 flex items-center justify-center">
+              <div className="h-52 overflow-hidden bg-white relative p-4 border-b border-[#e2effa] flex items-center justify-center">
                 <img
                   src={subItem.image}
                   alt={subItem.name}
@@ -979,13 +979,13 @@ function ProductDetail({
                   onError={(e) => { e.target.style.background = '#eceef0' }}
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 bg-[#f0f7ff]">
                 <h3 className="text-lg font-bold text-[#005691] mb-2">{subItem.name}</h3>
                 <p className="text-sm text-[#505f76] leading-relaxed mb-4">{subItem.tagline}</p>
               </div>
             </div>
 
-            <div className="p-6 pt-0">
+            <div className="p-6 pt-0 bg-[#f0f7ff]">
               <div className="flex flex-col gap-2">
                 <button 
                   className="w-full bg-[#005691] text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2"
@@ -999,7 +999,7 @@ function ProductDetail({
                 </button>
                 <div className="flex gap-2">
                   <button 
-                    className="flex-1 bg-[#005691]/10 text-[#005691] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/20 transition-all hover:scale-105 duration-200"
+                    className="flex-1 bg-white text-[#005691] border border-[#cbe3f7] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/10 transition-all hover:scale-105 duration-200"
                     onClick={(e) => {
                       e.stopPropagation()
                       onSelectSubProduct(subItem.id)
@@ -1009,7 +1009,7 @@ function ProductDetail({
                   </button>
                   {subItem.hasDataSheet && (
                     <button
-                      className="border border-[#005691] text-[#005691] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all hover:scale-105 duration-200"
+                      className="border border-[#005691] bg-white text-[#005691] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/10 transition-all hover:scale-105 duration-200"
                       onClick={(e) => {
                         e.stopPropagation()
                         setSheetOpen(subItem.id)
