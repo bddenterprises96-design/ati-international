@@ -282,7 +282,7 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center border-b border-[#e2effa]">
                 <span className="absolute top-4 left-4 z-10 bg-[#005691] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   Industrial Division
                 </span>
@@ -293,7 +293,7 @@ export default function AboutUs({ onNavigate }) {
                   onError={(e) => { e.target.src = '/assets/industrial-seals.png' }}
                 />
               </div>
-              <div className="p-8">
+              <div className="p-8 bg-[#f0f7ff]">
                 <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
                   Industrial Sealing Solutions
                 </h3>
@@ -302,14 +302,14 @@ export default function AboutUs({ onNavigate }) {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {['Valve Stem Seals', 'O-Rings', 'Oil Seals'].map((tag) => (
-                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-white text-[#005691] rounded-lg border border-[#cbe3f7]">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="p-8 pt-0">
+            <div className="p-8 pt-0 bg-[#f0f7ff]">
               <button 
                 onClick={(e) => {
                   e.stopPropagation()
@@ -329,7 +329,7 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center border-b border-[#e2effa]">
                 <span className="absolute top-4 left-4 z-10 bg-[#FF6B35] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   Motorcycle Division
                 </span>
@@ -340,7 +340,7 @@ export default function AboutUs({ onNavigate }) {
                   onError={(e) => { e.target.src = '/assets/moto.png' }}
                 />
               </div>
-              <div className="p-8">
+              <div className="p-8 bg-[#f0f7ff]">
                 <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
                   Motorcycle Parts
                 </h3>
@@ -349,14 +349,14 @@ export default function AboutUs({ onNavigate }) {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {['Engine Parts', 'Clutch Kits', 'Rubber Seals'].map((tag) => (
-                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-white text-[#005691] rounded-lg border border-[#cbe3f7]">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="p-8 pt-0">
+            <div className="p-8 pt-0 bg-[#f0f7ff]">
               <button 
                 onClick={(e) => {
                   e.stopPropagation()
@@ -376,7 +376,7 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center border-b border-[#e2effa]">
                 <span className="absolute top-4 left-4 z-10 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   E-Bike Division
                 </span>
@@ -387,7 +387,7 @@ export default function AboutUs({ onNavigate }) {
                   onError={(e) => { e.target.src = '/assets/ebike.png' }}
                 />
               </div>
-              <div className="p-8">
+              <div className="p-8 bg-[#f0f7ff]">
                 <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
                   E-Bike Parts
                 </h3>
@@ -396,14 +396,14 @@ export default function AboutUs({ onNavigate }) {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {['Motor Seals', 'Battery Gaskets', 'Powertrain'].map((tag) => (
-                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg border border-gray-200">
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 bg-white text-[#005691] rounded-lg border border-[#cbe3f7]">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="p-8 pt-0">
+            <div className="p-8 pt-0 bg-[#f0f7ff]">
               <button 
                 onClick={(e) => {
                   e.stopPropagation()
