@@ -38,6 +38,64 @@ function StatCard({ num, label, startCounting }) {
   )
 }
 
+// ── Real Motorcycle Tire Card Component for Mission & Vision ───────────
+function MotorcycleTireCard({ type, title, icon, description, imageSrc }) {
+  const isMission = type === 'mission'
+
+  return (
+    <div className="relative group flex items-center justify-center p-2 sm:p-4 w-full">
+      {/* Outer Ambient Glow behind real tire */}
+      <div
+        className={`absolute inset-8 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none ${
+          isMission ? 'bg-[#005691]' : 'bg-[#0e7490]'
+        }`}
+      />
+
+      {/* Outer Real Tire Container - Transparent background (No white circle) */}
+      <div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center group-hover:scale-[1.03] transition-transform duration-500 filter drop-shadow-2xl">
+        
+        {/* Real Motorcycle Tire Image with Tight Circular clipPath (Clips 100% of white background outside tire) */}
+        <img
+          src={imageSrc}
+          alt={`${title} Real Motorcycle Tire`}
+          style={{ clipPath: isMission ? 'circle(43.8% at 50% 50%)' : 'circle(43.2% at 50% 50%)' }}
+          className="w-full h-full object-contain pointer-events-none group-hover:rotate-6 transition-transform duration-1000 ease-out"
+        />
+
+        {/* Central Tire Hole Content Box - Expanded within Rim */}
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[62%] h-[62%] sm:w-[65%] sm:h-[65%] rounded-full p-4 sm:p-7 flex flex-col items-center justify-center text-center shadow-2xl border-2 transition-all duration-300 ${
+            isMission
+              ? 'bg-gradient-to-br from-[#003860]/95 via-[#005691]/95 to-[#00223d]/95 border-cyan-300/60 text-white backdrop-blur-md'
+              : 'bg-gradient-to-br from-[#09243d]/95 via-[#005691]/95 to-[#041525]/95 border-teal-300/60 text-white backdrop-blur-md'
+          }`}
+        >
+          {/* Icon Badge */}
+          <div
+            className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center mb-1.5 shadow-md shrink-0 ${
+              isMission
+                ? 'bg-white/20 text-cyan-300 border border-cyan-300/40'
+                : 'bg-white/20 text-teal-300 border border-teal-300/40'
+            }`}
+          >
+            <span className="material-symbols-outlined text-lg sm:text-2xl">{icon}</span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-base sm:text-xl md:text-2xl font-extrabold mb-1.5 tracking-tight text-white drop-shadow-md shrink-0">
+            {title}
+          </h3>
+
+          {/* Text inside the Real Tire Hole - No Scrollbar, Fully Expanded */}
+          <p className="text-[11px] sm:text-xs md:text-sm text-white/95 leading-tight sm:leading-relaxed font-normal max-w-[96%]">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ── Main Component ────────────────────────────────────────────────
 export default function AboutUs({ onNavigate }) {
   const [visible, setVisible]           = useState(false)
@@ -361,22 +419,30 @@ export default function AboutUs({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── MISSION & VISION ── */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-[#005691] text-white rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
-            <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
-            <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-            <p className="text-white/80 leading-relaxed">
-              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
-            </p>
+      {/* ── MISSION & VISION (MOTORCYCLE TIRE HOLE DESIGN) ── */}
+      <section className="bg-gradient-to-b from-white via-slate-50 to-white py-20 overflow-hidden border-y border-[#c5c6cd]">
+        <div className="max-w-[1440px] mx-auto px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block px-3.5 py-1 bg-[#005691]/10 text-[#005691] text-xs font-bold rounded-full uppercase tracking-wider mb-3">
+              DRIVING FORWARD
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#005691]">Our Strategic Direction</h2>
           </div>
-          <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
-            <span className="material-symbols-outlined text-4xl text-[#005691] mb-5 block">visibility</span>
-            <h3 className="text-2xl font-bold text-[#005691] mb-4">Our Vision</h3>
-            <p className="text-[#505f76] leading-relaxed">
-              To become a trusted global sourcing partner for motorcycle, e-bike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center">
+            <MotorcycleTireCard
+              type="mission"
+              title="Our Mission"
+              icon="flag"
+              imageSrc="/assets/real_moto_tire_mission.jpg"
+              description="To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide."
+            />
+            <MotorcycleTireCard
+              type="vision"
+              title="Our Vision"
+              icon="visibility"
+              imageSrc="/assets/real_moto_tire_vision.jpg"
+              description="To become a trusted global sourcing partner for motorcycle, e-bike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets."
+            />
           </div>
         </div>
       </section>
