@@ -23,6 +23,15 @@ export default function Navbar({ onNavigate }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
+  // Close mobile drawer on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   const isActive = (path) => pathname === path
 
   return (

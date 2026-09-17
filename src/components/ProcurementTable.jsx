@@ -5,7 +5,7 @@ const ROWS = [
   { part: 'ATI-VS-7822', material: 'Silicone VMQ',     dims: '18.0 x 2.0',  temp: '-60 to +230', moq: '10,000 units' },
 ]
 
-export default function ProcurementTable() {
+export default function ProcurementTable({ onNavigate }) {
   return (
     <section className="bg-[#f7f9fb] py-20">
       <div className="max-w-[1280px] mx-auto px-8">
@@ -14,9 +14,12 @@ export default function ProcurementTable() {
             <h2 className="text-[32px] font-bold text-[#005691]">Procurement Overview</h2>
             <p className="text-base text-[#505f76] mt-2">MOQ and technical data for bulk manufacturing orders.</p>
           </div>
-          <a href="#" className="text-[#005691] text-sm font-semibold flex items-center gap-1 bg-[#f2f4f6] px-4 py-2 rounded border border-[#c5c6cd]">
+          <button
+            onClick={() => onNavigate && onNavigate('Contact Us')}
+            className="text-[#005691] text-sm font-semibold flex items-center gap-1 bg-[#f2f4f6] px-4 py-2 rounded border border-[#c5c6cd] hover:bg-[#e6f1fb] transition-colors cursor-pointer"
+          >
             Enterprise Portal <span className="material-symbols-outlined text-base">launch</span>
-          </a>
+          </button>
         </div>
         <div className="overflow-hidden border border-[#c5c6cd] rounded-xl bg-white shadow-sm overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[640px]">
@@ -36,7 +39,12 @@ export default function ProcurementTable() {
                   <td className="p-5">{row.temp}</td>
                   <td className="p-5 font-medium text-[#005691]">{row.moq}</td>
                   <td className="p-5 text-right">
-                    <button className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110">Add to Inquiry</button>
+                    <button
+                      onClick={() => onNavigate && onNavigate('Contact Us')}
+                      className="bg-[#005691] text-white px-4 py-2 rounded text-xs font-semibold hover:brightness-110 transition-all cursor-pointer shadow-xs"
+                    >
+                      Add to Inquiry
+                    </button>
                   </td>
                 </tr>
               ))}

@@ -216,7 +216,7 @@ export default function Footer({ onNavigate }) {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-5 px-8 text-center text-white/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
-        <div>© {2026} AT International. All rights reserved. | Guangzhou City, China</div>
+        <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China</div>
         <div className="flex items-center gap-4 text-white/50">
           <span>Global Trade & Export Supplier</span>
           <span>•</span>

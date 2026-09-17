@@ -10,12 +10,25 @@ import ContactUs from './Pages/ContactUs'
 import Blogs from './Pages/Blogs'
 import FAQs from './Pages/FAQs'
 
-// Scroll to top on every route change
+// Scroll to top or target hash element on route/hash change
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' })
-  }, [pathname])
+    if (hash) {
+      const targetId = hash.replace('#', '')
+      const timer = setTimeout(() => {
+        const elem = document.getElementById(targetId)
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'auto' })
+        }
+      }, 150)
+      return () => clearTimeout(timer)
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+  }, [pathname, hash])
   return null
 }
 

@@ -4,7 +4,7 @@ const FEATURES = [
   { icon: 'build',          title: 'Custom Engineering',      desc: 'Material testing and formulation for specific environmental extremes.' },
 ]
 
-export default function GlobalReach() {
+export default function GlobalReach({ onNavigate }) {
   return (
     <section className="py-20 bg-[#005691] text-white">
       <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -30,8 +30,18 @@ export default function GlobalReach() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="border border-white text-white px-8 py-3 text-sm font-semibold rounded-lg hover:bg-white/10">Connect with Engineering</button>
-            <button className="border border-white/40 text-white/80 px-8 py-3 text-sm font-semibold rounded-lg hover:bg-white/10">Review Inquiries</button>
+            <button
+              onClick={() => onNavigate && onNavigate('Contact Us')}
+              className="border border-white text-white px-8 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              Connect with Engineering
+            </button>
+            <button
+              onClick={() => onNavigate && onNavigate("FAQ's")}
+              className="border border-white/40 text-white/80 px-8 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              Review Inquiries
+            </button>
           </div>
         </div>
       </div>
