@@ -53,93 +53,310 @@ const DATA_SHEETS = {
     ],
   },
   'moto-engine': {
-    title: 'Motorcycle Engine & Cylinder Components',
-    subtitle: 'High-precision cylinder blocks, pistons, valve stem seals, and head gaskets engineered for OEM & replacement motorcycle engines.',
-    structureImage: '/assets/cylinder.png',
-    structureCaption: 'Cylinder Block & Piston Assembly Cross-Section Diagram',
-    theoryImage: '/assets/cyy.png',
-    theoryCaption: 'Combustion Chamber & Valve Sealing Heat Flow Diagram',
+    title: 'Motorcycle Crankshaft',
+    subtitle: 'Converts the reciprocating motion of the piston into rotational motion, transferring engine power through the primary drive system.',
+    structureImage: '/assets/pdf_diagrams/crankshaft_structure.png',
+    structureCaption: 'Motorcycle Crankshaft Assembly & Component Structure Diagram',
+    theoryImage: '/assets/pdf_diagrams/crankshaft_theory.png',
+    theoryCaption: 'Crankshaft Reciprocating Motion & Primary Drive Transfer Diagram',
     sections: [
-      { heading: 'Product Description', content: 'ATI supplies comprehensive engine components including precision cylinder blocks, forged/cast pistons, piston rings, valve stem seals, and head gaskets engineered for high-RPM motorcycle engines.' },
-      { heading: 'Features & Benefits', list: ['High thermal resistance withstands continuous operating temperatures up to 280°C.', 'Precision ground manufacturing tolerances within ±0.01mm for optimal compression ratio.', 'Compatible with major OEM motorcycle brands including Honda, Yamaha, Kawasaki, Suzuki, BMW, and KTM.'] },
-      { heading: 'Basic Structure', content: 'The cylinder and piston assembly consists of a high-grade aluminum alloy cylinder wall coated with NikaSil or cast iron sleeve, fitted with multi-ring piston configurations to maintain cylinder compression.', showImageAfter: 'structure' },
-      { heading: 'Sealing & Thermal Control', content: 'Engine head gaskets and valve stem seals prevent high-pressure combustion gas blow-by while metering essential lubricant to valve stems, preventing oil burning and power loss.', showImageAfter: 'theory' },
-      { heading: 'Handling Instructions', list: ['Store in original rust-inhibiting packaging until installation.', 'Clean cylinder bore and crankcase surfaces with solvent before assembly.', 'Coat piston rings and cylinder walls with clean engine oil prior to fitting.', 'Torque cylinder head bolts in proper sequence to manufacturer specs.'] },
-      { heading: 'Usage Example', content: 'Street motorcycles, off-road dirt bikes, scooters, racing motorcycles, and commercial delivery fleets.' }
+      {
+        heading: 'Product Description',
+        content: "The crankshaft is a critical engine component that converts the piston's reciprocating motion into rotational motion through the connecting rod. It transfers the resulting rotational power through the engine's primary drive system to the clutch and transmission, while its crank webs and counterweights help maintain smooth and balanced engine operation. Through its network of verified partner manufacturers, ATI supplies motorcycle crankshaft assemblies for a wide range of motorcycle and small-engine applications."
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Manufactured from suitable high-strength steel materials selected according to the specific engine application for strength, durability, and fatigue resistance.',
+          'Precision-machined journals and crankshaft components support accurate bearing fit, smooth rotation, and reliable engine operation.',
+          'Balanced crankshaft construction helps minimize vibration and reduces mechanical stress during engine operation.',
+          'Precision-finished bearing surfaces provide improved wear resistance and support long-term service performance.',
+          'Quality inspection can include dimensional, visual, and balancing checks according to the applicable product and customer requirements.',
+          'Sourced through verified partner manufacturers whose crankshaft production and balancing processes are governed by established quality-control and quality management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical motorcycle crankshaft assembly may consist of two crank webs, a crank pin, a connecting rod, connecting-rod bearing components, main journals, crankshaft bearings, a primary drive gear, and a Woodruff key or other locating component, depending on the engine design. The exact configuration varies according to the motorcycle model and engine application.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: "During engine operation, combustion force drives the piston downward. The connecting rod transfers this force to the crank pin, causing the crankshaft to rotate around its main journals. The crank webs and counterweights help manage the reciprocating and rotating masses, contributing to smoother engine operation and reduced vibration. The crankshaft's rotational output is then transferred through the primary drive gear and related primary-drive components to the clutch and transmission.",
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store the crankshaft in a clean, dry environment to protect machined surfaces from moisture, contamination, and corrosion.',
+          'Handle carefully and use suitable support points to prevent impact or damage to the crank pin, journals, threads, and gear surfaces.',
+          'Inspect all machined surfaces, bearing areas, threads, and drive components for damage, contamination, or corrosion before installation.',
+          "Follow the motorcycle manufacturer's recommended installation procedures, torque specifications, and alignment requirements.",
+          'Ensure that the crankshaft, bearings, connecting rod, and related components are compatible with the intended engine application.',
+          'Where applicable, verify the required crankshaft balancing and assembly specifications before installation.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This crankshaft type supports commuter, touring, sport, performance, scooter, and other small-displacement motorcycle engines where reliable conversion of reciprocating piston motion into rotational power is required.'
+      }
     ]
   },
   'moto-clutch': {
-    title: 'Motorcycle Transmission & Clutch Assemblies',
-    subtitle: 'Heavy-duty clutch friction plates, steel plates, clutch baskets, and gear shift components built for high-torque motorcycle drivetrains.',
-    structureImage: '/assets/il.png',
-    structureCaption: 'Multi-Plate Motorcycle Clutch Pack Explosion Diagram',
-    theoryImage: '/assets/oo1.png',
-    theoryCaption: 'Clutch Engagement & Friction Coefficient Analysis Diagram',
+    title: 'Motorcycle Cylinder Head',
+    subtitle: 'Forms the upper part of the combustion chamber and supports the valves, spark plug, and related engine components essential to efficient engine operation.',
+    structureImage: '/assets/pdf_diagrams/cylinder_head_structure.png',
+    structureCaption: 'Motorcycle Cylinder Head Component & Sealing Layout Diagram',
+    theoryImage: '/assets/pdf_diagrams/cylinder_head_theory.png',
+    theoryCaption: 'Combustion Chamber Sealing & Air/Fuel Gas Flow Diagram',
     sections: [
-      { heading: 'Product Description', content: 'ATI Transmission & Clutch Assemblies feature high-coefficient friction plates, heat-treated steel drive plates, reinforced clutch springs, and precision shift forks designed for seamless gear shifting and maximum torque transfer.' },
-      { heading: 'Features & Benefits', list: ['Advanced aramid/paper friction lining delivers high static and dynamic friction coefficients.', 'Heat-treated alloy steel drive plates resist warping under extreme temperature spikes.', 'Provides smooth clutch engagement with zero slippage under full acceleration.'] },
-      { heading: 'Basic Structure', content: 'A multi-plate wet motorcycle clutch consists of alternating friction discs and steel drive plates stacked inside an aluminum clutch basket, compressed by heavy-duty coil springs.', showImageAfter: 'structure' },
-      { heading: 'Transmission Dynamics', content: 'When the clutch lever is pulled, the pressure plate lifts, releasing compression on the friction pack so power flow from the crankshaft to the transmission main shaft is temporarily disengaged.', showImageAfter: 'theory' },
-      { heading: 'Handling Instructions', list: ['Pre-soak wet clutch friction plates in recommended motorcycle engine oil for 40 minutes before installation.', 'Inspect clutch basket fingers for notch wear before installing new plates.', 'Replace clutch springs as a set to ensure even clamping pressure across the pack.'] },
-      { heading: 'Usage Example', content: 'Cruisers, adventure touring motorcycles, sports bikes, and high-load commercial tricycles.' }
+      {
+        heading: 'Product Description',
+        content: 'The cylinder head forms the upper section of the combustion chamber and provides the mounting and sealing surfaces required for critical engine components. It houses the intake and exhaust valve assemblies, valve seats and guides, spark plug, and related valve-train components according to the engine design. Depending on the cooling system, the cylinder head may incorporate cooling fins for air cooling or internal passages for coolant circulation. ATI works with verified partner manufacturers to supply motorcycle cylinder head assemblies for a wide range of motorcycle and small-engine applications.'
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Commonly manufactured from aluminum alloy to provide a combination of low weight, strength, and effective heat dissipation for motorcycle engine applications.',
+          'Precision-machined valve seats and guides support proper valve alignment, sealing, and reliable valve-train operation.',
+          'Air-cooled designs may incorporate cooling fins that increase surface area for heat dissipation, while liquid-cooled designs may incorporate internal coolant passages.',
+          'Precision-machined combustion chamber, valve, spark-plug, and mounting areas support reliable engine assembly and operation.',
+          'Quality inspection can include dimensional, visual, and pressure or leak testing according to the applicable product and customer requirements.',
+          'Sourced through verified partner manufacturers whose casting and machining processes are governed by established quality-control and quality management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical motorcycle cylinder head assembly may include the cylinder-head casting, combustion chamber, intake and exhaust ports, valve seats, valve guides, spark-plug bore, mounting holes or studs, and sealing surfaces. Depending on the engine design, it may also accommodate components such as camshaft supports, valve springs, valve stem seals, O-rings, and other valve-train or sealing components.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: "The cylinder head works with the cylinder, piston, valves, and head gasket to form and seal the combustion chamber. During the intake stroke, the intake valve opens to allow air, or an air-fuel mixture depending on the fuel delivery system, to enter the combustion chamber. The valves then close during compression and combustion. Following combustion, the exhaust valve opens to allow combustion gases to leave through the exhaust port. The valve seats provide sealing surfaces for the closed valves, while the valve guides support accurate valve movement. The cylinder head also transfers combustion heat to the engine's cooling system through cooling fins or coolant passages, depending on the design.",
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store in a clean, dry environment to protect machined surfaces, valve seats, and other precision areas from moisture, dust, and corrosion.',
+          'Handle carefully to prevent damage to cooling fins, machined sealing surfaces, valve seats, valve guides, and spark-plug threads.',
+          'Inspect the gasket surface, combustion chamber, valve seats, mounting holes, and other machined areas for damage or contamination before installation.',
+          "Follow the motorcycle manufacturer's specified installation procedure, bolt sequence, torque values, and tightening stages when installing the cylinder head.",
+          'Use the correct head gasket and sealing components specified for the intended engine application.',
+          'Confirm compatibility with the applicable motorcycle model, engine type, and related valve-train components before installation.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This cylinder head type is suited to commuter, touring, sport, performance, scooter, and other small-displacement motorcycle engines where reliable combustion-chamber sealing, valve operation, and heat management are required.'
+      }
     ]
   },
   'moto-seals': {
-    title: 'Motorcycle Rubber & Oil Sealing Kits',
-    subtitle: 'Complete rotary shaft oil seal kits, front fork seals, FKM Viton O-rings, and full engine gasket kits.',
-    structureImage: '/assets/il2.png',
-    structureCaption: 'Motorcycle Engine Oil Seal & O-Ring Placement Diagram',
-    theoryImage: '/assets/oo.png',
-    theoryCaption: 'Dual-Lip Rotary Shaft Oil Seal Contamination Barrier Diagram',
+    title: 'Motorcycle Cylinder',
+    subtitle: 'Houses the piston and provides the cylinder bore in which compression and combustion take place during engine operation.',
+    structureImage: '/assets/pdf_diagrams/cylinder_structure.png',
+    structureCaption: 'Motorcycle Cylinder Barrel, Bore & Gasket Mounting Structure Diagram',
+    theoryImage: '/assets/pdf_diagrams/cylinder_theory.png',
+    theoryCaption: 'Piston Movement, Ring Sealing & Heat Dissipation Principle',
     sections: [
-      { heading: 'Product Description', content: 'ATI Motorcycle Rubber & Oil Sealing Kits contain high-grade Fluororubber (FKM) and Nitrile (NBR) seals formulated specifically to withstand motorcycle engine oil additives, high RPM shaft rotation, and harsh road dirt.' },
-      { heading: 'Features & Benefits', list: ['Double-lip oil seals with stainless steel garter spring ensure zero fluid leakage and dust exclusion.', 'FKM Viton O-rings maintain elasticity from -20°C to +220°C.', 'Complete engine overhaul sets include crankshaft seals, countershaft seals, shift shaft seals, and valve stem seals.'] },
-      { heading: 'Basic Structure', content: 'Radial shaft seals incorporate an elastomeric sealing lip held firmly against the shaft surface by a steel garter spring, enclosed within a rigid steel reinforcement casing.', showImageAfter: 'structure' },
-      { heading: 'Sealing Mechanism', content: 'The primary sealing lip forms a microscopic oil lubricant film against the rotating shaft surface while the secondary dust lip blocks dirt, grit, and water from entering the crankcase.', showImageAfter: 'theory' },
-      { heading: 'Handling Instructions', list: ['Verify shaft surface finish is smooth and free of burrs before pressing seals.', 'Apply a thin coat of multi-purpose grease to the sealing lip before assembly.', 'Use dedicated installation drivers to prevent cocking or lip damage during press-fitting.'] },
-      { heading: 'Usage Example', content: 'Engine crankcases, gearbox output shafts, front suspension forks, and wheel hub bearings.' }
+      {
+        heading: 'Product Description',
+        content: 'The motorcycle cylinder, also referred to as a cylinder barrel or cylinder block in some engine designs, houses the piston and provides the precision-machined bore in which the piston moves during engine operation. The cylinder bore works together with the piston rings to contain combustion pressure, control lubricating oil, and support efficient engine operation. Its dimensional accuracy and surface finish are critical to proper piston-ring sealing, controlled friction, and reliable wear performance. ATI sources motorcycle cylinder assemblies through its network of verified partner manufacturers, supporting a wide range of motorcycle and small-engine applications.'
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Manufactured from materials and with cylinder-wall constructions selected according to the engine design, including aluminum alloy cylinders, cast-iron cylinders, and aluminum cylinders incorporating cast-iron or specially treated cylinder running surfaces.',
+          'Precision-bored and honed cylinder surfaces support proper piston-ring seating, effective sealing, controlled friction, and appropriate oil retention.',
+          'Air-cooled designs may incorporate external cooling fins to increase surface area and assist heat dissipation, while liquid-cooled designs may incorporate coolant passages.',
+          'Precision-machined mounting and gasket surfaces support proper alignment and reliable sealing between the cylinder, cylinder head, and crankcase.',
+          'Quality inspection can include bore-diameter and dimensional checks, surface-finish verification, and visual inspection according to applicable product and customer requirements.',
+          'Sourced through verified partner manufacturers whose boring, honing, and finishing processes are governed by established quality-control and quality management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical motorcycle cylinder assembly may include the cylinder body with an internal piston bore, external cooling fins for air-cooled designs or coolant passages for liquid-cooled designs, mounting and sealing surfaces, and locating features such as dowel-pin holes. Depending on the engine design, the assembly may also incorporate or be supplied with a cylinder liner, sealing components, or other application-specific components.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: "The piston moves up and down within the cylinder bore as the engine completes its operating cycle. The piston rings maintain contact with the cylinder wall to help contain combustion pressure and regulate the movement of lubricating oil along the cylinder surface. The bore's dimensional accuracy, geometry, and honed surface finish provide the conditions required for proper piston-ring seating, effective sealing, controlled friction, and reliable operation. In air-cooled designs, heat from the cylinder and combustion process is transferred through the cylinder walls to the external cooling fins and dissipated into the surrounding air. In liquid-cooled designs, heat is transferred through the cylinder to the coolant flowing through the designated cooling passages.",
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store in a clean, dry environment to protect the cylinder bore, machined sealing surfaces, and mounting areas from moisture, dust, and corrosion.',
+          'Handle carefully to prevent damage to the bore surface, cooling fins, gasket surfaces, and mounting areas.',
+          'Keep the cylinder bore clean and free from dirt, abrasive particles, and other contamination before and during installation.',
+          'Inspect the bore, gasket surfaces, dowel-pin holes, and mounting points for damage, contamination, or abnormal wear before installation.',
+          'Use the correct gasket, sealing components, and locating dowel pins specified for the intended engine application.',
+          "Follow the motorcycle manufacturer's recommended installation procedure, tightening sequence, and torque specifications when mounting the cylinder.",
+          'Confirm compatibility among the cylinder bore, piston, and piston rings, including the specified bore size and any applicable dimensional grade or clearance requirements.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This cylinder type is applicable to commuter, touring, sport, performance, scooter, and other small-displacement motorcycle engines where reliable piston guidance, combustion-pressure sealing, heat dissipation, and durable cylinder-wall performance are required.'
+      }
     ]
   },
   'ebike-motor': {
-    title: 'E-Bike Mid-Drive & Motor Sealing Assemblies',
-    subtitle: 'High-speed rotary shaft seals, motor casing O-rings, and IP67 barrier gaskets engineered for electric bicycle motors.',
-    structureImage: '/assets/ebike_motor_sealing.png',
-    structureCaption: 'E-Bike Motor Shaft & Casing Sealing Cross-Section',
-    theoryImage: '/assets/il2.png',
-    theoryCaption: 'IP67 Water & Dust Barrier Hydrodynamic Sealing Diagram',
+    title: 'E-Bike BLDC Hub Motor',
+    subtitle: 'Integrated into the wheel hub to convert electrical energy into mechanical rotation, providing propulsion for the e-bike.',
+    structureImage: '/assets/pdf_diagrams/ebike_motor_structure.png',
+    structureCaption: 'BLDC Hub Motor Stator, Rotor & Planetary Gear Assembly Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_motor_theory.png',
+    theoryCaption: 'Direct-Drive vs Geared Hub Motor Commutation & Torque Comparison',
     sections: [
-      { heading: 'Product Description', content: 'ATI supplies high-precision rotary shaft seals, motor casing gaskets, and NBR/FKM O-rings engineered specifically for electric bicycle mid-drive and hub motors.' },
-      { heading: 'Features & Benefits', list: ['Low-friction sealing lip minimizes motor torque loss and drag.', 'IP67 dust and water ingress protection for off-road and rain riding.', 'Compatible with Bafang, Bosch, Shimano Steps, Yamaha, and Panasonic drive units.'] },
-      { heading: 'Basic Structure', content: 'Precision molded elastomer lip with stainless steel garter spring enclosed in a lightweight aluminum or composite outer casing.', showImageAfter: 'structure' },
-      { heading: 'Handling Instructions', list: ['Handle with care to preserve seal lip integrity.', 'Apply lithium-compatible grease prior to motor assembly.'] }
+      {
+        heading: 'Product Description',
+        content: 'The BLDC (Brushless DC) hub motor is an electric drive unit integrated into the wheel hub, converting electrical energy from the battery into mechanical rotation that propels the e-bike. Using electronic commutation instead of mechanical brushes, it can provide efficient power delivery, reduced maintenance requirements, and long service life. Through its network of verified partner manufacturers, ATI supplies e-bike BLDC hub motor assemblies for a wide range of e-bike and light electric vehicle applications.'
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Brushless design eliminates brush-related wear, supporting longer service life and reduced maintenance compared with brushed motor designs.',
+          'Available in geared and direct-drive (gearless) configurations, allowing selection based on torque, efficiency, weight, and application requirements.',
+          'Hall sensor-based position detection, where specified, provides rotor position feedback to support controlled motor commutation and operation.',
+          'Sealed motor housing designs help protect internal windings and electrical components from dust and moisture exposure, depending on the specified ingress protection (IP) rating.',
+          'Quality inspection can include electrical performance testing, winding resistance checks, and sealing or IP-rating verification according to the applicable product and customer requirements.',
+          'Sourced through verified partner manufacturers whose motor winding, assembly, and testing processes are governed by established quality-control and quality-management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical BLDC hub motor assembly consists of a stator with copper windings fixed to a central axle, a rotor fitted with permanent magnets that rotates around or within the stator depending on the motor type, Hall sensors for rotor position detection where specified, a motor housing, phase and sensor wiring, and mounting components for integration into the wheel. Geared variants may additionally incorporate an internal planetary gear set and a freewheel clutch mechanism.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: "Electrical current from the controller energizes the stator windings in a controlled sequence, generating magnetic fields that interact with the permanent magnets in the rotor and produce rotation. Where Hall sensors are used, they detect rotor position and provide feedback to the controller, which uses this information to switch current between the motor phases at the appropriate intervals. Sensorless configurations can instead estimate rotor position using the motor's electrical characteristics, such as back electromotive force (back-EMF). In direct-drive hub motors, the motor operates without an internal reduction gear, and the motor's rotational speed corresponds directly to the wheel's rotational speed. In geared hub motors, a higher-speed motor drives an internal reduction gear system, commonly using planetary gears, to reduce rotational speed and increase torque delivered to the wheel.",
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store the motor in a clean, dry environment to protect windings, wiring connections, and housing surfaces from moisture and contamination.',
+          'Handle carefully to avoid impact damage to the motor housing, axle, or phase and sensor wiring.',
+          'Inspect wiring connectors, phase leads, and housing seals for damage before installation.',
+          "Follow the e-bike manufacturer's specified torque values and mounting procedures when installing the motor into the wheel and frame.",
+          "Confirm the motor's voltage, rated power, and controller compatibility before installation.",
+          'Avoid exposing the motor to conditions beyond its specified IP rating during use, cleaning, or storage.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This hub motor type supports commuter, cargo, folding, and off-road e-bikes, as well as other light electric vehicle applications, where reliable propulsion, efficient power delivery, and low-maintenance operation are required.'
+      }
     ]
   },
   'ebike-battery': {
-    title: 'E-Bike Battery Enclosure & Powerpack Gaskets',
-    subtitle: 'UL94-V0 flame-retardant silicone seals, IP68 battery case gaskets, and thermal interface barrier strips.',
-    structureImage: '/assets/ebike_battery_sealing.png',
-    structureCaption: 'E-Bike Battery Pack Perimeter Sealing Gasket Diagram',
-    theoryImage: '/assets/il.png',
-    theoryCaption: 'Thermal Management & Moisture Exclusion Sealing Theory',
+    title: 'E-Bike Motor Controller',
+    subtitle: 'Regulates electrical power between the battery and hub motor, controlling motor operation and supporting responsive e-bike performance.',
+    structureImage: '/assets/pdf_diagrams/ebike_controller_structure.png',
+    structureCaption: 'E-Bike Motor Controller Circuit Board & Terminal Architecture Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_controller_theory.png',
+    theoryCaption: 'Rider Input Signal Processing & Motor Phase Switching Diagram',
     sections: [
-      { heading: 'Product Description', content: 'ATI supplies custom-molded flame-retardant silicone and EPDM gaskets for e-bike battery enclosures, protecting lithium-ion cells against moisture, vibration, and thermal runaway.' },
-      { heading: 'Features & Benefits', list: ['UL94-V0 fire resistance for battery safety compliance.', 'IP68 waterproof rating prevents moisture ingress into cell chambers.', 'High compressibility compensates for aluminum frame extrusion tolerances.'] },
-      { heading: 'Basic Structure', content: 'Die-cut or liquid-injected silicone foam profiles with pressure-sensitive adhesive backing for rapid pack assembly.', showImageAfter: 'structure' },
-      { heading: 'Handling Instructions', list: ['Clean housing mating channels before laying perimeter gaskets.', 'Torque enclosure screws evenly to ensure uniform compression.'] }
+      {
+        heading: 'Product Description',
+        content: 'The e-bike motor controller is the electronic control unit that regulates electrical power between the battery and the BLDC hub motor. It processes signals from rider inputs and motor feedback, such as the throttle, pedal-assist sensor (PAS), brake-cutoff signals, and Hall sensors where specified, and controls current switching through the motor phases to manage motor operation. ATI works with verified partner manufacturers to supply e-bike motor controller assemblies for a wide range of e-bike and light electric vehicle applications.'
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Electronic commutation circuitry enables controlled and efficient operation of BLDC hub motors.',
+          'Supports Hall sensor-based and, where specified, sensorless motor feedback configurations for compatibility with different motor-control systems.',
+          'Configurable inputs can support throttle, pedal-assist sensor (PAS), brake-cutoff, and other control signals, depending on the e-bike system design.',
+          'Power switching components, commonly including MOSFETs, control the current supplied to the motor phases for responsive motor operation.',
+          'Enclosed housing designs can help protect internal circuitry from dust and moisture exposure, depending on the specified ingress protection (IP) rating.',
+          'Quality inspection can include electrical performance, functional, load, and sealing or IP-rating tests according to the applicable product and customer requirements.',
+          'Sourced through verified partner manufacturers whose circuit assembly, programming, and testing processes are governed by established quality-control and quality-management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical e-bike motor controller assembly may consist of a printed circuit board with power switching components such as MOSFETs, a microcontroller unit (MCU) for signal processing and control logic, a three-phase inverter or switching stage, battery input terminals, motor phase outputs, and connectors for throttle, PAS, brake, Hall sensor, display, or other system signals, depending on the controller design. Battery and motor connections may use labels such as B+/B− and U/V/W, although terminal identification varies by manufacturer and application. The assembly is typically enclosed within a protective housing designed for the intended operating environment.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: 'The controller receives direct-current (DC) power from the e-bike battery and converts it into controlled electrical current for the motor through its power-switching stage. Based on rider input signals and, where applicable, rotor-position feedback from Hall sensors, the controller determines the appropriate motor-control sequence and switches current through the motor phases. In sensorless systems, the controller can estimate rotor position from electrical characteristics such as back electromotive force (back-EMF). These control processes regulate motor operation in response to rider input and programmed system parameters.',
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store the controller in a clean, dry environment to protect the circuit board, connectors, terminals, and housing from moisture and contamination.',
+          'Handle carefully to avoid impact damage to connectors, terminals, wiring, and the protective housing.',
+          'Inspect wiring connectors, terminal connections, and housing seals for damage before installation.',
+          "Confirm the controller's rated voltage, current capacity, motor compatibility, and required signal connections before connecting it to the motor and battery.",
+          "Follow the manufacturer's specified wiring diagram and terminal connections during installation, as connector layouts and labeling vary by controller design.",
+          'Ensure that Hall sensor, sensorless, PAS, throttle, brake-cutoff, display, and other signal connections are compatible with the intended e-bike system where applicable.',
+          'Avoid exposing the controller to conditions beyond its specified IP rating during use, cleaning, or storage.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This motor controller type is suited to commuter, cargo, folding, and off-road e-bikes, as well as other light electric vehicle applications, where reliable BLDC motor control, responsive power management, and compatibility with rider-input systems are required.'
+      }
     ]
   },
   'ebike-drive': {
-    title: 'E-Bike Powertrain & Drive System Components',
-    subtitle: 'Controller housing seals, planetary gear seals, torque sensor O-rings, and cable entry grommets.',
-    structureImage: '/assets/homepage_3d_bento_ebike.png',
-    structureCaption: 'E-Bike Drive System & Controller Sealing Overview',
-    theoryImage: '/assets/oo.png',
-    theoryCaption: 'Multi-Cable Entry Sealing & Strain Relief Mechanism',
+    title: 'E-Bike Li-ion Battery Charger',
+    subtitle: 'Converts AC power from a wall outlet into regulated DC power for controlled and reliable charging of an e-bike lithium-ion battery pack.',
+    structureImage: '/assets/pdf_diagrams/ebike_charger_structure.png',
+    structureCaption: 'Li-ion Battery Charger Circuitry & Outer Housing Anatomy Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_charger_theory.png',
+    theoryCaption: 'Constant-Current / Constant-Voltage (CC-CV) Charging Stage Graph',
     sections: [
-      { heading: 'Product Description', content: 'ATI supplies complete powertrain sealing components including speed sensor seals, planetary reduction gear seals, controller box gaskets, and multi-wire rubber grommets.' },
-      { heading: 'Features & Benefits', list: ['Resists synthetic gear grease, UV exposure, and road salt corrosion.', 'Integrated wire grommets prevent moisture wicking along power cables.', 'Long service life tested to 50,000 km operating durability.'] },
-      { heading: 'Basic Structure', content: 'Multi-ribbed elastomeric grommets and molded housing gaskets engineered for toolless snap-in installation.', showImageAfter: 'structure' },
-      { heading: 'Handling Instructions', list: ['Ensure cables pass through grommets smoothly without tearing sealing ribs.', 'Store in cool dry conditions away from direct sunlight.'] }
+      {
+        heading: 'Product Description',
+        content: 'The e-bike Li-ion battery charger converts alternating current (AC) from a standard power source into regulated direct current (DC) suitable for charging a compatible lithium-ion battery pack. It uses controlled charging stages, typically based on a constant-current/constant-voltage (CC-CV) charging profile, to regulate charging current and voltage as the battery approaches its specified full-charge level. When used with a compatible battery pack and its battery management system (BMS), where applicable, the charger supports controlled and safe battery charging. ATI sources e-bike Li-ion battery charger assemblies through its network of verified partner manufacturers, supporting a wide range of e-bike and light electric vehicle applications.'
+      },
+      {
+        heading: 'Features & Benefits',
+        list: [
+          'Constant-current/constant-voltage (CC-CV) charging supports controlled and efficient charging of compatible lithium-ion battery packs.',
+          'Built-in protection features, where specified, may include over-voltage, over-current, short-circuit, and over-temperature protection to support safe charging operation.',
+          'Charging-status indicators, where specified, provide a visual reference for charging progress and charger status.',
+          'Enclosed housing designs help protect internal electrical components from dust and moisture exposure, depending on the specified enclosure and ingress-protection rating.',
+          'Output voltage and current are configured according to the intended battery-pack requirements, helping ensure compatibility with the specified e-bike battery system.',
+          'Quality inspection can include electrical performance testing, output-voltage and current verification, functional testing, and applicable safety or compliance checks according to the product and customer requirements.',
+          'Sourced through verified partner manufacturers whose circuit assembly, testing, and safety-control processes are governed by established quality-control and quality management systems.'
+        ]
+      },
+      {
+        heading: 'Basic Structure',
+        content: 'A typical e-bike Li-ion battery charger assembly may consist of an AC input plug and cable, input protection and rectification circuitry, a switching power-conversion stage, voltage and current regulation circuitry, control and protection circuitry, a DC output cable with a battery-compatible connector, status indicators where specified, and a protective outer housing. The exact internal configuration varies according to the charger design. Input-voltage range, output voltage, output current, connector type, charging protocol, enclosure design, and protection functions are selected according to the intended battery pack and e-bike application.',
+        showImageAfter: 'structure'
+      },
+      {
+        heading: 'Working Principle',
+        content: "The charger receives AC power through its input connection and converts it into regulated DC power through an internal rectification and power-conversion stage. During the constant-current (CC) stage, the charger supplies a controlled charging current while the battery voltage increases. As the battery reaches its specified charging-voltage limit, the charger transitions to the constant-voltage (CV) stage, maintaining the specified voltage while the charging current gradually decreases. The charging-voltage limit must match the battery manufacturer's specified requirements because different lithium-ion battery chemistries and pack configurations can have different charging-voltage requirements. The battery management system (BMS), where incorporated into the battery pack, can provide additional monitoring and protection functions such as cell-voltage, current, and temperature monitoring. The exact interaction between the charger and BMS depends on the battery and charging-system design.",
+        showImageAfter: 'theory'
+      },
+      {
+        heading: 'Handling Instructions',
+        list: [
+          'Store the charger in a clean, dry environment away from excessive heat, moisture, direct sunlight, and sources of contamination.',
+          'Use the charger only under the environmental conditions specified by the manufacturer and avoid exposure to rain, water, or excessive humidity unless the charger is specifically designed for such conditions.',
+          'Inspect the power cord, DC cable, connector, housing, and other external components for visible damage before use.',
+          "Confirm that the charger's output voltage, output current, connector, polarity, and charging requirements are compatible with the intended battery pack before connection.",
+          'Use the charger specified or approved for the applicable e-bike battery system; do not substitute a charger with an incompatible voltage or charging specification.',
+          "Follow the battery and charger's manufacturer's specified sequence for connecting and disconnecting the charger and battery.",
+          'Do not open, modify, or repair the charger unless this work is performed by appropriately qualified personnel, as the charger contains potentially hazardous electrical components.',
+          'Provide adequate ventilation around the charger during operation and do not cover the charger while it is charging.',
+          'Stop using the charger if the housing, cable, connector, or battery shows abnormal heating, damage, unusual odor, smoke, or other signs of malfunction, and follow the applicable manufacturer\'s safety instructions.'
+        ]
+      },
+      {
+        heading: 'Usage Examples',
+        content: 'This charger type is applicable to commuter, cargo, folding, and off-road e-bikes, as well as other light electric vehicle applications, where controlled and reliable battery charging with compatible lithium-ion battery packs is required.'
+      }
     ]
   },
 }
@@ -285,22 +502,22 @@ const PRODUCTS = [
         id: 'valve-stem',
         name: 'Valve Stem Seals',
         tagline: 'Precision lubrication control for high-performance engines',
-        image: '/assets/aaa.png',
+        image: '/assets/clean_product_images/clean_aaa.png',
         hasDataSheet: true,
         description: 'ATI supplies Valve Stem Seals produced from high-grade Viton (FKM) and Silicone (VMQ) elastomers.',
-        features: ['Operating temperature: -40°C to +230°C', 'Pressure resistance: up to 10 bar'],
+        features: ['Operating temperature: -60°C to +230°C', 'Pressure resistance: up to 10 bar'],
         specs: [
           { part: 'ATI-VS-5022', material: 'Viton-75 (FKM)', dim: '22.0 × 3.5', temp: '-20 to +200°C', moq: '5,000' },
           { part: 'ATI-VS-7822', material: 'Silicone VMQ', dim: '18.0 × 2.0', temp: '-60 to +230°C', moq: '10,000' },
           { part: 'ATI-VS-4418', material: 'NBR-70', dim: '14.0 × 2.5', temp: '-40 to +120°C', moq: '5,000' },
         ],
-        applications: ['MotorCycles', 'E-Bikes', 'Industrial Engines'],
+        applications: ['Motorcycles', 'E-Bikes', 'Industrial Engines'],
       },
       {
         id: 'o-rings',
         name: 'O-Rings',
         tagline: 'Comprehensive material range for universal sealing',
-        image: '/assets/ccc.png',
+        image: '/assets/clean_product_images/clean_ccc.png',
         hasDataSheet: true,
         description: 'ATI supplies O-Rings in a comprehensive range of elastomeric materials.',
         features: ['Materials: NBR, FKM (Viton), EPDM, Silicone, PTFE, FFKM', 'Hardness range: 40–90 Shore A'],
@@ -315,7 +532,7 @@ const PRODUCTS = [
         id: 'oil-seals',
         name: 'Oil Seals',
         tagline: 'Robust rotating shaft sealing against leakage and contamination',
-        image: '/assets/bbb.png',
+        image: '/assets/clean_product_images/clean_bbb.png',
         hasDataSheet: true,
         description: 'ATI Oil Seals retain lubricants and exclude contaminants in rotating and reciprocating shaft assemblies.',
         features: ['Types: Single lip, Double lip, PTFE / Hydrodynamic', 'Shaft speed: up to 10,000 RPM'],
@@ -341,51 +558,51 @@ const PRODUCTS = [
     subProducts: [
       {
         id: 'moto-engine',
-        name: 'Motorcycle Engine & Cylinder Components',
-        tagline: 'Precision cylinder blocks, pistons, valve stems & head gaskets',
-        image: '/assets/motorcycle_engine_sealing.png',
-        hasDataSheet: false,
-        description: 'ATI supplies high-precision cylinder blocks, forged/cast pistons, piston rings, valve stem seals, and head gaskets engineered for high-RPM motorcycle engines.',
+        name: 'Motorcycle Crankshaft',
+        tagline: 'Reciprocating-to-rotational motion conversion & primary drive transfer',
+        image: '/assets/clean_product_images/crankshaft_main.png',
+        hasDataSheet: true,
+        description: 'ATI supplies motorcycle crankshaft assemblies designed for smooth rotational power transfer, balanced engine operation, and high fatigue resistance.',
         features: [
-          'High thermal resistance withstands continuous operating temperatures up to 280°C',
-          'Precision ground manufacturing tolerances within ±0.01mm for high compression',
-          'OEM spec compatibility across Honda, Yamaha, Kawasaki, Suzuki, BMW, KTM, etc.'
+          'High-strength steel materials selected for fatigue resistance and durability',
+          'Precision-machined journals support accurate bearing fit and smooth rotation',
+          'Balanced construction minimizes engine vibration and mechanical stress'
         ],
         includedParts: getIncludedPartsList(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
         specs: generateSpecsFromCategories(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
-        applications: ['4-Stroke Engines', '2-Stroke Engines', 'Performance Racing', 'OEM Replacements'],
+        applications: ['Commuter Motorcycles', 'Touring Bikes', 'Sport Motorcycles', 'Scooters & Small Engines'],
       },
       {
         id: 'moto-clutch',
-        name: 'Transmission & Clutch Assemblies',
-        tagline: 'Heavy-duty clutch friction plates, baskets & shift drums',
-        image: '/assets/motorcycle_clutch_parts.png',
-        hasDataSheet: false,
-        description: 'ATI Transmission & Clutch Assemblies feature high-coefficient friction plates, heat-treated steel drive plates, and precision shift forks designed for seamless gear shifting.',
+        name: 'Motorcycle Cylinder Head',
+        tagline: 'Upper combustion chamber sealing, valve-train & spark-plug mounting',
+        image: '/assets/clean_product_images/cylinder_head_main.png',
+        hasDataSheet: true,
+        description: 'ATI Motorcycle Cylinder Heads provide precision-machined combustion chambers, valve guides, and sealing surfaces for air-cooled and liquid-cooled engines.',
         features: [
-          'Advanced aramid/paper friction lining delivers high static & dynamic friction',
-          'Heat-treated alloy steel drive plates resist warping under extreme loads',
-          'Provides smooth clutch engagement with zero slippage under full acceleration'
+          'Lightweight aluminum alloy construction for superior heat dissipation',
+          'Precision-machined valve seats and guides ensure tight combustion sealing',
+          'Compatible with air-cooled cooling fins or internal liquid passages'
         ],
         includedParts: getIncludedPartsList(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
         specs: generateSpecsFromCategories(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
-        applications: ['Sport Bikes', 'Cruisers', 'Off-Road / Enduro', 'Commuter Motorcycles'],
+        applications: ['4-Stroke Engines', 'Performance Motorcycles', 'Scooters', 'Small Displacement Engines'],
       },
       {
         id: 'moto-seals',
-        name: 'Motorcycle Rubber & Oil Sealing Kits',
-        tagline: 'Engine oil seal kits, front fork seals & FKM O-ring sets',
-        image: '/assets/rotary_oil_seals.png',
-        hasDataSheet: false,
-        description: 'ATI Motorcycle Rubber & Oil Sealing Kits contain high-grade Fluororubber (FKM) and Nitrile (NBR) seals formulated to withstand engine oil additives and high RPM shaft rotation.',
+        name: 'Motorcycle Cylinder',
+        tagline: 'Precision-bored cylinder barrel & piston-ring sealing assembly',
+        image: '/assets/clean_product_images/cylinder_main.png',
+        hasDataSheet: true,
+        description: 'ATI Motorcycle Cylinders feature precision-honed bores for optimal piston-ring seating, controlled friction, and reliable oil retention.',
         features: [
-          'Double-lip oil seals with garter spring ensure zero fluid leakage and dust exclusion',
-          'FKM Viton O-rings maintain elasticity from -20°C to +220°C',
-          'Complete engine overhaul sets include crankshaft, countershaft & valve seals'
+          'Precision-bored and honed cylinder walls for low friction and tight sealing',
+          'Air-cooled cooling fins or liquid-cooled passages for thermal stability',
+          'Machined mounting and gasket surfaces ensure zero blow-by leakage'
         ],
         includedParts: getIncludedPartsList(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
         specs: generateSpecsFromCategories(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
-        applications: ['Crankcases & Gearboxes', 'Front Fork Suspension', 'Wheel Hubs', 'Valve Train'],
+        applications: ['Crankcases & Cylinders', 'Commuter Bikes', 'Racing & Sport Motorcycles', 'Engine Overhauls'],
       },
     ],
   },
@@ -393,7 +610,7 @@ const PRODUCTS = [
     id: 'e-bike',
     name: 'E-Bike',
     tagline: 'High-precision electric bicycle powertrain sealing & battery enclosure gaskets',
-    image: '/assets/homepage_3d_bento_ebike.png',
+    image: '/assets/ebike.png',
     hasDataSheet: false,
     icon: 'electric_bike',
     color: '#10B981',
@@ -402,51 +619,51 @@ const PRODUCTS = [
     subProducts: [
       {
         id: 'ebike-motor',
-        name: 'E-Bike Mid-Drive & Motor Sealing Assemblies',
-        tagline: 'High-speed rotary shaft seals, motor casing O-rings & IP67 water barrier gaskets',
-        image: '/assets/ebike_motor_sealing.png',
-        hasDataSheet: false,
-        description: 'ATI supplies precision rotary shaft seals, motor casing gaskets, and NBR/FKM O-rings engineered specifically for electric bicycle mid-drive and hub motors.',
+        name: 'E-Bike BLDC Hub Motor',
+        tagline: 'Brushless wheel hub electric drive propulsion & planetary gear assembly',
+        image: '/assets/clean_product_images/ebike_motor_main.png',
+        hasDataSheet: true,
+        description: 'ATI supplies BLDC hub motors converting electrical energy into smooth mechanical rotation with high torque density and low maintenance.',
         features: [
-          'Low-friction sealing lip minimizes motor torque loss and drag',
-          'IP67 dust and water ingress protection for off-road and rain riding',
-          'Compatible with Bafang, Bosch, Shimano Steps, Yamaha, and Panasonic drive units'
+          'Brushless electronic commutation for long service life and zero brush wear',
+          'Geared & direct-drive options tailored for high torque or high speed',
+          'Sealed IP-rated motor housing protects internal copper windings'
         ],
         includedParts: getEBikeIncludedPartsList(['Electric Drive System', 'Rubber & Sealing Components', 'Fasteners & Hardware', 'Drivetrain']),
         specs: generateEBikeSpecsFromCategories(['Electric Drive System', 'Rubber & Sealing Components', 'Fasteners & Hardware', 'Drivetrain']),
-        applications: ['Mid-Drive Motors', 'Hub Motors', 'Planetary Gearboxes', 'E-Cargo Bikes'],
+        applications: ['Commuter E-Bikes', 'Cargo E-Bikes', 'Folding E-Bikes', 'Light Electric Vehicles'],
       },
       {
         id: 'ebike-battery',
-        name: 'E-Bike Battery Enclosure & Powerpack Gaskets',
-        tagline: 'UL94-V0 flame-retardant silicone seals, IP68 case gaskets & thermal barrier pads',
-        image: '/assets/ebike_battery_sealing.png',
-        hasDataSheet: false,
-        description: 'ATI supplies custom-molded flame-retardant silicone and EPDM gaskets for e-bike battery enclosures, protecting lithium-ion cells against moisture, vibration, and thermal runaway.',
+        name: 'E-Bike Motor Controller',
+        tagline: 'Electronic power regulation, rider input processing & MOSFET inverter',
+        image: '/assets/clean_product_images/ebike_controller_main.png',
+        hasDataSheet: true,
+        description: 'ATI E-Bike Motor Controllers regulate battery power flow to the motor, processing throttle, PAS, brake cutoff, and Hall sensor signals.',
         features: [
-          'UL94-V0 fire resistance for battery safety compliance',
-          'IP68 waterproof rating prevents moisture ingress into cell chambers',
-          'High compressibility compensates for aluminum frame extrusion tolerances'
+          '3-phase MOSFET inverter stage for precise phase current control',
+          'Supports Hall-sensor feedback and sensorless motor commutation',
+          'Protected housing enclosure safeguards circuitry against moisture and dust'
         ],
         includedParts: getEBikeIncludedPartsList(['Battery System', 'Electrical Components', 'Lighting & Safety']),
         specs: generateEBikeSpecsFromCategories(['Battery System', 'Electrical Components', 'Lighting & Safety']),
-        applications: ['Integrated Frame Batteries', 'External Powerpacks', 'BMS Enclosures', 'Charging Ports'],
+        applications: ['Mid-Drive Systems', 'Hub Motor Drives', 'Pedal-Assist E-Bikes', 'Electric Cargo Vehicles'],
       },
       {
         id: 'ebike-drive',
-        name: 'E-Bike Powertrain & Drive System Components',
-        tagline: 'Controller housing seals, brake sensors & wiring harness entry grommets',
-        image: '/assets/homepage_3d_bento_ebike.png',
-        hasDataSheet: false,
-        description: 'ATI supplies complete powertrain sealing components including speed sensor seals, planetary reduction gear seals, controller box gaskets, and multi-wire rubber grommets.',
+        name: 'E-Bike Li-ion Battery Charger',
+        tagline: 'Regulated AC-to-DC constant-current constant-voltage (CC-CV) charger',
+        image: '/assets/clean_product_images/ebike_charger_main.png',
+        hasDataSheet: true,
+        description: 'ATI Li-ion Battery Chargers deliver controlled CC-CV charging stages with over-voltage, over-current, and thermal protection for e-bike powerpacks.',
         features: [
-          'Resists synthetic gear grease, UV exposure, and road salt corrosion',
-          'Integrated wire grommets prevent moisture wicking along power cables',
-          'Long service life tested to 50,000 km operating durability'
+          'Controlled CC-CV charging profile optimizes battery life and safety',
+          'Integrated protection against short-circuit, over-current, and over-temp',
+          'LED status indicators provide visual feedback during charge cycles'
         ],
         includedParts: getEBikeIncludedPartsList(['Brake System', 'Suspension & Steering', 'Wheels & Tires', 'Frame & Body Parts', 'E-Bike Accessories']),
         specs: generateEBikeSpecsFromCategories(['Brake System', 'Suspension & Steering', 'Wheels & Tires', 'Frame & Body Parts', 'E-Bike Accessories']),
-        applications: ['Hydraulic Disc Brakes', 'Front Suspension Forks', 'Display Units', 'Controller Modules'],
+        applications: ['Lithium Battery Packs', 'E-Bike Charging Stations', 'Commercial Fleets', 'Personal Mobility'],
       },
     ],
   },
@@ -463,15 +680,15 @@ function StructureImage({ src, caption }) {
     )
   }
   return (
-    <div className="w-full my-3 text-center">
+    <div className="w-full my-4 text-center">
       <img
         src={src}
         alt={caption}
         onError={() => setFailed(true)}
-        className="w-full h-auto max-h-80 object-contain mx-auto"
+        className="max-w-full h-auto max-h-[440px] object-contain mx-auto"
       />
       {caption && (
-        <p className="text-xs text-center text-[#505f76] mt-2 font-medium italic">
+        <p className="text-xs text-center text-[#505f76] mt-2.5 font-semibold italic">
           {caption}
         </p>
       )}
@@ -610,11 +827,11 @@ function ProductDetail({
 
         <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
-            <div className="h-72 overflow-hidden rounded-xl bg-[#f7f9fb] relative border border-[#c5c6cd]">
+            <div className="h-72 overflow-hidden rounded-xl bg-white relative border border-[#c5c6cd] p-4 flex items-center justify-center">
               <img
                 src={sub.image}
                 alt={sub.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 onError={(e) => { e.target.style.background = '#eceef0' }}
               />
             </div>
@@ -754,11 +971,11 @@ function ProductDetail({
             onClick={() => onSelectSubProduct(subItem.id)}
           >
             <div>
-              <div className="h-48 overflow-hidden bg-[#f7f9fb] relative">
+              <div className="h-52 overflow-hidden bg-white relative p-4 border-b border-gray-200 flex items-center justify-center">
                 <img
                   src={subItem.image}
                   alt={subItem.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => { e.target.style.background = '#eceef0' }}
                 />
               </div>
@@ -890,7 +1107,7 @@ export default function Products({ onNavigate }) {
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Everything You Need</h1>
           <p className="text-white/80 text-base max-w-1xl">
-            Looking for the right parts without the sourcing hassle? From industrial sealing solutions to motorcycle and e-bike components, AT International brings quality-verified products together under one trusted roof — helping buyers source with confidence and keep their businesses moving forward.
+            Looking for the right parts without the sourcing hassle? From Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions, AT International brings quality-verified products together under one trusted roof — helping buyers source with confidence and keep their businesses moving forward.
           </p>
         </div>
       </section>

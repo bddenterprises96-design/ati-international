@@ -29,8 +29,8 @@ export default function Navbar({ onNavigate }) {
     <header
       className={`top-0 sticky z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 border-b border-[#c5c6cd] shadow-md'
-          : 'bg-gradient-to-b from-slate-950/80 via-slate-900/40 to-transparent backdrop-blur-[2px]'
+          ? 'bg-white/90 border-b border-[#c5c6cd] shadow-sm'
+          : 'bg-transparent'
       }`}
       style={scrolled ? { backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' } : {}}
     >

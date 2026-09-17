@@ -127,7 +127,7 @@ export default function AboutUs({ onNavigate }) {
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <p className="mt-6 max-w-[85%] md:w-[80%] text-white/80 text-lg mb-10 leading-8">
-                AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions — sourced from reliable partners and delivered with precision.
+                AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions — sourced from reliable partners and delivered with precision.
               </p>
             </div>
 
@@ -188,12 +188,10 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-3xl font-bold text-[#005691] mb-6">Our Company</h2>
             <p className="text-[#505f76] leading-relaxed mb-5">
-              AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified motorcycle parts, e-bike components, and industrial sealing solutions. We supply a wide range of motorcycle parts, e-bike components, Valve Stem Seals, O-Rings, Oil Seals, and custom-sourced sealing solutions to procurement teams, distributors, and industrial buyers worldwide.
+              AT International operates as a specialized global trading and supply partner. We specialize in streamlining cross-border procurement for industrial sealing solutions, motorcycle parts, and e-bike components for distributors and B2B buyers worldwide.
             </p>
             <p className="text-[#505f76] leading-relaxed mb-5">
-              Operating from China, we source exclusively from verified, ISO-certified
-              partner manufacturers giving our customers access to quality-assured components
-              at competitive international pricing, backed by full documentation and traceability.
+              Based in China, our team collaborates directly with ISO-certified partner manufacturers. We oversee supplier verification, inspect technical documentation, and ensure rigorous pre-shipment standards on every cargo dispatch.
             </p>
             <p className="text-[#505f76] leading-relaxed">
               Whether you need standard catalogue items or custom specifications sourced to your drawings,
@@ -226,14 +224,14 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-gray-100">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
                 <span className="absolute top-4 left-4 z-10 bg-[#005691] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   Industrial Division
                 </span>
                 <img
-                  src="/assets/homepage_3d_bento_industrial.png"
+                  src="/assets/homepage_bento_seals_clean.png"
                   alt="Industrial Sealing Solutions"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => { e.target.src = '/assets/industrial-seals.png' }}
                 />
               </div>
@@ -261,7 +259,7 @@ export default function AboutUs({ onNavigate }) {
                 }}
                 className="w-full bg-[#005691] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-md"
               >
-                Explore Industrial Seals
+                Explore Industrial Division
                 <span className="material-symbols-outlined text-base">arrow_forward</span>
               </button>
             </div>
@@ -273,20 +271,20 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-gray-100">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
                 <span className="absolute top-4 left-4 z-10 bg-[#FF6B35] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   Motorcycle Division
                 </span>
                 <img
-                  src="/assets/homepage_3d_bento_motorcycle.png"
-                  alt="Motorcycle Components & Gaskets"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/assets/homepage_bento_moto_clean.png"
+                  alt="Motorcycle Parts"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => { e.target.src = '/assets/moto.png' }}
                 />
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
-                  Motorcycle Components & Gaskets
+                  Motorcycle Parts
                 </h3>
                 <p className="text-[#505f76] text-sm leading-relaxed mb-6">
                   Precision cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and complete engine overhaul gaskets.
@@ -320,20 +318,20 @@ export default function AboutUs({ onNavigate }) {
             className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
-              <div className="h-64 overflow-hidden relative bg-gray-100">
+              <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center">
                 <span className="absolute top-4 left-4 z-10 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   E-Bike Division
                 </span>
                 <img
-                  src="/assets/homepage_3d_bento_ebike.png"
-                  alt="E-Bike Powertrain & Battery Seals"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/assets/homepage_bento_ebike_clean.png"
+                  alt="E-Bike Parts"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => { e.target.src = '/assets/ebike.png' }}
                 />
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
-                  E-Bike Powertrain & Battery Seals
+                  E-Bike Parts
                 </h3>
                 <p className="text-[#505f76] text-sm leading-relaxed mb-6">
                   IP67 mid-drive motor rotary shaft seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
@@ -370,7 +368,7 @@ export default function AboutUs({ onNavigate }) {
             <span className="material-symbols-outlined text-4xl mb-5 block">flag</span>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-white/80 leading-relaxed">
-              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified motorcycle parts, e-bike components, and industrial sealing products. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
+              To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide.
             </p>
           </div>
           <div className="bg-[#f2f4f6] border border-[#c5c6cd] rounded-2xl p-10 hover:shadow-xl hover:scale-105 transition-transform duration-500">
@@ -393,7 +391,7 @@ export default function AboutUs({ onNavigate }) {
             { icon: 'handshake',     title: 'Integrity',           desc: 'Transparent pricing, honest communication, and dependable commitments form the foundation of every customer relationship.' },
             { icon: 'rocket_launch', title: 'Procurement Agility', desc: 'Fast inquiry turnaround, flexible MOQ options, and responsive sourcing that adapts to your production schedules.' },
             { icon: 'groups',        title: 'Customer Focus',      desc: "We listen, understand your application, and source components that match your exact technical and commercial requirements." },
-            { icon: 'public',        title: 'Global Reach',        desc: 'From our base in Guangzhou, we manage exports to over 40 countries with experience in customs, Incoterms, and international freight.' },
+            { icon: 'public',        title: 'Global Reach',        desc: 'Guangzhou, China. We manage exports to over 40 countries with experience in customs, Incoterms, and international freight.' },
             { icon: 'eco',           title: 'Responsible Sourcing', desc: 'We prioritize suppliers with strong environmental commitments, RoHS and REACH compliant materials, and responsible supply chains.' },
           ].map((v) => (
             <div key={v.title} className="bg-white border border-[#c5c6cd] rounded-xl p-8 hover:shadow-lg hover:bg-white/20 hover:scale-105 transition-transform duration-500">

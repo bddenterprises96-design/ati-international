@@ -6,11 +6,11 @@ const FAQS = [
     items: [
       {
         q: 'What types of sealing products does ATI supply?',
-        a: 'ATI supplies Valve Stem Seals, O-Rings, Oil Seals (rotary shaft seals), and custom sealing components. Beyond sealing products, AT International also sources and supplies motorcycle parts, e-bike components, accessories, and other industrial products through our trusted supplier network. All products are sourced from our network of verified, ISO-certified partner manufacturers. We cover a wide range of elastomeric materials including FKM (Viton), NBR, EPDM, Silicone (VMQ), PTFE, and FFKM.',
+        a: 'ATI specializes in Industrial Sealing Solutions including Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, Heavy-Duty Rotary Shaft Oil Seals, and Custom Spec Molded Rubber Seals. All sealing products are produced from high-grade elastomeric compounds (FKM, NBR, EPDM, VMQ Silicone, PTFE, FFKM) and sourced from ISO-certified partner manufacturers with full material traceability and compliance records.',
       },
       {
         q: 'Does ATI supply products beyond sealing components?',
-        a: 'Yes. As a global trading company, supplier, and exporter, ATI sources and supplies a wide range of motorcycle parts, e-bike components, accessories, and other industrial products beyond our core sealing product line through our trusted supplier network and ISO-certified partner manufacturers.',
+        a: 'Yes. Beyond Industrial Sealing Solutions, AT International is a specialized global supplier and trading partner delivering Motorcycle Parts (cylinder blocks, pistons, head gaskets, clutch friction plates) and E-Bike Parts (motor shaft seals, battery pack gaskets, controller grommets) to B2B buyers and distributors across 40+ countries.',
       },
       {
         q: 'Can ATI source seals to my custom dimensions and drawings?',
@@ -77,7 +77,7 @@ const FAQS = [
       },
       {
         q: 'Is ATI a manufacturer or a trading company?',
-        a: 'AT International is a global sourcing, trading, supply, and export company. We work with verified manufacturing partners to source and supply motorcycle parts, e-bike components, industrial sealing products, and other components according to customer requirements. Our role is to simplify procurement, coordinate with suitable suppliers, and manage the supply process from sourcing through export for customers worldwide.',
+        a: 'AT International is a global sourcing, trading, supply, and export company. We work with verified manufacturing partners to source and supply Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions according to customer requirements. Our role is to simplify procurement, coordinate with suitable suppliers, and manage the supply process from sourcing through export for customers worldwide.',
       },
     ],
   },

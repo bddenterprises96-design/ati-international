@@ -31,7 +31,7 @@ export default function WhyATI({ onNavigate }) {
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Source Through AT International?</h1>
           <p className="text-white/90 text-base max-w-3xl leading-relaxed">
-            AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white underline decoration-white/50">Industrial Sealing Solutions</strong>, <strong className="text-white underline decoration-white/50">Motorcycle Parts</strong>, and <strong className="text-white underline decoration-white/50">E-Bike Parts & Components</strong>.
+            AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white">Industrial Sealing Solutions</strong>, <strong className="text-white">Motorcycle Parts</strong>, and <strong className="text-white">E-Bike Parts</strong>.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function WhyATI({ onNavigate }) {
                 Industrial Sealing Solutions
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, and Heavy-Duty Rotary Shaft Oil Seals for hydraulic and engine systems.
+                High-performance Valve Stem Seals (FKM/Viton), Fluororubber & NBR O-Rings, Heavy-Duty Rotary Shaft Oil Seals, and Custom Spec Molded Rubber Seals for hydraulic and engine systems.
               </p>
               <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
                 {[
@@ -86,7 +86,7 @@ export default function WhyATI({ onNavigate }) {
               onClick={() => handleNavigate('Products#industrial-seals')}
               className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              Explore Industrial Seals
+              Explore Industrial Division
               <span className="material-symbols-outlined text-base">arrow_forward</span>
             </button>
           </div>
@@ -106,7 +106,7 @@ export default function WhyATI({ onNavigate }) {
                 Motorcycle Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                Engine cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and complete engine overhaul gasket sets.
+                Engine cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and Complete Engine Head Gaskets.
               </p>
               <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
                 {[
@@ -146,7 +146,7 @@ export default function WhyATI({ onNavigate }) {
                 E-Bike Parts & Components
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                IP67 mid-drive motor rotary shaft seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
+                IP67 mid-drive motor rotary shaft seals, Powertrain & Hub Seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
               </p>
               <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
                 {[
@@ -291,7 +291,7 @@ export default function WhyATI({ onNavigate }) {
               icon: 'build',
               badge: 'Custom Sourcing',
               title: 'Custom CAD & Spec Sourcing in 14 Days',
-              desc: 'Beyond standard catalog offerings, we coordinate custom-source products to your 2D/3D technical drawings or physical samples, sample production, and first-article approvals.',
+              desc: 'Beyond standard catalog offerings, we coordinate custom-sourced products based on your 2D/3D technical drawings or physical samples, sample production, and first-article approvals.',
             },
             {
               icon: 'inventory_2',
@@ -309,13 +309,13 @@ export default function WhyATI({ onNavigate }) {
               icon: 'gavel',
               badge: 'Compliance',
               title: 'International Regulatory & Chemical Safety',
-              desc: 'AT International sources products with applicable RoHS/REACH documentation and compliance declarations through qualified suppliers, where applicable.',
+              desc: 'AT International sources products with RoHS/REACH documentation and compliance declarations through qualified suppliers, where applicable.',
             },
             {
               icon: 'fact_check',
               badge: 'Inspection Desk',
               title: 'Multi-Tier Factory Audits & Testing',
-              desc: 'We perform on-site factory audits, raw material chemical checks, and pre-dispatch zero-defect testing to guarantee that every shipment strictly matches client technical specifications.',
+              desc: 'Partner manufacturers perform quality audits and testing, while AT International verifies compliance, quality records, and pre-shipment documentation.',
             },
             {
               icon: 'package_2',
@@ -333,7 +333,13 @@ export default function WhyATI({ onNavigate }) {
               icon: 'description',
               badge: 'Export Docs',
               title: 'Complete Export Documentation & Customs',
-              desc: 'We prepare all required export documentation including Bills of Lading (B/L), Certificates of Origin (Form A, Form E, CO), Commercial Invoices, and Packing Lists for fast customs release.',
+              desc: 'We prepare all required export documentation including Bills of Lading (B/L), Certificates of Origin (Form A, Form E), Commercial Invoices, and Packing Lists for fast customs release.',
+            },
+            {
+              icon: 'shield_with_heart',
+              badge: 'Supply Assurance',
+              title: 'Global Supply & Risk Management',
+              desc: 'We provide structured supply continuity plans, batch material traceability, and dedicated risk management for multi-country container dispatches.',
             },
           ].map((item) => (
             <div

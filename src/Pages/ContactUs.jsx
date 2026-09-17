@@ -110,7 +110,7 @@ const INQUIRY_MODES = [
 
 const PRODUCT_CATEGORIES = [
   { id: 'Motorcycle Parts & Engine Components', label: 'Motorcycle Parts', icon: 'two_wheeler', tag: 'Valves, Pistons, Clutch' },
-  { id: 'E-Bike Drive Systems & Electronics', label: 'E-Bike Components', icon: 'electric_bike', tag: 'Motors, Battery Seals' },
+  { id: 'E-Bike Drive Systems & Electronics', label: 'E-Bike Parts', icon: 'electric_bike', tag: 'Motors, Battery Seals' },
   { id: 'Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)', label: 'Industrial Seals', icon: 'settings', tag: 'Valve Stem,Oil Seals, O Rings' },
   { id: 'Custom Sourcing to Technical Drawing', label: 'Request Custom Sourcing', icon: 'build', tag: 'Custom Specification Sourcing' },
 ]
@@ -608,7 +608,7 @@ export default function ContactUS({ onNavigate }) {
                 <span className="inline-block px-2.5 py-0.5 rounded bg-white/20 text-white text-[10px] font-bold tracking-wider uppercase mb-1">Custom Sourcing Desk</span>
                 <h3 className="text-xl font-bold text-white mb-1">Can't Find Your Exact Product?</h3>
                 <p className="text-white/85 text-xs sm:text-sm leading-relaxed">
-                  Beyond our online catalogue, AT International sources motorcycle parts, e-bike components, and industrial sealing products to your drawings, specifications, or samples.
+                  Beyond our online catalogue, AT International sources Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions to your drawings, specifications, or samples.
                 </p>
               </div>
             </div>
@@ -779,16 +779,16 @@ export default function ContactUS({ onNavigate }) {
                             setInquiryMode(mode.id)
                             if (mode.id === 'custom') setForm((prev) => ({ ...prev, product: 'Custom Sourcing to Technical Drawing' }))
                           }}
-                          className={`p-2.5 rounded-xl text-left transition-all flex items-center gap-2.5 ${
+                          className={`p-3 rounded-xl text-left transition-all flex items-center gap-2 ${
                             active
                               ? 'bg-white text-[#005691] shadow-md border border-gray-200 font-bold'
                               : 'text-gray-600 hover:text-[#005691] font-medium'
                           }`}
                         >
-                          <span className={`material-symbols-outlined text-lg ${active ? 'text-[#005691]' : 'text-gray-400'}`}>
+                          <span className={`material-symbols-outlined text-base flex-shrink-0 ${active ? 'text-[#005691]' : 'text-gray-400'}`}>
                             {mode.icon}
                           </span>
-                          <span className="text-xs leading-tight truncate">{mode.label}</span>
+                          <span className="text-[11px] sm:text-xs leading-snug whitespace-normal break-words">{mode.label}</span>
                         </button>
                       )
                     })}
@@ -831,7 +831,7 @@ export default function ContactUS({ onNavigate }) {
 
                     {/* Segmented Items List */}
                     <div className="p-4 max-h-64 overflow-y-auto space-y-3">
-                      {renderSegment('Motorcycle Spare Parts', flattenedMotorcycle, 'two_wheeler', motorcycleCount, 'bg-orange-500')}
+                      {renderSegment('Motorcycle Parts', flattenedMotorcycle, 'two_wheeler', motorcycleCount, 'bg-orange-500')}
                       {renderSegment('E-Bike Drive Parts', flattenedEbike, 'electric_bike', ebikeCount, 'bg-emerald-500')}
                     </div>
 
