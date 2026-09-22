@@ -361,131 +361,241 @@ const DATA_SHEETS = {
   },
 }
 
-// ── MOTORCYCLE PARTS CATEGORIES ────────────────────────────────────
+// ── MOTORCYCLE PARTS CATEGORIES (PDF Real-World Parts List) ────────
 const MOTORCYCLE_PARTS = {
   'Engine Parts': [
-    'Cylinder Head', 'Cylinder Block', 'Piston', 'Piston Rings', 'Piston Pin',
-    'Connecting Rod', 'Crankshaft', 'Camshaft', 'Valves', 'Valve Stem Seals',
-    'Valve Guides', 'Valve Springs', 'Rocker Arms', 'Timing Chain',
-    'Timing Chain Tensioner', 'Cam Chain Guide', 'Oil Pump', 'Oil Filter',
-    'Oil Seals', 'O-Rings', 'Gaskets', 'Engine Bearings', 'Crankcase', 'Clutch Cover'
+    'Cylinder kits',
+    'Cylinder heads',
+    'Pistons',
+    'Piston rings',
+    'Piston pins',
+    'Connecting rods',
+    'Crankshafts',
+    'Camshafts',
+    'Rocker arms',
+    'Valves',
+    'Valve springs',
+    'Valve guides',
+    'Timing chains',
+    'Timing sprockets',
+    'Gasket sets',
+    'Oil seals'
   ],
-  'Transmission & Clutch': [
-    'Clutch Plates', 'Clutch Friction Plates', 'Clutch Basket', 'Clutch Hub',
-    'Clutch Springs', 'Clutch Cable', 'Gear Shift Drum', 'Gear Shift Fork',
-    'Transmission Gears', 'Drive Shaft', 'Counter Shaft', 'Kick Starter', 'Gear Lever'
+  'Fuel System Parts': [
+    'Carburetors',
+    'Fuel pumps',
+    'Fuel tanks',
+    'Fuel caps',
+    'Air filters',
+    'Intake manifolds',
+    'Throttle cables',
+    'Choke cables'
   ],
-  'Fuel System': ['Fuel Tank', 'Fuel Pump', 'Carburetor', 'Fuel Injector', 'Throttle Body', 'Fuel Filter', 'Fuel Hose', 'Fuel Cap'],
-  'Air Intake System': ['Air Filter', 'Air Filter Element', 'Air Cleaner Box', 'Intake Manifold', 'Throttle Cable'],
-  'Exhaust System': ['Exhaust Pipe', 'Muffler', 'Silencer', 'Exhaust Gasket', 'Exhaust Heat Shield'],
-  'Cooling System': ['Radiator', 'Cooling Fan', 'Water Pump', 'Thermostat', 'Radiator Hose', 'Coolant Reservoir'],
-  'Brake System': ['Brake Disc (Rotor)', 'Brake Drum', 'Brake Pads', 'Brake Shoes', 'Brake Caliper', 'Brake Master Cylinder', 'Brake Lever', 'Brake Pedal', 'Brake Hose', 'Brake Fluid Reservoir'],
-  'Suspension & Steering': ['Front Fork', 'Rear Shock Absorber', 'Triple Clamp', 'Steering Stem', 'Swing Arm', 'Swing Arm Bush', 'Suspension Linkage'],
-  'Wheels & Tires': ['Alloy Wheel', 'Spoked Wheel', 'Wheel Hub', 'Wheel Bearing', 'Tire', 'Tube', 'Rim', 'Spokes', 'Axle Shaft'],
-  'Chain Drive': ['Drive Chain', 'Front Sprocket', 'Rear Sprocket', 'Chain Tensioner', 'Chain Guard'],
-  'Electrical Parts': ['Battery', 'Stator', 'Magneto', 'CDI Unit', 'ECU', 'Ignition Coil', 'Spark Plug', 'Starter Motor', 'Starter Relay', 'Regulator Rectifier', 'Wiring Harness', 'Fuse Box'],
-  'Lighting': ['LED Headlight', 'Tail Light', 'Brake Light', 'Turn Signal', 'Indicator Relay', 'Number Plate Light'],
-  'Controls': ['Handlebar', 'Handle Grips', 'Throttle Grip', 'Brake Lever', 'Clutch Lever', 'Foot Peg', 'Side Stand', 'Center Stand', 'Mirrors'],
-  'Body Parts': ['Fuel Tank Cover', 'Front Fender', 'Rear Fender', 'Side Covers', 'Fairings', 'Seat', 'Seat Cover', 'Rear Carrier', 'Chain Cover'],
-  'Rubber & Sealing Components': ['Oil Seals', 'Valve Stem Seals', 'O-Rings', 'Gaskets', 'Rubber Bushes', 'Dust Seals', 'Rubber Mounts', 'Rubber Grommets', 'Rubber Dampers'],
-  'Motorcycle Accessories': ['Phone Holder', 'USB Charger', 'Top Box', 'Side Box', 'Crash Guard', 'Engine Guard', 'Windshield', 'Luggage Rack', 'LED Auxiliary Lights', 'Helmet Lock', 'Hand Guards', 'Tank Pad', 'Frame Sliders']
+  'Ignition & Electrical Parts': [
+    'Spark plugs',
+    'Ignition coils',
+    'CDI units',
+    'Stators',
+    'Rotors',
+    'Rectifier regulators',
+    'Wiring harnesses',
+    'Switches',
+    'Relays',
+    'Fuses',
+    'Horns',
+    'Batteries'
+  ],
+  'Transmission & Drive Parts': [
+    'Gearboxes',
+    'Shift drums',
+    'Shift forks',
+    'Drive chains',
+    'Sprockets',
+    'Chain tensioners'
+  ],
+  'Braking Parts': [
+    'Brake pads',
+    'Brake shoes',
+    'Brake discs / rotors',
+    'Brake calipers',
+    'Brake master cylinders',
+    'Brake hoses',
+    'Brake levers',
+    'Brake pedals'
+  ],
+  'Suspension & Steering Parts': [
+    'Front forks',
+    'Fork seals',
+    'Fork springs',
+    'Rear shock absorbers',
+    'Swing arms',
+    'Steering bearings',
+    'Handlebars',
+    'Grips',
+    'Foot pegs'
+  ],
+  'Wheel & Tire Parts': [
+    'Rims',
+    'Spokes',
+    'Hubs',
+    'Axles',
+    'Bearings',
+    'Tires',
+    'Tubes',
+    'Valve stems'
+  ],
+  'Body & Frame Parts': [
+    'Fuel tanks',
+    'Side covers',
+    'Seats',
+    'Fairings',
+    'Mudguards / fenders',
+    'Chain guards',
+    'Engine guards',
+    'Frame parts',
+    'Bolts, nuts, fasteners'
+  ],
+  'Lighting & Signal Parts': [
+    'Headlights',
+    'Tail lights',
+    'Brake lights',
+    'Turn signals',
+    'Reflectors'
+  ],
+  'Exhaust Parts': [
+    'Exhaust pipes',
+    'Mufflers / silencers',
+    'Exhaust gaskets',
+    'Heat shields'
+  ],
+  'Lubrication & Cooling Parts': [
+    'Oil pumps',
+    'Oil filters',
+    'Radiators',
+    'Water pumps',
+    'Coolant hoses',
+    'Thermostats'
+  ],
+  'Accessories & Small Parts': [
+    'Mirrors',
+    'Instrument clusters',
+    'Cables (throttle, clutch, brake, speedo)',
+    'Levers (brake, clutch)',
+    'Kick stands',
+    'Center stands'
+  ]
 }
 
-// ── E-BIKE PARTS CATEGORIES ────────────────────────────────────────
+// ── E-BIKE PARTS CATEGORIES (PDF Real-World Parts List) ──────────
 const EBIKE_PARTS = {
-  'Electric Drive System': ['Hub Motor', 'Mid-Drive Motor', 'Motor Controller', 'Motor Stator', 'Motor Rotor', 'Motor Housing', 'Motor Bearings', 'Motor Shaft', 'Motor Gears', 'Torque Sensor', 'Cadence Sensor'],
-  'Battery System': ['Lithium-Ion Battery Pack', 'Battery Cells', 'Battery Management System (BMS)', 'Battery Charger', 'Charging Port', 'Battery Holder', 'Battery Mount', 'Battery Lock', 'Battery Case'],
-  'Electrical Components': ['LCD Display', 'LED Display', 'Wiring Harness', 'Main Cable', 'Controller Cable', 'Throttle', 'Thumb Throttle', 'Twist Throttle', 'PAS (Pedal Assist Sensor)', 'Brake Sensor', 'Speed Sensor', 'DC Converter', 'Fuse', 'Connectors'],
-  'Brake System': ['Hydraulic Brake Set', 'Mechanical Brake Set', 'Brake Caliper', 'Brake Pads', 'Brake Disc (Rotor)', 'Brake Lever', 'Brake Cable', 'Brake Hose'],
-  'Drivetrain': ['Crankset', 'Crank Arm', 'Chain', 'Chainring', 'Cassette', 'Freewheel', 'Bottom Bracket', 'Derailleur', 'Gear Shifter', 'Pedals'],
-  'Suspension & Steering': ['Front Fork', 'Rear Suspension', 'Shock Absorber', 'Handlebar', 'Stem', 'Headset', 'Steering Bearings'],
-  'Wheels & Tires': ['Front Wheel', 'Rear Wheel', 'Rim', 'Tire', 'Tube', 'Tubeless Tire', 'Wheel Hub', 'Spokes', 'Wheel Bearings', 'Axle'],
-  'Frame & Body Parts': ['Aluminum Frame', 'Carbon Frame', 'Rear Rack', 'Front Basket', 'Mudguards', 'Chain Guard', 'Kickstand', 'Seat Post', 'Saddle', 'Seat Clamp'],
-  'Lighting & Safety': ['LED Headlight', 'Tail Light', 'Brake Light', 'Turn Indicators', 'Reflectors', 'Horn', 'Bell'],
-  'Rubber & Sealing Components': ['O-Rings', 'Oil Seals', 'Dust Seals', 'Rubber Bushes', 'Rubber Grommets', 'Rubber Dampers', 'Cable Boots', 'Rubber Mounts', 'Silicone Seals', 'Protective Rubber Covers'],
-  'Fasteners & Hardware': ['Bolts', 'Nuts', 'Washers', 'Screws', 'Clamps', 'Mounting Brackets', 'Frame Fasteners'],
-  'E-Bike Accessories': ['Phone Holder', 'Mobile Charging Port', 'Rear Carrier', 'Front Basket', 'Water Bottle Holder', 'Rear View Mirror', 'Child Seat', 'Side Bag', 'Pannier Bag', 'GPS Tracker', 'Security Lock', 'Helmet', 'Mud Flaps']
-}
-
-function getDeterministicHash(str) {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash << 5) - hash + str.charCodeAt(i)
-    hash |= 0
-  }
-  return Math.abs(hash)
-}
-
-function generateSpecsFromCategories(categoriesList) {
-  const specs = []
-  categoriesList.forEach(catName => {
-    const items = MOTORCYCLE_PARTS[catName] || []
-    items.forEach(item => {
-      const hash = getDeterministicHash(item)
-      const partNumSuffix = 100 + (hash % 900)
-      const moqOptions = [500, 1000, 2000, 5000]
-      const moq = moqOptions[hash % moqOptions.length]
-      
-      const materials = ['Viton (FKM)', 'Cast Iron / Nikasil', 'High-Grade NBR', 'Forged Aluminum', 'Aramid Friction Matrix', 'High-Tensile Alloy Steel', 'Silicone VMQ', 'Stainless Steel AISI 304']
-      const temps = ['-40 to +230°C', '-20 to +280°C', '-30 to +180°C', '-40 to +120°C', '-50 to +200°C']
-      
-      specs.push({
-        part: `ATI-M-${item.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, 'X')}-${partNumSuffix}`,
-        name: item,
-        category: catName,
-        material: materials[hash % materials.length],
-        dim: `Standard OEM (${(hash % 40) + 10}mm)`,
-        temp: temps[hash % temps.length],
-        moq: moq.toLocaleString()
-      })
-    })
-  })
-  return specs
-}
-
-function getIncludedPartsList(categoriesList) {
-  const list = []
-  categoriesList.forEach(catName => {
-    const items = MOTORCYCLE_PARTS[catName] || []
-    items.forEach(item => list.push(item))
-  })
-  return list
-}
-
-function generateEBikeSpecsFromCategories(categoriesList) {
-  const specs = []
-  categoriesList.forEach(catName => {
-    const items = EBIKE_PARTS[catName] || []
-    items.forEach(item => {
-      const hash = getDeterministicHash(item)
-      const partNumSuffix = 100 + (hash % 900)
-      const moqOptions = [500, 1000, 2000, 5000]
-      const moq = moqOptions[hash % moqOptions.length]
-      
-      const materials = ['Silicone (VMQ)', 'NBR 70A High-Grade', 'Viton (FKM)', 'UL94-V0 Flame-Retardant EPDM', 'Forged Aluminum 6061-T6', 'Polycarbonate / ABS', 'Stainless Steel AISI 316']
-      const temps = ['-40 to +180°C', '-20 to +150°C', '-30 to +120°C', '-50 to +200°C']
-      
-      specs.push({
-        part: `ATI-EB-${item.substring(0, 3).toUpperCase().replace(/[^A-Z]/g, 'X')}-${partNumSuffix}`,
-        name: item,
-        category: catName,
-        material: materials[hash % materials.length],
-        dim: `Standard OEM (${(hash % 30) + 10}mm)`,
-        temp: temps[hash % temps.length],
-        moq: moq.toLocaleString()
-      })
-    })
-  })
-  return specs
-}
-
-function getEBikeIncludedPartsList(categoriesList) {
-  const list = []
-  categoriesList.forEach(catName => {
-    const items = EBIKE_PARTS[catName] || []
-    items.forEach(item => list.push(item))
-  })
-  return list
+  'Motor & Drive Parts': [
+    'Hub motors (front & rear)',
+    'Mid-drive motors',
+    'Motor controllers',
+    'Motor sensors',
+    'Motor mounts',
+    'Drive belts',
+    'Drive chains',
+    'Freewheels',
+    'Cassettes'
+  ],
+  'Battery & Power Parts': [
+    'E-bike batteries',
+    'Battery cells',
+    'Battery management systems (BMS)',
+    'Battery cases',
+    'Battery mounts',
+    'Battery racks',
+    'Battery connectors',
+    'Battery locks'
+  ],
+  'Charging Parts': [
+    'Battery chargers',
+    'Charging ports',
+    'Charging sockets',
+    'Charging cables',
+    'Adapters'
+  ],
+  'Control & Display Parts': [
+    'E-bike displays / LCD panels',
+    'Control units / ECUs',
+    'Throttles (twist & thumb)',
+    'Pedal assist sensors (PAS)',
+    'Speed sensors',
+    'Brake sensors',
+    'Control cables',
+    'Wiring harnesses'
+  ],
+  'Braking Parts': [
+    'Hydraulic disc brakes',
+    'Mechanical disc brakes',
+    'Brake levers (with motor cut-off)',
+    'Brake rotors',
+    'Brake pads',
+    'Brake calipers'
+  ],
+  'Drivetrain & Transmission Parts': [
+    'Chains',
+    'Sprockets',
+    'Cassettes',
+    'Derailleurs',
+    'Shifters',
+    'Cranksets',
+    'Bottom brackets',
+    'Pedals'
+  ],
+  'Wheel & Tire Parts': [
+    'Rims',
+    'Hubs (motor & non-motor)',
+    'Spokes',
+    'Tires (e-bike rated)',
+    'Tubes',
+    'Valve stems'
+  ],
+  'Frame & Structural Parts': [
+    'E-bike frames',
+    'Battery-integrated frames',
+    'Rear racks',
+    'Frame mounts',
+    'Kick stands'
+  ],
+  'Electrical & Wiring Parts': [
+    'Wiring harnesses',
+    'Connectors',
+    'Switches',
+    'Fuses',
+    'Circuit protection'
+  ],
+  'Lighting & Signal Parts': [
+    'LED headlights',
+    'Tail lights',
+    'Brake lights',
+    'Turn signals',
+    'Reflectors'
+  ],
+  'Suspension & Steering Parts': [
+    'Front forks',
+    'Rear shocks',
+    'Handlebars',
+    'Grips',
+    'Stems'
+  ],
+  'Accessories': [
+    'Mirrors',
+    'Bell / horn',
+    'Phone holders',
+    'Bottle cages',
+    'Fenders / mudguards',
+    'Chain guards',
+    'Luggage racks',
+    'Child seats',
+    'E-bike covers'
+  ],
+  'Safety & Security Parts': [
+    'E-bike locks',
+    'Alarm systems',
+    'GPS trackers'
+  ]
 }
 
 const PRODUCTS = [
@@ -568,8 +678,34 @@ const PRODUCTS = [
           'Precision-machined journals support accurate bearing fit and smooth rotation',
           'Balanced construction minimizes engine vibration and mechanical stress'
         ],
-        includedParts: getIncludedPartsList(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
-        specs: generateSpecsFromCategories(['Engine Parts', 'Fuel System', 'Air Intake System', 'Exhaust System', 'Cooling System']),
+        includedParts: [
+          'Crankshaft Main Body',
+          'Connecting Rod Assembly',
+          'Case-Hardened Crankpin',
+          'Big End Needle Roller Bearing',
+          'Main Crankshaft Journal Bearings',
+          'Left & Right Crankshaft Oil Seals',
+          'Primary Drive Woodruff Key',
+          'Primary Drive Shaft Gear',
+          'Crankshaft Thrust Washer Set',
+          'Cam Chain Drive Sprocket',
+          'Crankshaft Web Counterweights',
+          'Flywheel Rotor Mounting Hub'
+        ],
+        specs: [
+          { part: 'ATI-CS-1001', name: 'Crankshaft Main Body', category: 'Crankshaft & Rod', material: 'Forged 4340 Alloy Steel', dim: 'Stroke 54.5mm / Pin 28mm', temp: '-40 to +180°C', moq: '500' },
+          { part: 'ATI-CS-1002', name: 'Connecting Rod Assembly', category: 'Crankshaft & Rod', material: 'Forged 20CrMo Alloy Steel', dim: 'Center Distance 104mm', temp: '-40 to +200°C', moq: '1,000' },
+          { part: 'ATI-CS-1003', name: 'Case-Hardened Crankpin', category: 'Crankshaft & Rod', material: '20Cr Alloy Carbon Steel', dim: 'Ø 28mm × L 48mm', temp: '-40 to +200°C', moq: '2,000' },
+          { part: 'ATI-CS-1004', name: 'Big End Needle Roller Bearing', category: 'Bearings & Retainers', material: 'SUJ2 Chrome Steel', dim: '28 × 36 × 16mm', temp: '-30 to +180°C', moq: '2,000' },
+          { part: 'ATI-CS-1005', name: 'Main Crankshaft Journal Bearings', category: 'Bearings & Retainers', material: 'SUJ2 High Precision Steel', dim: '63/22 C3 Precision', temp: '-30 to +160°C', moq: '1,000' },
+          { part: 'ATI-CS-1006', name: 'Left & Right Crankshaft Oil Seals', category: 'Seals & Gaskets', material: 'Viton (FKM) Double Lip', dim: '20 × 35 × 7mm / 22 × 35 × 7mm', temp: '-20 to +220°C', moq: '5,000' },
+          { part: 'ATI-CS-1007', name: 'Primary Drive Woodruff Key', category: 'Fasteners & Keys', material: 'Hardened Carbon Steel', dim: '4mm × 16mm', temp: '-40 to +250°C', moq: '5,000' },
+          { part: 'ATI-CS-1008', name: 'Primary Drive Shaft Gear', category: 'Drive & Timing', material: 'Sintered Powder Metal', dim: '18 Tooth / Module 1.5', temp: '-30 to +180°C', moq: '1,000' },
+          { part: 'ATI-CS-1009', name: 'Crankshaft Thrust Washer Set', category: 'Bearings & Retainers', material: 'Phosphor Bronze Alloy', dim: 'ID 22mm × OD 34mm', temp: '-40 to +200°C', moq: '3,000' },
+          { part: 'ATI-CS-1010', name: 'Cam Chain Drive Sprocket', category: 'Drive & Timing', material: 'Carburized 16MnCr5 Steel', dim: '16 Tooth Pitch 6.35mm', temp: '-30 to +180°C', moq: '1,000' },
+          { part: 'ATI-CS-1011', name: 'Crankshaft Web Counterweights', category: 'Crankshaft & Rod', material: 'Ductile Cast Iron', dim: 'Precision Balanced', temp: '-40 to +200°C', moq: '500' },
+          { part: 'ATI-CS-1012', name: 'Flywheel Rotor Mounting Hub', category: 'Crankshaft & Rod', material: 'Forged Medium Carbon Steel', dim: 'Taper Bore 1:10', temp: '-40 to +200°C', moq: '1,000' },
+        ],
         applications: ['Commuter Motorcycles', 'Touring Bikes', 'Sport Motorcycles', 'Scooters & Small Engines'],
       },
       {
@@ -584,8 +720,34 @@ const PRODUCTS = [
           'Precision-machined valve seats and guides ensure tight combustion sealing',
           'Compatible with air-cooled cooling fins or internal liquid passages'
         ],
-        includedParts: getIncludedPartsList(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
-        specs: generateSpecsFromCategories(['Transmission & Clutch', 'Chain Drive', 'Brake System', 'Suspension & Steering', 'Wheels & Tires']),
+        includedParts: [
+          'Cylinder Head Die-Cast Body',
+          'Intake Valve Assembly',
+          'Exhaust Valve Assembly',
+          'Valve Stem Seal Set',
+          'Valve Stem Guide Inserts',
+          'Valve Seat Insert Rings',
+          'Progressive Valve Springs Inner/Outer',
+          'Valve Spring Retainers & Split Cotters',
+          'Rocker Arm & Pivot Shaft Assembly',
+          'Overhead Camshaft (OHC) Assembly',
+          'Multi-Layer Steel Head Gasket',
+          'Spark Plug Threaded Boss Insert'
+        ],
+        specs: [
+          { part: 'ATI-CH-2001', name: 'Cylinder Head Die-Cast Body', category: 'Cylinder Head Body', material: 'A356.2 Aluminum Alloy', dim: 'OEM Bore 52.4mm / Air Cooled', temp: '-40 to +280°C', moq: '500' },
+          { part: 'ATI-CH-2002', name: 'Intake Valve Assembly', category: 'Valvetrain Components', material: 'SUH3 Stainless Steel', dim: 'Head Ø 26mm / Stem Ø 5mm', temp: '-40 to +300°C', moq: '2,000' },
+          { part: 'ATI-CH-2003', name: 'Exhaust Valve Assembly', category: 'Valvetrain Components', material: 'SUH35 High-Temp Steel', dim: 'Head Ø 22mm / Stem Ø 5mm', temp: '-40 to +700°C', moq: '2,000' },
+          { part: 'ATI-CH-2004', name: 'Valve Stem Seal Set', category: 'Seals & Gaskets', material: 'Viton FKM Fluororubber', dim: '5mm Stem / 8.3mm Guide', temp: '-20 to +230°C', moq: '5,000' },
+          { part: 'ATI-CH-2005', name: 'Valve Stem Guide Inserts', category: 'Valvetrain Components', material: 'CuZnAl Bronze Alloy', dim: 'ID 5.0mm × OD 10.0mm', temp: '-40 to +260°C', moq: '3,000' },
+          { part: 'ATI-CH-2006', name: 'Valve Seat Insert Rings', category: 'Valvetrain Components', material: 'Sintered Iron-Copper', dim: 'Intake Ø 27mm / Exhaust Ø 23mm', temp: '-40 to +650°C', moq: '3,000' },
+          { part: 'ATI-CH-2007', name: 'Progressive Valve Springs Inner/Outer', category: 'Springs & Hardware', material: 'SWOSC-V Oil Tempered Steel', dim: 'Free Length 35.5mm', temp: '-30 to +180°C', moq: '2,000' },
+          { part: 'ATI-CH-2008', name: 'Valve Spring Retainers & Split Cotters', category: 'Springs & Hardware', material: 'Case-Hardened Carbon Steel', dim: 'Standard 5mm Stem Fit', temp: '-30 to +200°C', moq: '5,000' },
+          { part: 'ATI-CH-2009', name: 'Rocker Arm & Pivot Shaft Assembly', category: 'Valvetrain Components', material: 'Forged 20Cr Alloy Steel', dim: 'Ratio 1:1.15 / Shaft Ø 10mm', temp: '-30 to +200°C', moq: '1,000' },
+          { part: 'ATI-CH-2010', name: 'Overhead Camshaft (OHC) Assembly', category: 'Valvetrain Components', material: 'Chilled Cast Alloy Iron', dim: 'Lift 5.8mm / Intake 230°', temp: '-30 to +200°C', moq: '500' },
+          { part: 'ATI-CH-2011', name: 'Multi-Layer Steel Head Gasket', category: 'Seals & Gaskets', material: 'MLS Stainless Steel', dim: 'Bore 52.5mm / 0.5mm Thickness', temp: '-40 to +250°C', moq: '5,000' },
+          { part: 'ATI-CH-2012', name: 'Spark Plug Threaded Boss Insert', category: 'Cylinder Head Body', material: 'Hardened Steel Sleeve', dim: 'M10 × 1.0 Thread', temp: '-40 to +300°C', moq: '2,000' },
+        ],
         applications: ['4-Stroke Engines', 'Performance Motorcycles', 'Scooters', 'Small Displacement Engines'],
       },
       {
@@ -600,8 +762,34 @@ const PRODUCTS = [
           'Air-cooled cooling fins or liquid-cooled passages for thermal stability',
           'Machined mounting and gasket surfaces ensure zero blow-by leakage'
         ],
-        includedParts: getIncludedPartsList(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
-        specs: generateSpecsFromCategories(['Rubber & Sealing Components', 'Electrical Parts', 'Lighting', 'Controls', 'Body Parts', 'Motorcycle Accessories']),
+        includedParts: [
+          'Cylinder Barrel Casting',
+          'Cast Iron Cylinder Sleeve Liner',
+          'Forged Aluminum Piston',
+          'Top Compression Piston Ring',
+          'Second Scraper Compression Ring',
+          '3-Piece Oil Control Ring Set',
+          'Gudgeon Pin / Piston Wrist Pin',
+          'Piston Pin Retaining Circlips',
+          'Cylinder Base Gasket',
+          'Cylinder Dowel Alignment Pins',
+          'Cooling Fin Rubber Dampers',
+          'Cylinder Head Stud Bolts'
+        ],
+        specs: [
+          { part: 'ATI-CB-3001', name: 'Cylinder Barrel Casting', category: 'Cylinder & Liner', material: 'ADC12 High-Grade Aluminum', dim: 'Bore 54mm / Height 98mm', temp: '-40 to +250°C', moq: '500' },
+          { part: 'ATI-CB-3002', name: 'Cast Iron Cylinder Sleeve Liner', category: 'Cylinder & Liner', material: 'FC25 Centrifugal Cast Iron', dim: 'ID 54mm × OD 59mm', temp: '-40 to +300°C', moq: '1,000' },
+          { part: 'ATI-CB-3003', name: 'Forged Aluminum Piston', category: 'Piston Assembly', material: 'High-Silicon AC8A Alloy', dim: 'Ø 53.95mm / Pin 14mm', temp: '-40 to +260°C', moq: '1,000' },
+          { part: 'ATI-CB-3004', name: 'Top Compression Piston Ring', category: 'Piston Assembly', material: 'Nitrided Ductile Iron Chrome', dim: '1.0mm Thickness / Nitrided', temp: '-30 to +280°C', moq: '3,000' },
+          { part: 'ATI-CB-3005', name: 'Second Scraper Compression Ring', category: 'Piston Assembly', material: 'Taper-Faced Gray Cast Iron', dim: '1.0mm Thickness', temp: '-30 to +250°C', moq: '3,000' },
+          { part: 'ATI-CB-3006', name: '3-Piece Oil Control Ring Set', category: 'Piston Assembly', material: 'Stainless Steel Expander Rails', dim: '2.0mm Thickness / 3-Piece', temp: '-30 to +220°C', moq: '3,000' },
+          { part: 'ATI-CB-3007', name: 'Gudgeon Pin / Piston Wrist Pin', category: 'Piston Assembly', material: 'Case-Hardened 20Cr Steel', dim: 'Ø 14mm × L 41mm', temp: '-40 to +220°C', moq: '2,000' },
+          { part: 'ATI-CB-3008', name: 'Piston Pin Retaining Circlips', category: 'Fasteners & Retainers', material: 'Spring Steel 65Mn', dim: 'Wire Ø 1.2mm for 14mm Pin', temp: '-40 to +200°C', moq: '10,000' },
+          { part: 'ATI-CB-3009', name: 'Cylinder Base Gasket', category: 'Seals & Gaskets', material: 'Non-Asbestos Fiber Interface Board', dim: '0.5mm Thickness', temp: '-40 to +180°C', moq: '5,000' },
+          { part: 'ATI-CB-3010', name: 'Cylinder Dowel Alignment Pins', category: 'Fasteners & Retainers', material: 'Hardened Ground Steel', dim: 'Ø 8mm × L 14mm', temp: '-40 to +250°C', moq: '5,000' },
+          { part: 'ATI-CB-3011', name: 'Cooling Fin Rubber Dampers', category: 'Seals & Gaskets', material: 'Vibration-Damping EPDM Rubber', dim: 'Universal Fin Fit', temp: '-40 to +150°C', moq: '5,000' },
+          { part: 'ATI-CB-3012', name: 'Cylinder Head Stud Bolts', category: 'Fasteners & Retainers', material: 'Grade 10.9 Alloy Steel', dim: 'M8 × 140mm', temp: '-40 to +300°C', moq: '2,000' },
+        ],
         applications: ['Crankcases & Cylinders', 'Commuter Bikes', 'Racing & Sport Motorcycles', 'Engine Overhauls'],
       },
     ],
@@ -629,8 +817,34 @@ const PRODUCTS = [
           'Geared & direct-drive options tailored for high torque or high speed',
           'Sealed IP-rated motor housing protects internal copper windings'
         ],
-        includedParts: getEBikeIncludedPartsList(['Electric Drive System', 'Rubber & Sealing Components', 'Fasteners & Hardware', 'Drivetrain']),
-        specs: generateEBikeSpecsFromCategories(['Electric Drive System', 'Rubber & Sealing Components', 'Fasteners & Hardware', 'Drivetrain']),
+        includedParts: [
+          'Stator Core & Copper Windings',
+          'Permanent Magnet Rotor Shell',
+          'High-Precision Sealed Hub Bearings',
+          'Internal Planetary Reduction Gears',
+          'Threaded Motor Axle Shaft',
+          'Hall Sensor Assembly PCB Module',
+          'Motor Phase & Signal Wiring Cable',
+          'Cast Aluminum Motor Hub Shell',
+          'Waterproof Shaft Lip Seals',
+          'Torque Washer & M12 Axle Nut Kit',
+          'Internal One-Way Freewheel Clutch',
+          'Motor Housing Perimeter Gasket'
+        ],
+        specs: [
+          { part: 'ATI-EBM-4001', name: 'Stator Core & Copper Windings', category: 'Electric Motor Core', material: 'Silicon Steel Lamination / Pure Copper', dim: 'Ø 120mm / 48V 500W', temp: '-40 to +150°C', moq: '500' },
+          { part: 'ATI-EBM-4002', name: 'Permanent Magnet Rotor Shell', category: 'Electric Motor Core', material: 'NdFeB Neodymium Magnets N35H', dim: '30 Pole Pairs / High Torque', temp: '-40 to +120°C', moq: '500' },
+          { part: 'ATI-EBM-4003', name: 'High-Precision Sealed Hub Bearings', category: 'Bearings & Bushings', material: 'AISI 52100 Chrome Steel 6002-2RS', dim: '15 × 32 × 9mm', temp: '-30 to +140°C', moq: '2,000' },
+          { part: 'ATI-EBM-4004', name: 'Internal Planetary Reduction Gears', category: 'Drivetrain & Gears', material: 'Glass-Reinforced Nylon 66', dim: 'Mod 1.25 / 36 Teeth', temp: '-20 to +120°C', moq: '1,000' },
+          { part: 'ATI-EBM-4005', name: 'Threaded Motor Axle Shaft', category: 'Shafts & Hardware', material: 'High-Tensile 40Cr Steel', dim: 'Ø 12mm Threaded / L 200mm', temp: '-40 to +200°C', moq: '1,000' },
+          { part: 'ATI-EBM-4006', name: 'Hall Sensor Assembly PCB Module', category: 'Electronics & Sensors', material: 'FR4 PCB / Honeywell Digital ICs', dim: '120° Phase Angle PCB', temp: '-40 to +125°C', moq: '2,000' },
+          { part: 'ATI-EBM-4007', name: 'Motor Phase & Signal Wiring Cable', category: 'Electrical Wiring', material: 'Tinned Copper / Silicone Insulation', dim: '9-Pin Waterproof Julet Plug', temp: '-40 to +180°C', moq: '1,000' },
+          { part: 'ATI-EBM-4008', name: 'Cast Aluminum Motor Hub Shell', category: 'Housing & Enclosure', material: 'A356 Aluminum Alloy Disc Mount', dim: '36-Hole Spoke Pattern', temp: '-40 to +180°C', moq: '500' },
+          { part: 'ATI-EBM-4009', name: 'Waterproof Shaft Lip Seals', category: 'Seals & Gaskets', material: 'NBR 70A Double Lip Spring-Loaded', dim: '15 × 24 × 5mm', temp: '-30 to +120°C', moq: '5,000' },
+          { part: 'ATI-EBM-4010', name: 'Torque Washer & M12 Axle Nut Kit', category: 'Shafts & Hardware', material: 'Hardened Carbon Steel Zinc Plated', dim: 'M12 Anti-Rotation Washer', temp: '-40 to +200°C', moq: '5,000' },
+          { part: 'ATI-EBM-4011', name: 'Internal One-Way Freewheel Clutch', category: 'Drivetrain & Gears', material: 'Case-Hardened Roller Assembly', dim: 'High Torque Clutch', temp: '-30 to +140°C', moq: '1,000' },
+          { part: 'ATI-EBM-4012', name: 'Motor Housing Perimeter Gasket', category: 'Seals & Gaskets', material: 'VMQ Molded Silicone Seal', dim: 'Custom Profile IP67', temp: '-40 to +180°C', moq: '3,000' },
+        ],
         applications: ['Commuter E-Bikes', 'Cargo E-Bikes', 'Folding E-Bikes', 'Light Electric Vehicles'],
       },
       {
@@ -645,8 +859,34 @@ const PRODUCTS = [
           'Supports Hall-sensor feedback and sensorless motor commutation',
           'Protected housing enclosure safeguards circuitry against moisture and dust'
         ],
-        includedParts: getEBikeIncludedPartsList(['Battery System', 'Electrical Components', 'Lighting & Safety']),
-        specs: generateEBikeSpecsFromCategories(['Battery System', 'Electrical Components', 'Lighting & Safety']),
+        includedParts: [
+          'Extruded Aluminum Heatsink Enclosure',
+          'Main Controller Circuit Board PCB',
+          'High-Power MOSFET Switch Stage',
+          'Low-ESR Bulk Filter Capacitors',
+          'Precision Current Sense Shunt Resistor',
+          '32-Bit ARM Microcontroller Unit',
+          'Waterproof Cable Lead Harness Set',
+          'Thermal Conductive Interface Pad',
+          'Perimeter Silicone Seal Gasket',
+          'Stainless Case Fasteners & Brackets',
+          'Step-Down DC Regulator Circuit',
+          'Signal Filtering Inductor Choke'
+        ],
+        specs: [
+          { part: 'ATI-EBC-5001', name: 'Extruded Aluminum Heatsink Enclosure', category: 'Housing & Cooling', material: 'Aluminum 6063-T5 Anodized', dim: '110 × 52 × 30mm / Anodized', temp: '-40 to +120°C', moq: '500' },
+          { part: 'ATI-EBC-5002', name: 'Main Controller Circuit Board PCB', category: 'Electronics & Hardware', material: '4-Layer FR4 Heavy Copper', dim: '100 × 48mm / 2oz Copper', temp: '-40 to +105°C', moq: '1,000' },
+          { part: 'ATI-EBC-5003', name: 'High-Power MOSFET Switch Stage', category: 'Power Electronics', material: 'N-Channel Power MOSFET 100V 80A', dim: 'TO-220 Package / 6-FET Stage', temp: '-55 to +175°C', moq: '6,000' },
+          { part: 'ATI-EBC-5004', name: 'Low-ESR Bulk Filter Capacitors', category: 'Power Electronics', material: '63V 470µF High-Temp Electrolytic', dim: 'Ø 10mm × L 20mm', temp: '-40 to +105°C', moq: '5,000' },
+          { part: 'ATI-EBC-5005', name: 'Precision Current Sense Shunt Resistor', category: 'Electronics & Sensors', material: 'Manganin Alloy 0.005 Ohm 5W', dim: '5W Precision Shunt', temp: '-55 to +170°C', moq: '3,000' },
+          { part: 'ATI-EBC-5006', name: '32-Bit ARM Microcontroller Unit', category: 'Electronics & Sensors', material: 'ARM Cortex-M0 MCU IC LQFP-32', dim: 'LQFP-32 Pin Package', temp: '-40 to +85°C', moq: '1,000' },
+          { part: 'ATI-EBC-5007', name: 'Waterproof Cable Lead Harness Set', category: 'Electrical Wiring', material: 'Tinned Copper Julet Connectors', dim: 'Multi-Connector Harness', temp: '-40 to +105°C', moq: '1,000' },
+          { part: 'ATI-EBC-5008', name: 'Thermal Conductive Interface Pad', category: 'Housing & Cooling', material: 'Silicone Thermal Pad 1.5W/m-K', dim: '0.5mm Thickness', temp: '-50 to +200°C', moq: '5,000' },
+          { part: 'ATI-EBC-5009', name: 'Perimeter Silicone Seal Gasket', category: 'Seals & Gaskets', material: 'VMQ Molded Silicone IP67', dim: 'Custom Profile IP67', temp: '-40 to +180°C', moq: '3,000' },
+          { part: 'ATI-EBC-5010', name: 'Stainless Case Fasteners & Brackets', category: 'Housing & Cooling', material: 'AISI 304 Stainless Steel', dim: 'M4 Thread Screws', temp: '-40 to +200°C', moq: '5,000' },
+          { part: 'ATI-EBC-5011', name: 'Step-Down DC Regulator Circuit', category: 'Power Electronics', material: 'Integrated Buck Converter 12V Output', dim: '12V 1A Auxiliary Output', temp: '-40 to +105°C', moq: '1,000' },
+          { part: 'ATI-EBC-5012', name: 'Signal Filtering Inductor Choke', category: 'Power Electronics', material: 'Ferrite Core Power Inductor', dim: '100µH High Current', temp: '-40 to +125°C', moq: '2,000' },
+        ],
         applications: ['Mid-Drive Systems', 'Hub Motor Drives', 'Pedal-Assist E-Bikes', 'Electric Cargo Vehicles'],
       },
       {
@@ -661,8 +901,34 @@ const PRODUCTS = [
           'Integrated protection against short-circuit, over-current, and over-temp',
           'LED status indicators provide visual feedback during charge cycles'
         ],
-        includedParts: getEBikeIncludedPartsList(['Brake System', 'Suspension & Steering', 'Wheels & Tires', 'Frame & Body Parts', 'E-Bike Accessories']),
-        specs: generateEBikeSpecsFromCategories(['Brake System', 'Suspension & Steering', 'Wheels & Tires', 'Frame & Body Parts', 'E-Bike Accessories']),
+        includedParts: [
+          'Flame-Retardant ABS Plastic Enclosure',
+          'High-Frequency Power Transformer',
+          'Heavy-Duty AC Input Power Cable',
+          'DC Output Charging Cable Harness',
+          'Brushless DC Cooling Fan Module',
+          'Dual Red/Green LED Status Indicator',
+          'AC Input EMI/RFI Filter Board',
+          'Schottky High-Fast Output Rectifier Diodes',
+          'CC-CV Charge Control Circuit Board',
+          'Anti-Vibration Synthetic Rubber Feet',
+          'Over-Temperature Cutoff Thermistor',
+          'Output Short-Circuit Protection Relay'
+        ],
+        specs: [
+          { part: 'ATI-EBC-6001', name: 'Flame-Retardant ABS Plastic Enclosure', category: 'Enclosure & Frame', material: 'PC + ABS Flame Retardant UL94-V0', dim: '165 × 75 × 45mm', temp: '-20 to +80°C', moq: '500' },
+          { part: 'ATI-EBC-6002', name: 'High-Frequency Power Transformer', category: 'Power Electronics', material: 'Ferrite Core EE28 Triple Insulated Wire', dim: '48V 2A / 36V 3A Rating', temp: '-30 to +130°C', moq: '1,000' },
+          { part: 'ATI-EBC-6003', name: 'Heavy-Duty AC Input Power Cable', category: 'Cables & Connectors', material: '3-Pin Standard Copper Core PVC', dim: '1.2m Cable Length', temp: '-20 to +75°C', moq: '1,000' },
+          { part: 'ATI-EBC-6004', name: 'DC Output Charging Cable Harness', category: 'Cables & Connectors', material: '18AWG Pure Copper XLR/GX16/DC', dim: '1.0m Output Harness', temp: '-20 to +90°C', moq: '1,000' },
+          { part: 'ATI-EBC-6005', name: 'Brushless DC Cooling Fan Module', category: 'Cooling & Hardware', material: 'PBT Thermoplastic 40x40x10mm 12V', dim: '40 × 40 × 10mm', temp: '-10 to +70°C', moq: '2,000' },
+          { part: 'ATI-EBC-6006', name: 'Dual Red/Green LED Status Indicator', category: 'Electronics & Display', material: 'Dual Chip 3mm Thru-Hole LED', dim: 'Dual Color Indicator', temp: '-20 to +85°C', moq: '5,000' },
+          { part: 'ATI-EBC-6007', name: 'AC Input EMI/RFI Filter Board', category: 'Power Electronics', material: 'X2 Safety Capacitor + Common Mode Choke', dim: '250VAC 2.5A Filter', temp: '-40 to +100°C', moq: '2,000' },
+          { part: 'ATI-EBC-6008', name: 'Schottky High-Fast Output Rectifier Diodes', category: 'Power Electronics', material: 'Dual Schottky 20A 200V TO-220', dim: 'TO-220 Package', temp: '-55 to +175°C', moq: '4,000' },
+          { part: 'ATI-EBC-6009', name: 'CC-CV Charge Control Circuit Board', category: 'Electronics & Protection', material: 'TL431 + LM358 Integrated Controller', dim: 'Integrated CC-CV Stage', temp: '-40 to +105°C', moq: '1,000' },
+          { part: 'ATI-EBC-6010', name: 'Anti-Vibration Synthetic Rubber Feet', category: 'Seals & Hardware', material: 'NBR Synthetic Rubber Dampers', dim: 'Ø 10mm × 3mm', temp: '-30 to +100°C', moq: '10,000' },
+          { part: 'ATI-EBC-6011', name: 'Over-Temperature Cutoff Thermistor', category: 'Electronics & Protection', material: 'NTC 10K Precision Sensor', dim: 'Thermal Sensor Probe', temp: '-40 to +125°C', moq: '2,000' },
+          { part: 'ATI-EBC-6012', name: 'Output Short-Circuit Protection Relay', category: 'Electronics & Protection', material: 'Subminiature 12V DC Relay', dim: 'Fast Actuating Relay', temp: '-40 to +85°C', moq: '2,000' },
+        ],
         applications: ['Lithium Battery Packs', 'E-Bike Charging Stations', 'Commercial Fleets', 'Personal Mobility'],
       },
     ],
@@ -699,6 +965,14 @@ function StructureImage({ src, caption }) {
 // ── Technical Data Sheet Modal ─────────────────────────────────────
 function DataSheetModal({ productId, onClose }) {
   const sheet = DATA_SHEETS[productId]
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   if (!sheet) return null
 
   return (
@@ -763,10 +1037,183 @@ function DataSheetModal({ productId, onClose }) {
   )
 }
 
+// ── Full Parts Directory Component (PDF Specification Categories) ───
+function FullPartsDirectory({ partsData, title, totalCount, onNavigate }) {
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const categories = Object.keys(partsData)
+  const totalCategoriesCount = categories.length
+
+  // Filter categories and items
+  const categoryEntries = Object.entries(partsData).filter(([catName, items]) => {
+    if (selectedCategory !== 'All' && catName !== selectedCategory) {
+      return false
+    }
+    if (!searchQuery.trim()) return true
+    
+    // Check if category name matches or any item inside matches
+    const catMatches = catName.toLowerCase().includes(searchQuery.toLowerCase())
+    const hasMatchingItem = items.some((item) =>
+      item.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    return catMatches || hasMatchingItem
+  })
+
+  return (
+    <div className="mt-14 bg-white border border-[#c5c6cd] rounded-2xl p-6 sm:p-8 shadow-sm animate-fadeIn">
+      {/* Header Bar */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+        <div>
+          <div className="flex items-center gap-3 mb-1.5 flex-wrap">
+            <h3 className="text-2xl font-bold text-[#005691]">
+              {title} Parts Categories
+            </h3>
+            <span className="px-3 py-1 bg-[#005691]/10 text-[#005691] font-bold text-xs rounded-full border border-[#005691]/20">
+              {totalCount} Items
+            </span>
+            <span className="px-3 py-1 bg-emerald-50 text-emerald-700 font-bold text-xs rounded-full border border-emerald-200">
+              {totalCategoriesCount} Categories
+            </span>
+          </div>
+          <p className="text-[#505f76] text-sm">
+            All {title.toLowerCase()} items and categories extracted directly from the official specification.
+          </p>
+        </div>
+
+        {/* Search Input */}
+        <div className="relative w-full md:w-80">
+          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+            search
+          </span>
+          <input
+            type="text"
+            placeholder={`Search ${title} items...`}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-9 pr-8 py-2.5 bg-[#f7f9fb] border border-gray-300 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#005691] focus:ring-1 focus:ring-[#005691]"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              <span className="material-symbols-outlined text-sm">close</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap gap-2 mb-8 max-h-40 overflow-y-auto pr-2">
+        <button
+          onClick={() => setSelectedCategory('All')}
+          className={`
+            px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 cursor-pointer
+            ${selectedCategory === 'All'
+              ? 'bg-[#005691] text-white shadow-md'
+              : 'bg-[#f7f9fb] text-[#505f76] hover:bg-blue-50 hover:text-[#005691] border border-gray-200'
+            }
+          `}
+        >
+          <span>All Categories</span>
+          <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${selectedCategory === 'All' ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            {totalCount}
+          </span>
+        </button>
+
+        {categories.map((cat) => {
+          const count = partsData[cat] ? partsData[cat].length : 0
+          const isActive = selectedCategory === cat
+          return (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`
+                px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 cursor-pointer
+                ${isActive 
+                  ? 'bg-[#005691] text-white shadow-md' 
+                  : 'bg-[#f7f9fb] text-[#505f76] hover:bg-blue-50 hover:text-[#005691] border border-gray-200'
+                }
+              `}
+            >
+              <span>{cat}</span>
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+                {count}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+
+      {/* PDF Category Boxes */}
+      {categoryEntries.length > 0 ? (
+        <div className="space-y-4">
+          {categoryEntries.map(([catName, items], catIdx) => {
+            const filteredCatItems = searchQuery.trim()
+              ? items.filter((item) =>
+                  item.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  catName.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+              : items
+
+            if (filteredCatItems.length === 0) return null
+
+            return (
+              <div
+                key={catName}
+                className="bg-[#f8fafc] border border-[#dce3ec] rounded-xl p-4 sm:p-5 shadow-2xs"
+              >
+                {/* Category Box Header */}
+                <div className="flex items-center justify-between gap-3 mb-3 pb-2.5 border-b border-gray-200/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-md bg-[#005691]/10 text-[#005691] flex items-center justify-center font-bold text-xs">
+                      {catIdx + 1}
+                    </span>
+                    <h4 className="text-base font-bold text-[#005691]">{catName}</h4>
+                  </div>
+                  <span className="text-[11px] font-semibold px-2 py-0.5 bg-white border border-gray-200 text-[#505f76] rounded">
+                    {filteredCatItems.length} {filteredCatItems.length === 1 ? 'Item' : 'Items'}
+                  </span>
+                </div>
+
+                {/* PDF Category Items Grid Boxes */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+                  {filteredCatItems.map((item, itemIdx) => (
+                    <div
+                      key={itemIdx}
+                      className="px-2.5 py-1.5 bg-white border border-gray-200 rounded-md transition-all duration-200 flex items-center"
+                    >
+                      <span className="text-xs font-semibold text-gray-800 leading-tight">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      ) : (
+        <div className="text-center py-12 bg-[#f7f9fb] rounded-xl border border-dashed border-gray-300">
+          <span className="material-symbols-outlined text-gray-400 text-4xl mb-2">search_off</span>
+          <p className="text-gray-600 font-medium text-sm">No items found matching "{searchQuery}"</p>
+          <button
+            onClick={() => { setSearchQuery(''); setSelectedCategory('All') }}
+            className="mt-3 text-xs font-semibold text-[#005691] hover:underline cursor-pointer"
+          >
+            Reset Search & Filters
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ── Sub-Product Navigation Bar ──────────────────────────────────
 function SubProductNav({ subProducts, activeSub, onSelect, onBack }) {
   return (
-    <div className="sticky top-36 z-30 bg-gradient-to-r from-[#005691]/100 to-[#0077be]/100 shadow-sm transition-all duration-300 rounded-xl mb-6">
+    <div className="sticky top-20 z-30 bg-gradient-to-r from-[#005691] to-[#0077be] shadow-sm transition-all duration-300 rounded-xl mb-6">
       <div className="max-w-[1280px] mx-auto px-6 py-2">
         <div className="flex flex-wrap items-center gap-2">
           <button
@@ -1025,6 +1472,25 @@ function ProductDetail({
         ))}
       </div>
 
+      {/* Complete Parts Directory (97 Motorcycle PDF Items / 82 E-Bike PDF Items) */}
+      {product.id === 'motorcycle' && (
+        <FullPartsDirectory
+          partsData={MOTORCYCLE_PARTS}
+          title="Motorcycle"
+          totalCount={97}
+          onNavigate={onNavigate}
+        />
+      )}
+
+      {product.id === 'e-bike' && (
+        <FullPartsDirectory
+          partsData={EBIKE_PARTS}
+          title="E-Bike"
+          totalCount={82}
+          onNavigate={onNavigate}
+        />
+      )}
+
       <div className="mt-10 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
         <div>
           <h3 className="text-2xl font-bold mb-2">Need Custom Specifications?</h3>
@@ -1076,12 +1542,12 @@ export default function Products({ onNavigate }) {
 
   const handleSelectSubProduct = (subId) => {
     setActiveSubProduct(subId)
-    window.scrollTo({ top: 240, behavior: 'smooth' })
+    window.scrollTo({ top: 180, behavior: 'smooth' })
   }
 
   const handleBackToMain = () => {
     setActiveSubProduct(null)
-    window.scrollTo({ top: 200, behavior: 'smooth' })
+    window.scrollTo({ top: 180, behavior: 'smooth' })
   }
 
   return (

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -12,6 +20,9 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #f7f9fb;
   color: #191c1e;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .material-symbols-outlined {

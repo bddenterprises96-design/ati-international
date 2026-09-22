@@ -32,6 +32,18 @@ export default function Navbar({ onNavigate }) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const isActive = (path) => pathname === path
 
   return (
@@ -47,17 +59,17 @@ export default function Navbar({ onNavigate }) {
 
         {/* Logo */}
         <div
-          className="flex items-center gap-3 cursor-pointer flex-shrink-0"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer flex-shrink-0"
           onClick={() => onNavigate('Home')}
         >
           <img
             alt="ATI Logo"
-            className="h-16 w-auto object-contain transition-all duration-300"
+            className="h-10 sm:h-14 w-auto object-contain transition-all duration-300"
             src="/assets/logo.png"
             style={{ filter: scrolled ? 'none' : 'brightness(0) invert(1)' }}
             onError={(e) => { e.target.style.display = 'none' }}
           />
-          <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-[#005691]' : 'text-white'}`}>
+          <span className={`text-base sm:text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-[#005691]' : 'text-white'}`}>
             AT International
           </span>
         </div>

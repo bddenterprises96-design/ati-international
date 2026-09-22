@@ -1,14 +1,26 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import FloatingContacts from './components/FloatingContacts'
-import AboutUs from './Pages/AboutUs'
-import Products from './Pages/Products'
-import WhyATI from './Pages/WhyATI'
-import ContactUs from './Pages/ContactUs'
-import Blogs from './Pages/Blogs'
-import FAQs from './Pages/FAQs'
+
+// Lazy-loaded page components for route code-splitting and fast initial load
+const AboutUs = lazy(() => import('./Pages/AboutUs'))
+const Products = lazy(() => import('./Pages/Products'))
+const WhyATI = lazy(() => import('./Pages/WhyATI'))
+const ContactUs = lazy(() => import('./Pages/ContactUs'))
+const Blogs = lazy(() => import('./Pages/Blogs'))
+const FAQs = lazy(() => import('./Pages/FAQs'))
+
+// Loading Fallback Component
+function PageLoader() {
+  return (
+    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#f7f9fb] p-8">
+      <div className="w-12 h-12 border-4 border-[#005691]/20 border-t-[#005691] rounded-full animate-spin mb-4" />
+      <span className="text-xs font-bold uppercase tracking-widest text-[#005691]">Loading Content...</span>
+    </div>
+  )
+}
 
 // Scroll to top or target hash element on route/hash change
 function ScrollToTop() {
@@ -78,16 +90,18 @@ export default function App() {
       <ScrollToTop />
       <Navbar onNavigate={onNavigate} />
       <main>
-        <Routes>
-          <Route path="/"         element={<AboutUs   onNavigate={onNavigate} />} />
-          <Route path="/products" element={<Products  onNavigate={onNavigate} />} />
-          <Route path="/why-ati"  element={<WhyATI    onNavigate={onNavigate} />} />
-          <Route path="/contact"  element={<ContactUs onNavigate={onNavigate} />} />
-          <Route path="/blogs"    element={<Blogs     onNavigate={onNavigate} />} />
-          <Route path="/faqs"     element={<FAQs      onNavigate={onNavigate} />} />
-          {/* Fallback */}
-          <Route path="*"         element={<AboutUs   onNavigate={onNavigate} />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/"         element={<AboutUs   onNavigate={onNavigate} />} />
+            <Route path="/products" element={<Products  onNavigate={onNavigate} />} />
+            <Route path="/why-ati"  element={<WhyATI    onNavigate={onNavigate} />} />
+            <Route path="/contact"  element={<ContactUs onNavigate={onNavigate} />} />
+            <Route path="/blogs"    element={<Blogs     onNavigate={onNavigate} />} />
+            <Route path="/faqs"     element={<FAQs      onNavigate={onNavigate} />} />
+            {/* Fallback */}
+            <Route path="*"         element={<AboutUs   onNavigate={onNavigate} />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer onNavigate={onNavigate} />
       <FloatingContacts />

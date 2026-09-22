@@ -109,9 +109,9 @@ const INQUIRY_MODES = [
 ]
 
 const PRODUCT_CATEGORIES = [
-  { id: 'Motorcycle Parts & Engine Components', label: 'Motorcycle Parts', icon: 'two_wheeler', tag: 'Valves, Pistons, Clutch' },
-  { id: 'E-Bike Drive Systems & Electronics', label: 'E-Bike Parts', icon: 'electric_bike', tag: 'Motors, Battery Seals' },
-  { id: 'Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)', label: 'Industrial Seals', icon: 'settings', tag: 'Valve Stem,Oil Seals, O Rings' },
+  { id: 'Motorcycle Parts', label: 'Motorcycle Parts', icon: 'two_wheeler', tag: 'Valves, Pistons, Clutch' },
+  { id: 'E-Bike Parts', label: 'E-Bike Parts', icon: 'electric_bike', tag: 'Motors, Battery Seals' },
+  { id: 'Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)', label: 'Industrial Sealing Solutions', icon: 'settings', tag: 'Valve Stem,Oil Seals, O Rings' },
   { id: 'Custom Sourcing to Technical Drawing', label: 'Request Custom Sourcing', icon: 'build', tag: 'Custom Specification Sourcing' },
 ]
 
