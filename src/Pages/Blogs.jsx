@@ -228,6 +228,7 @@ const POSTS = [
       },
       {
         "heading": "5. Material Selection for Rotary Oil Seals",
+        "text": "The elastomer used for the sealing lip should be selected according to the specific lubricant, operating temperature, shaft speed, pressure conditions, and required resistance to wear and chemical exposure.",
         "table": {
           "headers": [
             "Material",
@@ -262,7 +263,10 @@ const POSTS = [
             ]
           ]
         },
-        "text": "These descriptions are general selection guidelines rather than universal material ratings. Actual performance depends on the specific compound formulation and application conditions.\n\nMaterial compatibility should therefore be confirmed against the actual lubricant formulation, additive package, operating temperature, exposure duration, and other environmental conditions rather than assumed from the elastomer family alone."
+        "postTableText": [
+          "These descriptions are general selection guidelines rather than universal material ratings. Actual performance depends on the specific compound formulation and application conditions.",
+          "Material compatibility should therefore be confirmed against the actual lubricant formulation, additive package, operating temperature, exposure duration, and other environmental conditions rather than assumed from the elastomer family alone."
+        ]
       },
       {
         "heading": "6. Operating Parameters That Affect Seal Selection",
@@ -358,17 +362,36 @@ const POSTS = [
       },
       {
         "heading": "2. Common Motorcycle Engine Sealing Failure Points",
-        "text": "Valve Stem Seal Wear or Hardening\nValve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber.\n\nCrankshaft and Other Rotating-Shaft Oil Seal Wear\nRadial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life.\n\nCylinder Head Gasket Leakage\nThe cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems.\n\nClutch and Stator Cover Gasket or O-Ring Failure\nEngine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
+        "subsections": [
+          {
+            "title": "Valve Stem Seal Wear or Hardening",
+            "content": "Valve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber."
+          },
+          {
+            "title": "Crankshaft and Other Rotating-Shaft Oil Seal Wear",
+            "content": "Radial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life."
+          },
+          {
+            "title": "Cylinder Head Gasket Leakage",
+            "content": "The cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems."
+          },
+          {
+            "title": "Clutch and Stator Cover Gasket or O-Ring Failure",
+            "content": "Engine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
+          }
+        ]
       },
       {
         "heading": "3. How Motorcycle Engine Oil Leaks Are Typically Diagnosed",
-        "text": "For leaks around rotating shafts, the shaft surface and surrounding components should also be inspected. Installing a new seal without addressing a damaged shaft surface, incorrect installation, or an underlying pressure problem can result in repeat leakage. SKF guidance similarly emphasizes shaft and housing condition and correct installation practices for radial shaft seals.",
         "list": [
           "1. Identify the fluid — Confirm that the substance is engine oil rather than another fluid used elsewhere on the motorcycle.",
           "2. Clean the surrounding area — Remove accumulated oil and dirt so that a fresh leak can be distinguished from an older residue.",
           "3. Bring the engine to operating conditions — Some leaks become apparent only after the engine reaches normal temperature and operating pressure.",
           "4. Inspect from the highest fresh-wet point downward — Trace the oil path back toward its highest visible origin rather than replacing the component at the lowest drip point.",
           "5. Check nearby sealing interfaces — Inspect covers, gaskets, O-rings, shaft seals, filter interfaces, drain points, and other potential sources before ordering replacement parts."
+        ],
+        "postTableText": [
+          "For leaks around rotating shafts, the shaft surface and surrounding components should also be inspected. Installing a new seal without addressing a damaged shaft surface, incorrect installation, or an underlying pressure problem can result in repeat leakage. SKF guidance similarly emphasizes shaft and housing condition and correct installation practices for radial shaft seals."
         ]
       },
       {

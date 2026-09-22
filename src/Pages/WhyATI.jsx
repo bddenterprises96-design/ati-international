@@ -86,7 +86,7 @@ export default function WhyATI({ onNavigate }) {
               onClick={() => handleNavigate('Products#industrial-seals')}
               className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              Explore Industrial Division
+              EXPLORE INDUSTRIAL DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
             </button>
           </div>
@@ -126,12 +126,12 @@ export default function WhyATI({ onNavigate }) {
               onClick={() => handleNavigate('Products#motorcycle')}
               className="w-full bg-[#FF6B35] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-orange-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              Explore Motorcycle Parts
+              EXPLORE MOTORCYCLE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
             </button>
           </div>
 
-          {/* Division 3: E-Bike Parts & Components */}
+          {/* Division 3: E-Bike Parts */}
           <div className="bg-white border-2 border-emerald-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#10B981] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
@@ -143,7 +143,7 @@ export default function WhyATI({ onNavigate }) {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#10B981] transition-colors">
-                E-Bike Parts & Components
+                E-Bike Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
                 IP67 mid-drive motor rotary shaft seals, Powertrain & Hub Seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
@@ -166,7 +166,7 @@ export default function WhyATI({ onNavigate }) {
               onClick={() => handleNavigate('Products#e-bike')}
               className="w-full bg-[#10B981] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              Explore E-Bike Parts
+              EXPLORE E-BIKE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
             </button>
           </div>
@@ -211,7 +211,7 @@ export default function WhyATI({ onNavigate }) {
               {
                 step: '04',
                 title: 'Documentation',
-                desc: 'Complete B/L, Certificates of Origin (Form A/E), RoHS/REACH & Invoices.',
+                desc: 'Complete B/L, Certificates of Origin (Form A, Form E), RoHS/REACH & Invoices.',
                 icon: 'description'
               },
               {

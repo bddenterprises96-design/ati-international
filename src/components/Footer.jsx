@@ -150,7 +150,7 @@ export default function Footer({ onNavigate }) {
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">precision_manufacturing</span>
-                Industrial Seals
+                Industrial Sealing Solutions
               </button>
             </li>
             <li>
@@ -197,7 +197,7 @@ export default function Footer({ onNavigate }) {
             </li>
             <li className="flex items-center gap-2.5">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">call</span>
-              <span>+86 185 2321 0975 (WhatsApp / WeChat)</span>
+              <span>+86 185 2321 0975</span>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-white/50 pt-1 border-t border-white/5">
               <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">schedule</span>

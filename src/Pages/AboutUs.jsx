@@ -440,8 +440,8 @@ export default function AboutUs({ onNavigate }) {
               type="vision"
               title="Our Vision"
               icon="visibility"
-              imageSrc="/assets/real_moto_tire_mission.jpg"
-              description="To become a trusted global sourcing partner for motorcycle, e-bike, and industrial component buyers worldwide — recognized for our reliable supply network, sourcing expertise, product quality, and long-term partnerships across international markets."
+              imageSrc="/assets/real_moto_tire_vision.jpg"
+              description="To become a trusted global sourcing partner for Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions buyers worldwide."
             />
           </div>
         </div>
@@ -479,7 +479,7 @@ export default function AboutUs({ onNavigate }) {
               { cert: 'ISO 9001:2015', desc: 'Quality Management System'     },
               { cert: 'RoHS',          desc: 'Hazardous Substance Compliance' },
               { cert: 'REACH',         desc: 'Chemical Safety Regulation'    },
-              { cert: 'Quality Verification & Traceability',      desc: ' ATI: Verify Third-Party Inspection Records'   },
+              { cert: 'Quality Verification & Traceability',      desc: 'Verified Third-Party Inspection Records'   },
             ].map((c) => (
               <div key={c.cert} className="bg-white/10 border border-white/20 rounded-xl p-8 hover:bg-white/20 hover:scale-105 transition-transform duration-500">
                 <div className="text-xl font-bold text-white mb-2">{c.cert}</div>
