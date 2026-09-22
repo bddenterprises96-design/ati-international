@@ -96,7 +96,7 @@ export default function FAQs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/fll.png"
@@ -118,7 +118,7 @@ export default function FAQs({ onNavigate }) {
       </section>
 
       {/* FAQ Accordion */}
-      <div className="max-w-[1280px] mx-auto px-8 py-20">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-10 sm:py-20">
         {FAQS.map((section) => (
           <div key={section.category} className="mb-12">
             <h2 className="text-xl font-bold text-[#005691] mb-6 flex items-center gap-3">
@@ -133,13 +133,13 @@ export default function FAQs({ onNavigate }) {
                   <div key={key} className={`bg-white border rounded-xl overflow-hidden transition-all ${isOpen ? 'border-[#005691] shadow-md' : 'border-[#c5c6cd]'}`}>
                     <button
                       onClick={() => toggle(key)}
-                      className="w-full text-left px-8 py-5 flex items-center justify-between gap-4"
+                      className="w-full text-left px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between gap-4"
                     >
                       <span className={`font-semibold text-sm leading-snug ${isOpen ? 'text-[#005691]' : 'text-[#191c1e]'}`}>{item.q}</span>
                       <span className={`material-symbols-outlined text-[#005691] flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}>expand_more</span>
                     </button>
                     {isOpen && (
-                      <div className="px-8 pb-6 border-t border-[#c5c6cd]">
+                      <div className="px-4 sm:px-8 pb-5 sm:pb-6 border-t border-[#c5c6cd]">
                         <p className="text-[#505f76] text-sm leading-relaxed pt-4">{item.a}</p>
                       </div>
                     )}

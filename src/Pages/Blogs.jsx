@@ -1436,7 +1436,7 @@ export default function Blogs() {
 
       {/* Hero Section */}
       <section
-        className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden"
+        className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden"
         style={{
           backgroundImage: 'url(/assets/blogs_hero_bg.jpg)',
           backgroundSize: 'cover',

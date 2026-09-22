@@ -576,7 +576,7 @@ export default function ContactUS({ onNavigate }) {
     <div className="bg-[#f2f5f8] min-h-screen pb-24">
 
       {/* Hero */}
-      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
         <img
           src="/assets/icccc.png"
           alt="ATI Facility"
@@ -595,8 +595,8 @@ export default function ContactUS({ onNavigate }) {
       </section>
 
       {/* ── TOP BANNER: "CAN'T FIND YOUR EXACT PRODUCT?" (PLACED BEFORE INQUIRY FORM & INFORMATION BOX) ── */}
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 mt-10 mb-8">
-        <div className="bg-gradient-to-r from-[#005691]/100 via-[#004b7f] to-[#003861] text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 mt-10 mb-8">
+        <div className="bg-gradient-to-r from-[#005691]/100 via-[#004b7f] to-[#003861] text-white rounded-3xl p-5 sm:p-8 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-contain bg-no-repeat bg-right pointer-events-none" style={{ backgroundImage: 'url(/assets/facto.png)' }} />
           
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -630,14 +630,14 @@ export default function ContactUS({ onNavigate }) {
       </div>
 
       {/* ── MAIN LAYOUT: LEFT SIDE = CONTACT INFO & SOCIAL | RIGHT SIDE = PROCUREMENT FORM ── */}
-      <section className="max-w-[1280px] mx-auto px-6 sm:px-8">
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* 👈 LEFT SIDE (5 COLS): CONTACT INFORMATION BOX + FOLLOW US SOCIAL BOX */}
           <div className="lg:col-span-5 space-y-8">
 
             {/* BOX 1: CONTACT INFORMATION */}
-            <div className="bg-white border border-[#c5c6cd] rounded-3xl p-8 shadow-sm">
+            <div className="bg-white border border-[#c5c6cd] rounded-3xl p-5 sm:p-8 shadow-sm">
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
                 <div>
                   <h3 className="font-bold text-[#005691] text-xl">Contact Information</h3>

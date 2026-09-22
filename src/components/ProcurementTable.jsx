@@ -7,12 +7,12 @@ const ROWS = [
 
 export default function ProcurementTable({ onNavigate }) {
   return (
-    <section className="bg-[#f7f9fb] py-20">
-      <div className="max-w-[1280px] mx-auto px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+    <section className="bg-[#f7f9fb] py-12 sm:py-20">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8 sm:mb-12">
           <div>
-            <h2 className="text-[32px] font-bold text-[#005691]">Procurement Overview</h2>
-            <p className="text-base text-[#505f76] mt-2">MOQ and technical data for bulk manufacturing orders.</p>
+            <h2 className="text-2xl sm:text-[32px] font-bold text-[#005691]">Procurement Overview</h2>
+            <p className="text-sm sm:text-base text-[#505f76] mt-2">MOQ and technical data for bulk manufacturing orders.</p>
           </div>
           <button
             onClick={() => onNavigate && onNavigate('Contact Us')}

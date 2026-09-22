@@ -15,7 +15,7 @@ export default function WhyATI({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/why.jpeg"
@@ -37,7 +37,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── CORE PRODUCT DIVISIONS WE SUPPLY (CLEAR HIGHLIGHT BAR) ── */}
-      <section className="py-16 max-w-[1280px] mx-auto px-6 sm:px-8">
+      <section className="py-16 max-w-[1280px] mx-auto px-4 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
             Our 3 Dedicated Product Lines

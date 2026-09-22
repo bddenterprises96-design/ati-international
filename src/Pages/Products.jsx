@@ -1560,7 +1560,7 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-20 pt-40 pb-16 px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
         <img
           src="/assets/vvv.png"
           alt="ATI Facility"
@@ -1580,8 +1580,8 @@ export default function Products({ onNavigate }) {
 
       {/* Sticky Products Sub-Navigation Bar */}
       <div className="bg-white shadow-md sticky top-20 z-40 border-b border-[#c5c6cd]">
-        <div className="max-w-[1280px] mx-auto px-8">
-          <div className="flex gap-6 overflow-x-auto h-16 items-center">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto h-16 items-center">
             {PRODUCTS.map((p) => (
               <button
                 key={p.id}
@@ -1591,7 +1591,7 @@ export default function Products({ onNavigate }) {
                   setSheetOpen(false)
                 }}
                 className={`
-                  px-5 py-2.5 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
+                  px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
                   ${active === p.id 
                     ? 'bg-[#005691] text-white shadow-lg transform scale-105' 
                     : 'text-[#505f76] hover:text-[#005691] hover:bg-[#005691]/10'
@@ -1599,7 +1599,7 @@ export default function Products({ onNavigate }) {
                   transform transition-all duration-300 ease-in-out hover:scale-105
                 `}
               >
-                <span className="material-symbols-outlined text-lg">{p.icon || 'inventory_2'}</span>
+                <span className="material-symbols-outlined text-base sm:text-lg">{p.icon || 'inventory_2'}</span>
                 {p.name}
               </button>
             ))}
@@ -1608,7 +1608,7 @@ export default function Products({ onNavigate }) {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-[1280px] mx-auto px-8 py-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 sm:py-8">
         <ProductDetail 
           key={product.id}
           product={product} 

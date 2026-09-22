@@ -14,7 +14,7 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer className="bg-[#191c1e] text-white">
-      <div className="max-w-[1440px] mx-auto px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
 
         {/* Brand */}
         <div className="flex flex-col justify-between h-full">
@@ -215,13 +215,13 @@ export default function Footer({ onNavigate }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-5 px-8 text-center text-white/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
+      <div className="border-t border-white/10 py-5 px-4 sm:px-8 text-center text-white/40 text-xs flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
         <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China</div>
-        <div className="flex items-center gap-4 text-white/50">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/50">
           <span>Global Trade & Export Supplier</span>
-          <span>•</span>
+          <span className="hidden sm:inline">•</span>
           <span>Worldwide Freight Shipping</span>
-          <span>•</span>
+          <span className="hidden sm:inline">•</span>
           <span>ISO 9001:2015</span>
         </div>
       </div>
