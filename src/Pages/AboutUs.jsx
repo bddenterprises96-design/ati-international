@@ -488,18 +488,18 @@ To simplify global sourcing by connecting businesses with reliable supply partne
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Premium dark navy gradient overlay for maximum readability & aesthetic impact */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#002447]/35 via-[#004275]/35 to-[#001d3a]/35 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#002447]/35 via-[#004275]/35 to-[#001d3a]/35 backdrop-blur-[0px]" />
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 text-center">
           <span className="inline-block px-3.5 py-1 bg-white/15 text-white text-xs font-semibold rounded-full mb-3 uppercase tracking-widest border border-white/20 backdrop-blur-md">
             Global Quality Assurance
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Compliance Standards</h2>
-          <p className="text-white/85 text-xs sm:text-base max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-widest border border-white/20 backdrop-blur-md">Compliance Standards</h2>
+          <p className="text-white/100 text-xs sm:text-base max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed tracking-widest border border-white/20 backdrop-blur-lg">
             Products sourced and supplied in strict compliance with international quality, safety, and material standards.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-4">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'verified' },
               { cert: 'RoHS', desc: 'Hazardous Substance Compliance', icon: 'eco' },

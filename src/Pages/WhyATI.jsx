@@ -174,16 +174,22 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── END-TO-END SUPPLY CHAIN WORKFLOW (6 STAGES) ── */}
-      <section className="bg-white py-16 border-y border-[#c5c6cd]">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
+      <section 
+        className="relative py-20 border-y border-[#c5c6cd] overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: 'url(/assets/supply_chain_workflow_bg.jpg)' }}
+      >
+        {/* Dark Navy Overlay for Crisp Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001d36]/92 via-[#003b66]/85 to-[#001d36]/92 backdrop-blur-[0px]" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-bold text-white uppercase tracking-widest bg-white/20 px-4 py-1.5 rounded-full border border-white/30 mb-3.5 inline-block backdrop-blur-md shadow-sm">
               End-to-End Supply Chain Value
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#005691] mb-3">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3.5 drop-shadow-sm tracking-widest border border-white/20 backdrop-blur-md">
               Our 6-Step Global Supply Chain Workflow
             </h2>
-            <p className="text-[#505f76] text-sm sm:text-base leading-relaxed">
+            <p className="text-white/100 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto tracking-widest border border-white/20 backdrop-blur-lg">
               AT International seamlessly manages your entire cross-border procurement process from supplier verification to final destination delivery:
             </p>
           </div>
@@ -227,26 +233,29 @@ export default function WhyATI({ onNavigate }) {
                 icon: 'mark_email_read'
               },
             ].map((s, idx) => (
-              <div key={s.step} className="relative bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl p-5 hover:border-[#005691] hover:bg-blue-50/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+              <div 
+                key={s.step} 
+                className="relative bg-white/95 backdrop-blur-md border border-white/50 rounded-xl p-5 hover:border-[#005691] hover:bg-white hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl group"
+              >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-black text-[#005691] bg-blue-100 px-2 py-0.5 rounded-md">
+                    <span className="text-xs font-black text-white bg-[#005691] px-2.5 py-0.5 rounded-md shadow-xs">
                       {s.step}
                     </span>
                     <span className="material-symbols-outlined text-[#005691] text-2xl group-hover:scale-110 transition-transform">
                       {s.icon}
                     </span>
                   </div>
-                  <h4 className="font-bold text-[#005691] text-sm mb-2 leading-snug">
+                  <h4 className="font-bold text-[#005691] text-sm mb-2 leading-snug group-hover:text-[#003d66]">
                     {s.title}
                   </h4>
-                  <p className="text-[#505f76] text-[11px] leading-relaxed">
+                  <p className="text-[#475569] text-[11px] leading-relaxed font-medium">
                     {s.desc}
                   </p>
                 </div>
                 {idx < 5 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-[#005691]">
-                    <span className="material-symbols-outlined text-base">chevron_right</span>
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 text-white bg-[#005691] w-7 h-7 rounded-full items-center justify-center shadow-md border-2 border-white">
+                    <span className="material-symbols-outlined text-sm">chevron_right</span>
                   </div>
                 )}
               </div>

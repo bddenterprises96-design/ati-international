@@ -1213,31 +1213,30 @@ function FullPartsDirectory({ partsData, title, totalCount, onNavigate }) {
 // ── Sub-Product Navigation Bar ──────────────────────────────────
 function SubProductNav({ subProducts, activeSub, onSelect, onBack }) {
   return (
-    <div className="sticky top-20 z-30 bg-gradient-to-r from-[#005691] to-[#0077be] shadow-sm transition-all duration-300 rounded-xl mb-6">
-      <div className="max-w-[1280px] mx-auto px-6 py-2">
-        <div className="flex flex-wrap items-center gap-2">
+    <div className="sticky top-36 z-30 bg-gradient-to-r from-[#005691] to-[#0077be] shadow-md transition-all duration-300 rounded-xl mb-6">
+      <div className="max-w-[1280px] mx-auto px-3 sm:px-6 py-2">
+        <div className="flex items-center gap-2 overflow-x-auto py-0">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 px-3 py-1.5 text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105 transform"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 hover:scale-105 flex-shrink-0 cursor-pointer border border-white/20"
           >
-            <span className="material-symbols-outlined text-xl">arrow_back</span>
-            <span className="text-sm font-semibold hidden sm:inline">Back</span>
+            <span className="material-symbols-outlined text-lg">arrow_back</span>
+            <span className="text-xs sm:text-sm font-semibold">Back</span>
           </button>
-          <div className="w-px h-6 bg-white/30 mx-2 hidden sm:block"></div>
+          <div className="w-px h-6 bg-white/30 mx-1 flex-shrink-0"></div>
           {subProducts.map((sub) => (
             <button
               key={sub.id}
               onClick={() => onSelect(sub.id)}
               className={`
-                relative px-4 py-1.5 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300
+                relative px-3.5 sm:px-4 py-1.5 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 flex-shrink-0 cursor-pointer whitespace-nowrap
                 ${activeSub === sub.id 
-                  ? 'bg-white text-[#005691] shadow-lg transform scale-105' 
-                  : 'text-white/80 hover:text-white hover:bg-white/20 hover:scale-105'
+                  ? 'bg-white text-[#005691] shadow-md font-bold scale-105' 
+                  : 'text-white/85 hover:text-white hover:bg-white/20'
                 }
-                transform transition-all duration-300 ease-in-out group
               `}
             >
-              <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
+              <span className="relative z-10 flex items-center gap-1.5 whitespace-nowrap">
                 {activeSub === sub.id && (
                   <span className="material-symbols-outlined text-sm">check_circle</span>
                 )}
@@ -1264,7 +1263,7 @@ function ProductDetail({
 
   if (sub) {
     return (
-      <div className="space-y-8 animate-fadeIn">
+      <div className="space-y-6">
         <SubProductNav
           subProducts={product.subProducts}
           activeSub={selectedSubProduct}
@@ -1272,7 +1271,7 @@ function ProductDetail({
           onBack={onBackToMain}
         />
 
-        <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 shadow-sm">
+        <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 shadow-sm animate-fadeIn">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <div className="h-72 overflow-hidden rounded-xl bg-white relative border border-[#c5c6cd] p-4 flex items-center justify-center">
               <img
