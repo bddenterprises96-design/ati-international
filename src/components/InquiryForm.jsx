@@ -134,7 +134,7 @@ export default function InquiryForm() {
                     <option value="O-Rings">O-Rings</option>
                     <option value="Oil Seals">Oil Seals</option>
                     <option value="Motorcycle Parts">Motorcycle Parts</option>
-                    <option value="E-Bike Components">E-Bike Parts</option>
+                    <option value="E-Bike Parts">E-Bike Parts</option>
                     <option value="Custom Solutions">Custom Solutions</option>
                   </select>
                 </div>

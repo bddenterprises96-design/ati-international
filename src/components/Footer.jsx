@@ -186,29 +186,29 @@ export default function Footer({ onNavigate }) {
         {/* Contact & Global Head Office */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
-          <ul className="space-y-3 text-white/60 text-sm mb-4">
-            <li className="flex items-start gap-2.5">
-              <span className="material-symbols-outlined text-md mt-5.5 text-[#005691] flex-shrink-0">location_on</span>
-              <span>Guangzhou City, China </span>
+          <ul className="space-y-4 text-white/70 text-sm mb-6">
+            <li className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">location_on</span>
+              <span className="text-sm font-medium text-white/80">Guangzhou City, China</span>
             </li>
-            <li className="flex items-center gap-2.5">
-              <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">mail</span>
-              <a href="mailto:theatinternational@gmail.com" className="hover:text-white transition-colors truncate">theatinternational@gmail.com</a>
+            <li className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">mail</span>
+              <a href="mailto:theatinternational@gmail.com" className="text-sm font-medium text-white/80 hover:text-white transition-colors truncate">theatinternational@gmail.com</a>
             </li>
-            <li className="flex items-center gap-2.5">
-              <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">call</span>
-              <span>+86 185 2321 0975</span>
+            <li className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">call</span>
+              <a href="tel:+8618523210975" className="text-sm font-medium text-white/80 hover:text-white transition-colors">+86 185 2321 0975</a>
             </li>
-            <li className="flex items-center gap-2.5 text-xs text-white/50 pt-1 border-t border-white/5">
-              <span className="material-symbols-outlined text-sm text-[#005691] flex-shrink-0">schedule</span>
-              <span>Mon–Sat: 9:00 AM – 6:00 PM (China Standard Time, GMT+8)</span>
+            <li className="flex items-start gap-3 text-xs text-white/60 pt-3 border-t border-white/10">
+              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0 mt-0.5">schedule</span>
+              <span className="text-xs leading-relaxed text-white/70">Mon–Sat: 9:00 AM – 6:00 PM (China Standard Time, GMT+8)</span>
             </li>
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
-            className="bg-[#005691] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2 w-full sm:w-auto shadow-xl hover:scale-105 transition-transform duration-500"
+            className="bg-[#005691] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 duration-200"
           >
-            <span className="material-symbols-outlined text-sm">request_quote</span>
+            <span className="material-symbols-outlined text-base">request_quote</span>
             Request a Quote
           </button>
         </div>

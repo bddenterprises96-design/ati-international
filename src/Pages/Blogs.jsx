@@ -680,7 +680,7 @@ const POSTS = [
   {
     "id": 10,
     "featured": false,
-    "category": "E-Bike Parts & Components",
+    "category": "E-Bike Parts",
     "title": "Waterproofing E-Bike Motors: Sealing Mid-Drive & Hub Systems to IP Standards",
     "excerpt": "A practical guide to IP ingress-protection ratings, sealing methods for mid-drive and hub motors, and what to verify when sourcing water-resistant e-bike drive components.",
     "date": "March 10, 2026",
@@ -722,7 +722,7 @@ const POSTS = [
   {
     "id": 11,
     "featured": false,
-    "category": "E-Bike Parts & Components",
+    "category": "E-Bike Parts",
     "title": "E-Bike Lithium Battery Pack Housings: Thermal Management & Moisture Sealing",
     "excerpt": "A practical guide to battery pack sealing methods, pressure-equalization and safety venting, and thermal-management considerations for e-bike lithium-ion battery housings.",
     "date": "March 02, 2026",
@@ -762,7 +762,7 @@ const POSTS = [
   {
     "id": 12,
     "featured": false,
-    "category": "E-Bike Parts & Components",
+    "category": "E-Bike Parts",
     "title": "E-Bike BLDC Hub Motor Buyer's Guide: Torque, Thermal Performance & Quality Verification",
     "excerpt": "How to evaluate hub-motor torque, electrical characteristics, thermal behavior, sensor compatibility, mechanical construction, and supplier quality before sourcing.",
     "date": "February 24, 2026",
@@ -803,7 +803,7 @@ const POSTS = [
   {
     "id": 13,
     "featured": false,
-    "category": "E-Bike Parts & Components",
+    "category": "E-Bike Parts",
     "title": "E-Bike Motor Controller Buyer's Guide: Voltage Margins, MOSFET Ratings & Compatibility Verification",
     "excerpt": "A practical guide to voltage-margin sizing, MOSFET ratings, connector compatibility, and what to verify before sourcing an e-bike motor controller.",
     "date": "February 16, 2026",
@@ -856,7 +856,7 @@ const POSTS = [
   {
     "id": 14,
     "featured": false,
-    "category": "E-Bike Parts & Components",
+    "category": "E-Bike Parts",
     "title": "E-Bike Li-ion Battery Charger Buyer's Guide: Voltage Matching, UL 2849 & Compatibility Verification",
     "excerpt": "A practical guide to voltage and chemistry matching, CC-CV charging verification, connector compatibility, and safety-standard documentation to check before sourcing an e-bike lithium battery charger.",
     "date": "February 08, 2026",
@@ -903,7 +903,7 @@ const POSTS = [
     "featured": false,
     "category": "Quality & Compliance",
     "title": "What ISO 9001:2015 & REACH Compliance Mean for Sourcing Partners",
-    "excerpt": "A practical guide to understanding quality management system certification and chemical compliance requirements when evaluating manufacturing partners for motorcycle, e-bike, and industrial sealing components.",
+    "excerpt": "A practical guide to understanding quality management system certification and chemical compliance requirements when evaluating manufacturing partners for motorcycle parts, e-bike parts, and industrial sealing products.",
     "date": "January 30, 2026",
     "readTime": "6 min read",
     "author": "AT International Insights",
@@ -970,7 +970,7 @@ const POSTS = [
       },
       {
         "heading": "3. What a Pre-Shipment Inspection Actually Checks",
-        "text": "A typical PSI evaluates several aspects, not just visible defects: quantity verification (cartons/units against the purchase order); visual and workmanship inspection (damage, surface defects, assembly issues against the approved specification or reference sample); dimensional verification (measurements against drawings and tolerances); functional testing; labeling and marking verification (barcodes, country-of-origin, destination-market requirements); and packaging inspection (carton condition, internal protection, configuration—drop testing only when specifically included in scope).\n\nFor technical components—motorcycle parts, e-bike components, industrial sealing products—the scope may also include application-specific measurements: critical dimensions, fitment characteristics, material identification, surface condition, electrical parameters, or seal-related specifications. The inspection report should identify what was inspected, how, the sample size, acceptance criteria, defects found, and resulting disposition—not simply \"passed\" or \"failed.\""
+        "text": "A typical PSI evaluates several aspects, not just visible defects: quantity verification (cartons/units against the purchase order); visual and workmanship inspection (damage, surface defects, assembly issues against the approved specification or reference sample); dimensional verification (measurements against drawings and tolerances); functional testing; labeling and marking verification (barcodes, country-of-origin, destination-market requirements); and packaging inspection (carton condition, internal protection, configuration—drop testing only when specifically included in scope).\n\nFor technical products—motorcycle parts, e-bike parts, industrial sealing products—the scope may also include application-specific measurements: critical dimensions, fitment characteristics, material identification, surface condition, electrical parameters, or seal-related specifications. The inspection report should identify what was inspected, how, the sample size, acceptance criteria, defects found, and resulting disposition—not simply \"passed\" or \"failed.\""
       },
       {
         "heading": "4. What to Request From Your Supplier or Inspection Provider",
@@ -993,14 +993,14 @@ const POSTS = [
     "id": 17,
     "featured": false,
     "category": "Quality & Compliance",
-    "title": "RoHS vs REACH: Understanding Chemical Compliance for Motorcycle & E-Bike Components",
+    "title": "RoHS vs REACH: Understanding Chemical Compliance for Motorcycle & E-Bike Parts",
     "excerpt": "A practical guide to the scope, restricted substances, and applicability differences between RoHS and REACH—and why \"RoHS compliant\" is not a simple mechanical-vs-electrical question for two-wheeled vehicle components.",
     "date": "January 14, 2026",
     "readTime": "6 min read",
     "author": "AT International Insights",
     "icon": "gavel",
     "image": "/assets/blog_diagrams/blog_17_rohs_vs_reach_compliance.png",
-    "summary": "RoHS and REACH are both important EU chemical-regulatory frameworks, but they are not interchangeable. They differ in legal scope, regulatory mechanisms, substance requirements, and the products to which specific obligations apply.\n\nFor buyers sourcing motorcycle parts, e-bike components, and industrial sealing products, understanding these differences is important because RoHS applicability depends heavily on the intended equipment and applicable exclusions, while REACH can apply broadly to substances, mixtures, and articles.\n\nThe result is a practical procurement rule: do not treat \"RoHS compliant\" and \"REACH compliant\" as interchangeable claims, and do not determine applicability solely from whether a component looks mechanical or electrical.",
+    "summary": "RoHS and REACH are both important EU chemical-regulatory frameworks, but they are not interchangeable. They differ in legal scope, regulatory mechanisms, substance requirements, and the products to which specific obligations apply.\n\nFor buyers sourcing motorcycle parts, e-bike parts, and industrial sealing products, understanding these differences is important because RoHS applicability depends heavily on the intended equipment and applicable exclusions, while REACH can apply broadly to substances, mixtures, and articles.\n\nThe result is a practical procurement rule: do not treat \"RoHS compliant\" and \"REACH compliant\" as interchangeable claims, and do not determine applicability solely from whether a component looks mechanical or electrical.",
     "sections": [
       {
         "heading": "1. RoHS: Restricted Substances in Electrical and Electronic Equipment",
@@ -1010,8 +1010,8 @@ const POSTS = [
         "heading": "2. Why Electric Two-Wheeled Vehicles Require Careful RoHS Scope Assessment",
         "text": "The correct procurement question is not \"is this component electrical,\" but: What equipment is this intended to become part of, does that equipment require vehicle type-approval, and does it fall within RoHS scope?",
         "list": [
-          "E-bike drive components (hub motors, controllers, chargers): Standard EU-compliant e-bikes (EN 15194 EPACs, typically ≤250W and ≤25 km/h) don't require vehicle type-approval—classified as bicycles, not motor vehicles. As non-type-approved electric two-wheelers, they're not covered by the transport exclusion, so RoHS is generally relevant to their electrical components and should be actively verified.",
-          "Conventional motorcycle engine components (crankshafts, cylinder heads, cylinders): Belong to combustion-engine vehicles falling within the general transport exclusion—RoHS isn't directly applicable at the whole-vehicle level, though any electrical sub-system should still be assessed independently under the component-integration rule.",
+          "E-bike drive parts (hub motors, controllers, chargers): Standard EU-compliant e-bikes (EN 15194 EPACs, typically ≤250W and ≤25 km/h) don't require vehicle type-approval—classified as bicycles, not motor vehicles. As non-type-approved electric two-wheelers, they're not covered by the transport exclusion, so RoHS is generally relevant to their electrical parts and should be actively verified.",
+          "Conventional motorcycle engine parts (crankshafts, cylinder heads, cylinders): Belong to combustion-engine vehicles falling within the general transport exclusion—RoHS isn't directly applicable at the whole-vehicle level, though any electrical sub-system should still be assessed independently under the component-integration rule.",
           "Higher-power electric motorcycles requiring type-approval: Typically qualify for the transport exclusion, unlike standard e-bikes.",
           "Industrial sealing components: Applicability depends entirely on the equipment the seal is ultimately integrated into."
         ]
@@ -1023,7 +1023,7 @@ const POSTS = [
       {
         "heading": "4. What to Request From a Sourcing Partner",
         "list": [
-          "Confirm RoHS applicability first, not last: Establish whether the specific product and application falls within RoHS scope before requesting a declaration—particularly for e-bike components, where vehicle type-approval status determines whether the transport exclusion applies.",
+          "Confirm RoHS applicability first, not last: Establish whether the specific product and application falls within RoHS scope before requesting a declaration—particularly for e-bike parts, where vehicle type-approval status determines whether the transport exclusion applies.",
           "Request product-specific REACH SVHC declarations: A generic \"REACH compliant\" statement is less useful than documentation identifying which Candidate List substances were checked and against which list version.",
           "For components destined for larger assemblies: Confirm whether the component is supplied for integration into RoHS-scope equipment, since this can create obligations even for non-electrical parts.",
           "For ongoing orders: Establish a process for periodically reconfirming both RoHS and REACH status, since the SVHC list updates periodically and RoHS exemptions are subject to renewal or expiry."
@@ -1040,7 +1040,7 @@ const POSTS = [
     "featured": false,
     "category": "Logistics & Sourcing",
     "title": "Global Sealing & Parts Market Trends 2026: Supply Chain Insights",
-    "excerpt": "A practical overview of current supply chain shifts, material trends, and regional sourcing patterns shaping the industrial sealing, motorcycle, and e-bike component markets.",
+    "excerpt": "A practical overview of current supply chain shifts, material trends, and regional sourcing patterns shaping the industrial sealing, motorcycle, and e-bike parts markets.",
     "date": "January 06, 2026",
     "readTime": "5 min read",
     "author": "AT International Insights",
@@ -1054,7 +1054,7 @@ const POSTS = [
       },
       {
         "heading": "2. Electrification Is Reshaping Sealing Material Demand",
-        "text": "Electric vehicle and electrification-related demand—including e-bikes and battery systems—is consistently identified as a driver for specialized sealing materials, particularly for battery enclosure sealing, thermal-management applications, and components combining chemical resistance with electrical insulation requirements. This is creating demand for sealing expertise spanning both traditional mechanical sealing and newer electrical/thermal sealing requirements, such as battery housings and motor controllers. For buyers, this convergence means a sourcing partner capable of addressing both conventional motorcycle components and e-bike electrical systems can simplify supplier management, rather than treating them as entirely separate sourcing relationships."
+        "text": "Electric vehicle and electrification-related demand—including e-bikes and battery systems—is consistently identified as a driver for specialized sealing materials, particularly for battery enclosure sealing, thermal-management applications, and components combining chemical resistance with electrical insulation requirements. This is creating demand for sealing expertise spanning both traditional mechanical sealing and newer electrical/thermal sealing requirements, such as battery housings and motor controllers. For buyers, this convergence means a sourcing partner capable of addressing both conventional motorcycle parts and e-bike electrical systems can simplify supplier management, rather than treating them as entirely separate sourcing relationships."
       },
       {
         "heading": "3. Material Innovation and Specification Precision",
@@ -1074,7 +1074,7 @@ const POSTS = [
     "id": 19,
     "featured": false,
     "category": "Logistics & Sourcing",
-    "title": "Exporting Industrial, Motorcycle & E-Bike Components: AT International Logistics Playbook",
+    "title": "Exporting Industrial, Motorcycle & E-Bike Parts: AT International Logistics Playbook",
     "excerpt": "A practical overview of export documentation, Incoterms selection, and container logistics for buyers sourcing sealing components, motorcycle parts, and e-bike systems internationally.",
     "date": "December 28, 2025",
     "readTime": "6 min read",
@@ -1118,17 +1118,17 @@ const POSTS = [
     "id": 20,
     "featured": false,
     "category": "Logistics & Sourcing",
-    "title": "Export Packaging for Industrial, Motorcycle & E-Bike Components: Protecting Seals, Metal Parts & Electronics in Transit",
+    "title": "Export Packaging for Industrial, Motorcycle & E-Bike Parts: Protecting Seals, Metal Parts & Electronics in Transit",
     "excerpt": "A practical guide to packaging specifications for rubber sealing components, metal engine parts, and e-bike electrical systems during international ocean freight.",
     "date": "December 20, 2025",
     "readTime": "6 min read",
     "author": "AT International Insights",
     "icon": "inventory_2",
     "image": "/assets/blog_diagrams/blog_20_export_packaging_protection.png",
-    "summary": "Industrial sealing products, motorcycle engine components, and e-bike electrical systems each face different risks during international transit, and a single generic packaging approach rarely protects all three adequately. Ocean freight can expose cargo to temperature changes, humidity fluctuations, condensation, vibration, handling impacts, and extended storage conditions. The resulting risks depend on the material, product design, surface condition, and packaging configuration.\n\nMetal motorcycle components may require corrosion protection, elastomeric sealing components require protection against deformation and contamination, while e-bike electrical components require appropriate protection against impact, moisture, and connector or electronic-interface damage.\n\nFor international shipments, packaging should therefore be treated as part of the product and logistics specification—not simply as a standard supplier packing method.",
+    "summary": "Industrial sealing products, motorcycle engine parts, and e-bike electrical systems each face different risks during international transit, and a single generic packaging approach rarely protects all three adequately. Ocean freight can expose cargo to temperature changes, humidity fluctuations, condensation, vibration, handling impacts, and extended storage conditions. The resulting risks depend on the material, product design, surface condition, and packaging configuration.\n\nMetal motorcycle parts may require corrosion protection, elastomeric sealing components require protection against deformation and contamination, while e-bike electrical parts require appropriate protection against impact, moisture, and connector or electronic-interface damage.\n\nFor international shipments, packaging should therefore be treated as part of the product and logistics specification—not simply as a standard supplier packing method.",
     "sections": [
       {
-        "heading": "1. Metal Motorcycle Components: The Corrosion Risk",
+        "heading": "1. Metal Motorcycle Parts: The Corrosion Risk",
         "text": "For long-distance shipments, buyers should specify the required corrosion-protection method rather than assuming that standard export packaging provides sufficient protection.",
         "list": [
           "Ensuring parts are sufficiently dry before packing",
@@ -1144,7 +1144,7 @@ const POSTS = [
         "text": "O-rings, oil seals, valve stem seals, and other elastomeric components face different risks from metal parts. Their condition can be affected by excessive compression, deformation during stacking, contamination, unsuitable storage conditions, and inadequate lot identification.\n\nPackaging should protect the sealing surface and help maintain the intended geometry of the component throughout transportation and storage.\n\nDepending on the product design and quantity, suitable bags, trays, separators, or compartmentalized packaging can help prevent unnecessary pressure and surface contact. Packaging should also avoid configurations that place excessive or prolonged loads on sealing lips or other flexible sections.\n\nFor procurement and traceability, lot or batch identification should remain clear throughout packing and shipment where traceability is required. This helps buyers distinguish different specifications or production lots during receiving inspection and inventory handling.\n\nPackaging and storage requirements should also be consistent with the elastomer material and the supplier's recommended conditions, particularly when products may remain in storage for an extended period before installation."
       },
       {
-        "heading": "3. E-Bike Electrical Components: Handling and Moisture Sensitivity",
+        "heading": "3. E-Bike Electrical Parts: Handling and Moisture Sensitivity",
         "text": "Packaging requirements should be appropriate to the actual component. Connector interfaces may require protection against contamination and moisture, while electronic assemblies may require suitable protective bags, cushioning, separators, or other measures specified for the product.\n\nFor sensitive electrical or electronic components, buyers should clarify whether the supplier's packaging includes individual protection, cushioning, connector protection, moisture-control measures, and appropriate labeling.\n\nPackaging should also not be confused with the component's ingress-protection rating. An IP rating applies to the specified product configuration under applicable test conditions; export packaging protects the product during transportation and does not change the product's specified or certified IP performance.",
         "list": [
           "Vibration and impact during handling",
@@ -1164,8 +1164,8 @@ const POSTS = [
         "list": [
           "For metal engine components: Confirm the required corrosion-protection method; specify VCI packaging or an equivalent system where appropriate; confirm parts are sufficiently dry before packing; specify individual or separated packing where surface damage is a concern; confirm suitable carton, crate, or pallet configuration and identification/labeling requirements.",
           "For elastomer sealing components: Specify individual, grouped, or compartmentalized packaging; define acceptable stacking configuration; protect sealing surfaces from contamination and unnecessary deformation; require batch/lot identification where traceability is needed; confirm storage and handling requirements and quantity per package.",
-          "For e-bike electrical components: Specify individual protective packaging and cushioning suitable for impact/vibration; protect connectors and terminals from contamination and damage; specify appropriate moisture protection; protect cables against bending, abrasion, and crushing; define ESD precautions where applicable; confirm product identification and packaging labels.",
-          "For mixed-category shipments: When consolidating sealing products, motorcycle parts, and e-bike components into the same shipment, establish packaging specifications for each product category rather than applying one generic method to the entire container."
+          "For e-bike electrical parts: Specify individual protective packaging and cushioning suitable for impact/vibration; protect connectors and terminals from contamination and damage; specify appropriate moisture protection; protect cables against bending, abrasion, and crushing; define ESD precautions where applicable; confirm product identification and packaging labels.",
+          "For mixed-category shipments: When consolidating sealing products, motorcycle parts, and e-bike parts into the same shipment, establish packaging specifications for each product category rather than applying one generic method to the entire container."
         ]
       },
       {
@@ -1184,7 +1184,7 @@ const CATEGORIES = [
   'All',
   'Industrial Sealing Solutions',
   'Motorcycle Parts',
-  'E-Bike Parts & Components',
+  'E-Bike Parts',
   'Quality & Compliance',
   'Logistics & Sourcing',
 ]
@@ -1192,7 +1192,7 @@ const CATEGORIES = [
 const CATEGORY_COLORS = {
   'Industrial Sealing Solutions': 'bg-blue-100 text-blue-700 border-blue-200',
   'Motorcycle Parts': 'bg-orange-100 text-orange-700 border-orange-200',
-  'E-Bike Parts & Components': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+  'E-Bike Parts': 'bg-emerald-100 text-emerald-700 border-emerald-200',
   'Quality & Compliance': 'bg-purple-100 text-purple-700 border-purple-200',
   'Logistics & Sourcing': 'bg-amber-100 text-amber-700 border-amber-200',
 }
@@ -1279,13 +1279,42 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                   <h3 className="text-xl font-bold text-[#005691] pt-2">{sec.heading}</h3>
                   {sec.text && <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line">{sec.text}</p>}
 
+                  {/* Subsections if present */}
+                  {sec.subsections && (
+                    <div className="space-y-4 my-4">
+                      {sec.subsections.map((sub, sIdx) => (
+                        <div key={sIdx} className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-gray-200/80">
+                          <h4 className="text-base font-bold text-[#005691] mb-2">
+                            {sub.title || sub.heading}
+                          </h4>
+                          <p className="text-sm sm:text-base leading-relaxed text-[#334155] whitespace-pre-line">
+                            {sub.content || sub.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {/* List items if present */}
                   {sec.list && (
                     <ul className="space-y-2.5 my-3 pl-2">
                       {sec.list.map((li, lIdx) => (
                         <li key={lIdx} className="flex items-start gap-3 text-sm sm:text-base">
                           <span className="material-symbols-outlined text-[#005691] text-base mt-1 flex-shrink-0">check_circle</span>
-                          <span>{li}</span>
+                          <span>
+                            {(() => {
+                              const colonIdx = li.indexOf(':')
+                              if (colonIdx > 0 && colonIdx < 60) {
+                                return (
+                                  <>
+                                    <strong className="font-semibold text-[#005691]">{li.substring(0, colonIdx + 1)}</strong>
+                                    {li.substring(colonIdx + 1)}
+                                  </>
+                                )
+                              }
+                              return li
+                            })()}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -1316,6 +1345,19 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  )}
+
+                  {/* Post table text if present */}
+                  {sec.postTableText && (
+                    <div className="space-y-2.5 my-3 text-xs sm:text-sm text-[#505f76] italic bg-[#f0f6fa]/60 p-4 rounded-lg border-l-4 border-[#005691]">
+                      {Array.isArray(sec.postTableText) ? (
+                        sec.postTableText.map((pt, ptIdx) => (
+                          <p key={ptIdx} className="leading-relaxed">{pt}</p>
+                        ))
+                      ) : (
+                        <p className="leading-relaxed">{sec.postTableText}</p>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1452,7 +1494,7 @@ export default function Blogs() {
             AT International Insights
           </h1>
           <p className="text-white/80 text-base max-w-2xl">
-            Practical technical guides, motorcycle and e-bike component insights, quality standards, and procurement knowledge from our China sourcing team.
+            Practical technical guides, motorcycle and e-bike parts insights, quality standards, and procurement knowledge from our China sourcing team.
           </p>
         </div>
       </section>
@@ -1603,7 +1645,7 @@ export default function Blogs() {
             <span className="material-symbols-outlined text-4xl mb-3 text-white/90">mark_email_unread</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-3">NEWSLETTER</h3>
             <p className="text-white/80 text-sm mb-8 leading-relaxed">
-              Get practical sourcing insights, motorcycle and e-bike component updates, quality guidance, and global procurement news delivered monthly.
+              Get practical sourcing insights, motorcycle and e-bike parts updates, quality guidance, and global procurement news delivered monthly.
             </p>
 
             {subscribed ? (

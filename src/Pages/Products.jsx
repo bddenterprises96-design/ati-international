@@ -658,13 +658,13 @@ const PRODUCTS = [
   {
     id: 'motorcycle',
     name: 'Motorcycle',
-    tagline: 'High-precision motorcycle engine components & sealing assemblies',
+    tagline: 'High-precision motorcycle engine parts & sealing assemblies',
     image: '/assets/homepage_3d_bento_motorcycle.png',
     hasDataSheet: false,
     icon: 'two_wheeler',
     color: '#FF6B35',
     gradient: 'from-orange-500 to-red-600',
-    description: 'ATI supplies a wide range of motorcycle parts and components, sourced from trusted partners to meet diverse procurement needs worldwide.',
+    description: 'ATI supplies a wide range of motorcycle parts, sourced from trusted partners to meet diverse procurement needs worldwide.',
     subProducts: [
       {
         id: 'moto-engine',
@@ -803,7 +803,7 @@ const PRODUCTS = [
     icon: 'electric_bike',
     color: '#10B981',
     gradient: 'from-emerald-500 to-teal-600',
-    description: 'AT International supplies versatile e-bike parts and components for mid-drive and hub-drive systems, helping buyers source the right components with confidence through a reliable global supply network.',
+    description: 'AT International supplies versatile e-bike parts for mid-drive and hub-drive systems, helping buyers source the right parts with confidence through a reliable global supply network.',
     subProducts: [
       {
         id: 'ebike-motor',

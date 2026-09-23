@@ -967,8 +967,8 @@ export default function ContactUS({ onNavigate }) {
                       className="w-full px-4 py-3 bg-[#f2f4f6] border border-[#c5c6cd] rounded-xl text-sm font-medium focus:border-[#005691] focus:ring-2 focus:ring-[#005691]/20 focus:bg-white outline-none transition-all"
                     >
                       <option value="">Select a product category</option>
-                      <option value="Motorcycle Parts & Engine Components">Motorcycle Parts & Accessories</option>
-                      <option value="E-Bike Drive Systems & Electronics">E-Bike Parts & Components</option>
+                      <option value="Motorcycle Parts">Motorcycle Parts</option>
+                      <option value="E-Bike Parts">E-Bike Parts</option>
                       <option value="Industrial Sealing Solutions (Valve Stem Seals, O-Rings, Oil Seals)">Industrial Sealing Solutions</option>
                       <option value="Custom Sourcing to Technical Drawing">Custom Sourcing Request</option>
                       <option value="Other Specialized Industrial Product">Other Products ( Please Specify )</option>

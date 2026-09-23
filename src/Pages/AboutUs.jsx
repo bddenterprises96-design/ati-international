@@ -255,7 +255,7 @@ export default function AboutUs({ onNavigate }) {
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-4 sm:mb-6">Our Company</h2>
             <p className="text-[#505f76] text-sm sm:text-base leading-relaxed mb-4 sm:mb-5">
-              AT International operates as a specialized global trading and supply partner. We specialize in streamlining cross-border procurement for industrial sealing solutions, motorcycle parts, and e-bike components for distributors and B2B buyers worldwide.
+              AT International operates as a specialized global trading and supply partner. We specialize in streamlining cross-border procurement for industrial sealing solutions, motorcycle parts, and e-bike parts for distributors and B2B buyers worldwide.
             </p>
             <p className="text-[#505f76] text-sm sm:text-base leading-relaxed mb-4 sm:mb-5">
               Based in China, our team collaborates directly with ISO-certified partner manufacturers. We oversee supplier verification, inspect technical documentation, and ensure rigorous pre-shipment standards on every cargo dispatch.
@@ -443,7 +443,8 @@ export default function AboutUs({ onNavigate }) {
               title="Our Mission"
               icon="flag"
               imageSrc="/assets/real_moto_tire_mission.jpg"
-              description="To simplify global sourcing by connecting businesses with reliable supply partners and providing quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions. We are committed to dependable delivery, transparent service, and efficient sourcing that creates long-term value for businesses worldwide."
+              description="Our Mission
+To simplify global sourcing by connecting businesses with reliable supply partners and delivering quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions through dependable service, transparent processes, and efficient supply."
             />
             <MotorcycleTireCard
               type="vision"
