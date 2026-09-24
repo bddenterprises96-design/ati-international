@@ -1471,24 +1471,6 @@ function ProductDetail({
         ))}
       </div>
 
-      {/* Complete Parts Directory (97 Motorcycle PDF Items / 82 E-Bike PDF Items) */}
-      {product.id === 'motorcycle' && (
-        <FullPartsDirectory
-          partsData={MOTORCYCLE_PARTS}
-          title="Motorcycle"
-          totalCount={97}
-          onNavigate={onNavigate}
-        />
-      )}
-
-      {product.id === 'e-bike' && (
-        <FullPartsDirectory
-          partsData={EBIKE_PARTS}
-          title="E-Bike"
-          totalCount={82}
-          onNavigate={onNavigate}
-        />
-      )}
 
       <div className="mt-10 bg-[#005691] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
         <div>
