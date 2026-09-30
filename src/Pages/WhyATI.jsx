@@ -106,14 +106,14 @@ export default function WhyATI({ onNavigate }) {
                 Motorcycle Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                Engine cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and Complete Engine Head Gaskets.
+                Quality-verified engine parts including crankshafts, cylinder heads, and cylinders, along with a complete range of motorcycle parts sourced to your specifications.
               </p>
               <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
                 {[
-                  'Engine Cylinder & Piston Kits',
-                  'Clutch Friction Plates & Assemblies',
-                  'Crankshaft & Overhaul Oil Seal Kits',
-                  'Complete Engine Head Gaskets'
+                  'Crankshafts',
+                  'Cylinder Heads',
+                  'Cylinders & Piston Kits',
+                  'Clutch Plates, Gaskets & Complete Range of Motorcycle Parts'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
                     <span className="material-symbols-outlined text-[#FF6B35] text-base">check_circle</span>
@@ -146,14 +146,14 @@ export default function WhyATI({ onNavigate }) {
                 E-Bike Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
-                IP67 mid-drive motor rotary shaft seals, Powertrain & Hub Seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
+                BLDC hub motors, motor controllers, and Li-ion battery chargers, plus IP67 motor shaft seals and UL94-V0 flame-retardant battery gaskets, along with a complete range of e-bike parts.
               </p>
               <div className="space-y-2.5 mb-8 border-t border-gray-100 pt-4">
                 {[
-                  'Mid-Drive Motor Rotary Shaft Seals (IP67)',
-                  'Silicone Battery Pack Enclosure Gaskets',
-                  'Multi-Wire Controller Sealing Grommets',
-                  'Powertrain & Hub Seals'
+                  'BLDC Hub Motors',
+                  'Motor Controllers',
+                  'Li-ion Battery Chargers',
+                  'IP67 Motor Shaft Seals & UL94-V0 Battery Gaskets'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
                     <span className="material-symbols-outlined text-[#10B981] text-base">check_circle</span>
@@ -186,10 +186,10 @@ export default function WhyATI({ onNavigate }) {
             <span className="text-xs font-bold text-white uppercase tracking-widest bg-white/20 px-4 py-1.5 rounded-full border border-white/30 mb-3.5 inline-block backdrop-blur-md shadow-sm">
               End-to-End Supply Chain Value
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3.5 drop-shadow-sm tracking-widest border border-white/20 backdrop-blur-md">
+            <h2 className="text-3xl sm:text-3xl font-extrabold text-white mb-3.5 drop-shadow-sm tracking-wide leading-relaxed tracking-widest border border-white/20 backdrop-blur-lg shadow-sm">
               Our 6-Step Global Supply Chain Workflow
             </h2>
-            <p className="text-white/100 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto tracking-widest border border-white/20 backdrop-blur-lg">
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto tracking-wide leading-relaxed tracking-widest border border-white/20 backdrop-blur-lg">
               AT International seamlessly manages your entire cross-border procurement process from supplier verification to final destination delivery:
             </p>
           </div>
@@ -235,21 +235,21 @@ export default function WhyATI({ onNavigate }) {
             ].map((s, idx) => (
               <div 
                 key={s.step} 
-                className="relative bg-white/95 backdrop-blur-md border border-white/50 rounded-xl p-5 hover:border-[#005691] hover:bg-white hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl group"
+                className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 hover:border-white/40 hover:bg-white/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-black text-white bg-[#005691] px-2.5 py-0.5 rounded-md shadow-xs">
+                    <span className="text-xs font-black text-white bg-white/20 border border-white/30 px-2.5 py-0.5 rounded-md shadow-xs">
                       {s.step}
                     </span>
-                    <span className="material-symbols-outlined text-[#005691] text-2xl group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-white text-2xl group-hover:scale-110 group-hover:text-cyan-300 transition-all">
                       {s.icon}
                     </span>
                   </div>
-                  <h4 className="font-bold text-[#005691] text-sm mb-2 leading-snug group-hover:text-[#003d66]">
+                  <h4 className="font-bold text-white text-sm mb-2 leading-snug group-hover:text-cyan-200 transition-colors">
                     {s.title}
                   </h4>
-                  <p className="text-[#475569] text-[11px] leading-relaxed font-medium">
+                  <p className="text-white/80 text-[11px] leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>
@@ -403,17 +403,20 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="bg-[#005691] py-16">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-[#005691]/85 via-[#003d66]/75 to-[#005691]/85 backdrop-blur-md border-y border-[#005691]/30">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
           {[
             { num: '25+',    label: 'Years of Global Trading Experience' },
             { num: '40+',    label: 'Export Destinations Worldwide' },
             { num: '200+',   label: 'Verified Manufacturing Partners' },
             { num: '100%',   label: 'Batch Traceability & Inspection' },
           ].map((s) => (
-            <div key={s.label}>
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-1.5">{s.num}</div>
-              <div className="text-white/80 text-xs sm:text-sm font-medium">{s.label}</div>
+            <div 
+              key={s.label} 
+              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:-translate-y-1 group"
+            >
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 group-hover:text-cyan-200 transition-colors drop-shadow-sm">{s.num}</div>
+              <div className="text-white/90 text-xs sm:text-sm font-medium leading-relaxed tracking-wide">{s.label}</div>
             </div>
           ))}
         </div>

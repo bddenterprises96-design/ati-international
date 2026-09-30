@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: 'Why ATI?',   path: '/why-ati' },
   { label: 'Contact Us', path: '/contact' },
   { label: 'Blogs',      path: '/blogs' },
-  { label: "FAQ's",      path: '/faqs' },
+  { label: "FAQs",        path: '/faqs' },
 ]
 
 export default function Navbar({ onNavigate }) {

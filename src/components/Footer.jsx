@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NAV_LINKS = ['Home', 'Products', 'Why ATI?', 'Contact Us', 'Blogs', "FAQ's"]
+const NAV_LINKS = ['Home', 'Products', 'Why ATI?', 'Contact Us', 'Blogs', 'FAQs']
 
 export default function Footer({ onNavigate }) {
   // Function to handle navigation with product section targeting

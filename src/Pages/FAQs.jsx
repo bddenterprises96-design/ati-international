@@ -85,7 +85,7 @@ const FAQS = [
 
 export default function FAQs({ onNavigate }) {
   useEffect(() => {
-    document.title = "FAQ's | AT International"
+    document.title = "FAQs | AT International"
   }, [])
 
   const [open, setOpen] = useState(null)

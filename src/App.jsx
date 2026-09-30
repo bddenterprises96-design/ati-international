@@ -59,6 +59,10 @@ export default function App() {
       '/why-ati':   '/why-ati',
       'Contact Us': '/contact',
       'Blogs':      '/blogs',
+      'Blog':       '/blogs',
+      'blogs':      '/blogs',
+      '/blogs':     '/blogs',
+      'FAQs':       '/faqs',
       "FAQ's":      '/faqs',
     }
 
@@ -69,19 +73,19 @@ export default function App() {
 
     if (typeof page === 'string' && page.includes('#')) {
       const [basePage, hash] = page.split('#')
-      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : '/products')
+      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : (basePage.toLowerCase().includes('blog') ? '/blogs' : '/products'))
       navigate(`${targetRoute}#${hash}`)
       return
     }
 
     if (typeof page === 'string' && page.includes('?')) {
       const [basePage, query] = page.split('?')
-      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : '/products')
+      const targetRoute = routes[basePage] || (basePage.toLowerCase().includes('why') ? '/why-ati' : (basePage.toLowerCase().includes('blog') ? '/blogs' : '/products'))
       navigate(`${targetRoute}?${query}`)
       return
     }
 
-    const matched = routes[page] || (typeof page === 'string' && page.toLowerCase().includes('why') ? '/why-ati' : null)
+    const matched = routes[page] || (typeof page === 'string' && page.toLowerCase().includes('why') ? '/why-ati' : (typeof page === 'string' && page.toLowerCase().includes('blog') ? '/blogs' : null))
     navigate(matched ?? (typeof page === 'string' && page.startsWith('/') ? page : '/'))
   }
 

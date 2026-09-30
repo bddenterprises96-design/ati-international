@@ -280,7 +280,7 @@ export default function AboutUs({ onNavigate }) {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#005691] mb-3 sm:mb-4 tracking-tight">Core Supply Divisions</h2>
           <p className="text-[#505f76] text-sm sm:text-base leading-relaxed">
-            Explore our primary export product lines engineered for demanding industrial, automotive, and electric mobility applications worldwide.
+            Explore our primary export product lines, sourced for industrial, automotive, and electric mobility applications worldwide.
           </p>
         </div>
 
@@ -354,10 +354,10 @@ export default function AboutUs({ onNavigate }) {
                   Motorcycle Parts
                 </h3>
                 <p className="text-[#505f76] text-sm leading-relaxed mb-6">
-                  Precision cylinder blocks, forged pistons, high-coefficient clutch friction plates, crankshaft oil seal kits, and complete engine overhaul gaskets.
+                  Quality-verified engine parts including crankshafts, cylinder heads, and cylinders, along with a complete range of motorcycle parts sourced to your specifications.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {['Engine Parts', 'Clutch Kits', 'Rubber Seals'].map((tag) => (
+                  {['Crankshafts', 'Cylinder Heads', 'Cylinders'].map((tag) => (
                     <span key={tag} className="text-xs font-semibold px-3 py-1 bg-white text-[#005691] rounded-lg border border-[#cbe3f7]">
                       {tag}
                     </span>
@@ -401,10 +401,10 @@ export default function AboutUs({ onNavigate }) {
                   E-Bike Parts
                 </h3>
                 <p className="text-[#505f76] text-sm leading-relaxed mb-6">
-                  IP67 mid-drive motor rotary shaft seals, UL94-V0 flame-retardant silicone battery enclosure gaskets, and multi-wire controller grommets.
+                  BLDC hub motors, motor controllers, and Li-ion battery chargers, plus IP67 motor shaft seals and UL94-V0 flame-retardant battery gaskets, along with a complete range of e-bike parts.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {['Motor Seals', 'Battery Gaskets', 'Powertrain'].map((tag) => (
+                  {['Hub Motors', 'Motor Controllers', 'Battery Chargers'].map((tag) => (
                     <span key={tag} className="text-xs font-semibold px-3 py-1 bg-white text-[#005691] rounded-lg border border-[#cbe3f7]">
                       {tag}
                     </span>
@@ -443,8 +443,7 @@ export default function AboutUs({ onNavigate }) {
               title="Our Mission"
               icon="flag"
               imageSrc="/assets/real_moto_tire_mission.jpg"
-              description="Our Mission
-To simplify global sourcing by connecting businesses with reliable supply partners and delivering quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions through dependable service, transparent processes, and efficient supply."
+              description="To simplify global sourcing by connecting businesses with reliable supply partners and delivering quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions through dependable service, transparent processes, and efficient supply."
             />
             <MotorcycleTireCard
               type="vision"
@@ -463,7 +462,7 @@ To simplify global sourcing by connecting businesses with reliable supply partne
         <p className="text-[#505f76] text-xs sm:text-sm text-center mb-8 sm:mb-12">The principles that guide everything we do at AT International.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {[
-            { icon: 'verified',      title: 'Quality First',       desc: 'We source only from ISO-certified partner manufacturers. Every shipment includes full material documentation and traceability.' },
+            { icon: 'verified',      title: 'Quality First',       desc: 'We source from verified, certified partner manufacturers. Material documentation and traceability are available on request.' },
             { icon: 'handshake',     title: 'Integrity',           desc: 'Transparent pricing, honest communication, and dependable commitments form the foundation of every customer relationship.' },
             { icon: 'rocket_launch', title: 'Procurement Agility', desc: 'Fast inquiry turnaround, flexible MOQ options, and responsive sourcing that adapts to your production schedules.' },
             { icon: 'groups',        title: 'Customer Focus',      desc: "We listen, understand your application, and source components that match your exact technical and commercial requirements." },
@@ -536,7 +535,7 @@ To simplify global sourcing by connecting businesses with reliable supply partne
               selection and quality verification to export documentation and international delivery.
             </p>
             {[
-              { icon: 'check_circle', title: 'Full Documentation',    desc: 'CoC, material data sheets, RoHS and REACH declarations provided with every order.' },
+              { icon: 'check_circle', title: 'Full Documentation',    desc: 'CoC, material data sheets, RoHS and REACH declarations available on request.' },
               { icon: 'check_circle', title: 'Flexible Incoterms',    desc: 'EXW, FOB, CFR, CIF and DDP terms available to suit your logistics and import requirements.' },
               { icon: 'check_circle', title: 'Custom Sourcing',       desc: 'We source to your drawings, specifications, and OEM cross-references from our verified supplier network.' },
             ].map((item) => (

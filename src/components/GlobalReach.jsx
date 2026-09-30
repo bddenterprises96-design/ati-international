@@ -37,7 +37,7 @@ export default function GlobalReach({ onNavigate }) {
               Connect with Engineering
             </button>
             <button
-              onClick={() => onNavigate && onNavigate("FAQ's")}
+              onClick={() => onNavigate && onNavigate("FAQs")}
               className="border border-white/40 text-white/80 px-8 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
             >
               Review Inquiries

@@ -228,7 +228,6 @@ const POSTS = [
       },
       {
         "heading": "5. Material Selection for Rotary Oil Seals",
-        "text": "The elastomer used for the sealing lip should be selected according to the specific lubricant, operating temperature, shaft speed, pressure conditions, and required resistance to wear and chemical exposure.",
         "table": {
           "headers": [
             "Material",
@@ -263,10 +262,7 @@ const POSTS = [
             ]
           ]
         },
-        "postTableText": [
-          "These descriptions are general selection guidelines rather than universal material ratings. Actual performance depends on the specific compound formulation and application conditions.",
-          "Material compatibility should therefore be confirmed against the actual lubricant formulation, additive package, operating temperature, exposure duration, and other environmental conditions rather than assumed from the elastomer family alone."
-        ]
+        "text": "These descriptions are general selection guidelines rather than universal material ratings. Actual performance depends on the specific compound formulation and application conditions.\n\nMaterial compatibility should therefore be confirmed against the actual lubricant formulation, additive package, operating temperature, exposure duration, and other environmental conditions rather than assumed from the elastomer family alone."
       },
       {
         "heading": "6. Operating Parameters That Affect Seal Selection",
@@ -318,13 +314,14 @@ const POSTS = [
       },
       {
         "heading": "Step 3: Sample Verification & First Article Review",
-        "text": "The inspection and test results are compiled into a First Article Inspection Report (FAIR) for customer review and approval before volume production begins. For applications with additional quality requirements, a more comprehensive Production Part Approval Process (PPAP) package may also be requested.",
+        "text": "Once initial tooling is complete, a pilot batch of samples is produced and evaluated against the drawing. Depending on the component and application requirements, verification may include:",
         "list": [
           "Dimensional inspection — Critical dimensions are verified using calibrated gauges, measurement equipment, or a coordinate measuring machine (CMM) against drawing tolerances.",
           "Hardness verification — Shore A durometer testing confirms that the compound meets the specified hardness.",
           "Mechanical testing — Tensile strength and elongation may be evaluated in accordance with ASTM D412, while compression set may be assessed according to ASTM D395, depending on the application's requirements.",
           "Fluid compatibility testing — Fluid immersion and volume-change testing may be conducted in accordance with ASTM D471 when the component is exposed to oils, fuels, hydraulic fluids, or other specified liquids."
-        ]
+        ],
+        "conclusion": "The inspection and test results are compiled into a First Article Inspection Report (FAIR) for customer review and approval before volume production begins. For applications with additional quality requirements, a more comprehensive Production Part Approval Process (PPAP) package may also be requested."
       },
       {
         "heading": "What to Request Before Approving a Custom Component",
@@ -362,27 +359,11 @@ const POSTS = [
       },
       {
         "heading": "2. Common Motorcycle Engine Sealing Failure Points",
-        "subsections": [
-          {
-            "title": "Valve Stem Seal Wear or Hardening",
-            "content": "Valve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber."
-          },
-          {
-            "title": "Crankshaft and Other Rotating-Shaft Oil Seal Wear",
-            "content": "Radial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life."
-          },
-          {
-            "title": "Cylinder Head Gasket Leakage",
-            "content": "The cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems."
-          },
-          {
-            "title": "Clutch and Stator Cover Gasket or O-Ring Failure",
-            "content": "Engine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
-          }
-        ]
+        "text": "Valve Stem Seal Wear or Hardening\nValve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber.\n\nCrankshaft and Other Rotating-Shaft Oil Seal Wear\nRadial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life.\n\nCylinder Head Gasket Leakage\nThe cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems.\n\nClutch and Stator Cover Gasket or O-Ring Failure\nEngine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
       },
       {
         "heading": "3. How Motorcycle Engine Oil Leaks Are Typically Diagnosed",
+        "text": "The visible drip is not necessarily the point where the oil escaped. Oil can travel downward or rearward across engine surfaces due to gravity, airflow, and vibration, making the lowest wet point an unreliable indicator of the original failure location.\n\nA practical diagnostic approach is to:",
         "list": [
           "1. Identify the fluid — Confirm that the substance is engine oil rather than another fluid used elsewhere on the motorcycle.",
           "2. Clean the surrounding area — Remove accumulated oil and dirt so that a fresh leak can be distinguished from an older residue.",
@@ -390,9 +371,7 @@ const POSTS = [
           "4. Inspect from the highest fresh-wet point downward — Trace the oil path back toward its highest visible origin rather than replacing the component at the lowest drip point.",
           "5. Check nearby sealing interfaces — Inspect covers, gaskets, O-rings, shaft seals, filter interfaces, drain points, and other potential sources before ordering replacement parts."
         ],
-        "postTableText": [
-          "For leaks around rotating shafts, the shaft surface and surrounding components should also be inspected. Installing a new seal without addressing a damaged shaft surface, incorrect installation, or an underlying pressure problem can result in repeat leakage. SKF guidance similarly emphasizes shaft and housing condition and correct installation practices for radial shaft seals."
-        ]
+        "conclusion": "For leaks around rotating shafts, the shaft surface and surrounding components should also be inspected. Installing a new seal without addressing a damaged shaft surface, incorrect installation, or an underlying pressure problem can result in repeat leakage. SKF guidance similarly emphasizes shaft and housing condition and correct installation practices for radial shaft seals."
       },
       {
         "heading": "4. ATI Sourcing & Quality Review for Motorcycle Parts",
@@ -403,6 +382,22 @@ const POSTS = [
           "Operating requirements — Including temperature, lubricant exposure, and shaft or housing conditions where applicable",
           "OEM or cross-reference information — To help establish dimensional and functional equivalence",
           "Quality documentation — Where required by the customer or application"
+        ],
+        "conclusion": "For shaft seals in particular, dimensional matching alone should not be treated as sufficient. Seal material, lip design, shaft condition, installation arrangement, and operating environment can all influence sealing performance and service life.",
+        "subsections": [
+          {
+            "title": "What to Confirm Before Ordering Replacement Seals",
+            "intro": "Before sourcing a replacement motorcycle engine seal or gasket, procurement teams should confirm:",
+            "list": [
+              "The exact motorcycle model, engine model, and production generation, since sealing dimensions and specifications can vary between versions",
+              "The actual leak location and sealing interface, rather than identifying the replacement solely from where oil reaches the ground",
+              "The required seal or gasket type, such as a radial shaft seal, valve stem seal, cover gasket, or O-ring",
+              "The material specification, particularly for high-temperature, high-mileage, or chemically demanding applications",
+              "The OEM or cross-reference part number, where available, and whether the proposed replacement has been verified for dimensional and application compatibility",
+              "Any relevant shaft, housing, mating-surface, or installation requirements that could affect the performance of the replacement component"
+            ],
+            "conclusion": "Accurate application information helps reduce the risk of supplying a dimensionally similar component that is not suitable for the actual operating conditions."
+          }
         ]
       },
       {
@@ -446,12 +441,13 @@ const POSTS = [
       },
       {
         "heading": "3. Essential Drivetrain Sealing Components",
-        "text": "These seals may appear similar externally but can differ significantly in inside diameter, outside diameter, width, lip configuration, material, and installation arrangement. The correct application and dimensions should therefore be confirmed before sourcing.",
+        "text": "Alongside the clutch pack itself, several sealing components help retain lubricant around shafts and engine-case interfaces.",
         "list": [
           "Countershaft / Output-Shaft Oil Seals — Seal the rotating shaft where it exits the engine or transmission housing and help prevent lubricant from reaching the drive sprocket and surrounding components.",
           "Gear-Shift Shaft Seals — Seal around the shift shaft where it passes through the engine casing, helping prevent oil leakage around the gear-shift mechanism.",
           "Clutch Pushrod Seals — Used on applicable clutch designs to seal around the clutch actuator or pushrod where it passes through the engine casing."
-        ]
+        ],
+        "conclusion": "These seals may appear similar externally but can differ significantly in inside diameter, outside diameter, width, lip configuration, material, and installation arrangement. The correct application and dimensions should therefore be confirmed before sourcing."
       },
       {
         "heading": "4. Key Selection Considerations for Buyers",
@@ -469,6 +465,25 @@ const POSTS = [
           "Oil-seal dimensions, material, and sealing configuration",
           "Packaging, labeling, and private-label requirements, where available",
           "Quantity and international shipping requirements"
+        ],
+        "conclusion": "For distributors and importers, confirming these details before quotation and production helps reduce the risk of supplying components that are dimensionally similar but unsuitable for the intended motorcycle application.",
+        "subsections": [
+          {
+            "title": "What to Confirm Before Ordering",
+            "intro": "Before sourcing motorcycle clutch or transmission components, buyers should confirm:",
+            "list": [
+              "The exact motorcycle make, model, engine specification, and production year",
+              "The OEM or reference part number, where available",
+              "The required friction plate material and clutch configuration",
+              "The number, dimensions, and specification of friction and steel plates",
+              "The required clutch spring specification",
+              "The correct oil-seal location and dimensions for drivetrain sealing components",
+              "The motorcycle manufacturer's recommended lubricant specification, particularly for wet-clutch applications",
+              "Required quantity, packaging, labeling, and documentation",
+              "Any private-label or distributor-specific requirements, where applicable"
+            ],
+            "conclusion": "Providing complete application information at the quotation stage allows the sourcing team and supplier to verify compatibility before production or shipment."
+          }
         ]
       },
       {
@@ -511,13 +526,32 @@ const POSTS = [
       },
       {
         "heading": "2. Common Motorcycle Crankshaft Failure Modes",
-        "text": "These symptoms are not unique to crankshaft failure. Bearing damage, piston problems, connecting-rod issues, lubrication faults, and other engine conditions can produce similar symptoms, so proper diagnosis should be completed before replacing the crankshaft.",
-        "list": [
-          "Deep or abnormal knocking noises, particularly when associated with bearing or crankshaft wear",
-          "Excessive engine vibration that is unusual for the specific motorcycle",
-          "Abnormal bearing wear or repeated bearing damage",
-          "Oil contamination containing metallic particles",
-          "Loss of correct journal dimensions or excessive crankshaft runout"
+        "text": "A crankshaft operates through millions of repeated load cycles during its service life. Failure can develop through several mechanisms, particularly when lubrication, alignment, manufacturing quality, or operating loads are outside the intended conditions.",
+        "subsections": [
+          {
+            "title": "Journal Wear and Surface Damage",
+            "content": "Crankshaft journals run against bearings and depend on an adequate lubricating film. Insufficient lubrication, contaminated oil, incorrect bearing clearance, or prolonged service can contribute to scoring, surface damage, excessive wear, or dimensional changes.\n\nBecause journal geometry is critical to bearing performance, replacement or reconditioning should include appropriate dimensional inspection rather than relying only on visual condition."
+          },
+          {
+            "title": "Fatigue Cracking or Fracture",
+            "content": "Repeated bending and torsional loads can create fatigue stresses in highly loaded areas of the crankshaft. Stress concentrations around fillets, oil holes, crankpins, and changes in cross-section can be particularly important when assessing fatigue performance.\n\nA crankshaft that has experienced excessive loading, incorrect modification, poor surface condition, or manufacturing defects may therefore require specialist inspection before reuse."
+          },
+          {
+            "title": "Torsional or Dynamic Issues",
+            "content": "The crankshaft does not experience a constant load. Combustion pulses and the changing acceleration of the reciprocating assembly create fluctuating torque and inertia forces.\n\nIncorrect crankshaft specifications, damage, or inappropriate modifications can contribute to excessive vibration or torsional problems. These issues should be distinguished from ordinary engine vibration caused by the engine's inherent balance characteristics."
+          },
+          {
+            "title": "Symptoms That May Indicate a Crankshaft Problem",
+            "intro": "Potential warning signs can include:",
+            "list": [
+              "Deep or abnormal knocking noises, particularly when associated with bearing or crankshaft wear",
+              "Excessive engine vibration that is unusual for the specific motorcycle",
+              "Abnormal bearing wear or repeated bearing damage",
+              "Oil contamination containing metallic particles",
+              "Loss of correct journal dimensions or excessive crankshaft runout"
+            ],
+            "conclusion": "These symptoms are not unique to crankshaft failure. Bearing damage, piston problems, connecting-rod issues, lubrication faults, and other engine conditions can produce similar symptoms, so proper diagnosis should be completed before replacing the crankshaft."
+          }
         ]
       },
       {
@@ -526,21 +560,43 @@ const POSTS = [
       },
       {
         "heading": "4. Selection Framework for Buyers",
-        "text": "Documentation should correspond to the actual component being supplied rather than relying solely on generic product descriptions.",
-        "list": [
-          "Material specification or material certification",
-          "Journal diameter and dimensional tolerances",
-          "Crankpin and main-journal specifications",
-          "Stroke and crankshaft configuration",
-          "Runout or straightness inspection results, where applicable",
-          "Heat-treatment information, where relevant",
-          "Balance verification or balancing documentation",
-          "OEM or cross-reference part numbers, where available"
+        "subsections": [
+          {
+            "title": "Standard Motorcycle Applications",
+            "intro": "For commuter, touring, and utility applications, an OEM-specification or verified-equivalent crankshaft matching the original engine configuration is generally the appropriate starting point.\n\nKey requirements include:",
+            "list": [
+              "Correct crankshaft configuration",
+              "Correct stroke and crankpin geometry",
+              "Correct journal dimensions",
+              "Correct bearing compatibility",
+              "Appropriate material and heat-treatment specification",
+              "Correct balance characteristics"
+            ]
+          },
+          {
+            "title": "High-Performance Applications",
+            "content": "For high-output, racing, or heavily modified engines, buyers may require a crankshaft manufactured from a suitable high-strength material and supported by appropriate dimensional, material, and balancing documentation.\n\nForged steel construction may be selected for demanding applications, but construction type should be evaluated together with the complete engineering specification rather than treated as the sole indicator of quality."
+          },
+          {
+            "title": "When Evaluating a Supplier",
+            "intro": "For a custom, replacement, or performance crankshaft, buyers should consider requesting:",
+            "list": [
+              "Material specification or material certification",
+              "Journal diameter and dimensional tolerances",
+              "Crankpin and main-journal specifications",
+              "Stroke and crankshaft configuration",
+              "Runout or straightness inspection results, where applicable",
+              "Heat-treatment information, where relevant",
+              "Balance verification or balancing documentation",
+              "OEM or cross-reference part numbers, where available"
+            ],
+            "conclusion": "Documentation should correspond to the actual component being supplied rather than relying solely on generic product descriptions."
+          }
         ]
       },
       {
         "heading": "5. What to Confirm Before Ordering a Replacement Crankshaft",
-        "text": "For modified engines, piston and connecting-rod weights should also be considered because changes to reciprocating mass can affect the crankshaft's required balance characteristics.",
+        "text": "Before placing an order, procurement teams should confirm:",
         "list": [
           "The exact motorcycle make, model, engine code, and production generation",
           "Bore and stroke specifications, where relevant",
@@ -552,7 +608,8 @@ const POSTS = [
           "Any applicable runout, dimensional, or surface-finish tolerances",
           "Whether the crankshaft is supplied assembled, partially assembled, or as a complete crankshaft assembly",
           "The applicable OEM or reference part number"
-        ]
+        ],
+        "conclusion": "For modified engines, piston and connecting-rod weights should also be considered because changes to reciprocating mass can affect the crankshaft's required balance characteristics."
       },
       {
         "heading": "6. Why Complete Specification Matters in Procurement",
@@ -579,13 +636,14 @@ const POSTS = [
       },
       {
         "heading": "2. Casting Quality and Common Defects",
-        "text": "Inspection methods should be selected according to the defect being investigated. Because aluminum alloys are non-ferromagnetic, magnetic-particle inspection is generally unsuitable for detecting cracks in aluminum cylinder heads. Dye-penetrant inspection can be used for suitable surface-breaking cracks, while pressure testing can help identify leakage through coolant passages or other pressure-containing regions.\n\nFor procurement, the important point is that visual inspection alone may not reveal every internal or surface-connected defect.",
+        "text": "Cylinder head casting quality can have a direct effect on durability and sealing reliability. Several defects may originate during the casting process:",
         "list": [
           "Gas porosity and shrinkage porosity: Voids formed during solidification that may remain internal or, when interconnected with a pressure boundary, contribute to leakage or reduced structural integrity.",
           "Cold shuts: Discontinuities created when separate streams of molten metal do not fuse properly, potentially producing a weak region within the casting.",
           "Inclusions: Foreign material or mold-related contamination trapped within the casting, which can affect local integrity or, if located in critical passages, interfere with oil or coolant flow.",
           "Casting cracks: Cracks can develop because of thermal stresses, solidification effects, machining stresses, or later thermal cycling. Areas around valve seats and exhaust ports can be particularly sensitive because of their high thermal and mechanical loading."
-        ]
+        ],
+        "conclusion": "Inspection methods should be selected according to the defect being investigated. Because aluminum alloys are non-ferromagnetic, magnetic-particle inspection is generally unsuitable for detecting cracks in aluminum cylinder heads. Dye-penetrant inspection can be used for suitable surface-breaking cracks, while pressure testing can help identify leakage through coolant passages or other pressure-containing regions.\n\nFor procurement, the important point is that visual inspection alone may not reveal every internal or surface-connected defect."
       },
       {
         "heading": "3. Valve Seat Recession and Wear",
@@ -593,20 +651,49 @@ const POSTS = [
       },
       {
         "heading": "4. Selection Framework for Buyers",
-        "text": "Documentation should relate to the actual component or production lot being supplied whenever possible rather than relying exclusively on generic product descriptions.",
-        "list": [
-          "Casting process and quality-control information",
-          "Pressure-test or dye-penetrant inspection results, where applicable",
-          "Flatness verification against the specified tolerance",
-          "Valve-seat and valve-guide condition information",
-          "Casting alloy or material specification, where required",
-          "OEM or cross-reference part numbers",
-          "Dimensional inspection documentation for critical features"
+        "subsections": [
+          {
+            "title": "Standard Replacement Applications",
+            "intro": "For commuter, touring, and utility motorcycles, the starting point should be a cylinder head that matches the original application and manufacturer's specifications.\n\nA replacement cylinder head should be evaluated across several key areas:",
+            "list": [
+              "Combustion chamber geometry and port configuration: Dimensional differences can affect compression ratio, airflow characteristics, and compatibility with the original engine configuration.",
+              "Valve seats and valve guides: Seat condition, seat material where specified, and correct valve-guide dimensions are important for sealing and valve-train durability.",
+              "Mounting and gasket interfaces: Bolt pattern, locating features, gasket surface condition, and dimensional accuracy should match the applicable engine specification.",
+              "Casting alloy and treatment requirements: Where specified by the original design, the correct alloy and applicable heat-treatment condition should be verified rather than assumed from appearance alone."
+            ]
+          },
+          {
+            "title": "High-Performance or High-Mileage Rebuilds",
+            "intro": "Performance applications and high-mileage rebuilds may justify a more extensive inspection process.\n\nDepending on the application, buyers may request:",
+            "list": [
+              "Pressure-test results",
+              "Dye-penetrant inspection results",
+              "Flatness measurements",
+              "Valve-seat inspection records",
+              "Dimensional inspection data",
+              "Material or alloy documentation where required"
+            ],
+            "conclusion": "These checks are particularly useful when the cylinder head is being supplied as a replacement, refurbished component, or performance-oriented assembly where hidden defects could create significant downstream costs."
+          },
+          {
+            "title": "When Evaluating a Supplier",
+            "intro": "For a replacement or performance cylinder head, buyers should consider requesting:",
+            "list": [
+              "Casting process and quality-control information",
+              "Pressure-test or dye-penetrant inspection results, where applicable",
+              "Flatness verification against the specified tolerance",
+              "Valve-seat and valve-guide condition information",
+              "Casting alloy or material specification, where required",
+              "OEM or cross-reference part numbers",
+              "Dimensional inspection documentation for critical features"
+            ],
+            "conclusion": "Documentation should relate to the actual component or production lot being supplied whenever possible rather than relying exclusively on generic product descriptions."
+          }
         ]
       },
       {
         "heading": "5. What to Confirm Before Ordering a Replacement Cylinder Head",
-        "text": "For international sourcing, confirming these details before quotation and production can reduce the risk of receiving a visually similar component that is not dimensionally or functionally compatible.",
+        "text": "Before placing an order, procurement teams should confirm:",
         "list": [
           "The exact motorcycle make, model, engine code, and production generation",
           "The applicable OEM or reference part number",
@@ -618,7 +705,8 @@ const POSTS = [
           "Whether the cylinder head is supplied bare, partially assembled, or as a complete assembly",
           "Whether valves, springs, retainers, guides, seats, or other valve-train components are included",
           "Available inspection and quality documentation"
-        ]
+        ],
+        "conclusion": "For international sourcing, confirming these details before quotation and production can reduce the risk of receiving a visually similar component that is not dimensionally or functionally compatible."
       },
       {
         "heading": "6. Why Casting Quality Matters in Procurement",
@@ -645,12 +733,13 @@ const POSTS = [
       },
       {
         "heading": "2. Cylinder-Wall Construction Options",
-        "text": "The choice of wall construction also affects how the cylinder can be inspected, honed, repaired, or rebored. Some coated-bore systems require specialized procedures and may not be suitable for conventional oversize boring. Buyers should therefore confirm the actual bore technology before assuming a cylinder can be machined using standard rebore methods.",
+        "text": "Motorcycle cylinders can use different bore and wall constructions depending on the engine architecture, performance requirements, manufacturing approach, and service strategy.",
         "list": [
           "Cast-iron cylinders and liners: Provide a durable wear surface and can be suitable for applications where conventional machining and serviceability are important.",
           "Aluminum cylinders with cast-iron liners: Combine an aluminum cylinder structure with a separate wear-resistant liner, balancing structural design, heat transfer, and serviceability.",
           "Aluminum cylinders with plated or coated bores: Use specialized bore coatings instead of a conventional liner, reducing the need for a separate liner and supporting lightweight construction—but servicing requirements differ from conventional iron bores."
-        ]
+        ],
+        "conclusion": "The choice of wall construction also affects how the cylinder can be inspected, honed, repaired, or rebored. Some coated-bore systems require specialized procedures and may not be suitable for conventional oversize boring. Buyers should therefore confirm the actual bore technology before assuming a cylinder can be machined using standard rebore methods."
       },
       {
         "heading": "3. Common Wear Patterns and What They Indicate",
@@ -658,17 +747,31 @@ const POSTS = [
       },
       {
         "heading": "4. Selection Framework and Sourcing Checklist",
-        "text": "When evaluating a supplier, request documentation—bore diameter/grade, roundness and taper inspection results, honing specifications, wall-material details, and piston/ring compatibility information—that corresponds to the actual component or production lot rather than relying on generic product descriptions. For international sourcing, confirming these details before quotation and production significantly reduces the risk of receiving a visually similar cylinder that is not dimensionally or functionally compatible.",
-        "list": [
-          "Exact motorcycle make, model, engine code, and production generation",
-          "Finished bore diameter and dimensional grade (standard or specified oversize)",
-          "Cylinder-wall construction (cast iron, liner, plated, or coated) and whether it supports reboring/honing",
-          "Bore taper and out-of-roundness limits",
-          "Honing and surface-finish requirements (roughness, cross-hatch angle)",
-          "Compatible piston diameter, piston-to-cylinder clearance, and piston-ring specification",
-          "Mounting dimensions and gasket/sealing interfaces",
-          "OEM or cross-reference part number",
-          "Available dimensional and inspection documentation"
+        "subsections": [
+          {
+            "title": "Standard Replacement Applications",
+            "content": "Standard replacement applications (commuter, touring, utility): Start with a cylinder matching the original application, bore specification, dimensional grade, and wall construction. A nominal bore diameter alone is not enough—cylinder, piston, and ring dimensions must be considered as a matched system, since the appropriate piston grade and fitting clearance must be maintained after machining or re-honing."
+          },
+          {
+            "title": "Performance or Rebuild Applications",
+            "content": "Performance or rebuild applications: Confirm whether the cylinder's construction supports the intended machining and finishing process, since honing requirements (roughness, cross-hatch angle) vary substantially with bore material and ring technology and should be selected for the specific application rather than treated as universal values."
+          },
+          {
+            "title": "Sourcing Checklist",
+            "intro": "Before ordering, confirm:",
+            "list": [
+              "Exact motorcycle make, model, engine code, and production generation",
+              "Finished bore diameter and dimensional grade (standard or specified oversize)",
+              "Cylinder-wall construction (cast iron, liner, plated, or coated) and whether it supports reboring/honing",
+              "Bore taper and out-of-roundness limits",
+              "Honing and surface-finish requirements (roughness, cross-hatch angle)",
+              "Compatible piston diameter, piston-to-cylinder clearance, and piston-ring specification",
+              "Mounting dimensions and gasket/sealing interfaces",
+              "OEM or cross-reference part number",
+              "Available dimensional and inspection documentation"
+            ],
+            "conclusion": "When evaluating a supplier, request documentation—bore diameter/grade, roundness and taper inspection results, honing specifications, wall-material details, and piston/ring compatibility information—that corresponds to the actual component or production lot rather than relying on generic product descriptions. For international sourcing, confirming these details before quotation and production significantly reduces the risk of receiving a visually similar cylinder that is not dimensionally or functionally compatible."
+          }
         ]
       },
       {
@@ -680,7 +783,7 @@ const POSTS = [
   {
     "id": 10,
     "featured": false,
-    "category": "E-Bike Parts",
+    "category": "E-Bike Parts & Components",
     "title": "Waterproofing E-Bike Motors: Sealing Mid-Drive & Hub Systems to IP Standards",
     "excerpt": "A practical guide to IP ingress-protection ratings, sealing methods for mid-drive and hub motors, and what to verify when sourcing water-resistant e-bike drive components.",
     "date": "March 10, 2026",
@@ -722,7 +825,7 @@ const POSTS = [
   {
     "id": 11,
     "featured": false,
-    "category": "E-Bike Parts",
+    "category": "E-Bike Parts & Components",
     "title": "E-Bike Lithium Battery Pack Housings: Thermal Management & Moisture Sealing",
     "excerpt": "A practical guide to battery pack sealing methods, pressure-equalization and safety venting, and thermal-management considerations for e-bike lithium-ion battery housings.",
     "date": "March 02, 2026",
@@ -738,12 +841,13 @@ const POSTS = [
       },
       {
         "heading": "2. Gasket Compound Selection",
-        "text": "There is no single universally superior gasket material—selection should be based on the complete enclosure design and operating conditions.",
+        "text": "The gasket system should be selected according to enclosure geometry, operating temperature, environmental exposure, compression requirements, chemical compatibility, and expected service life:",
         "list": [
           "Closed-cell EPDM foam: Suitable for weathering, moisture, and environmental resistance—suitability depends on the specific formulation, foam structure, compression characteristics, and joint design.",
           "Silicone gaskets and silicone foam: Provide broad operating-temperature capability and environmental-aging resistance, supplied as molded gaskets, liquid silicone rubber (LSR), or foam—the specific grade should be evaluated for the required compression, geometry, and temperature range rather than assuming uniform performance across \"silicone.\"",
           "Formed-in-place gasketing (FIPG): Useful for complex geometries difficult to seal with a conventional cut or molded gasket; buyers should confirm the supplier's application process, curing requirements, and compatibility with the enclosure material."
-        ]
+        ],
+        "conclusion": "There is no single universally superior gasket material—selection should be based on the complete enclosure design and operating conditions."
       },
       {
         "heading": "3. Pressure-Equalization and Safety Venting",
@@ -762,7 +866,7 @@ const POSTS = [
   {
     "id": 12,
     "featured": false,
-    "category": "E-Bike Parts",
+    "category": "E-Bike Parts & Components",
     "title": "E-Bike BLDC Hub Motor Buyer's Guide: Torque, Thermal Performance & Quality Verification",
     "excerpt": "How to evaluate hub-motor torque, electrical characteristics, thermal behavior, sensor compatibility, mechanical construction, and supplier quality before sourcing.",
     "date": "February 24, 2026",
@@ -803,7 +907,7 @@ const POSTS = [
   {
     "id": 13,
     "featured": false,
-    "category": "E-Bike Parts",
+    "category": "E-Bike Parts & Components",
     "title": "E-Bike Motor Controller Buyer's Guide: Voltage Margins, MOSFET Ratings & Compatibility Verification",
     "excerpt": "A practical guide to voltage-margin sizing, MOSFET ratings, connector compatibility, and what to verify before sourcing an e-bike motor controller.",
     "date": "February 16, 2026",
@@ -819,7 +923,7 @@ const POSTS = [
       },
       {
         "heading": "2. MOSFET Ratings and Thermal Design",
-        "text": "Documented reference designs for e-bike BLDC controllers typically specify system-level parameters—such as rated voltage, rated power, overcurrent protection thresholds, and undervoltage cutoff—rather than relying on a single headline current rating. This illustrates why a controller's operating voltage and current capability must be evaluated together with its actual documented power-stage specifications, not inferred from its nominal voltage label or advertised wattage alone.\n\nTwo controllers with the same advertised current rating can therefore have different electrical and thermal capabilities. Where appropriate and commercially available, buyers should request the specific MOSFET part numbers and verify their voltage, current, and thermal specifications rather than relying only on a headline controller rating.\n\nConstruction also matters: A metal housing assists with mechanical protection and heat dissipation when properly designed, while potting protects internal electronics from vibration and environmental contamination—though potting does not automatically guarantee waterproofing or superior thermal performance, and it generally reduces component-level repairability. The more important procurement question is whether the controller's construction, thermal path, protection strategy, and manufacturing quality are appropriate for the intended duty cycle and environment.",
+        "text": "MOSFETs are the primary power-switching devices used in many external-switch three-phase BLDC controller power stages. Their electrical and thermal characteristics strongly influence the controller's operating capability.\n\nHowever, MOSFET current rating alone does not determine the controller's practical power capability.\n\nImportant factors can include:",
         "list": [
           "MOSFET voltage rating",
           "Continuous and peak current capability",
@@ -830,7 +934,8 @@ const POSTS = [
           "PCB and power-stage layout",
           "Heat dissipation and operating temperature",
           "Over-current and short-circuit protection"
-        ]
+        ],
+        "conclusion": "Documented reference designs for e-bike BLDC controllers typically specify system-level parameters—such as rated voltage, rated power, overcurrent protection thresholds, and undervoltage cutoff—rather than relying on a single headline current rating. This illustrates why a controller's operating voltage and current capability must be evaluated together with its actual documented power-stage specifications, not inferred from its nominal voltage label or advertised wattage alone.\n\nTwo controllers with the same advertised current rating can therefore have different electrical and thermal capabilities.\n\nWhere appropriate and commercially available, buyers should request the specific MOSFET part numbers and verify their voltage, current, and thermal specifications rather than relying only on a headline controller rating.\n\nConstruction also matters: A metal housing assists with mechanical protection and heat dissipation when properly designed, while potting protects internal electronics from vibration and environmental contamination—though potting does not automatically guarantee waterproofing or superior thermal performance, and it generally reduces component-level repairability. The more important procurement question is whether the controller's construction, thermal path, protection strategy, and manufacturing quality are appropriate for the intended duty cycle and environment."
       },
       {
         "heading": "3. Connector and Pinout Compatibility",
@@ -838,6 +943,7 @@ const POSTS = [
       },
       {
         "heading": "4. Sourcing Checklist",
+        "text": "Before specifying or purchasing e-bike motor controllers, buyers should evaluate:",
         "list": [
           "Electrical: Rated and maximum input voltage; battery's actual full-charge voltage; MOSFET VDS rating and part numbers where available; continuous and peak current ratings (with the conditions and duration behind each); current-sensing method; over-current, short-circuit, under-voltage, and over-voltage protection.",
           "Motor & System Compatibility: Motor type (Hall-sensor or sensorless); phase and Hall-sensor configuration; motor power/current requirements; compatible battery voltage range; wheel size and intended application.",
@@ -845,7 +951,7 @@ const POSTS = [
           "Construction & Thermal: Housing material; heat-dissipation design; potting or conformal protection, if used; operating temperature range; thermal protection features.",
           "Supplier Documentation: Electrical and protection-function test records; production consistency information; sample testing before mass production; agreed inspection and acceptance criteria for production batches."
         ],
-        "text": "Controller selection should not be reduced to a simple comparison such as \"48V/30A vs. 48V/40A\"—the underlying power-stage design can differ significantly in MOSFET characteristics, thermal management, protection functions, and production quality even when the headline numbers match."
+        "conclusion": "Controller selection should not be reduced to a simple comparison such as \"48V/30A vs. 48V/40A\"—the underlying power-stage design can differ significantly in MOSFET characteristics, thermal management, protection functions, and production quality even when the headline numbers match."
       },
       {
         "heading": "5. Why Electrical Margin Matters in Procurement",
@@ -856,7 +962,7 @@ const POSTS = [
   {
     "id": 14,
     "featured": false,
-    "category": "E-Bike Parts",
+    "category": "E-Bike Parts & Components",
     "title": "E-Bike Li-ion Battery Charger Buyer's Guide: Voltage Matching, UL 2849 & Compatibility Verification",
     "excerpt": "A practical guide to voltage and chemistry matching, CC-CV charging verification, connector compatibility, and safety-standard documentation to check before sourcing an e-bike lithium battery charger.",
     "date": "February 08, 2026",
@@ -903,7 +1009,7 @@ const POSTS = [
     "featured": false,
     "category": "Quality & Compliance",
     "title": "What ISO 9001:2015 & REACH Compliance Mean for Sourcing Partners",
-    "excerpt": "A practical guide to understanding quality management system certification and chemical compliance requirements when evaluating manufacturing partners for motorcycle parts, e-bike parts, and industrial sealing products.",
+    "excerpt": "A practical guide to understanding quality management system certification and chemical compliance requirements when evaluating manufacturing partners for motorcycle, e-bike, and industrial sealing components.",
     "date": "January 30, 2026",
     "readTime": "6 min read",
     "author": "AT International Insights",
@@ -921,11 +1027,12 @@ const POSTS = [
       },
       {
         "heading": "3. Why These Two Frameworks Are Often Confused",
-        "text": "A supplier can maintain an ISO 9001-certified QMS while still needing to address REACH obligations for particular materials. Conversely, a REACH declaration does not demonstrate that a supplier operates an ISO 9001-certified QMS. The two should be verified independently rather than treated as a single \"quality and compliance\" checkbox.",
+        "text": "ISO 9001:2015 and REACH may appear together on supplier documentation, but they address fundamentally different requirements:",
         "list": [
           "ISO 9001:2015 addresses how an organization manages its quality-management system and processes.",
           "REACH addresses chemical substances and the regulatory obligations associated with their presence in products placed on the EU market."
-        ]
+        ],
+        "conclusion": "A supplier can maintain an ISO 9001-certified QMS while still needing to address REACH obligations for particular materials. Conversely, a REACH declaration does not demonstrate that a supplier operates an ISO 9001-certified QMS. The two should be verified independently rather than treated as a single \"quality and compliance\" checkbox."
       },
       {
         "heading": "4. What to Request From a Sourcing Partner",
@@ -957,12 +1064,13 @@ const POSTS = [
     "sections": [
       {
         "heading": "1. Where PSI Fits in the Quality Control Sequence",
-        "text": "Relying on PSI alone can mean problems originating from raw materials or earlier production stages are discovered only after most or all of the order has been produced. A complete quality-control strategy uses PSI alongside earlier checkpoints where the product, order value, and risk level justify them.",
+        "text": "Pre-shipment inspection is one of several checkpoints and should not be treated as the only inspection stage:",
         "list": [
           "Pre-Production Inspection (PPI): Conducted before or at the beginning of production to verify materials, components, and production readiness.",
           "During-Production Inspection (DPI): Conducted while production is underway, identifying manufacturing or assembly issues early enough for corrective action.",
           "Pre-Shipment Inspection (PSI): Conducted on substantially completed goods, often with final packaging available, verifying quantity, workmanship, specifications, functionality, labeling, and packaging before dispatch."
-        ]
+        ],
+        "conclusion": "Relying on PSI alone can mean problems originating from raw materials or earlier production stages are discovered only after most or all of the order has been produced. A complete quality-control strategy uses PSI alongside earlier checkpoints where the product, order value, and risk level justify them."
       },
       {
         "heading": "2. How AQL Sampling Works",
@@ -970,7 +1078,7 @@ const POSTS = [
       },
       {
         "heading": "3. What a Pre-Shipment Inspection Actually Checks",
-        "text": "A typical PSI evaluates several aspects, not just visible defects: quantity verification (cartons/units against the purchase order); visual and workmanship inspection (damage, surface defects, assembly issues against the approved specification or reference sample); dimensional verification (measurements against drawings and tolerances); functional testing; labeling and marking verification (barcodes, country-of-origin, destination-market requirements); and packaging inspection (carton condition, internal protection, configuration—drop testing only when specifically included in scope).\n\nFor technical products—motorcycle parts, e-bike parts, industrial sealing products—the scope may also include application-specific measurements: critical dimensions, fitment characteristics, material identification, surface condition, electrical parameters, or seal-related specifications. The inspection report should identify what was inspected, how, the sample size, acceptance criteria, defects found, and resulting disposition—not simply \"passed\" or \"failed.\""
+        "text": "A typical PSI evaluates several aspects, not just visible defects: quantity verification (cartons/units against the purchase order); visual and workmanship inspection (damage, surface defects, assembly issues against the approved specification or reference sample); dimensional verification (measurements against drawings and tolerances); functional testing; labeling and marking verification (barcodes, country-of-origin, destination-market requirements); and packaging inspection (carton condition, internal protection, configuration—drop testing only when specifically included in scope).\n\nFor technical components—motorcycle parts, e-bike components, industrial sealing products—the scope may also include application-specific measurements: critical dimensions, fitment characteristics, material identification, surface condition, electrical parameters, or seal-related specifications. The inspection report should identify what was inspected, how, the sample size, acceptance criteria, defects found, and resulting disposition—not simply \"passed\" or \"failed.\""
       },
       {
         "heading": "4. What to Request From Your Supplier or Inspection Provider",
@@ -993,14 +1101,14 @@ const POSTS = [
     "id": 17,
     "featured": false,
     "category": "Quality & Compliance",
-    "title": "RoHS vs REACH: Understanding Chemical Compliance for Motorcycle & E-Bike Parts",
+    "title": "RoHS vs REACH: Understanding Chemical Compliance for Motorcycle & E-Bike Components",
     "excerpt": "A practical guide to the scope, restricted substances, and applicability differences between RoHS and REACH—and why \"RoHS compliant\" is not a simple mechanical-vs-electrical question for two-wheeled vehicle components.",
     "date": "January 14, 2026",
     "readTime": "6 min read",
     "author": "AT International Insights",
     "icon": "gavel",
     "image": "/assets/blog_diagrams/blog_17_rohs_vs_reach_compliance.png",
-    "summary": "RoHS and REACH are both important EU chemical-regulatory frameworks, but they are not interchangeable. They differ in legal scope, regulatory mechanisms, substance requirements, and the products to which specific obligations apply.\n\nFor buyers sourcing motorcycle parts, e-bike parts, and industrial sealing products, understanding these differences is important because RoHS applicability depends heavily on the intended equipment and applicable exclusions, while REACH can apply broadly to substances, mixtures, and articles.\n\nThe result is a practical procurement rule: do not treat \"RoHS compliant\" and \"REACH compliant\" as interchangeable claims, and do not determine applicability solely from whether a component looks mechanical or electrical.",
+    "summary": "RoHS and REACH are both important EU chemical-regulatory frameworks, but they are not interchangeable. They differ in legal scope, regulatory mechanisms, substance requirements, and the products to which specific obligations apply.\n\nFor buyers sourcing motorcycle parts, e-bike components, and industrial sealing products, understanding these differences is important because RoHS applicability depends heavily on the intended equipment and applicable exclusions, while REACH can apply broadly to substances, mixtures, and articles.\n\nThe result is a practical procurement rule: do not treat \"RoHS compliant\" and \"REACH compliant\" as interchangeable claims, and do not determine applicability solely from whether a component looks mechanical or electrical.",
     "sections": [
       {
         "heading": "1. RoHS: Restricted Substances in Electrical and Electronic Equipment",
@@ -1008,13 +1116,14 @@ const POSTS = [
       },
       {
         "heading": "2. Why Electric Two-Wheeled Vehicles Require Careful RoHS Scope Assessment",
-        "text": "The correct procurement question is not \"is this component electrical,\" but: What equipment is this intended to become part of, does that equipment require vehicle type-approval, and does it fall within RoHS scope?",
+        "text": "RoHS excludes \"means of transport for persons or goods\"—but this exclusion carries a specific exception: electric two-wheel vehicles which are not type-approved are not covered by the transport exclusion, meaning they remain within RoHS scope. This creates a meaningful distinction:",
         "list": [
-          "E-bike drive parts (hub motors, controllers, chargers): Standard EU-compliant e-bikes (EN 15194 EPACs, typically ≤250W and ≤25 km/h) don't require vehicle type-approval—classified as bicycles, not motor vehicles. As non-type-approved electric two-wheelers, they're not covered by the transport exclusion, so RoHS is generally relevant to their electrical parts and should be actively verified.",
+          "E-bike drive parts (hub motors, controllers, chargers): Standard EU-compliant e-bikes (EN 15194 EPACs, typically ≤250W and ≤25 km/h) don't require vehicle type-approval—classified as bicycles, not motor vehicles. As non-type-approved electric two-wheelers, they're not covered by the transport exclusion, so RoHS is generally relevant to their electrical components and should be actively verified.",
           "Conventional motorcycle engine parts (crankshafts, cylinder heads, cylinders): Belong to combustion-engine vehicles falling within the general transport exclusion—RoHS isn't directly applicable at the whole-vehicle level, though any electrical sub-system should still be assessed independently under the component-integration rule.",
           "Higher-power electric motorcycles requiring type-approval: Typically qualify for the transport exclusion, unlike standard e-bikes.",
           "Industrial sealing components: Applicability depends entirely on the equipment the seal is ultimately integrated into."
-        ]
+        ],
+        "conclusion": "The correct procurement question is not \"is this component electrical,\" but: What equipment is this intended to become part of, does that equipment require vehicle type-approval, and does it fall within RoHS scope?"
       },
       {
         "heading": "3. REACH: A Broader Scope, and Why the Two Frameworks Get Confused",
@@ -1023,7 +1132,7 @@ const POSTS = [
       {
         "heading": "4. What to Request From a Sourcing Partner",
         "list": [
-          "Confirm RoHS applicability first, not last: Establish whether the specific product and application falls within RoHS scope before requesting a declaration—particularly for e-bike parts, where vehicle type-approval status determines whether the transport exclusion applies.",
+          "Confirm RoHS applicability first, not last: Establish whether the specific product and application falls within RoHS scope before requesting a declaration—particularly for e-bike components, where vehicle type-approval status determines whether the transport exclusion applies.",
           "Request product-specific REACH SVHC declarations: A generic \"REACH compliant\" statement is less useful than documentation identifying which Candidate List substances were checked and against which list version.",
           "For components destined for larger assemblies: Confirm whether the component is supplied for integration into RoHS-scope equipment, since this can create obligations even for non-electrical parts.",
           "For ongoing orders: Establish a process for periodically reconfirming both RoHS and REACH status, since the SVHC list updates periodically and RoHS exemptions are subject to renewal or expiry."
@@ -1040,7 +1149,7 @@ const POSTS = [
     "featured": false,
     "category": "Logistics & Sourcing",
     "title": "Global Sealing & Parts Market Trends 2026: Supply Chain Insights",
-    "excerpt": "A practical overview of current supply chain shifts, material trends, and regional sourcing patterns shaping the industrial sealing, motorcycle, and e-bike parts markets.",
+    "excerpt": "A practical overview of current supply chain shifts, material trends, and regional sourcing patterns shaping the industrial sealing, motorcycle, and e-bike component markets.",
     "date": "January 06, 2026",
     "readTime": "5 min read",
     "author": "AT International Insights",
@@ -1054,7 +1163,7 @@ const POSTS = [
       },
       {
         "heading": "2. Electrification Is Reshaping Sealing Material Demand",
-        "text": "Electric vehicle and electrification-related demand—including e-bikes and battery systems—is consistently identified as a driver for specialized sealing materials, particularly for battery enclosure sealing, thermal-management applications, and components combining chemical resistance with electrical insulation requirements. This is creating demand for sealing expertise spanning both traditional mechanical sealing and newer electrical/thermal sealing requirements, such as battery housings and motor controllers. For buyers, this convergence means a sourcing partner capable of addressing both conventional motorcycle parts and e-bike electrical systems can simplify supplier management, rather than treating them as entirely separate sourcing relationships."
+        "text": "Electric vehicle and electrification-related demand—including e-bikes and battery systems—is consistently identified as a driver for specialized sealing materials, particularly for battery enclosure sealing, thermal-management applications, and components combining chemical resistance with electrical insulation requirements. This is creating demand for sealing expertise spanning both traditional mechanical sealing and newer electrical/thermal sealing requirements, such as battery housings and motor controllers. For buyers, this convergence means a sourcing partner capable of addressing both conventional motorcycle components and e-bike electrical systems can simplify supplier management, rather than treating them as entirely separate sourcing relationships."
       },
       {
         "heading": "3. Material Innovation and Specification Precision",
@@ -1074,7 +1183,7 @@ const POSTS = [
     "id": 19,
     "featured": false,
     "category": "Logistics & Sourcing",
-    "title": "Exporting Industrial, Motorcycle & E-Bike Parts: AT International Logistics Playbook",
+    "title": "Exporting Industrial, Motorcycle & E-Bike Components: AT International Logistics Playbook",
     "excerpt": "A practical overview of export documentation, Incoterms selection, and container logistics for buyers sourcing sealing components, motorcycle parts, and e-bike systems internationally.",
     "date": "December 28, 2025",
     "readTime": "6 min read",
@@ -1085,24 +1194,26 @@ const POSTS = [
     "sections": [
       {
         "heading": "1. Understanding and Selecting the Right Incoterm",
-        "text": "For container shipments specifically: FOB remains widely used, but the ICC has highlighted FCA (Free Carrier) as more appropriate for many containerized shipments, since containers are often handed to a carrier or terminal before vessel loading (unlike FOB's \"on board\" trigger). Incoterms® 2020 also introduced a provision allowing an on-board Bill of Lading to be issued to the seller under an FCA arrangement, addressing certain Letter of Credit requirements.\n\nThe Incoterm should always be written together with a precise named place and the applicable edition—for example, \"FCA [named place], Incoterms® 2020.\" Incoterms® 2020, published in 2019 and effective since January 1, 2020, remains the current edition; the ICC has not announced a successor edition as of this writing.",
+        "text": "Incoterms® 2020, published by the International Chamber of Commerce (ICC), defines 11 standardized trade terms that allocate key responsibilities, costs, and risks between sellers and buyers. Each term is used with a named place or port—\"FOB Guangzhou\" or \"CIF Hamburg\"—and that named location identifies exactly where delivery, cost, and risk obligations apply.",
         "list": [
           "EXW (Ex Works): The seller makes goods available at its premises; the buyer assumes extensive responsibility from that point, including transport and export formalities. Buyers wanting more seller involvement in export clearance should consider FCA instead.",
           "FOB (Free On Board): The seller delivers goods on board the vessel at the named port, with risk transferring once loaded. Intended for sea/inland-waterway transport, and best suited to buyers wanting greater control over international freight, arranging or controlling main carriage themselves.",
           "CFR/CIF (Cost and Freight / Cost, Insurance and Freight): The seller arranges and pays for carriage to the named destination port (CIF also includes cargo insurance)—but risk still transfers at the origin port once goods are on board, not on arrival. These suit buyers seeking a more freight-inclusive arrangement, while understanding that paying freight doesn't mean the seller retains transit risk.",
           "DDP (Delivered Duty Paid): The seller assumes the most responsibility, including import clearance and duties. This suits buyers wanting a highly inclusive delivery arrangement, but buyers should confirm the seller is actually capable of meeting the destination country's import requirements."
-        ]
+        ],
+        "conclusion": "For container shipments specifically: FOB remains widely used, but the ICC has highlighted FCA (Free Carrier) as more appropriate for many containerized shipments, since containers are often handed to a carrier or terminal before vessel loading (unlike FOB's \"on board\" trigger). Incoterms® 2020 also introduced a provision allowing an on-board Bill of Lading to be issued to the seller under an FCA arrangement, addressing certain Letter of Credit requirements.\n\nThe Incoterm should always be written together with a precise named place and the applicable edition—for example, \"FCA Guangzhou, Incoterms® 2020.\""
       },
       {
         "heading": "2. Core Export Documentation",
-        "text": "Consistency matters: A common risk is discrepancy between documents—differing product descriptions, quantities, HS classifications, or origin information across the commercial invoice, packing list, and customs declarations. Buyers and suppliers should cross-check all documents before shipment, since errors can complicate customs clearance and cause delays.",
+        "text": "A typical shipment requires several coordinated documents, though exact requirements depend on the goods, origin, destination, and transaction structure:",
         "list": [
           "Commercial Invoice: Seller/buyer details, product descriptions, quantities, values, and agreed trade terms—customs authorities use this to assess duties and taxes.",
           "Packing List: Shipment contents by package (quantities, weights, dimensions, markings), supporting cargo identification and customs verification.",
           "Bill of Lading or Air Waybill: The transport document for the relevant mode—their legal and operational functions differ, so confirm which applies.",
           "Certificate of Origin: Identifies goods' origin, sometimes required for preferential tariff treatment.",
           "Export Declaration: A customs filing formally declaring the export; the specific system depends on the exporting country."
-        ]
+        ],
+        "conclusion": "Consistency matters: A common risk is discrepancy between documents—differing product descriptions, quantities, HS classifications, or origin information across the commercial invoice, packing list, and customs declarations. Buyers and suppliers should cross-check all documents before shipment, since errors can complicate customs clearance and cause delays."
       },
       {
         "heading": "3. Container Consolidation and Logistics Planning",
@@ -1118,18 +1229,18 @@ const POSTS = [
     "id": 20,
     "featured": false,
     "category": "Logistics & Sourcing",
-    "title": "Export Packaging for Industrial, Motorcycle & E-Bike Parts: Protecting Seals, Metal Parts & Electronics in Transit",
+    "title": "Export Packaging for Industrial, Motorcycle & E-Bike Components: Protecting Seals, Metal Parts & Electronics in Transit",
     "excerpt": "A practical guide to packaging specifications for rubber sealing components, metal engine parts, and e-bike electrical systems during international ocean freight.",
     "date": "December 20, 2025",
     "readTime": "6 min read",
     "author": "AT International Insights",
     "icon": "inventory_2",
     "image": "/assets/blog_diagrams/blog_20_export_packaging_protection.png",
-    "summary": "Industrial sealing products, motorcycle engine parts, and e-bike electrical systems each face different risks during international transit, and a single generic packaging approach rarely protects all three adequately. Ocean freight can expose cargo to temperature changes, humidity fluctuations, condensation, vibration, handling impacts, and extended storage conditions. The resulting risks depend on the material, product design, surface condition, and packaging configuration.\n\nMetal motorcycle parts may require corrosion protection, elastomeric sealing components require protection against deformation and contamination, while e-bike electrical parts require appropriate protection against impact, moisture, and connector or electronic-interface damage.\n\nFor international shipments, packaging should therefore be treated as part of the product and logistics specification—not simply as a standard supplier packing method.",
+    "summary": "Industrial sealing products, motorcycle engine components, and e-bike electrical systems each face different risks during international transit, and a single generic packaging approach rarely protects all three adequately. Ocean freight can expose cargo to temperature changes, humidity fluctuations, condensation, vibration, handling impacts, and extended storage conditions. The resulting risks depend on the material, product design, surface condition, and packaging configuration.\n\nMetal motorcycle components may require corrosion protection, elastomeric sealing components require protection against deformation and contamination, while e-bike electrical components require appropriate protection against impact, moisture, and connector or electronic-interface damage.\n\nFor international shipments, packaging should therefore be treated as part of the product and logistics specification—not simply as a standard supplier packing method.",
     "sections": [
       {
         "heading": "1. Metal Motorcycle Parts: The Corrosion Risk",
-        "text": "For long-distance shipments, buyers should specify the required corrosion-protection method rather than assuming that standard export packaging provides sufficient protection.",
+        "text": "Crankshafts, cylinder heads, cylinders, and other machined metal components can be vulnerable to corrosion during international transportation and storage. Temperature changes can cause humid air inside a container or package to reach its dew point, resulting in condensation on cooler metal surfaces. Repeated exposure to moisture can increase the risk of rust, staining, and other surface degradation.\n\nEffective protection typically involves multiple layers: ensuring parts are clean and sufficiently dry before packing, using an appropriate corrosion-protection method, and selecting packaging that limits exposure to moisture and corrosive environments.\n\nVCI (volatile corrosion inhibitor) packaging can provide corrosion protection by creating a protective environment within an enclosed package. Depending on the VCI system, protection can occur through vapor-phase action as well as direct contact with the treated packaging material. The appropriate system depends on the metal, package design, transit conditions, and manufacturer's application requirements.\n\nOther practical considerations include:",
         "list": [
           "Ensuring parts are sufficiently dry before packing",
           "Using VCI film, paper, or another suitable corrosion-protection system where required",
@@ -1137,7 +1248,8 @@ const POSTS = [
           "Using suitable separators to prevent component-to-component surface damage",
           "Ensuring crates, pallets, and other wood materials are appropriately dry and suitable for the shipment",
           "Using moisture-barrier packaging where the application requires it"
-        ]
+        ],
+        "conclusion": "For long-distance shipments, buyers should specify the required corrosion-protection method rather than assuming that standard export packaging provides sufficient protection."
       },
       {
         "heading": "2. Rubber and Elastomer Sealing Components: Different Failure Modes",
@@ -1145,7 +1257,7 @@ const POSTS = [
       },
       {
         "heading": "3. E-Bike Electrical Parts: Handling and Moisture Sensitivity",
-        "text": "Packaging requirements should be appropriate to the actual component. Connector interfaces may require protection against contamination and moisture, while electronic assemblies may require suitable protective bags, cushioning, separators, or other measures specified for the product.\n\nFor sensitive electrical or electronic components, buyers should clarify whether the supplier's packaging includes individual protection, cushioning, connector protection, moisture-control measures, and appropriate labeling.\n\nPackaging should also not be confused with the component's ingress-protection rating. An IP rating applies to the specified product configuration under applicable test conditions; export packaging protects the product during transportation and does not change the product's specified or certified IP performance.",
+        "text": "Hub motors, motor controllers, battery chargers, displays, sensors, and wiring assemblies combine mechanical, electrical, and electronic elements and therefore require packaging that addresses multiple risks.\n\nPotential concerns include:",
         "list": [
           "Vibration and impact during handling",
           "Moisture exposure",
@@ -1153,7 +1265,8 @@ const POSTS = [
           "Scratching or abrasion of finished surfaces",
           "Cable or wiring damage",
           "Electrostatic-discharge considerations for sensitive electronic assemblies, where applicable"
-        ]
+        ],
+        "conclusion": "Packaging requirements should be appropriate to the actual component. Connector interfaces may require protection against contamination and moisture, while electronic assemblies may require suitable protective bags, cushioning, separators, or other measures specified for the product.\n\nFor sensitive electrical or electronic components, buyers should clarify whether the supplier's packaging includes individual protection, cushioning, connector protection, moisture-control measures, and appropriate labeling.\n\nPackaging should also not be confused with the component's ingress-protection rating. An IP rating applies to the specified product configuration under applicable test conditions; export packaging protects the product during transportation and does not change the product's specified or certified IP performance."
       },
       {
         "heading": "4. Container-Level Considerations That Apply Across All Product Types",
@@ -1164,8 +1277,8 @@ const POSTS = [
         "list": [
           "For metal engine components: Confirm the required corrosion-protection method; specify VCI packaging or an equivalent system where appropriate; confirm parts are sufficiently dry before packing; specify individual or separated packing where surface damage is a concern; confirm suitable carton, crate, or pallet configuration and identification/labeling requirements.",
           "For elastomer sealing components: Specify individual, grouped, or compartmentalized packaging; define acceptable stacking configuration; protect sealing surfaces from contamination and unnecessary deformation; require batch/lot identification where traceability is needed; confirm storage and handling requirements and quantity per package.",
-          "For e-bike electrical parts: Specify individual protective packaging and cushioning suitable for impact/vibration; protect connectors and terminals from contamination and damage; specify appropriate moisture protection; protect cables against bending, abrasion, and crushing; define ESD precautions where applicable; confirm product identification and packaging labels.",
-          "For mixed-category shipments: When consolidating sealing products, motorcycle parts, and e-bike parts into the same shipment, establish packaging specifications for each product category rather than applying one generic method to the entire container."
+          "For e-bike electrical components: Specify individual protective packaging and cushioning suitable for impact/vibration; protect connectors and terminals from contamination and damage; specify appropriate moisture protection; protect cables against bending, abrasion, and crushing; define ESD precautions where applicable; confirm product identification and packaging labels.",
+          "For mixed-category shipments: When consolidating sealing products, motorcycle parts, and e-bike components into the same shipment, establish packaging specifications for each product category rather than applying one generic method to the entire container."
         ]
       },
       {
@@ -1359,6 +1472,11 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                         <p className="leading-relaxed">{sec.postTableText}</p>
                       )}
                     </div>
+                  )}
+                  {sec.conclusion && (
+                    <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line text-[#334155]">
+                      {sec.conclusion}
+                    </p>
                   )}
                 </div>
               ))}
