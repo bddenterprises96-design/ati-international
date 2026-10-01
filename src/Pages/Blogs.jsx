@@ -1489,16 +1489,15 @@ function ArticleModal({ post, onClose, onSelectPost }) {
             {post.sections &&
               post.sections.map((sec, idx) => (
                 <div key={idx} className="space-y-3">
-                  <h3 className="text-xl font-normal text-[#005691] pt-3 pb-1 border-b border-[#005691]/15 mb-3 flex items-center gap-2">{sec.heading}</h3>
+                  <h3 className={`text-xl ${/\d/.test(sec.heading || '') ? 'font-bold' : 'font-normal'} text-[#005691] pt-3 pb-1 border-b border-[#005691]/15 mb-3 flex items-center gap-2`}>{sec.heading}</h3>
                   {sec.text && renderFormattedTextBlock(sec.text)}
 
                   {/* Subsections if present */}
                   {sec.subsections && (
                     <div className="space-y-4 my-4">
                       {sec.subsections.map((sub, sIdx) => (
-                        <div key={sIdx} className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-gray-200/80 shadow-sm">
-                          <h4 className="text-base font-normal text-[#005691] mb-2.5 flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-[#005691] inline-block flex-shrink-0"></span>
+                        <div key={sIdx} className="space-y-2">
+                          <h4 className={`text-base ${/\d/.test(sub.title || sub.heading || '') ? 'font-bold' : 'font-normal'} text-[#005691] mt-3 mb-1`}>
                             {sub.title || sub.heading}
                           </h4>
                           <div className="text-sm sm:text-base leading-relaxed text-[#334155] space-y-3">
