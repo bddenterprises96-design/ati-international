@@ -359,7 +359,24 @@ const POSTS = [
       },
       {
         "heading": "2. Common Motorcycle Engine Sealing Failure Points",
-        "text": "Valve Stem Seal Wear or Hardening\nValve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber.\n\nCrankshaft and Other Rotating-Shaft Oil Seal Wear\nRadial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life.\n\nCylinder Head Gasket Leakage\nThe cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems.\n\nClutch and Stator Cover Gasket or O-Ring Failure\nEngine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
+        "subsections": [
+          {
+            "heading": "Valve Stem Seal Wear or Hardening",
+            "text": "Valve stem seals control the flow of lubricating oil along the valve stem into the combustion area. Prolonged exposure to engine temperature and repeated movement can cause elastomeric sealing components to harden, shrink, or lose sealing effectiveness. Depending on the engine design and severity of the failure, degraded valve stem sealing can contribute to increased oil consumption and blue exhaust smoke, particularly under conditions where oil is drawn into the combustion chamber."
+          },
+          {
+            "heading": "Crankshaft and Other Rotating-Shaft Oil Seal Wear",
+            "text": "Radial oil seals are used around rotating shafts to retain lubricant while accommodating shaft rotation and movement. Motorcycle applications can include crankshaft, output-shaft, shift-shaft, and clutch-related sealing locations, depending on the engine architecture. Leakage can develop because of seal wear, shaft-surface damage, incorrect installation, misalignment, or excessive pressure. Seal performance therefore depends on more than the seal's nominal dimensions; the shaft condition, housing, installation depth, and operating environment can also affect service life."
+          },
+          {
+            "heading": "Cylinder Head Gasket Leakage",
+            "text": "The cylinder head gasket forms a critical sealing interface between the cylinder and cylinder head. It must contain combustion gases while also separating oil and, on liquid-cooled engines, coolant passages. Leakage can be associated with gasket deterioration, inadequate or incorrect clamping, thermal distortion, damaged mating surfaces, or improper installation. Depending on the failure location, symptoms can include external oil leakage, loss of compression, coolant contamination, or other engine-performance problems."
+          },
+          {
+            "heading": "Clutch and Stator Cover Gasket or O-Ring Failure",
+            "text": "Engine side covers commonly use formed gaskets, O-rings, or manufacturer-specified sealing compounds. Repeated thermal cycling, aging, compression, incorrect installation, or repeated removal and refitting can compromise these sealing interfaces. Oil may then appear around the clutch or stator cover and run along the engine case, making the leak appear to originate from another location. Motorcycle service references commonly identify clutch and stator cover gaskets and shaft O-rings among potential leak sources."
+          }
+        ]
       },
       {
         "heading": "3. How Motorcycle Engine Oil Leaks Are Typically Diagnosed",
@@ -451,7 +468,24 @@ const POSTS = [
       },
       {
         "heading": "4. Key Selection Considerations for Buyers",
-        "text": "Standard Replacement Applications\nFor normal road use, friction plates that match the motorcycle manufacturer's specified material, dimensions, and operating requirements are generally the appropriate starting point. Replacement components should be matched to the complete clutch specification rather than selected solely by approximate dimensions.\n\nHigh-Performance & Heavy-Duty Applications\nFor racing, competition, or repeated high-load operation, buyers may evaluate performance-oriented friction materials and upgraded springs where the application and clutch manufacturer support their use. However, a higher-performance component is not automatically a better replacement for every motorcycle. Compatibility with the clutch basket, steel plates, spring load, lubricant, and overall clutch design remains essential.\n\nWhen a Clutch Is Slipping\nDo not assume that worn friction plates are the only possible cause. A slipping clutch can also be associated with weak or fatigued springs, incorrect clutch adjustment, incorrect clutch stack height, damaged or glazed plates, or incompatible lubricant. Motorcycle service information specifically identifies friction-plate condition, spring condition, adjustment, and plate dimensions as relevant inspection points.\n\nFor motorcycles with wet clutches, lubricant compatibility is particularly important. The JASO T 903 motorcycle-oil classification was developed in part to address the friction requirements of motorcycle wet-clutch systems. MA and MA2 oils are intended for applications requiring appropriate clutch friction characteristics, while MB represents a lower-friction category used for applications such as scooters with compatible drivetrain designs. The motorcycle manufacturer's recommended oil specification should always take priority.\n\nWhen a Drivetrain Oil Leak Occurs\nFirst identify the actual sealing location. A leak around the countershaft, gear-shift shaft, or clutch actuator does not necessarily require the same seal. Before ordering, confirm the shaft diameter, housing dimensions, seal width, seal material, part number, and application where available. Replacing a seal without identifying the actual leakage point can result in an incorrect component or repeated leakage."
+        "subsections": [
+          {
+            "heading": "Standard Replacement Applications",
+            "text": "For daily commuting and standard street applications, cork-based or OEM-spec paper-composite plates with standard steel drive plates and stock-rate springs generally provide the best balance of smooth engagement and reasonable cost."
+          },
+          {
+            "heading": "High-Performance & Heavy-Duty Applications",
+            "text": "For racing, heavy payload, or tuned engine applications, heavy-duty Kevlar or carbon-composite friction plates with hardened steel drive plates and reinforced springs offer higher heat tolerance and torque capacity."
+          },
+          {
+            "heading": "When a Clutch Is Slipping",
+            "text": "A slipping clutch is usually caused by worn friction plates, glazed drive plates, weakened springs, or improper cable/hydraulic adjustment. Replacing only the friction plates without inspecting steel plate flatness and spring free length often leads to premature repeat failure."
+          },
+          {
+            "heading": "When a Drivetrain Oil Leak Occurs",
+            "text": "Oil leakage around the primary cover, shift shaft, or countershaft sprocket requires replacing radial lip seals and cover gaskets. Always inspect the shaft surface for scoring or grooving before installing new seals."
+          }
+        ]
       },
       {
         "heading": "5. ATI Motorcycle Clutch & Transmission Sourcing",
@@ -522,7 +556,17 @@ const POSTS = [
     "sections": [
       {
         "heading": "1. Forged vs. Cast Crankshaft Construction",
-        "text": "Crankshafts can be manufactured using different processes and materials, with the appropriate construction depending on engine design, production requirements, expected loads, and cost.\n\nForged Steel Crankshafts\nForged crankshafts are produced by forming heated steel under controlled mechanical pressure. The forging process can produce a strong, fatigue-resistant component with material properties suited to highly loaded rotating applications. Forged steel crankshafts are therefore commonly associated with higher-output and performance-oriented engines where fatigue strength and durability under demanding loads are important. However, the word \"forged\" alone does not guarantee superior performance. Steel grade, heat treatment, forging quality, machining accuracy, surface finish, and final inspection all contribute to the performance of the finished crankshaft.\n\nCast Crankshafts\nCast crankshafts are produced by pouring molten material into a controlled mold and subsequently machining and finishing the component. Nodular or spheroidal-graphite cast irons can provide useful combinations of strength, wear resistance, machinability, and vibration damping. Cast construction can therefore be an effective solution for applications where the crankshaft specification is appropriately designed for the engine's expected loads and operating conditions.\n\nThe choice between forged and cast construction should not be reduced to a simple \"forged is better\" rule. The correct material and manufacturing process depend on the engine's output, speed range, duty cycle, design requirements, and production objectives."
+        "text": "Crankshaft construction is a primary factor in determining mechanical strength, fatigue life, and suitable operating conditions.",
+        "subsections": [
+          {
+            "heading": "Forged Steel Crankshafts",
+            "text": "Forged crankshafts are manufactured by compressing heated steel under immense pressure, aligning the material's grain structure along the contours of the shaft. This process provides superior tensile strength, impact resistance, and fatigue life compared with cast shafts. Forged crankshafts are widely specified for high-RPM, high-compression, or heavy-duty motorcycle engines."
+          },
+          {
+            "heading": "Cast Crankshafts",
+            "text": "Cast crankshafts are produced by pouring molten iron or steel into molds. While more cost-effective to manufacture, cast shafts have a random grain structure and lower fatigue limit. They are suitable for standard-duty, lower-RPM commuter motorcycles where operating loads remain within conservative limits."
+          }
+        ]
       },
       {
         "heading": "2. Common Motorcycle Crankshaft Failure Modes",
@@ -808,12 +852,18 @@ const POSTS = [
       },
       {
         "heading": "3. Material Selection and Choosing the Right Protection Level",
-        "text": "Sealing-material selection depends on the application, not the IP rating alone—factors include operating/peak temperature, water and humidity exposure, lubricant and grease compatibility, cleaning chemicals, ozone/weathering exposure, and expected service life. Materials such as EPDM, silicone/VMQ, FKM, and PTFE-based compounds may be considered depending on the application, but final selection should be supported by supplier technical data rather than the IP rating alone, since IP classification concerns enclosure protection under test conditions while the material must independently suit the mechanical, thermal, and chemical environment.\n\nMatching protection level to application:",
+        "text": "Sealing-material selection depends on the application, not the IP rating alone—factors include operating/peak temperature, water and humidity exposure, lubricant and grease compatibility, cleaning chemicals, ozone/weathering exposure, and expected service life. Materials such as EPDM, silicone/VMQ, FKM, and PTFE-based compounds may be considered depending on the application, but final selection should be supported by supplier technical data rather than the IP rating alone, since IP classification concerns enclosure protection under test conditions while the material must independently suit the mechanical, thermal, and chemical environment.",
         "list": [
           "Urban and commuter e-bikes: Establish the minimum required protection based on actual exposure (rain, road spray)—a higher IP number isn't automatically better if it doesn't match the real operating conditions.",
           "Cargo, delivery, and fleet applications: These see more demanding conditions (frequent contamination, regular cleaning), so water-jet exposure, connector sealing, housing-joint integrity, and seal durability under repeated cleaning need specific documentation—not inference from an immersion-only rating.",
           "Off-road or water-exposure applications: May require an immersion-rated configuration, but buyers should verify the actual test conditions behind any IP67/IP68 claim, since IP68 has no single universal test depth or duration—the applicable conditions must be specified and agreed for the particular equipment.",
           "When evaluating a supplier: Request the declared IP classification, applicable IEC 60529/EN 60529 test documentation, test conditions and configuration, seal/gasket and connector specifications, and any Declaration of Conformity—traceable to the actual component supplied, not a generic IP claim."
+        ],
+        "subsections": [
+          {
+            "heading": "Matching Protection Level to Application",
+            "text": ""
+          }
         ]
       },
       {
@@ -919,7 +969,13 @@ const POSTS = [
     "sections": [
       {
         "heading": "1. Why Voltage Margin Matters More Than Nominal Voltage",
-        "text": "Battery packs are commonly described by their nominal voltage, such as 48V or 52V. However, a lithium-ion battery pack reaches a higher voltage when fully charged.\n\nFor a conventional lithium-ion configuration using cells with a 4.2V maximum charge voltage:\n• A 13S 48V nominal pack reaches approximately 54.6V at full charge.\n• A 14S 52V nominal pack reaches approximately 58.8V at full charge.\n\nThis distinction matters because the controller's power stage must tolerate the actual DC-bus voltage, not simply the battery's nominal label.\n\nThe MOSFETs used in the controller have a specified maximum drain-to-source voltage (VDS). However, the design margin cannot be evaluated from the MOSFET rating alone. Switching behavior, wiring and PCB parasitics, power-stage layout, operating conditions, and transient voltage can also affect the voltage experienced by the devices.\n\nFor example, a controller designed around a 48V nominal system may not provide adequate voltage margin for a 52V battery, depending on its actual MOSFET, capacitor, protection, and power-stage specifications.\n\nVoltage stress can also increase during certain operating conditions. Regenerative or generator-mode operation, for example, can cause the DC-bus voltage to rise if the resulting energy is not properly controlled.\n\nFor procurement, buyers should therefore verify the controller's maximum permitted input voltage and the actual voltage ratings of critical power-stage components rather than matching controllers to the battery's nominal voltage alone."
+        "text": "Battery packs are commonly described by their nominal voltage, such as 48V or 52V. However, a lithium-ion battery pack reaches a higher voltage when fully charged.",
+        "subsections": [
+          {
+            "heading": "For a Conventional Lithium-Ion Configuration (4.2V Max Cell Voltage)",
+            "text": "• A 13S 48V nominal pack reaches approximately 54.6V at full charge.\n• A 14S 52V nominal pack reaches approximately 58.8V at full charge.\n\nThis distinction matters because the controller's power stage must tolerate the actual DC-bus voltage, not simply the battery's nominal label.\n\nThe MOSFETs used in the controller have a specified maximum drain-to-source voltage (VDS). However, the design margin cannot be evaluated from the MOSFET rating alone. Switching behavior, wiring and PCB parasitics, power-stage layout, operating conditions, and transient voltage can also affect the voltage experienced by the devices.\n\nFor example, a controller designed around a 48V nominal system may not provide adequate voltage margin for a 52V battery, depending on its actual MOSFET, capacitor, protection, and power-stage specifications.\n\nVoltage stress can also increase during certain operating conditions. Regenerative or generator-mode operation, for example, can cause the DC-bus voltage to rise if the resulting energy is not properly controlled.\n\nFor procurement, buyers should therefore verify the controller's maximum permitted input voltage and the actual voltage ratings of critical power-stage components rather than matching controllers to the battery's nominal voltage alone."
+          }
+        ]
       },
       {
         "heading": "2. MOSFET Ratings and Thermal Design",
@@ -978,7 +1034,7 @@ const POSTS = [
       },
       {
         "heading": "2. Connector, Polarity, and Charging-Profile Verification",
-        "text": "Connector geometry alone does not establish electrical compatibility. E-bike charging connectors use different mechanical formats and pin configurations with no single universal assignment—even physically similar connectors can have different positive, negative, or communication-pin arrangements. A charger may use the same connector style as the original while having a different pin assignment, output specification, or charging behavior—same connector does not mean same charger. Always request connector pinout or interface documentation when compatibility isn't already established.\n\nSeparately, confirm the charger's CC-CV (constant-current/constant-voltage) charging profile: the charger supplies controlled current while voltage rises toward the charge-voltage limit (CC phase), then holds voltage steady while current tapers as the battery approaches full charge (CV phase). The termination criterion should be defined by the actual charger and battery system, not assumed from a universal percentage—a correct nominal voltage alone doesn't establish that the charging algorithm itself is suitable."
+        "text": "Connector geometry alone does not establish electrical compatibility. E-bike charging connectors use different mechanical formats and pin configurations with no single universal assignment—even physically similar connectors can have different positive, negative, or communication-pin arrangements. A charger may use the same connector style as the original while having a different pin assignment, output specification, or charging behavior—same connector does not mean same charger. Always request connector pinout or interface documentation when compatibility isn't already established.\n\nSeparately, confirm the charger's CC-CV (constant-current/constant-voltage) charging profile, the charger supplies controlled current while voltage rises toward the charge-voltage limit (CC phase), then holds voltage steady while current tapers as the battery approaches full charge (CV phase). The termination criterion should be defined by the actual charger and battery system, not assumed from a universal percentage—a correct nominal voltage alone doesn't establish that the charging algorithm itself is suitable."
       },
       {
         "heading": "3. BMS Compatibility Is Not a Substitute for the Correct Charger",
@@ -1310,6 +1366,50 @@ const CATEGORY_COLORS = {
   'Logistics & Sourcing': 'bg-amber-100 text-amber-700 border-amber-200',
 }
 
+// Helper to render text blocks with bold labels and subheadings
+function renderFormattedTextBlock(text) {
+  if (!text) return null
+  const strText = typeof text === 'string' ? text : Array.isArray(text) ? text.join('\n\n') : String(text)
+  const paragraphs = strText.split('\n\n')
+  return paragraphs.map((para, pIdx) => {
+    const lines = para.split('\n')
+    return (
+      <p key={pIdx} className="text-sm sm:text-base text-[#334155] leading-relaxed mb-3.5">
+        {lines.map((line, lIdx) => {
+          if (!line) return null
+          const colonIdx = line.indexOf(':')
+          if (colonIdx > 0 && colonIdx < 200 && !line.substring(0, colonIdx).includes('.')) {
+            const label = line.substring(0, colonIdx + 1)
+            const rest = line.substring(colonIdx + 1)
+            return (
+              <span key={lIdx} className={lIdx > 0 ? "block mt-1.5" : "block"}>
+                <span className="font-normal text-[#005691]">{label}</span>
+                {rest}
+              </span>
+            )
+          }
+          const dashIdx = line.indexOf(' — ')
+          if (dashIdx > 0 && dashIdx < 200) {
+            const label = line.substring(0, dashIdx + 3)
+            const rest = line.substring(dashIdx + 3)
+            return (
+              <span key={lIdx} className={lIdx > 0 ? "block mt-1.5" : "block"}>
+                <span className="font-normal text-[#005691]">{label}</span>
+                {rest}
+              </span>
+            )
+          }
+          return (
+            <span key={lIdx} className={lIdx > 0 ? "block mt-1.5" : "block"}>
+              {line}
+            </span>
+          )
+        })}
+      </p>
+    )
+  })
+}
+
 // ── FULL ARTICLE DETAIL MODAL ──────────────────────────────────────
 function ArticleModal({ post, onClose, onSelectPost }) {
   useEffect(() => {
@@ -1361,7 +1461,7 @@ function ArticleModal({ post, onClose, onSelectPost }) {
           <div>
             <h1 className="text-2xl sm:text-4xl font-bold text-[#005691] leading-tight mb-4">{post.title}</h1>
             <div className="flex flex-wrap items-center gap-4 text-xs text-[#505f76] pb-4 border-b border-gray-200">
-              <span className="font-semibold text-[#005691]">{post.author}</span>
+              <span className="font-normal text-[#005691]">{post.author}</span>
               <span>•</span>
               <span>{post.date}</span>
               <span>•</span>
@@ -1389,20 +1489,65 @@ function ArticleModal({ post, onClose, onSelectPost }) {
             {post.sections &&
               post.sections.map((sec, idx) => (
                 <div key={idx} className="space-y-3">
-                  <h3 className="text-xl font-bold text-[#005691] pt-2">{sec.heading}</h3>
-                  {sec.text && <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line">{sec.text}</p>}
+                  <h3 className="text-xl font-normal text-[#005691] pt-3 pb-1 border-b border-[#005691]/15 mb-3 flex items-center gap-2">{sec.heading}</h3>
+                  {sec.text && renderFormattedTextBlock(sec.text)}
 
                   {/* Subsections if present */}
                   {sec.subsections && (
                     <div className="space-y-4 my-4">
                       {sec.subsections.map((sub, sIdx) => (
-                        <div key={sIdx} className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-gray-200/80">
-                          <h4 className="text-base font-bold text-[#005691] mb-2">
+                        <div key={sIdx} className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-gray-200/80 shadow-sm">
+                          <h4 className="text-base font-normal text-[#005691] mb-2.5 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-[#005691] inline-block flex-shrink-0"></span>
                             {sub.title || sub.heading}
                           </h4>
-                          <p className="text-sm sm:text-base leading-relaxed text-[#334155] whitespace-pre-line">
-                            {sub.content || sub.text}
-                          </p>
+                          <div className="text-sm sm:text-base leading-relaxed text-[#334155] space-y-3">
+                            {(sub.intro || sub.content || sub.text) && renderFormattedTextBlock(sub.intro || sub.content || sub.text)}
+
+                            {sub.list && (
+                              <ul className="space-y-2.5 my-3 pl-2">
+                                {sub.list.map((li, lIdx) => (
+                                  <li key={lIdx} className="flex items-start gap-3 text-sm sm:text-base">
+                                    <span className="material-symbols-outlined text-[#005691] text-base mt-1 flex-shrink-0">check_circle</span>
+                                    <span>
+                                      {(() => {
+                                        const colonIdx = li.indexOf(':')
+                                        if (colonIdx > 0 && colonIdx < 200) {
+                                          return (
+                                            <>
+                                              <span className="font-normal text-[#005691]">{li.substring(0, colonIdx + 1)}</span>
+                                              {li.substring(colonIdx + 1)}
+                                            </>
+                                          )
+                                        }
+                                        const dashIdx = li.indexOf(' — ')
+                                        if (dashIdx > 0 && dashIdx < 200) {
+                                          return (
+                                            <>
+                                              <span className="font-normal text-[#005691]">{li.substring(0, dashIdx + 3)}</span>
+                                              {li.substring(dashIdx + 3)}
+                                            </>
+                                          )
+                                        }
+                                        const hyphenIdx = li.indexOf(' - ')
+                                        if (hyphenIdx > 0 && hyphenIdx < 200) {
+                                          return (
+                                            <>
+                                              <span className="font-normal text-[#005691]">{li.substring(0, hyphenIdx + 3)}</span>
+                                              {li.substring(hyphenIdx + 3)}
+                                            </>
+                                          )
+                                        }
+                                        return li
+                                      })()}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {sub.conclusion && renderFormattedTextBlock(sub.conclusion)}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -1417,11 +1562,29 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                           <span>
                             {(() => {
                               const colonIdx = li.indexOf(':')
-                              if (colonIdx > 0 && colonIdx < 60) {
+                              if (colonIdx > 0 && colonIdx < 200) {
                                 return (
                                   <>
-                                    <strong className="font-semibold text-[#005691]">{li.substring(0, colonIdx + 1)}</strong>
+                                    <span className="font-normal text-[#005691]">{li.substring(0, colonIdx + 1)}</span>
                                     {li.substring(colonIdx + 1)}
+                                  </>
+                                )
+                              }
+                              const dashIdx = li.indexOf(' — ')
+                              if (dashIdx > 0 && dashIdx < 200) {
+                                return (
+                                  <>
+                                    <span className="font-normal text-[#005691]">{li.substring(0, dashIdx + 3)}</span>
+                                    {li.substring(dashIdx + 3)}
+                                  </>
+                                )
+                              }
+                              const hyphenIdx = li.indexOf(' - ')
+                              if (hyphenIdx > 0 && hyphenIdx < 200) {
+                                return (
+                                  <>
+                                    <span className="font-normal text-[#005691]">{li.substring(0, hyphenIdx + 3)}</span>
+                                    {li.substring(hyphenIdx + 3)}
                                   </>
                                 )
                               }
@@ -1450,7 +1613,7 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                           {sec.table.rows.map((r, rIdx) => (
                             <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                               {r.map((cell, cIdx) => (
-                                <td key={cIdx} className={`p-3 text-[#505f76] ${cIdx === 0 ? 'font-semibold text-[#005691]' : ''}`}>
+                                <td key={cIdx} className={`p-3 text-[#505f76] ${cIdx === 0 ? 'font-normal text-[#005691]' : ''}`}>
                                   {cell}
                                 </td>
                               ))}
@@ -1474,9 +1637,9 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                     </div>
                   )}
                   {sec.conclusion && (
-                    <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line text-[#334155]">
-                      {sec.conclusion}
-                    </p>
+                    <div className="text-sm sm:text-base leading-relaxed text-[#334155]">
+                      {renderFormattedTextBlock(sec.conclusion)}
+                    </div>
                   )}
                 </div>
               ))}
@@ -1499,7 +1662,7 @@ function ArticleModal({ post, onClose, onSelectPost }) {
           {/* Related Articles Section */}
           {related.length > 0 && (
             <div className="pt-6 border-t border-gray-200">
-              <h3 className="font-bold text-lg text-[#005691] mb-4">Related Technical Articles</h3>
+              <h3 className="font-normal text-lg text-[#005691] mb-4">Related Technical Articles</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {related.map((rPost) => (
                   <div
@@ -1510,7 +1673,7 @@ function ArticleModal({ post, onClose, onSelectPost }) {
                     <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold mb-2 ${CATEGORY_COLORS[rPost.category]}`}>
                       {rPost.category}
                     </span>
-                    <h4 className="font-bold text-xs text-[#005691] line-clamp-2 group-hover:underline mb-2">{rPost.title}</h4>
+                    <h4 className="font-normal text-xs text-[#005691] line-clamp-2 group-hover:underline mb-2">{rPost.title}</h4>
                     <p className="text-[11px] text-[#505f76] line-clamp-2">{rPost.excerpt}</p>
                   </div>
                 ))}
@@ -1664,7 +1827,7 @@ export default function Blogs() {
 
                 <h2
                   onClick={() => setSelectedPost(featuredPost)}
-                  className="text-2xl font-bold text-[#005691] hover:underline cursor-pointer leading-snug mb-3"
+                  className="text-2xl font-normal text-[#005691] hover:underline cursor-pointer leading-snug mb-3"
                 >
                   {featuredPost.title}
                 </h2>
@@ -1673,7 +1836,7 @@ export default function Blogs() {
 
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div className="text-xs text-[#505f76]">
-                  <span className="font-semibold text-[#005691]">{featuredPost.author}</span> • {featuredPost.date}
+                  <span className="font-normal text-[#005691]">{featuredPost.author}</span> • {featuredPost.date}
                 </div>
                 <button
                   onClick={() => setSelectedPost(featuredPost)}
@@ -1689,7 +1852,7 @@ export default function Blogs() {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-bold text-[#005691]">
+            <h2 className="text-2xl font-normal text-[#005691]">
               {activeCategory === 'All' ? 'Latest Technical Articles' : `${activeCategory} Articles`}
             </h2>
             <p className="text-xs sm:text-sm text-[#505f76] mt-1">
@@ -1718,7 +1881,7 @@ export default function Blogs() {
                     <span className="text-[11px] text-[#505f76] font-medium">{post.readTime}</span>
                   </div>
 
-                  <h3 className="font-bold text-[#005691] text-base leading-snug mb-2 group-hover:text-[#003d66] group-hover:underline line-clamp-2">
+                  <h3 className="font-normal text-[#005691] text-base leading-snug mb-2 group-hover:text-[#003d66] group-hover:underline line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed line-clamp-3 mb-4">
@@ -1741,7 +1904,7 @@ export default function Blogs() {
         {filteredPosts.length === 0 && (
           <div className="text-center py-20 bg-white rounded-2xl border border-gray-200">
             <span className="material-symbols-outlined text-[#c5c6cd] text-6xl mb-3 block">article_off</span>
-            <h3 className="text-lg font-bold text-[#005691] mb-1">No articles found</h3>
+            <h3 className="text-lg font-normal text-[#005691] mb-1">No articles found</h3>
             <p className="text-sm text-[#505f76] mb-6">
               We couldn't find any articles matching "{searchQuery}" in category "{activeCategory}".
             </p>
