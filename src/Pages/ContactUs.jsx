@@ -1010,7 +1010,7 @@ export default function ContactUS({ onNavigate }) {
                   {
                     icon: 'location_on',
                     label: 'Head Office',
-                    value: 'Liwan District, Guangzhou City, China',
+                    value: 'Room 271, 2nd Floor, Fengchao Youth Innovation Community, No. 49 Dongjiaobei Road, Liwan District, Guangzhou, China',
                     action: null
                   },
                   {

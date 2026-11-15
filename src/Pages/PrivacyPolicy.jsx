@@ -467,7 +467,7 @@ export default function PrivacyPolicy({ onNavigate }) {
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <span className="material-symbols-outlined text-base text-white/70">location_on</span>
-                        <span><strong>Head Office:</strong> Guangzhou City, Guangdong Province, China</span>
+                        <span><strong>Head Office:</strong> Room 271, 2nd Floor, Fengchao Youth Innovation Community, No. 49 Dongjiaobei Road, Liwan District, Guangzhou, China</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="material-symbols-outlined text-base text-white/70">mail</span>

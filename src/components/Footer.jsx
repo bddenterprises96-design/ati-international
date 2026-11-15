@@ -187,9 +187,9 @@ export default function Footer({ onNavigate }) {
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
           <ul className="space-y-4 text-white/70 text-sm mb-6">
-            <li className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">location_on</span>
-              <span className="text-sm font-medium text-white/80">Guangzhou City, China</span>
+            <li className="flex items-start gap-3">
+              <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0 mt-0.5">location_on</span>
+              <span className="text-sm font-medium text-white/80">Room 271, 2nd Floor, Fengchao Youth Innovation Community, No. 49 Dongjiaobei Road, Liwan District, Guangzhou, China</span>
             </li>
             <li className="flex items-center gap-3">
               <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">mail</span>

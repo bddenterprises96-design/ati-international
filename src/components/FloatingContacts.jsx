@@ -652,7 +652,7 @@ export default function FloatingContacts() {
           </div>
           <div className="mt-3 flex flex-col gap-1.5">
             <a
-              href="https://wa.me/qr/RMNX5A6C2HDEA1"
+              href="https://wa.me/message/63ZBE2NPDE3FB1"
               target="_blank"
               rel="noreferrer"
               className="text-xs font-semibold text-[#25D366] hover:underline flex items-center justify-center gap-1"
