@@ -36,7 +36,7 @@ export default function PrivacyPolicy({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen text-[#191c1e]">
 
       {/* Hero Header */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/compliance_bg.jpg"
@@ -52,7 +52,7 @@ export default function PrivacyPolicy({ onNavigate }) {
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-white/70 text-xs sm:text-sm mb-4">
+          <div className="flex items-center gap-2 text-white/70 text-xs sm:text-sm mb-3 sm:mb-4">
             <button
               onClick={() => handleNavigate('Home')}
               className="hover:text-white transition-colors cursor-pointer flex items-center gap-1"
@@ -64,10 +64,10 @@ export default function PrivacyPolicy({ onNavigate }) {
             <span className="text-white font-medium">Privacy Policy</span>
           </div>
 
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Corporate Governance & Legal
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight">
             Privacy Policy
           </h1>
           <p className="text-white/90 text-base sm:text-lg max-w-3xl leading-relaxed">

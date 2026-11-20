@@ -1,6 +1,6 @@
 export default function Hero({ onNavigate }) {
   return (
-    <section className="relative h-[700px] flex items-center overflow-hidden bg-[#005691]">
+    <section className="relative min-h-[560px] sm:h-[700px] pt-24 sm:pt-0 flex items-center overflow-hidden bg-[#005691]">
 
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -17,32 +17,32 @@ export default function Hero({ onNavigate }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-8 w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
         <div className="max-w-3xl">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-6 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-3 sm:mb-6 uppercase tracking-widest">
             Global Reach • Industrial Excellence
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-[1.1]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-6 leading-[1.1]">
             Essential Sealing <br />Solutions for Global <br />Manufacturing.
           </h1>
-          <p className="text-lg text-white/80 mb-10 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-lg text-white/90 mb-6 sm:mb-10 max-w-xl leading-relaxed">
             ATI delivers high-performance engine components to global manufacturers.
             Specializing in Valve Stem Seals, O-Rings, and bespoke industrial sealing solutions.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-4 max-w-sm sm:max-w-none">
             <button
               onClick={() => onNavigate('Products')}
-              className="bg-white text-[#005691] px-8 py-4 text-sm font-semibold rounded-lg flex items-center gap-2 hover:bg-gray-50 shadow-xl"
+              className="bg-white text-[#005691] px-3 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-sm font-semibold rounded-lg flex items-center justify-center gap-1.5 hover:bg-gray-50 shadow-xl"
             >
-              Explore Technical Catalog
-              <span className="material-symbols-outlined text-base">north_east</span>
+              <span>Explore Catalog</span>
+              <span className="material-symbols-outlined text-sm sm:text-base">north_east</span>
             </button>
             <button
               onClick={() => onNavigate('Contact Us')}
-              className="border border-white/40 text-white px-8 py-4 text-sm font-semibold rounded-lg hover:bg-white/10 flex items-center gap-2"
+              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-sm rounded-xl flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
             >
-              Get a Quote Today
-              <span className="material-symbols-outlined text-base">lock_open</span>
+              <span>Get a Quote</span>
+              <span className="material-symbols-outlined text-sm sm:text-base">request_quote</span>
             </button>
           </div>
         </div>

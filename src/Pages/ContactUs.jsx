@@ -9,17 +9,17 @@ const SOCIAL = [
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
         <defs>
           <radialGradient id="ig1" cx="19%" cy="99%" r="128%">
-            <stop offset="0%" stopColor="#ffd676"/>
-            <stop offset="25%" stopColor="#f2a454"/>
-            <stop offset="50%" stopColor="#f05c35"/>
-            <stop offset="75%" stopColor="#c62a8a"/>
-            <stop offset="100%" stopColor="#6a35b5"/>
+            <stop offset="0%" stopColor="#ffd676" />
+            <stop offset="25%" stopColor="#f2a454" />
+            <stop offset="50%" stopColor="#f05c35" />
+            <stop offset="75%" stopColor="#c62a8a" />
+            <stop offset="100%" stopColor="#6a35b5" />
           </radialGradient>
         </defs>
-        <rect width="48" height="48" rx="12" fill="url(#ig1)"/>
-        <circle cx="24" cy="24" r="9" stroke="white" strokeWidth="2.8" fill="none"/>
-        <circle cx="33.5" cy="14.5" r="2" fill="white"/>
-        <rect x="8" y="8" width="32" height="32" rx="9" stroke="white" strokeWidth="2.8" fill="none"/>
+        <rect width="48" height="48" rx="12" fill="url(#ig1)" />
+        <circle cx="24" cy="24" r="9" stroke="white" strokeWidth="2.8" fill="none" />
+        <circle cx="33.5" cy="14.5" r="2" fill="white" />
+        <rect x="8" y="8" width="32" height="32" rx="9" stroke="white" strokeWidth="2.8" fill="none" />
       </svg>
     ),
   },
@@ -28,8 +28,8 @@ const SOCIAL = [
     href: 'https://www.facebook.com/share/1C3Acanq9d/?mibextid=wwXIfr',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="12" fill="#1877F2"/>
-        <path d="M32 8h-4a8 8 0 00-8 8v4h-4v6h4v14h6V26h4l1-6h-5v-4a2 2 0 012-2h3V8z" fill="white"/>
+        <rect width="48" height="48" rx="12" fill="#1877F2" />
+        <path d="M32 8h-4a8 8 0 00-8 8v4h-4v6h4v14h6V26h4l1-6h-5v-4a2 2 0 012-2h3V8z" fill="white" />
       </svg>
     ),
   },
@@ -38,8 +38,8 @@ const SOCIAL = [
     href: 'https://x.com/usman77765687?s=21&t=cTSAe3LIdfcsOj5pi9H0xg',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="12" fill="#000000"/>
-        <path d="M26.244 21.956L35.5 11h-2.18l-8.019 9.323L18.93 11H11.5l9.709 14.129L11.5 37h2.18l8.489-9.869L28.93 37h7.43L26.244 21.956zm-3.006 3.494l-.984-1.408L14.548 12.64h3.368l6.318 9.039.984 1.408 8.214 11.75h-3.368l-6.826-9.387z" fill="white"/>
+        <rect width="48" height="48" rx="12" fill="#000000" />
+        <path d="M26.244 21.956L35.5 11h-2.18l-8.019 9.323L18.93 11H11.5l9.709 14.129L11.5 37h2.18l8.489-9.869L28.93 37h7.43L26.244 21.956zm-3.006 3.494l-.984-1.408L14.548 12.64h3.368l6.318 9.039.984 1.408 8.214 11.75h-3.368l-6.826-9.387z" fill="white" />
       </svg>
     ),
   },
@@ -48,30 +48,30 @@ const SOCIAL = [
     href: 'https://www.tiktok.com/@theatinternational?_r=1&_t=ZS-9AvpR64BX8g',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="12" fill="#010101"/>
-        <path d="M34.2 16.533a7.653 7.653 0 01-7.644-7.644V8h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V21.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V19.4a12.6 12.6 0 007.644 2.578V17a7.67 7.67 0 01-4-.467z" fill="white"/>
-        <path d="M33.2 15.533a7.653 7.653 0 01-7.644-7.644V7h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V20.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V18.4a12.6 12.6 0 007.644 2.578V16a7.67 7.67 0 01-4-.467z" fill="#EE1D52" opacity="0.8"/>
-        <path d="M35.2 17.533a7.653 7.653 0 01-7.644-7.644V9h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V22.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V20.4a12.6 12.6 0 007.644 2.578V18a7.67 7.67 0 01-4-.467z" fill="#69C9D0" opacity="0.8"/>
+        <rect width="48" height="48" rx="12" fill="#010101" />
+        <path d="M34.2 16.533a7.653 7.653 0 01-7.644-7.644V8h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V21.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V19.4a12.6 12.6 0 007.644 2.578V17a7.67 7.67 0 01-4-.467z" fill="white" />
+        <path d="M33.2 15.533a7.653 7.653 0 01-7.644-7.644V7h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V20.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V18.4a12.6 12.6 0 007.644 2.578V16a7.67 7.67 0 01-4-.467z" fill="#EE1D52" opacity="0.8" />
+        <path d="M35.2 17.533a7.653 7.653 0 01-7.644-7.644V9h-4.978v21.956a3.644 3.644 0 01-3.64 3.377 3.644 3.644 0 01-3.644-3.644 3.644 3.644 0 013.644-3.644c.356 0 .698.051 1.022.146V22.1a8.64 8.64 0 00-1.022-.062 8.622 8.622 0 00-8.622 8.622 8.622 8.622 0 008.622 8.622 8.622 8.622 0 008.618-8.622V20.4a12.6 12.6 0 007.644 2.578V18a7.67 7.67 0 01-4-.467z" fill="#69C9D0" opacity="0.8" />
       </svg>
     ),
   },
   {
     name: 'YouTube',
-    href: 'https://youtube.com/@atinternational-c9s?si=mZJtYGRRjBrxsKnB',
+    href: 'https://www.youtube.com/channel/UCqJKf4oaUEoXJmGORXY6usQ',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="12" fill="#FF0000"/>
-        <path d="M37.41 17.26a3.5 3.5 0 00-2.46-2.47C32.76 14.2 24 14.2 24 14.2s-8.76 0-10.95.59a3.5 3.5 0 00-2.46 2.47A36.26 36.26 0 0010 24a36.26 36.26 0 00.59 6.74 3.5 3.5 0 002.46 2.47C15.24 33.8 24 33.8 24 33.8s8.76 0 10.95-.59a3.5 3.5 0 002.46-2.47A36.26 36.26 0 0038 24a36.26 36.26 0 00-.59-6.74zM21.2 28.4V19.6l7.33 4.4-7.33 4.4z" fill="white"/>
+        <rect width="48" height="48" rx="12" fill="#FF0000" />
+        <path d="M37.41 17.26a3.5 3.5 0 00-2.46-2.47C32.76 14.2 24 14.2 24 14.2s-8.76 0-10.95.59a3.5 3.5 0 00-2.46 2.47A36.26 36.26 0 0010 24a36.26 36.26 0 00.59 6.74 3.5 3.5 0 002.46 2.47C15.24 33.8 24 33.8 24 33.8s8.76 0 10.95-.59a3.5 3.5 0 002.46-2.47A36.26 36.26 0 0038 24a36.26 36.26 0 00-.59-6.74zM21.2 28.4V19.6l7.33 4.4-7.33 4.4z" fill="white" />
       </svg>
     ),
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/at-international-29b52a225/',
+    href: 'https://www.linkedin.com/company/144051252/admin/dashboard/',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="12" fill="#0A66C2"/>
-        <path d="M14 19h4v15h-4V19zm2-6a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm8 6h3.6v2h.1c.5-1 1.9-2.1 3.9-2.1 4.2 0 5 2.8 5 6.3V34h-4v-8c0-1.9 0-4.3-2.6-4.3-2.7 0-3.1 2.1-3.1 4.2V34h-3.9V19z" fill="white"/>
+        <rect width="48" height="48" rx="12" fill="#0A66C2" />
+        <path d="M14 19h4v15h-4V19zm2-6a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm8 6h3.6v2h.1c.5-1 1.9-2.1 3.9-2.1 4.2 0 5 2.8 5 6.3V34h-4v-8c0-1.9 0-4.3-2.6-4.3-2.7 0-3.1 2.1-3.1 4.2V34h-3.9V19z" fill="white" />
       </svg>
     ),
   },
@@ -139,15 +139,15 @@ export default function ContactUS({ onNavigate }) {
     try {
       let allParts = []
       let storedCategory = 'Selected Items'
-      
+
       const motorcycleKey = 'selectedParts_motorcycle'
       const ebikeKey = 'selectedParts_e-bike'
       const motorcycleCategoryKey = 'productCategory_motorcycle'
       const ebikeCategoryKey = 'productCategory_e-bike'
-      
+
       const motorcycleData = localStorage.getItem(motorcycleKey) || sessionStorage.getItem(motorcycleKey)
       const ebikeData = localStorage.getItem(ebikeKey) || sessionStorage.getItem(ebikeKey)
-      
+
       if (motorcycleData) {
         const parsed = JSON.parse(motorcycleData)
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -155,7 +155,7 @@ export default function ContactUS({ onNavigate }) {
           storedCategory = localStorage.getItem(motorcycleCategoryKey) || sessionStorage.getItem(motorcycleCategoryKey) || 'Motorcycle Parts'
         }
       }
-      
+
       if (ebikeData) {
         const parsed = JSON.parse(ebikeData)
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -167,7 +167,7 @@ export default function ContactUS({ onNavigate }) {
           }
         }
       }
-      
+
       if (allParts.length === 0) {
         const oldData = localStorage.getItem('selectedParts') || sessionStorage.getItem('selectedParts')
         if (oldData) {
@@ -178,14 +178,14 @@ export default function ContactUS({ onNavigate }) {
           }
         }
       }
-      
+
       if (allParts.length > 0) {
         setSelectedParts(allParts)
         setSelectedCategory(storedCategory)
         setForm((prev) => ({ ...prev, product: storedCategory }))
-        
+
         const motorcycle = allParts.filter(p => p.category && (
-          p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' || 
+          p.category === 'Engine Parts' || p.category === 'Transmission & Clutch' ||
           p.category === 'Fuel System' || p.category === 'Air Intake System' ||
           p.category === 'Exhaust System' || p.category === 'Cooling System' ||
           p.category === 'Brake System' || p.category === 'Suspension & Steering' ||
@@ -194,7 +194,7 @@ export default function ContactUS({ onNavigate }) {
           p.category === 'Controls' || p.category === 'Body Parts' ||
           p.category === 'Rubber & Sealing Components' || p.category === 'Accessories'
         ))
-        
+
         const ebike = allParts.filter(p => p.category && (
           p.category === 'Electric Drive System' || p.category === 'Battery System' ||
           p.category === 'Electrical Components' || p.category === 'Drivetrain' ||
@@ -202,11 +202,11 @@ export default function ContactUS({ onNavigate }) {
           p.category === 'Lighting & Safety' || p.category === 'Fasteners & Hardware' ||
           p.category === 'E-Bike Accessories'
         ))
-        
-        const remaining = allParts.filter(p => 
+
+        const remaining = allParts.filter(p =>
           !motorcycle.includes(p) && !ebike.includes(p)
         )
-        
+
         remaining.forEach(p => {
           if (p.category && p.category.includes('Motorcycle')) {
             motorcycle.push(p)
@@ -216,10 +216,10 @@ export default function ContactUS({ onNavigate }) {
             motorcycle.push(p)
           }
         })
-        
+
         setMotorcycleItems(motorcycle)
         setEbikeItems(ebike)
-        
+
         let mCount = 0
         motorcycle.forEach(part => {
           if (part.selectedBrands && part.selectedBrands.length > 0) {
@@ -227,7 +227,7 @@ export default function ContactUS({ onNavigate }) {
           }
         })
         setMotorcycleCount(mCount)
-        
+
         let eCount = 0
         ebike.forEach(part => {
           if (part.selectedBrands && part.selectedBrands.length > 0) {
@@ -235,7 +235,7 @@ export default function ContactUS({ onNavigate }) {
           }
         })
         setEbikeCount(eCount)
-        
+
         let count = 0
         allParts.forEach(part => {
           if (part.selectedBrands && part.selectedBrands.length > 0) {
@@ -374,7 +374,7 @@ export default function ContactUS({ onNavigate }) {
   const handle = (e) => {
     const { name, value } = e.target
     setForm({ ...form, [name]: value })
-    
+
     if (errors[name]) {
       const newErrors = { ...errors }
       delete newErrors[name]
@@ -439,7 +439,7 @@ export default function ContactUS({ onNavigate }) {
 
   const validate = () => {
     const newErrors = {}
-    if (!form.name.trim())  newErrors.name  = 'Full name is required'
+    if (!form.name.trim()) newErrors.name = 'Full name is required'
     if (!form.email.trim()) newErrors.email = 'Email address is required'
     else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = 'Please enter a valid email'
     return newErrors
@@ -935,7 +935,7 @@ export default function ContactUS({ onNavigate }) {
     <div className="bg-[#f2f5f8] min-h-screen pb-24">
 
       {/* Hero */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         <img
           src="/assets/icccc.png"
           alt="ATI Facility"
@@ -943,11 +943,11 @@ export default function ContactUS({ onNavigate }) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Get In Touch
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Contact & Procurement Inquiry</h1>
-          <p className="text-white/80 text-base max-w-2xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Contact & Procurement Inquiry</h1>
+          <p className="text-white/90 text-xs sm:text-base max-w-2xl leading-relaxed">
             Submit your requirements and our team will respond with a detailed proposal within 24 business hours.
           </p>
         </div>
@@ -957,7 +957,7 @@ export default function ContactUS({ onNavigate }) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 mt-10 mb-8">
         <div className="bg-gradient-to-r from-[#005691]/100 via-[#004b7f] to-[#003861] text-white rounded-3xl p-5 sm:p-8 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-contain bg-no-repeat bg-right pointer-events-none" style={{ backgroundImage: 'url(/assets/facto.png)' }} />
-          
+
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4 max-w-3xl">
               <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center flex-shrink-0 border border-white/20">
@@ -1155,7 +1155,7 @@ export default function ContactUS({ onNavigate }) {
               </div>
             ) : (
               <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-xl border border-gray-200/90">
-                
+
                 {/* Form Header */}
                 <div className="mb-8">
                   <div className="flex items-center justify-between mb-4">
@@ -1181,11 +1181,10 @@ export default function ContactUS({ onNavigate }) {
                             setInquiryMode(mode.id)
                             if (mode.id === 'custom') setForm((prev) => ({ ...prev, product: 'Custom Sourcing to Technical Drawing' }))
                           }}
-                          className={`p-3 rounded-xl text-left transition-all flex items-center gap-2 ${
-                            active
-                              ? 'bg-white text-[#005691] shadow-md border border-gray-200 font-bold'
-                              : 'text-gray-600 hover:text-[#005691] font-medium'
-                          }`}
+                          className={`p-3 rounded-xl text-left transition-all flex items-center gap-2 ${active
+                            ? 'bg-white text-[#005691] shadow-md border border-gray-200 font-bold'
+                            : 'text-gray-600 hover:text-[#005691] font-medium'
+                            }`}
                         >
                           <span className={`material-symbols-outlined text-base flex-shrink-0 ${active ? 'text-[#005691]' : 'text-gray-400'}`}>
                             {mode.icon}
@@ -1226,11 +1225,10 @@ export default function ContactUS({ onNavigate }) {
                         onDragLeave={handleDragLeave}
                         onDrop={handleDrop}
                         onClick={() => fileInputRef.current && fileInputRef.current.click()}
-                        className={`relative border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-200 flex flex-col items-center justify-center ${
-                          isDragging
-                            ? 'border-[#005691] bg-blue-100/50 scale-[1.01]'
-                            : 'border-[#005691]/35 hover:border-[#005691] hover:bg-white bg-white/70'
-                        }`}
+                        className={`relative border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-200 flex flex-col items-center justify-center ${isDragging
+                          ? 'border-[#005691] bg-blue-100/50 scale-[1.01]'
+                          : 'border-[#005691]/35 hover:border-[#005691] hover:bg-white bg-white/70'
+                          }`}
                       >
                         <input
                           ref={fileInputRef}
@@ -1315,7 +1313,7 @@ export default function ContactUS({ onNavigate }) {
                 {/* ORDER CART SUMMARY BOX (if items selected from Products page) */}
                 {(flattenedMotorcycle.length > 0 || flattenedEbike.length > 0) && (
                   <div className="mb-8 bg-gradient-to-br from-blue-50/90 via-indigo-50/40 to-white border-2 border-[#005691]/25 rounded-2xl overflow-hidden shadow-sm">
-                    
+
                     {/* Header */}
                     <div className="bg-[#005691] text-white px-5 py-3 flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -1355,7 +1353,7 @@ export default function ContactUS({ onNavigate }) {
 
                 {/* FORM FIELDS */}
                 <div className="space-y-6">
-                  
+
                   {/* Personal & Business Info */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -1368,11 +1366,10 @@ export default function ContactUS({ onNavigate }) {
                         value={form.name}
                         onChange={handle}
                         placeholder="Your full name"
-                        className={`w-full px-4 py-3 bg-[#f2f4f6] border rounded-xl text-sm outline-none transition-all ${
-                          errors.name
-                            ? 'border-red-400 focus:ring-2 focus:ring-red-200 bg-red-50/20'
-                            : 'border-[#c5c6cd] focus:border-[#005691] focus:ring-2 focus:ring-[#005691]/20 focus:bg-white'
-                        }`}
+                        className={`w-full px-4 py-3 bg-[#f2f4f6] border rounded-xl text-sm outline-none transition-all ${errors.name
+                          ? 'border-red-400 focus:ring-2 focus:ring-red-200 bg-red-50/20'
+                          : 'border-[#c5c6cd] focus:border-[#005691] focus:ring-2 focus:ring-[#005691]/20 focus:bg-white'
+                          }`}
                       />
                       {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
@@ -1387,11 +1384,10 @@ export default function ContactUS({ onNavigate }) {
                         value={form.email}
                         onChange={handle}
                         placeholder="your@email.com"
-                        className={`w-full px-4 py-3 bg-[#f2f4f6] border rounded-xl text-sm outline-none transition-all ${
-                          errors.email
-                            ? 'border-red-400 focus:ring-2 focus:ring-red-200 bg-red-50/20'
-                            : 'border-[#c5c6cd] focus:border-[#005691] focus:ring-2 focus:ring-[#005691]/20 focus:bg-white'
-                        }`}
+                        className={`w-full px-4 py-3 bg-[#f2f4f6] border rounded-xl text-sm outline-none transition-all ${errors.email
+                          ? 'border-red-400 focus:ring-2 focus:ring-red-200 bg-red-50/20'
+                          : 'border-[#c5c6cd] focus:border-[#005691] focus:ring-2 focus:ring-[#005691]/20 focus:bg-white'
+                          }`}
                       />
                       {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
@@ -1445,11 +1441,10 @@ export default function ContactUS({ onNavigate }) {
                           <div
                             key={cat.id}
                             onClick={() => setForm((prev) => ({ ...prev, product: cat.id }))}
-                            className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${
-                              isSelected
-                                ? 'bg-[#005691] text-white border-[#005691] shadow-md scale-[1.02]'
-                                : 'bg-[#f2f4f6] text-gray-800 border-[#c5c6cd] hover:border-[#005691] hover:bg-blue-50/30'
-                            }`}
+                            className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${isSelected
+                              ? 'bg-[#005691] text-white border-[#005691] shadow-md scale-[1.02]'
+                              : 'bg-[#f2f4f6] text-gray-800 border-[#c5c6cd] hover:border-[#005691] hover:bg-blue-50/30'
+                              }`}
                           >
                             <div className="flex items-center gap-3">
                               <span className="material-symbols-outlined text-xl flex-shrink-0">{cat.icon}</span>
@@ -1499,11 +1494,10 @@ export default function ContactUS({ onNavigate }) {
                           key={preset}
                           type="button"
                           onClick={() => setForm((prev) => ({ ...prev, quantity: preset }))}
-                          className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                            form.quantity === preset
-                              ? 'bg-[#005691] text-white shadow'
-                              : 'bg-white border border-[#c5c6cd] text-gray-600 hover:border-[#005691] hover:text-[#005691]'
-                          }`}
+                          className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${form.quantity === preset
+                            ? 'bg-[#005691] text-white shadow'
+                            : 'bg-white border border-[#c5c6cd] text-gray-600 hover:border-[#005691] hover:text-[#005691]'
+                            }`}
                         >
                           {preset}
                         </button>
@@ -1590,7 +1584,7 @@ export default function ContactUS({ onNavigate }) {
 
       {/* ── MAIL DESIGN WINDOW MODAL: FILE A COMPLAINT ── */}
       {showComplaintModal && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
@@ -1599,13 +1593,13 @@ export default function ContactUS({ onNavigate }) {
           }}
         >
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-300 w-full max-w-2xl overflow-hidden flex flex-col max-h-[92vh]">
-            
+
             {/* Window Title Bar (Email Client Aesthetic) */}
             <div className="bg-[#1e293b] text-white px-4 py-3 flex items-center justify-between select-none border-b border-gray-700">
               <div className="flex items-center gap-3">
                 {/* Traffic Light Buttons */}
                 <div className="flex items-center gap-1.5">
-                  <button 
+                  <button
                     type="button"
                     onClick={() => setShowComplaintModal(false)}
                     className="w-3 h-3 rounded-full bg-[#ff5f56] hover:opacity-80 transition-opacity cursor-pointer border border-[#e0443e]"
@@ -1660,10 +1654,10 @@ export default function ContactUS({ onNavigate }) {
             ) : (
               /* Email Compose Form */
               <div className="flex-1 flex flex-col overflow-y-auto">
-                
+
                 {/* Mail Header Fields */}
                 <div className="divide-y divide-gray-100 text-xs sm:text-sm bg-gray-50/50">
-                  
+
                   {/* To: Field */}
                   <div className="px-4 py-2.5 flex items-center gap-3">
                     <span className="w-16 text-gray-400 font-bold uppercase text-[11px] select-none">To:</span>

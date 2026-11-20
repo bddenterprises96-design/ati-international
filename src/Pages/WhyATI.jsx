@@ -15,7 +15,7 @@ export default function WhyATI({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/why.jpeg"
@@ -26,11 +26,11 @@ export default function WhyATI({ onNavigate }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/00" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Our Advantage
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Source Through AT International?</h1>
-          <p className="text-white/90 text-base max-w-3xl leading-relaxed">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Why Source Through AT International?</h1>
+          <p className="text-white/90 text-xs sm:text-base max-w-3xl leading-relaxed">
             AT International is a premier global supplier and trading partner specializing in 3 core export lines: <strong className="text-white">Industrial Sealing Solutions</strong>, <strong className="text-white">Motorcycle Parts</strong>, and <strong className="text-white">E-Bike Parts</strong>.
           </p>
         </div>
@@ -175,21 +175,21 @@ export default function WhyATI({ onNavigate }) {
 
       {/* ── END-TO-END SUPPLY CHAIN WORKFLOW (6 STAGES) ── */}
       <section
-        className="relative py-20 border-y border-[#c5c6cd] overflow-hidden bg-cover bg-center"
+        className="relative py-20 overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: 'url(/assets/supply_chain_workflow_bg.jpg)' }}
       >
         {/* Dark Navy Overlay for Crisp Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001d36]/92 via-[#003b66]/85 to-[#001d36]/92 backdrop-blur-[0px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001d36]/92 via-[#003b66]/85 to-[#001d36]/92" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold text-white uppercase tracking-widest bg-white/20 px-4 py-1.5 rounded-full border border-white/30 mb-3.5 inline-block backdrop-blur-md shadow-sm">
+            <span className="text-xs font-bold text-white uppercase tracking-widest bg-white/20 px-4 py-1.5 rounded-full border border-white/30 mb-3.5 inline-block shadow-sm">
               End-to-End Supply Chain Value
             </span>
-            <h2 className="text-3xl sm:text-3xl font-extrabold text-white mb-3.5 drop-shadow-sm tracking-wide leading-relaxed tracking-widest border border-white/20 backdrop-blur-lg shadow-sm">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3.5 tracking-tight">
               Our 6-Step Global Supply Chain Workflow
             </h2>
-            <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto tracking-wide leading-relaxed tracking-widest border border-white/20 backdrop-blur-lg">
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               AT International seamlessly manages your entire cross-border procurement process from supplier verification to final destination delivery:
             </p>
           </div>
@@ -235,7 +235,7 @@ export default function WhyATI({ onNavigate }) {
             ].map((s, idx) => (
               <div
                 key={s.step}
-                className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 hover:border-white/40 hover:bg-white/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl group"
+                className="relative bg-[#002b54]/60 border border-white/20 rounded-xl p-5 hover:border-white/40 hover:bg-[#00386b]/70 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shadow-lg group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -377,7 +377,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── CERTIFICATIONS & COMPLIANCE BAR ── */}
-      <section className="bg-white py-16 border-y border-[#c5c6cd]">
+      <section className="py-16">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-2">Quality & Compliance Assurance</h2>
@@ -390,7 +390,7 @@ export default function WhyATI({ onNavigate }) {
               { cert: 'RoHS 3 Compliant', desc: 'Hazardous Substance Directive', icon: 'eco' },
               { cert: 'REACH Compliant', desc: 'Global Chemical Safety', icon: 'gavel' },
             ].map((c) => (
-              <div key={c.cert} className="border border-[#005691]/25 rounded-2xl p-6 text-center hover:bg-blue-50/50 hover:border-[#005691] transition-all hover:-translate-y-0.5 duration-200">
+              <div key={c.cert} className="bg-white border border-[#cbe3f7] rounded-2xl p-6 text-center hover:bg-blue-50/50 hover:border-[#005691] transition-all hover:-translate-y-0.5 duration-200 shadow-xs hover:shadow-md">
                 <div className="w-12 h-12 bg-[#005691] text-white rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
                   <span className="material-symbols-outlined text-2xl">{c.icon}</span>
                 </div>
@@ -403,7 +403,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-[#005691]/85 via-[#003d66]/75 to-[#005691]/85 backdrop-blur-md border-y border-[#005691]/30">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-[#005691] via-[#003d66] to-[#005691]">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
           {[
             { num: '25+', label: 'Years of Global Trading Experience' },
@@ -413,9 +413,9 @@ export default function WhyATI({ onNavigate }) {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:-translate-y-1 group"
+              className="bg-white/10 border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-200 shadow-md group"
             >
-              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 group-hover:text-cyan-200 transition-colors drop-shadow-sm">{s.num}</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 group-hover:text-cyan-200 transition-colors">{s.num}</div>
               <div className="text-white/90 text-xs sm:text-sm font-medium leading-relaxed tracking-wide">{s.label}</div>
             </div>
           ))}
@@ -489,7 +489,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── CALL TO ACTION ── */}
-      <section className="py-16 bg-[#f2f4f6] text-center border-t border-[#c5c6cd]">
+      <section className="py-16 text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Global Sourcing?</h2>
           <p className="text-[#505f76] text-sm mb-8 leading-relaxed">
@@ -498,10 +498,10 @@ export default function WhyATI({ onNavigate }) {
           <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => handleNavigate('Contact Us')}
-              className="bg-[#005691] text-white px-8 py-3.5 rounded-xl font-bold text-xs hover:bg-[#003e69] transition-all inline-flex items-center gap-2 shadow-lg uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
+              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-8 py-3.5 rounded-xl text-xs transition-all inline-flex items-center gap-2 shadow-lg shadow-amber-500/25 uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
             >
               <span className="material-symbols-outlined text-base">request_quote</span>
-              Request Sourcing Proposal
+              <span>Request Sourcing Proposal</span>
             </button>
             <button
               onClick={() => handleNavigate('Products')}

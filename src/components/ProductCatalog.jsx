@@ -44,9 +44,10 @@ export default function ProductCatalog({ onNavigate }) {
               </button>
               <button
                 onClick={() => onNavigate && onNavigate('Contact Us')}
-                className="border border-white/50 text-white px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-lg hover:bg-white/10 transition-all cursor-pointer"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-amber-500/25 flex items-center gap-1.5"
               >
-                Request Quote
+                <span>Request Quote</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </button>
             </div>
           </div>
@@ -72,9 +73,10 @@ export default function ProductCatalog({ onNavigate }) {
                 </button>
                 <button
                   onClick={() => onNavigate && onNavigate('Contact Us')}
-                  className="border border-white/50 text-white px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-lg hover:bg-white/10 transition-all cursor-pointer"
+                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-amber-500/25 flex items-center gap-1.5"
                 >
-                  Request Quote
+                  <span>Request Quote</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
               </div>
             </div>

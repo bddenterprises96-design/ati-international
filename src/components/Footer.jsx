@@ -67,7 +67,7 @@ export default function Footer({ onNavigate }) {
               </a>
               
               <a
-                href="https://www.linkedin.com/in/at-international-29b52a225/"
+                href="https://www.linkedin.com/company/144051252/admin/dashboard/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 bg-white/10 hover:bg-[#0a66c2] transition-all duration-300 flex items-center justify-center group overflow-hidden rounded-lg"
@@ -81,7 +81,7 @@ export default function Footer({ onNavigate }) {
 
               {/* Row 2: YouTube, Instagram, TikTok */}
               <a
-                href="https://youtube.com/@atinternational-c9s?si=mZJtYGRRjBrxsKnB"
+                href="https://www.youtube.com/channel/UCqJKf4oaUEoXJmGORXY6usQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 bg-white/10 hover:bg-[#ff0000] transition-all duration-300 flex items-center justify-center group overflow-hidden rounded-lg"
@@ -206,10 +206,10 @@ export default function Footer({ onNavigate }) {
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
-            className="bg-[#005691] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 duration-200"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all cursor-pointer shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 active:scale-95 duration-200"
           >
             <span className="material-symbols-outlined text-base">request_quote</span>
-            Request a Quote
+            <span>Request a Quote</span>
           </button>
         </div>
       </div>

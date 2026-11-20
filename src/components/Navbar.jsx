@@ -15,9 +15,19 @@ export default function Navbar({ onNavigate }) {
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
 
-  // Turn opaque once user scrolls past 10px
+  // Turn opaque once user scrolls past 10px (optimized rAF throttle)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isOver = window.scrollY > 10
+          setScrolled((prev) => (prev !== isOver ? isOver : prev))
+          ticking = false
+        })
+        ticking = true
+      }
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     setScrolled(window.scrollY > 10)
     return () => window.removeEventListener('scroll', onScroll)
@@ -48,12 +58,12 @@ export default function Navbar({ onNavigate }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         scrolled
-          ? 'bg-white/90 border-b border-[#c5c6cd] shadow-sm'
+          ? 'bg-white/95 border-b border-[#c5c6cd] shadow-xs'
           : 'bg-transparent'
       }`}
-      style={scrolled ? { backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' } : {}}
+      style={scrolled ? { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' } : {}}
     >
       <div className="flex justify-between items-center h-20 px-4 max-w-[1440px] mx-auto">
 
@@ -104,16 +114,12 @@ export default function Navbar({ onNavigate }) {
         {/* Right Side */}
         <div className="flex items-center gap-3 flex-shrink-0">
 
-          {/* Request a Quote button */}
+          {/* Request a Quote button with High-Contrast Accent (Section 03-A) */}
           <button
             onClick={() => onNavigate('Contact Us')}
-            className={`px-5 py-3 text-sm font-semibold rounded-lg flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all duration-200 ${
-              scrolled
-                ? 'bg-[#005691] text-white hover:brightness-110'
-                : 'bg-white text-[#005691] hover:bg-white/90'
-            }`}
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm">request_quote</span>
+            <span className="material-symbols-outlined text-base">request_quote</span>
             <span className="hidden sm:inline">Request a Quote</span>
           </button>
 

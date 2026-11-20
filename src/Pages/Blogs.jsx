@@ -1745,7 +1745,7 @@ export default function Blogs() {
 
       {/* Hero Section */}
       <section
-        className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden"
+        className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden"
         style={{
           backgroundImage: 'url(/assets/blogs_hero_bg.jpg)',
           backgroundSize: 'cover',
@@ -1754,13 +1754,13 @@ export default function Blogs() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest backdrop-blur-sm">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest backdrop-blur-sm">
             Technical & Sourcing Knowledge Hub
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
             AT International Insights
           </h1>
-          <p className="text-white/80 text-base max-w-2xl">
+          <p className="text-white/90 text-xs sm:text-base max-w-2xl leading-relaxed">
             Practical technical guides, motorcycle and e-bike parts insights, quality standards, and procurement knowledge from our China sourcing team.
           </p>
         </div>

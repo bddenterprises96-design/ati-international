@@ -1,3 +1,5 @@
+import ProductGalleryViewer from '../components/ProductGalleryViewer'
+import VisualComponentShowcase from '../components/VisualComponentShowcase'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -1071,7 +1073,7 @@ function FullPartsDirectory({ partsData, title, totalCount, onNavigate }) {
       return false
     }
     if (!searchQuery.trim()) return true
-    
+
     // Check if category name matches or any item inside matches
     const catMatches = catName.toLowerCase().includes(searchQuery.toLowerCase())
     const hasMatchingItem = items.some((item) =>
@@ -1151,8 +1153,8 @@ function FullPartsDirectory({ partsData, title, totalCount, onNavigate }) {
               onClick={() => setSelectedCategory(cat)}
               className={`
                 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 cursor-pointer
-                ${isActive 
-                  ? 'bg-[#005691] text-white shadow-md' 
+                ${isActive
+                  ? 'bg-[#005691] text-white shadow-md'
                   : 'bg-[#f7f9fb] text-[#505f76] hover:bg-blue-50 hover:text-[#005691] border border-gray-200'
                 }
               `}
@@ -1172,9 +1174,9 @@ function FullPartsDirectory({ partsData, title, totalCount, onNavigate }) {
           {categoryEntries.map(([catName, items], catIdx) => {
             const filteredCatItems = searchQuery.trim()
               ? items.filter((item) =>
-                  item.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  catName.toLowerCase().includes(searchQuery.toLowerCase())
-                )
+                item.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                catName.toLowerCase().includes(searchQuery.toLowerCase())
+              )
               : items
 
             if (filteredCatItems.length === 0) return null
@@ -1250,8 +1252,8 @@ function SubProductNav({ subProducts, activeSub, onSelect, onBack }) {
               onClick={() => onSelect(sub.id)}
               className={`
                 relative px-3.5 sm:px-4 py-1.5 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 flex-shrink-0 cursor-pointer whitespace-nowrap
-                ${activeSub === sub.id 
-                  ? 'bg-white text-[#005691] shadow-md font-bold scale-105' 
+                ${activeSub === sub.id
+                  ? 'bg-white text-[#005691] shadow-md font-bold scale-105'
                   : 'text-white/85 hover:text-white hover:bg-white/20'
                 }
               `}
@@ -1291,38 +1293,43 @@ function ProductDetail({
           onBack={onBackToMain}
         />
 
-        <div className="bg-white border border-[#c5c6cd] rounded-xl p-8 shadow-sm animate-fadeIn">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
-            <div className="h-72 overflow-hidden rounded-xl bg-white relative border border-[#c5c6cd] p-4 flex items-center justify-center">
-              <img
-                src={sub.image}
-                alt={sub.name}
-                className="w-full h-full object-contain"
-                onError={(e) => { e.target.style.background = '#eceef0' }}
-              />
-            </div>
+        <div className="bg-white border border-[#c5c6cd] rounded-2xl p-6 sm:p-8 shadow-sm animate-fadeIn">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
+            {/* Multi-Angle Gallery Viewer with Hover Magnifier */}
+            <ProductGalleryViewer subProduct={sub} />
+
             <div>
-              <h3 className="text-2xl font-bold text-[#005691] mb-2">{sub.name}</h3>
-              <p className="text-sm font-semibold text-[#005691] uppercase tracking-wider mb-4">{sub.tagline}</p>
+              <div className="inline-block px-3 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
+                Verified Export Specification
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#005691] mb-2">{sub.name}</h3>
+              <p className="text-xs sm:text-sm font-bold text-[#005691] uppercase tracking-wider mb-4">{sub.tagline}</p>
               <p className="text-[#505f76] text-sm leading-relaxed mb-6">{sub.description}</p>
-              
-              <div className="flex flex-wrap gap-3">
+
+              {/* High-Contrast Action Buttons */}
+              <div className="flex flex-wrap gap-3.5 mb-6">
                 <button
                   onClick={() => onNavigate('Contact Us')}
-                  className="bg-[#005691] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:brightness-110 transition-all hover:scale-105 duration-200 flex items-center gap-2"
+                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:scale-105 duration-200 flex items-center gap-2 shadow-lg shadow-amber-500/30 cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-sm">request_quote</span>
-                  Request Quote
+                  <span className="material-symbols-outlined text-base">request_quote</span>
+                  Request Instant Quote
                 </button>
                 {sub.hasDataSheet && (
                   <button
                     onClick={() => setSheetOpen(sub.id)}
-                    className="border border-[#005691] text-[#005691] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 transition-all hover:scale-105 duration-200 flex items-center gap-2"
+                    className="border-2 border-[#005691] text-[#005691] bg-white hover:bg-[#005691] hover:text-white px-6 py-3.5 rounded-xl text-sm font-bold transition-all hover:scale-105 duration-200 flex items-center gap-2 cursor-pointer shadow-xs"
                   >
-                    <span className="material-symbols-outlined text-sm">description</span>
-                    View Data Sheet
+                    <span className="material-symbols-outlined text-base">description</span>
+                    Technical Data Sheet
                   </button>
                 )}
+              </div>
+
+              {/* Sourcing Guarantee Ribbon */}
+              <div className="p-3.5 bg-[#f0f7ff] border border-[#cbe3f7] rounded-xl flex items-center gap-3 text-xs text-[#005691] font-semibold">
+                <span className="material-symbols-outlined text-amber-500 text-lg">verified</span>
+                <span>ISO 9001:2015 Traceability · 100% Pre-Shipment Inspection Guaranteed</span>
               </div>
             </div>
           </div>
@@ -1363,57 +1370,14 @@ function ProductDetail({
             )}
           </div>
 
-          {/* Included Parts & Specifications */}
+          {/* Visual Component Showcase with Image for every item */}
           {sub.specs && sub.specs.length > 0 && (
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <h4 className="font-bold text-[#005691] text-base mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-5 bg-[#005691] rounded-full inline-block" />
-                {sub.specs[0]?.part && sub.specs[0]?.material ? 'Technical Specifications' : 'Included Parts Catalogue'} ({sub.specs.length} Items)
-              </h4>
-
-              {sub.specs[0]?.part && sub.specs[0]?.material ? (
-                /* Industrial Seals Full Written Technical Specifications Table */
-                <div className="overflow-x-auto rounded-xl border border-[#c5c6cd]">
-                  <table className="w-full text-left text-sm">
-                    <thead className="bg-[#005691] text-white uppercase text-xs tracking-wider">
-                      <tr>
-                        <th className="py-3.5 px-4 font-bold">Part Code</th>
-                        <th className="py-3.5 px-4 font-bold">Item Name</th>
-                        <th className="py-3.5 px-4 font-bold">Dimensions (mm)</th>
-                        <th className="py-3.5 px-4 font-bold">Temp Range</th>
-                        <th className="py-3.5 px-4 font-bold text-right">MOQ (PCS)</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
-                      {sub.specs.map((item, idx) => (
-                        <tr key={idx} className="hover:bg-blue-50/50 transition-colors">
-                          <td className="py-3.5 px-4 font-mono font-bold text-[#005691]">{item.part}</td>
-                          <td className="py-3.5 px-4 text-gray-900 font-semibold">{item.name || item.material}</td>
-                          <td className="py-3.5 px-4 text-gray-600 font-mono">{item.dim}</td>
-                          <td className="py-3.5 px-4 text-gray-600">{item.temp}</td>
-                          <td className="py-3.5 px-4 font-semibold text-gray-900 text-right">{item.moq}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : (
-                /* Motorcycle & E-Bike Included Parts Columns & Rows Grid */
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {sub.specs.map((item, idx) => (
-                    <div 
-                      key={idx} 
-                      className="p-3.5 bg-[#f7f9fb] border border-gray-200 rounded-lg hover:border-[#005691] hover:shadow-md transition-all flex items-center justify-between"
-                    >
-                      <span className="text-sm font-semibold text-gray-800">{item.name}</span>
-                      <span className="text-xs px-2.5 py-1 bg-[#005691]/10 text-[#005691] font-bold rounded-md whitespace-nowrap">
-                        {item.category}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            <VisualComponentShowcase
+              specs={sub.specs}
+              subProductName={sub.name}
+              categoryName={product.name}
+              onNavigate={onNavigate}
+            />
           )}
         </div>
       </div>
@@ -1430,8 +1394,8 @@ function ProductDetail({
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {product.subProducts.map((subItem, index) => (
-          <div 
-            key={subItem.id} 
+          <div
+            key={subItem.id}
             className="bg-white border border-[#c5c6cd] rounded-xl overflow-hidden hover:shadow-lg transition-all hover:scale-105 duration-300 cursor-pointer group animate-scaleIn flex flex-col justify-between"
             style={{ animationDelay: `${index * 0.15}s` }}
             onClick={() => onSelectSubProduct(subItem.id)}
@@ -1453,8 +1417,8 @@ function ProductDetail({
 
             <div className="p-6 pt-0 bg-[#f0f7ff]">
               <div className="flex flex-col gap-2">
-                <button 
-                  className="w-full bg-[#005691] text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:brightness-110 transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2"
+                <button
+                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 py-2.5 rounded-lg text-sm transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation()
                     onNavigate('Contact Us')
@@ -1464,7 +1428,7 @@ function ProductDetail({
                   Request Quote
                 </button>
                 <div className="flex gap-2">
-                  <button 
+                  <button
                     className="flex-1 bg-white text-[#005691] border border-[#cbe3f7] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#005691]/10 transition-all hover:scale-105 duration-200"
                     onClick={(e) => {
                       e.stopPropagation()
@@ -1554,26 +1518,26 @@ export default function Products({ onNavigate }) {
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
       {sheetOpen && (
-        <DataSheetModal 
-          productId={activeSubProduct} 
-          onClose={() => setSheetOpen(false)} 
+        <DataSheetModal
+          productId={activeSubProduct}
+          onClose={() => setSheetOpen(false)}
         />
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         <img
-          src="/assets/vvv.png"
+          src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795206412/Industrial_Mobility_Parts_Showcase_lvp1rm.png"
           alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/10" />
         <div className="relative z-10 max-w-[1280px] mx-auto">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Our Products
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Everything You Need</h1>
-          <p className="text-white/80 text-base max-w-1xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Everything You Need</h1>
+          <p className="text-white/90 text-xs sm:text-base max-w-1xl leading-relaxed">
             Looking for the right parts without the sourcing hassle? From Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions, AT International brings quality-verified products together under one trusted roof — helping buyers source with confidence and keep their businesses moving forward.
           </p>
         </div>
@@ -1586,15 +1550,15 @@ export default function Products({ onNavigate }) {
             {PRODUCTS.map((p) => (
               <button
                 key={p.id}
-                onClick={() => { 
+                onClick={() => {
                   setActive(p.id)
                   setActiveSubProduct(null)
                   setSheetOpen(false)
                 }}
                 className={`
                   px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
-                  ${active === p.id 
-                    ? 'bg-[#005691] text-white shadow-lg transform scale-105' 
+                  ${active === p.id
+                    ? 'bg-[#005691] text-white shadow-lg transform scale-105'
                     : 'text-[#505f76] hover:text-[#005691] hover:bg-[#005691]/10'
                   }
                   transform transition-all duration-300 ease-in-out hover:scale-105
@@ -1610,10 +1574,10 @@ export default function Products({ onNavigate }) {
 
       {/* Main Content Area */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 sm:py-8">
-        <ProductDetail 
+        <ProductDetail
           key={product.id}
-          product={product} 
-          onNavigate={onNavigate} 
+          product={product}
+          onNavigate={onNavigate}
           setSheetOpen={handleSheetOpen}
           selectedSubProduct={activeSubProduct}
           onSelectSubProduct={handleSelectSubProduct}

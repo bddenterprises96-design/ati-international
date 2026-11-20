@@ -603,7 +603,7 @@ export default function FloatingContacts() {
                     className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider ${
                       hasMoqErrors
                         ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
-                        : 'bg-[#005691] text-white hover:bg-[#003e69] hover:scale-105 active:scale-95 cursor-pointer'
+                        : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white hover:scale-105 active:scale-95 cursor-pointer shadow-amber-500/30'
                     }`}
                     title={hasMoqErrors ? 'Increase quantities to meet MOQ for all items before proceeding' : 'Proceed to Procurement Inquiry'}
                   >
