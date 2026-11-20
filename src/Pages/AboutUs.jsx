@@ -138,22 +138,23 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section className="relative -mt-20 min-h-[680px] sm:min-h-[750px] pt-40 sm:pt-48 pb-20 flex items-center overflow-hidden">
+      <section className="relative -mt-20 min-h-[680px] sm:min-h-[750px] pt-40 sm:pt-48 pb-20 flex items-center overflow-hidden bg-[#005691]">
 
         {/* Video Background — replaces the previous static image */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/assets/why.jpeg"
-          className="absolute inset-0 w-full h-full object-cover transform-gpu will-change-transform pointer-events-none"
-        >
-          <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1784380222/make_this_video_s_quality_bett_ldzldn.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute top-20 inset-x-0 bottom-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover transform-gpu will-change-transform pointer-events-none"
+          >
+            <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1795156605/WhatsApp_Video_2026-11-20_at_11.34.58_AM11111_xok9fw.mp4" />
+          </video>
+        </div>
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/15 to-[#005691]/00" />
 
         {/* Shimmer lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -177,25 +178,50 @@ export default function AboutUs({ onNavigate }) {
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
           <div className="max-w-3xl">
 
-            {/* Badge */}
-            <div style={{ transition: 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
-              <span className="inline-block px-3 py-1 bg-white/20 text-white text-[11px] sm:text-xs font-semibold rounded mb-4 sm:mb-6 uppercase tracking-widest backdrop-blur-sm">
-                GLOBAL REACH • TRUSTED SUPPLY
-              </span>
-            </div>
-
-            {/* Headline */}
-            <div style={{ transition: 'opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Global Sourcing <br className="hidden sm:inline" />Partner
+            {/* Headline & Tagline */}
+            <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+                Global Sourcing <br />Partner
               </h1>
+              <div className="flex items-center gap-2.5 text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 tracking-tight">
+                <span className="w-6 sm:w-8 h-[2.5px] bg-white inline-block flex-shrink-0" />
+                <span>Keep Your World Moving.</span>
+              </div>
             </div>
 
             {/* Subtext */}
-            <div style={{ transition: 'opacity 0.9s ease 0.6s, transform 0.9s ease 0.6s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <p className="mt-3 sm:mt-6 max-w-full md:w-[80%] text-white/90 text-sm sm:text-lg mb-6 sm:mb-10 leading-relaxed sm:leading-8">
-                AT International is a trusted global supplier, exporter and trading company, connecting buyers and businesses across 40+ countries with quality-verified Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions — sourced from reliable partners and delivered with precision.
+            <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+              <p className="max-w-xl text-white/90 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
+                Quality-verified parts sourced in China and delivered to businesses across 40+ countries.
               </p>
+            </div>
+
+            {/* Category Pills */}
+            <div
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8"
+              style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
+            >
+              <button
+                type="button"
+                onClick={() => onNavigate('Products#motorcycle')}
+                className="px-4 sm:px-5 py-2 rounded-full border border-white/35 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+              >
+                Motorcycle Parts
+              </button>
+              <button
+                type="button"
+                onClick={() => onNavigate('Products#e-bike')}
+                className="px-4 sm:px-5 py-2 rounded-full border border-white/35 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+              >
+                E-Bike Parts
+              </button>
+              <button
+                type="button"
+                onClick={() => onNavigate('Products#industrial-seals')}
+                className="px-4 sm:px-5 py-2 rounded-full border border-white/35 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+              >
+                Industrial Sealing Solutions
+              </button>
             </div>
 
             {/* Buttons */}
@@ -219,8 +245,6 @@ export default function AboutUs({ onNavigate }) {
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#f7f9fb] to-transparent" />
       </section>
 
       {/* ── VALUE PROPS BAR ── */}

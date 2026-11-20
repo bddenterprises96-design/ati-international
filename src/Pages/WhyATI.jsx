@@ -23,7 +23,7 @@ export default function WhyATI({ onNavigate }) {
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Blue overlay so text stays readable, matches homepage style */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/00" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded mb-4 uppercase tracking-widest">
@@ -174,7 +174,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── END-TO-END SUPPLY CHAIN WORKFLOW (6 STAGES) ── */}
-      <section 
+      <section
         className="relative py-20 border-y border-[#c5c6cd] overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: 'url(/assets/supply_chain_workflow_bg.jpg)' }}
       >
@@ -233,8 +233,8 @@ export default function WhyATI({ onNavigate }) {
                 icon: 'mark_email_read'
               },
             ].map((s, idx) => (
-              <div 
-                key={s.step} 
+              <div
+                key={s.step}
                 className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 hover:border-white/40 hover:bg-white/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl group"
               >
                 <div>
@@ -406,13 +406,13 @@ export default function WhyATI({ onNavigate }) {
       <section className="relative py-16 overflow-hidden bg-gradient-to-r from-[#005691]/85 via-[#003d66]/75 to-[#005691]/85 backdrop-blur-md border-y border-[#005691]/30">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
           {[
-            { num: '25+',    label: 'Years of Global Trading Experience' },
-            { num: '40+',    label: 'Export Destinations Worldwide' },
-            { num: '200+',   label: 'Verified Manufacturing Partners' },
-            { num: '100%',   label: 'Batch Traceability & Inspection' },
+            { num: '25+', label: 'Years of Global Trading Experience' },
+            { num: '40+', label: 'Export Destinations Worldwide' },
+            { num: '200+', label: 'Verified Manufacturing Partners' },
+            { num: '100%', label: 'Batch Traceability & Inspection' },
           ].map((s) => (
-            <div 
-              key={s.label} 
+            <div
+              key={s.label}
               className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:-translate-y-1 group"
             >
               <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 group-hover:text-cyan-200 transition-colors drop-shadow-sm">{s.num}</div>
