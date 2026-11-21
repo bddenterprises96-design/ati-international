@@ -15,7 +15,7 @@ export default function WhyATI({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/why.jpeg"

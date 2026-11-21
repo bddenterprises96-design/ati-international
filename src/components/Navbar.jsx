@@ -65,7 +65,7 @@ export default function Navbar({ onNavigate }) {
       }`}
       style={scrolled ? { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' } : {}}
     >
-      <div className="flex justify-between items-center h-20 px-4 max-w-[1440px] mx-auto">
+      <div className="flex justify-between items-center h-16 sm:h-20 px-4 max-w-[1440px] mx-auto">
 
         {/* Logo */}
         <div
@@ -74,7 +74,7 @@ export default function Navbar({ onNavigate }) {
         >
           <img
             alt="ATI Logo"
-            className="h-10 sm:h-14 w-auto object-contain transition-all duration-300"
+            className="h-9 sm:h-14 w-auto object-contain transition-all duration-300"
             src="/assets/logo.png"
             style={{ filter: scrolled ? 'none' : 'brightness(0) invert(1)' }}
             onError={(e) => { e.target.style.display = 'none' }}

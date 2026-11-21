@@ -1525,7 +1525,7 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         <img
           src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795206412/Industrial_Mobility_Parts_Showcase_lvp1rm.png"
           alt="ATI Facility"

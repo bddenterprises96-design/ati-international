@@ -171,10 +171,10 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-44 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-16 sm:-mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-[134px] sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
 
-        {/* Video Background — starts strictly at top-20 (80px) below navbar */}
-        <div className="absolute top-20 inset-x-0 bottom-0 overflow-hidden">
+        {/* Video Background — starts strictly at top-16/top-20 below navbar */}
+        <div className="absolute top-16 sm:top-20 inset-x-0 bottom-0 overflow-hidden">
           <video
             key={isMobile ? 'mobile-hero-video' : 'desktop-hero-video'}
             ref={videoRef}
@@ -200,17 +200,17 @@ export default function AboutUs({ onNavigate }) {
 
             {/* Badge */}
             <div style={{ transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2 sm:mb-4 uppercase tracking-widest backdrop-blur-xs">
+              <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-1.5 sm:mb-4 uppercase tracking-widest backdrop-blur-xs">
                 GLOBAL REACH • TRUSTED SUPPLY
               </span>
             </div>
 
             {/* Headline & Tagline */}
             <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <h1 className="text-2xl sm:text-5xl md:text-7xl font-bold text-white mb-1.5 sm:mb-4 leading-tight tracking-tight">
+              <h1 className="text-2xl sm:text-5xl md:text-7xl font-bold text-white mb-1 sm:mb-4 leading-tight tracking-tight">
                 Global Sourcing <br />Partner
               </h1>
-              <div className="flex items-center gap-2 sm:gap-2.5 text-white text-xs sm:text-xl md:text-2xl font-bold mb-2 sm:mb-6 tracking-tight">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-white text-xs sm:text-xl md:text-2xl font-bold mb-1.5 sm:mb-6 tracking-tight">
                 <span className="w-5 sm:w-8 h-[2px] sm:h-[2.5px] bg-white inline-block flex-shrink-0" />
                 <span>Keep Your World Moving.</span>
               </div>
@@ -218,14 +218,14 @@ export default function AboutUs({ onNavigate }) {
 
             {/* Subtext */}
             <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <p className="max-w-xl text-white/90 text-xs sm:text-base md:text-lg mb-3 sm:mb-8 leading-relaxed">
+              <p className="max-w-xl text-white/90 text-xs sm:text-base md:text-lg mb-2.5 sm:mb-8 leading-relaxed">
                 Quality-verified parts sourced in China and delivered to businesses across 40+ countries.
               </p>
             </div>
 
             {/* Category Pills */}
             <div
-              className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-3.5 sm:mb-8"
+              className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-2.5 sm:mb-8"
               style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
             >
               <button
@@ -255,14 +255,14 @@ export default function AboutUs({ onNavigate }) {
             <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 max-w-sm sm:max-w-none" style={{ transition: 'opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
               <button
                 onClick={() => onNavigate('Products')}
-                className="bg-white text-[#005691] hover:bg-gray-100 px-3 sm:px-8 py-2.5 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs sm:text-sm hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="bg-white text-[#005691] hover:bg-gray-100 px-3 sm:px-8 py-2 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs sm:text-sm hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Catalog</span>
                 <span className="material-symbols-outlined text-sm sm:text-base">north_east</span>
               </button>
               <button
                 onClick={() => onNavigate('Contact Us')}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2.5 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-lg shadow-amber-500/25 cursor-pointer"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-lg shadow-amber-500/25 cursor-pointer"
               >
                 <span>Get a Quote</span>
               </button>

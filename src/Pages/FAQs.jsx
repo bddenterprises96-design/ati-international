@@ -96,7 +96,7 @@ export default function FAQs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero */}
-      <section className="relative -mt-20 pt-44 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/fll.png"
