@@ -274,8 +274,8 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── VALUE PROPS BAR ── */}
-      <section className="bg-white py-6 sm:py-8">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
+      <section className="bg-white py-4 sm:py-8">
+        <div className="max-w-[1440px] mx-auto px-2 sm:px-8 grid grid-cols-4 gap-2 sm:gap-6 lg:gap-10">
           {[
             { icon: 'verified_user', title: 'Quality-Assured Sourcing', desc: 'All products sourced from ISO 9001:2015 certified partner manufacturers.' },
             { icon: 'public', title: 'Global Export Network', desc: 'Supplying industrial buyers in over 40 countries across six continents.' },
@@ -284,16 +284,16 @@ export default function AboutUs({ onNavigate }) {
           ].map((item, i) => (
             <div
               key={item.title}
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-1 sm:gap-3"
               style={{
                 transition: `opacity 0.7s ease ${1.0 + i * 0.15}s, transform 0.7s ease ${1.0 + i * 0.15}s`,
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
               }}
             >
-              <span className="material-symbols-outlined text-[#005691] text-4xl">{item.icon}</span>
-              <p className="font-bold text-sm text-[#005691]">{item.title}</p>
-              <p className="text-sm text-[#505f76]">{item.desc}</p>
+              <span className="material-symbols-outlined text-[#005691] text-2xl sm:text-4xl">{item.icon}</span>
+              <p className="font-bold text-[10px] sm:text-sm text-[#005691] leading-tight">{item.title}</p>
+              <p className="text-[9px] sm:text-sm text-[#505f76] leading-tight sm:leading-normal">{item.desc}</p>
             </div>
           ))}
         </div>
