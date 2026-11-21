@@ -1,10 +1,70 @@
 import { useState, useRef, useEffect } from 'react'
 
 /**
- * Multiple Product Angles & Hover-to-Zoom Magnifying Lens
- * Conforms to Section 03-D & 04 of Website Improvement & Redesign Plan
+ * Product Gallery Viewer with Data Sheet Technical Diagrams & Magnifying Lens
+ * Shows the Product Master Photo, Technical Structure Diagram, and Sealing/Operating Theory Diagram
+ * from each product's official technical data sheet.
  */
-export default function ProductGalleryViewer({ subProduct }) {
+
+// Fallback technical data sheet diagram mapping for all 9 core products
+const DATA_SHEETS_FALLBACK = {
+  'valve-stem': {
+    structureImage: '/assets/cylinder.png',
+    structureCaption: 'Valve Stem Seal Cross-Section Structure Diagram',
+    theoryImage: '/assets/cyy.png',
+    theoryCaption: 'Valve Stem Seal Sealing Theory Diagram',
+  },
+  'o-rings': {
+    structureImage: '/assets/il2.png',
+    structureCaption: 'O-Ring Cross-Section & Groove Dimension Diagram',
+    theoryImage: '/assets/oo.png',
+    theoryCaption: 'O-Ring Pressure Sealing Theory Diagram',
+  },
+  'oil-seals': {
+    structureImage: '/assets/il.png',
+    structureCaption: 'Oil Seal Component Anatomy & Installation Diagram',
+    theoryImage: '/assets/oo1.png',
+    theoryCaption: 'Oil Seal Hydrodynamic Sealing Theory Diagram',
+  },
+  'moto-engine': {
+    structureImage: '/assets/pdf_diagrams/crankshaft_structure.png',
+    structureCaption: 'Motorcycle Crankshaft Assembly & Component Structure Diagram',
+    theoryImage: '/assets/pdf_diagrams/crankshaft_theory.png',
+    theoryCaption: 'Crankshaft Reciprocating Motion & Primary Drive Transfer Diagram',
+  },
+  'moto-clutch': {
+    structureImage: '/assets/pdf_diagrams/cylinder_head_structure.png',
+    structureCaption: 'Motorcycle Cylinder Head Component & Sealing Layout Diagram',
+    theoryImage: '/assets/pdf_diagrams/cylinder_head_theory.png',
+    theoryCaption: 'Combustion Chamber Sealing & Air/Fuel Gas Flow Diagram',
+  },
+  'moto-seals': {
+    structureImage: '/assets/pdf_diagrams/cylinder_structure.png',
+    structureCaption: 'Motorcycle Cylinder Barrel, Bore & Gasket Mounting Structure Diagram',
+    theoryImage: '/assets/pdf_diagrams/cylinder_theory.png',
+    theoryCaption: 'Piston Movement, Ring Sealing & Heat Dissipation Principle',
+  },
+  'ebike-motor': {
+    structureImage: '/assets/pdf_diagrams/ebike_motor_structure.png',
+    structureCaption: 'BLDC Hub Motor Stator, Rotor & Planetary Gear Assembly Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_motor_theory.png',
+    theoryCaption: 'Direct-Drive vs Geared Hub Motor Commutation & Torque Comparison',
+  },
+  'ebike-battery': {
+    structureImage: '/assets/pdf_diagrams/ebike_controller_structure.png',
+    structureCaption: 'E-Bike Motor Controller Circuit Board & Terminal Architecture Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_controller_theory.png',
+    theoryCaption: 'Rider Input Signal Processing & Motor Phase Switching Diagram',
+  },
+  'ebike-drive': {
+    structureImage: '/assets/pdf_diagrams/ebike_charger_structure.png',
+    structureCaption: 'Li-ion Battery Charger Circuitry & Outer Housing Anatomy Diagram',
+    theoryImage: '/assets/pdf_diagrams/ebike_charger_theory.png',
+    theoryCaption: 'Constant-Current / Constant-Voltage (CC-CV) Charging Stage Graph',
+  },
+}
+
+export default function ProductGalleryViewer({ subProduct, dataSheet }) {
   const [activeAngleIndex, setActiveAngleIndex] = useState(0)
   const [isZooming, setIsZooming] = useState(false)
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 })
@@ -12,94 +72,46 @@ export default function ProductGalleryViewer({ subProduct }) {
   const [touchEnd, setTouchEnd] = useState(null)
   const containerRef = useRef(null)
 
-  // Curate 3-4 specialized angle/detail views per product from verified assets
-  const getAnglesForProduct = (sub) => {
+  // Curate views from product master photo and official data sheet diagrams
+  const getAnglesForProduct = (sub, sheet) => {
     if (!sub) return []
     const baseImg = sub.image || '/assets/clean_product_images/clean_aaa.png'
-    const id = sub.id || ''
+    const ds = sheet || DATA_SHEETS_FALLBACK[sub.id] || {}
 
-    if (id === 'valve-stem') {
-      return [
-        { label: 'Studio Front Angle', tag: 'Primary Specification', url: baseImg },
-        { label: 'Internal Lip & Spring Detail', tag: 'Microscopic Sealing Lip', url: '/assets/cylinder.png' },
-        { label: 'Dynamic Sealing Theory View', tag: 'Combustion Chamber Fit', url: '/assets/cyy.png' },
-        { label: 'Bulk Export Packaging', tag: 'OEM Protective Crate', url: '/assets/valve-section1.jpg' },
-      ]
-    }
-    if (id === 'o-rings') {
-      return [
-        { label: 'Studio Precision Angle', tag: '70-90 Shore Durometer', url: baseImg },
-        { label: 'Groove Dimensional View', tag: 'AS568 / Metric Section', url: '/assets/il2.png' },
-        { label: 'High-Pressure Theory View', tag: 'Extrusion & Gap Resistance', url: '/assets/oo.png' },
-        { label: 'Material Assortment Batch', tag: 'Fluorocarbon / Viton & NBR', url: '/assets/ringss.jpg' },
-      ]
-    }
-    if (id === 'oil-seals') {
-      return [
-        { label: 'Dual-Lip Studio View', tag: 'Hydrodynamic Spiral Profile', url: baseImg },
-        { label: 'Garter Spring & Casing', tag: 'Carbon / Stainless Reinforcement', url: '/assets/rotary_oil_seals.png' },
-        { label: 'High-RPM Shaft Fit', tag: '10,000 RPM Dynamic Test', url: '/assets/oilseals.png' },
-        { label: 'Bulk Industrial Pack', tag: 'Moisture-Proof Export Bag', url: '/assets/12.jpg' },
-      ]
-    }
-    if (id === 'moto-engine') {
-      return [
-        { label: 'Forged Crankshaft Assembly', tag: 'Balanced 4340 Alloy Steel', url: baseImg },
-        { label: 'Precision Ground Journal', tag: 'Micron Precision Tolerance', url: '/assets/parts/engine_crankshaft.png' },
-        { label: 'Heavy-Duty Connecting Rod', tag: 'Forged 20CrMo Alloy Steel', url: '/assets/parts/engine_connecting_rod.png' },
-        { label: 'Complete Overhaul Box', tag: 'Anti-Corrosion Sealed Pack', url: '/assets/crankshaft_main.png' },
-      ]
-    }
-    if (id === 'moto-clutch') {
-      return [
-        { label: 'Precision Cylinder Head', tag: 'A356.2 Die-Cast Aluminum', url: baseImg },
-        { label: 'Combustion Chamber & Seats', tag: 'CNC Milled Combustion Bowl', url: '/assets/parts/engine_cylinder_head.png' },
-        { label: 'SUH3/35 Valvetrain Set', tag: 'High-Temp Heat Treatment', url: '/assets/parts/engine_valves.png' },
-        { label: 'Machined Gasket Surface', tag: 'Zero-Defect Flatness Check', url: '/assets/cylinder.png' },
-      ]
-    }
-    if (id === 'moto-gasket') {
-      return [
-        { label: 'Cylinder Block Profile', tag: 'Cast-Iron / NikaSil Bore', url: baseImg },
-        { label: 'Honed Cylinder Sleeve', tag: 'Cross-Hatch Plateau Finish', url: '/assets/parts/engine_cylinder_block.png' },
-        { label: 'Forged Piston & Wristpin', tag: 'Thermal Expansion Control', url: '/assets/parts/engine_piston.png' },
-        { label: 'Nitride Piston Rings Set', tag: 'Oil Scraper & Compression', url: '/assets/parts/engine_piston_rings.png' },
-      ]
-    }
-    if (id === 'ebike-powertrain') {
-      return [
-        { label: 'BLDC Hub Motor Studio View', tag: 'Waterproof IP67 Rating', url: baseImg },
-        { label: 'Internal Rotor & Stator Core', tag: 'Pure Copper Windings / Neodymium', url: '/assets/ebike_motor_main.png' },
-        { label: 'Rotary Double Lip Shaft Seal', tag: 'Dirt & Water Exclusion', url: '/assets/ebike_motor_sealing.png' },
-        { label: 'Heavy-Duty Wheel Hub Fit', tag: 'Reinforced Spoke Flange', url: '/assets/ebike.png' },
-      ]
-    }
-    if (id === 'ebike-battery') {
-      return [
-        { label: 'Sine-Wave Motor Controller', tag: 'Regenerative Braking Unit', url: baseImg },
-        { label: 'Anodized Heat-Sink Casing', tag: 'Thermal Dissipation Fins', url: '/assets/ebike_drive_system_sealing.png' },
-        { label: 'Multi-Wire Sealed Harness', tag: 'Flame-Retardant Grommets', url: '/assets/homepage_bento_ebike_clean.png' },
-        { label: 'Shockproof Testing Setup', tag: 'UL94-V0 Vibration Tested', url: '/assets/chat.png' },
-      ]
-    }
-    if (id === 'ebike-accessories') {
-      return [
-        { label: 'Smart Fast Charger Studio View', tag: 'CC/CV 48V-72V Auto-Detect', url: baseImg },
-        { label: 'Flame-Resistant Battery Pack', tag: 'UL94-V0 Silicone Enclosure', url: '/assets/ebike_battery_sealing.png' },
-        { label: 'Active Cooling Vent & Fan', tag: 'Short-Circuit Protection IC', url: '/assets/clean_product_images/fast_bbb.png' },
-        { label: 'Waterproof DC Charging Port', tag: 'Spring-Loaded Sealed Cap', url: '/assets/homepage_3d_bento_ebike.png' },
-      ]
-    }
-
-    // Default fallback to 3 crisp visual angles
-    return [
-      { label: 'Standard Export Profile', tag: 'Primary View', url: baseImg },
-      { label: 'Material & Machining Detail', tag: 'Macro Angle', url: sub.image || '/assets/clean_product_images/clean_aaa.png' },
-      { label: 'Quality Verification Inspection', tag: 'ISO 9001 Tested', url: '/assets/quality_compliance_bg.jpg' },
+    const anglesList = [
+      {
+        label: 'Product Overview',
+        tag: 'Master Spec',
+        url: baseImg,
+        caption: `${sub.name || 'Product'} Overview Photo`
+      }
     ]
+
+    // 1. Technical Structure Diagram from Data Sheet
+    if (ds.structureImage) {
+      anglesList.push({
+        label: 'Structure Diagram',
+        tag: 'Data Sheet Structure',
+        url: ds.structureImage,
+        caption: ds.structureCaption || 'Technical Structure Diagram'
+      })
+    }
+
+    // 2. Sealing / Operating Theory Diagram from Data Sheet
+    if (ds.theoryImage) {
+      const isSealing = sub.id?.includes('seal') || sub.id === 'valve-stem' || sub.id === 'o-rings'
+      anglesList.push({
+        label: isSealing ? 'Sealing Theory' : 'Operating Principle',
+        tag: 'Data Sheet Theory',
+        url: ds.theoryImage,
+        caption: ds.theoryCaption || 'Engineering Operating Principle'
+      })
+    }
+
+    return anglesList
   }
 
-  const angles = getAnglesForProduct(subProduct)
+  const angles = getAnglesForProduct(subProduct, dataSheet)
 
   // Reset angle to 0 whenever the selected product changes
   useEffect(() => {
@@ -180,6 +192,15 @@ export default function ProductGalleryViewer({ subProduct }) {
           </span>
         </div>
 
+        {/* Caption Pill Bottom-Left */}
+        {currentAngle?.caption && (
+          <div className="absolute bottom-3.5 left-3.5 z-20 pointer-events-none max-w-[55%] sm:max-w-[65%]">
+            <span className="px-2.5 py-1 bg-white/90 text-gray-700 text-[10px] sm:text-[11px] font-medium rounded-lg shadow-sm border border-gray-200/80 truncate block backdrop-blur-xs">
+              {currentAngle.caption}
+            </span>
+          </div>
+        )}
+
         {/* Zoom Instructions Pill Bottom-Right */}
         <div className="absolute bottom-3.5 right-3.5 z-20 pointer-events-none">
           <span className="px-3 py-1 bg-black/70 text-white text-[10px] sm:text-xs font-semibold rounded-full shadow-lg backdrop-blur-md flex items-center gap-1.5 transition-opacity duration-300 group-hover:opacity-90 opacity-75">
@@ -217,8 +238,8 @@ export default function ProductGalleryViewer({ subProduct }) {
         )}
       </div>
 
-      {/* Angle Thumbnails Carousel Switcher */}
-      <div className="grid grid-cols-4 gap-2 sm:gap-3">
+      {/* Angle Thumbnails Carousel Switcher showing Data Sheet Images */}
+      <div className={`grid gap-2 sm:gap-3 ${angles.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
         {angles.map((ang, idx) => {
           const isActive = idx === activeAngleIndex
           return (

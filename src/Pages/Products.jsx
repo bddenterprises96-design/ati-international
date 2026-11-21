@@ -1296,7 +1296,7 @@ function ProductDetail({
         <div className="bg-white border border-[#c5c6cd] rounded-2xl p-6 sm:p-8 shadow-sm animate-fadeIn">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
             {/* Multi-Angle Gallery Viewer with Hover Magnifier */}
-            <ProductGalleryViewer subProduct={sub} />
+            <ProductGalleryViewer subProduct={sub} dataSheet={DATA_SHEETS[sub.id]} />
 
             <div>
               <div className="inline-block px-3 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
