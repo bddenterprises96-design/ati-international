@@ -171,7 +171,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-16 sm:-mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-[134px] sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-16 sm:-mt-20 min-h-[760px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] pt-[134px] sm:pt-40 md:pt-48 pb-10 sm:pb-16 md:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
 
         {/* Video Background — starts strictly at top-16/top-20 below navbar */}
         <div className="absolute top-16 sm:top-20 inset-x-0 bottom-0 overflow-hidden">
@@ -182,7 +182,7 @@ export default function AboutUs({ onNavigate }) {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover object-center pointer-events-none"
+            className="w-full h-full object-cover object-center sm:object-[85%_center] xl:object-center pointer-events-none"
           >
             <source
               src={isMobile ? HERO_MOBILE_VIDEO : HERO_DESKTOP_VIDEO}
@@ -192,7 +192,7 @@ export default function AboutUs({ onNavigate }) {
         </div>
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/25 to-[#005691]/00" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/15 to-[#005691]/00" />
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
