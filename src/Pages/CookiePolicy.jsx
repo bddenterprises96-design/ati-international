@@ -70,7 +70,7 @@ export default function CookiePolicy({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen text-[#191c1e]">
 
       {/* Hero Header */}
-      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         {/* Background image */}
         <img
           src="/assets/quality_compliance_bg.jpg"
@@ -419,22 +419,22 @@ export default function CookiePolicy({ onNavigate }) {
                 In addition to utilizing our preference tool above, you have full control over cookies through your web browser settings. Most browsers allow you to block all cookies, reject third-party cookies, or clear your cache upon closing the application:
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs sm:text-sm">
-                <div className="p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
-                  <strong className="block text-[#191c1e] font-bold mb-1">Google Chrome</strong>
-                  <span className="text-[#505f76] text-xs">Settings &gt; Privacy and Security &gt; Third-party cookies</span>
+              <div className="grid grid-cols-4 gap-2 sm:gap-3 text-xs sm:text-sm">
+                <div className="p-2 sm:p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
+                  <strong className="block text-[#191c1e] font-bold text-[10px] sm:text-sm mb-0.5 sm:mb-1 leading-tight">Google Chrome</strong>
+                  <span className="text-[#505f76] text-[8.5px] sm:text-xs leading-tight block">Settings &gt; Privacy and Security</span>
                 </div>
-                <div className="p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
-                  <strong className="block text-[#191c1e] font-bold mb-1">Mozilla Firefox</strong>
-                  <span className="text-[#505f76] text-xs">Settings &gt; Privacy &amp; Security &gt; Enhanced Tracking Protection</span>
+                <div className="p-2 sm:p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
+                  <strong className="block text-[#191c1e] font-bold text-[10px] sm:text-sm mb-0.5 sm:mb-1 leading-tight">Mozilla Firefox</strong>
+                  <span className="text-[#505f76] text-[8.5px] sm:text-xs leading-tight block">Settings &gt; Enhanced Protection</span>
                 </div>
-                <div className="p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
-                  <strong className="block text-[#191c1e] font-bold mb-1">Apple Safari</strong>
-                  <span className="text-[#505f76] text-xs">Preferences &gt; Privacy &gt; Block all cookies / Hide IP</span>
+                <div className="p-2 sm:p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
+                  <strong className="block text-[#191c1e] font-bold text-[10px] sm:text-sm mb-0.5 sm:mb-1 leading-tight">Apple Safari</strong>
+                  <span className="text-[#505f76] text-[8.5px] sm:text-xs leading-tight block">Preferences &gt; Block all cookies</span>
                 </div>
-                <div className="p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
-                  <strong className="block text-[#191c1e] font-bold mb-1">Microsoft Edge</strong>
-                  <span className="text-[#505f76] text-xs">Settings &gt; Cookies and site permissions &gt; Manage cookies</span>
+                <div className="p-2 sm:p-4 bg-[#f7f9fb] border border-[#c5c6cd] rounded-xl text-center">
+                  <strong className="block text-[#191c1e] font-bold text-[10px] sm:text-sm mb-0.5 sm:mb-1 leading-tight">Microsoft Edge</strong>
+                  <span className="text-[#505f76] text-[8.5px] sm:text-xs leading-tight block">Settings &gt; Manage cookies</span>
                 </div>
               </div>
               <p className="text-xs text-[#505f76] italic">

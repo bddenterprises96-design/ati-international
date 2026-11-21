@@ -935,7 +935,7 @@ export default function ContactUS({ onNavigate }) {
     <div className="bg-[#f2f5f8] min-h-screen pb-24">
 
       {/* Hero */}
-      <section className="relative -mt-20 pt-28 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-20 pt-44 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
         <img
           src="/assets/icccc.png"
           alt="ATI Facility"

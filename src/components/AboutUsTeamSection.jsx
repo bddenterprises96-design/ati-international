@@ -66,7 +66,7 @@ export default function AboutUsTeamSection({ onNavigate }) {
         </div>
 
         {/* Company Sourcing & Export Credentials Banner */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 sm:mb-16">
+        <div className="grid grid-cols-4 gap-2 sm:gap-4 mb-12 sm:mb-16">
           {[
             { stat: '25+', label: 'Years Sourcing Experience', icon: 'history_edu' },
             { stat: '40+', label: 'Destination Countries', icon: 'public' },
@@ -75,13 +75,13 @@ export default function AboutUsTeamSection({ onNavigate }) {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="bg-white border border-[#cbe3f7] rounded-2xl p-5 text-center shadow-xs hover:shadow-md hover:border-[#005691] transition-all"
+              className="bg-white border border-[#cbe3f7] rounded-xl sm:rounded-2xl p-2 sm:p-5 text-center shadow-xs hover:shadow-md hover:border-[#005691] transition-all"
             >
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#005691]/10 text-[#005691] flex items-center justify-center mb-2">
-                <span className="material-symbols-outlined text-xl">{item.icon}</span>
+              <div className="w-7 h-7 sm:w-10 sm:h-10 mx-auto rounded-lg sm:rounded-xl bg-[#005691]/10 text-[#005691] flex items-center justify-center mb-1.5 sm:mb-2">
+                <span className="material-symbols-outlined text-base sm:text-xl">{item.icon}</span>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#005691] mb-1">{item.stat}</div>
-              <div className="text-xs font-medium text-gray-600">{item.label}</div>
+              <div className="text-base sm:text-3xl font-extrabold text-[#005691] mb-0.5 sm:mb-1">{item.stat}</div>
+              <div className="text-[9.5px] sm:text-xs font-medium text-gray-600 leading-tight">{item.label}</div>
             </div>
           ))}
         </div>

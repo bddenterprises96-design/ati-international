@@ -171,7 +171,7 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-28 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-44 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
 
         {/* Video Background — starts strictly at top-20 (80px) below navbar */}
         <div className="absolute top-20 inset-x-0 bottom-0 overflow-hidden">
@@ -586,7 +586,7 @@ export default function AboutUs({ onNavigate }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-4xl mx-auto">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'verified' },
               { cert: 'RoHS', desc: 'Hazardous Substance Compliance', icon: 'eco' },
@@ -595,14 +595,14 @@ export default function AboutUs({ onNavigate }) {
             ].map((c) => (
               <div
                 key={c.cert}
-                className="bg-white/15 backdrop-blur-md border border-white/25 rounded-xl p-3.5 sm:p-4 hover:bg-white/25 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 shadow-lg flex flex-col items-center justify-center text-center group"
+                className="bg-white/15 backdrop-blur-md border border-white/25 rounded-xl p-2 sm:p-4 hover:bg-white/25 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 shadow-lg flex flex-col items-center justify-center text-center group"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-white text-lg sm:text-xl">{c.icon}</span>
+                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-white/15 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined text-white text-base sm:text-xl">{c.icon}</span>
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-white mb-1 leading-snug">{c.cert}</div>
-                  <div className="text-white/80 text-[11px] sm:text-xs leading-snug">{c.desc}</div>
+                  <div className="text-[10px] sm:text-sm font-bold text-white mb-0.5 sm:mb-1 leading-tight">{c.cert}</div>
+                  <div className="text-white/80 text-[8.5px] sm:text-xs leading-tight sm:leading-snug">{c.desc}</div>
                 </div>
               </div>
             ))}
