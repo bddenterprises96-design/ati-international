@@ -44,7 +44,7 @@ export default function ProductCatalog({ onNavigate }) {
               </button>
               <button
                 onClick={() => onNavigate && onNavigate('Contact Us')}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-amber-500/25 flex items-center gap-1.5"
+                className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xl shadow-black/60 flex items-center gap-1.5"
               >
                 <span>Request Quote</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -73,7 +73,7 @@ export default function ProductCatalog({ onNavigate }) {
                 </button>
                 <button
                   onClick={() => onNavigate && onNavigate('Contact Us')}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-amber-500/25 flex items-center gap-1.5"
+                  className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-black/50 flex items-center gap-1.5"
                 >
                   <span>Request Quote</span>
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>

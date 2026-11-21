@@ -124,7 +124,7 @@ export default function WhyATI({ onNavigate }) {
             </div>
             <button
               onClick={() => handleNavigate('Products#motorcycle')}
-              className="w-full bg-[#FF6B35] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-orange-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/50"
             >
               EXPLORE MOTORCYCLE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -498,7 +498,7 @@ export default function WhyATI({ onNavigate }) {
           <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => handleNavigate('Contact Us')}
-              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-8 py-3.5 rounded-xl text-xs transition-all inline-flex items-center gap-2 shadow-lg shadow-amber-500/25 uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
+              className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-8 py-3.5 rounded-xl text-xs transition-all inline-flex items-center gap-2 shadow-xl shadow-black/60 uppercase tracking-widest hover:scale-105 active:scale-95 duration-200 cursor-pointer"
             >
               <span className="material-symbols-outlined text-base">request_quote</span>
               <span>Request Sourcing Proposal</span>

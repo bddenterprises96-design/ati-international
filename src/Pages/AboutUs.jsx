@@ -262,7 +262,7 @@ export default function AboutUs({ onNavigate }) {
               </button>
               <button
                 onClick={() => onNavigate('Contact Us')}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-lg shadow-amber-500/25 cursor-pointer"
+                className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-xl shadow-black/60 cursor-pointer"
               >
                 <span>Get a Quote</span>
               </button>
@@ -346,7 +346,7 @@ export default function AboutUs({ onNavigate }) {
               key={tab.id}
               onClick={() => setDivisionTab(tab.id)}
               className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 transition-all duration-200 cursor-pointer ${divisionTab === tab.id
-                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md shadow-amber-500/25 scale-105'
+                ? 'bg-gradient-to-b from-zinc-700 via-zinc-900 to-black text-white border border-zinc-500/50 shadow-md shadow-black/50 scale-105'
                 : 'bg-white border border-[#c5c6cd] text-[#505f76] hover:border-[#005691] hover:text-[#005691]'
                 }`}
             >
@@ -397,7 +397,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#industrial-seals')
                   }}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore Industrial Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -446,7 +446,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#motorcycle')
                   }}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore Motorcycle Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -495,7 +495,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#e-bike')
                   }}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore E-Bike Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -557,52 +557,51 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── CERTIFICATIONS & COMPLIANCE STANDARDS ── */}
-      <section className="relative py-16 sm:py-24 overflow-hidden">
-        {/* Generated product background image */}
-        <img
-          src="/assets/compliance_bg.jpg"
-          alt="Quality Assurance & Compliance"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        {/* Dark navy overlay for maximum contrast and zero-lag rendering */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#002447]/90 via-[#004275]/15 to-[#001d3a]/20" />
+      <section className="relative py-14 sm:py-24 overflow-hidden">
+        {/* Technical Blueprint CAD background image */}
+        <picture className="absolute inset-0 w-full h-full pointer-events-none">
+          <source media="(max-width: 639px)" srcSet="/assets/compliance_blueprint_mobile.jpg" />
+          <img
+            src="/assets/compliance_blueprint_bg.jpg"
+            alt="Quality Assurance & Compliance Standards Blueprint"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
 
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 text-center">
-          <div className="mb-3">
-            <span className="inline-block px-3.5 py-1 bg-white/15 backdrop-blur-md text-white text-xs font-semibold rounded-full uppercase tracking-widest border border-white/25 shadow-sm">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-3.5 sm:px-8 text-center">
+          <div className="mb-2.5 sm:mb-3">
+            <span className="inline-block px-3.5 py-1 bg-white/10 border border-white/25 text-white text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider backdrop-blur-xs shadow-sm">
               Global Quality Assurance
             </span>
           </div>
 
-          <div className="mb-4">
-            <h2 className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl text-2xl sm:text-4xl font-extrabold text-white tracking-widest shadow-lg">
-              Compliance Standards
-            </h2>
-          </div>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2 sm:mb-4 drop-shadow-sm">
+            Compliance Standards
+          </h2>
 
-          <div className="mb-10 sm:mb-14 max-w-2xl mx-auto px-2">
-            <p className="inline-block bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl px-5 sm:px-7 py-3 sm:py-3.5 text-white/95 text-xs sm:text-base leading-relaxed tracking-wider shadow-lg">
-              Products sourced and supplied in strict compliance with international quality, safety, and material standards.
-            </p>
-          </div>
+          <p className="text-white/90 text-[11px] sm:text-base max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-14 font-normal drop-shadow-sm px-2">
+            Products sourced and supplied in strict compliance with international quality, safety, and material standards.
+          </p>
 
-          <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 max-w-6xl mx-auto">
             {[
-              { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'verified' },
+              { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'check_circle' },
               { cert: 'RoHS', desc: 'Hazardous Substance Compliance', icon: 'eco' },
               { cert: 'REACH', desc: 'Chemical Safety Regulation', icon: 'science' },
               { cert: 'Quality Verification & Traceability', desc: 'Verified Third-Party Inspection Records', icon: 'fact_check' },
             ].map((c) => (
               <div
                 key={c.cert}
-                className="bg-white/15 backdrop-blur-md border border-white/25 rounded-xl p-2 sm:p-4 hover:bg-white/25 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 shadow-lg flex flex-col items-center justify-center text-center group"
+                className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 shadow-lg sm:shadow-xl border border-white/80 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group"
               >
-                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-white/15 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-105 transition-transform">
-                  <span className="material-symbols-outlined text-white text-base sm:text-xl">{c.icon}</span>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#eef5fc] border border-[#d6e7f7] flex items-center justify-center mb-2 sm:mb-3.5 group-hover:scale-110 transition-transform duration-200">
+                  <span className="material-symbols-outlined text-[#005691] text-base sm:text-xl">{c.icon}</span>
                 </div>
-                <div>
-                  <div className="text-[10px] sm:text-sm font-bold text-white mb-0.5 sm:mb-1 leading-tight">{c.cert}</div>
-                  <div className="text-white/80 text-[8.5px] sm:text-xs leading-tight sm:leading-snug">{c.desc}</div>
+                <div className="text-xs sm:text-base font-extrabold text-[#003e69] mb-0.5 sm:mb-1 leading-snug">
+                  {c.cert}
+                </div>
+                <div className="text-[#505f76] text-[9.5px] sm:text-xs font-medium leading-tight sm:leading-relaxed">
+                  {c.desc}
                 </div>
               </div>
             ))}
@@ -664,7 +663,7 @@ export default function AboutUs({ onNavigate }) {
         </p>
         <button
           onClick={() => onNavigate('Contact Us')}
-          className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-extrabold px-10 sm:px-14 py-4 sm:py-4.5 rounded-xl text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 inline-flex items-center justify-center gap-2.5 shadow-xl shadow-amber-500/30 w-full sm:w-auto cursor-pointer"
+          className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-extrabold px-10 sm:px-14 py-4 sm:py-4.5 rounded-xl text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 inline-flex items-center justify-center gap-2.5 shadow-xl shadow-black/60 w-full sm:w-auto cursor-pointer"
         >
           <span className="material-symbols-outlined text-lg">mail</span>
           <span>Contact Our Team</span>

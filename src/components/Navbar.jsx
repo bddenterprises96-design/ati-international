@@ -117,7 +117,7 @@ export default function Navbar({ onNavigate }) {
           {/* Request a Quote button with High-Contrast Accent (Section 03-A) — hidden on mobile to keep navbar clean, visible on sm+ */}
           <button
             onClick={() => onNavigate('Contact Us')}
-            className="hidden sm:flex bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl items-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="hidden sm:flex bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl items-center gap-2 shadow-xl shadow-black/60 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
           >
             <span className="material-symbols-outlined text-base">request_quote</span>
             <span>Request a Quote</span>

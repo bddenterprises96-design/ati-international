@@ -208,7 +208,7 @@ export default function VisualComponentShowcase({ specs = [], subProductName = '
                 <button
                   type="button"
                   onClick={() => handleQuoteClick(item)}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all hover:scale-105 active:scale-95 duration-200 flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer"
+                  className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold text-xs px-3.5 py-2 rounded-xl transition-all hover:scale-105 active:scale-95 duration-200 flex items-center gap-1.5 shadow-md shadow-black/50 cursor-pointer"
                 >
                   <span>Quote</span>
                   <span className="material-symbols-outlined text-xs">arrow_forward</span>
@@ -259,7 +259,7 @@ export default function VisualComponentShowcase({ specs = [], subProductName = '
                     <button
                       type="button"
                       onClick={() => handleQuoteClick(item)}
-                      className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-[11px] px-3.5 py-1.5 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                      className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold text-[11px] px-3.5 py-1.5 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-md shadow-black/50 cursor-pointer"
                     >
                       Request Quote
                     </button>

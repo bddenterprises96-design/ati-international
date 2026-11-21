@@ -1310,7 +1310,7 @@ function ProductDetail({
               <div className="flex flex-wrap gap-3.5 mb-6">
                 <button
                   onClick={() => onNavigate('Contact Us')}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:scale-105 duration-200 flex items-center gap-2 shadow-lg shadow-amber-500/30 cursor-pointer"
+                  className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:scale-105 duration-200 flex items-center gap-2 shadow-xl shadow-black/60 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-base">request_quote</span>
                   Request Instant Quote
@@ -1418,7 +1418,7 @@ function ProductDetail({
             <div className="p-6 pt-0 bg-[#f0f7ff]">
               <div className="flex flex-col gap-2">
                 <button
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 py-2.5 rounded-lg text-sm transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-4 py-2.5 rounded-lg text-sm transition-all hover:scale-105 duration-200 flex items-center justify-center gap-2 shadow-xl shadow-black/60 cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation()
                     onNavigate('Contact Us')
@@ -1525,20 +1525,29 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
-        <img
-          src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795206412/Industrial_Mobility_Parts_Showcase_lvp1rm.png"
-          alt="ATI Facility"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/10" />
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+      <section className="relative -mt-16 sm:-mt-20 pt-28 sm:pt-48 pb-60 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-[#005691] min-h-[520px] sm:min-h-[420px] flex flex-col justify-between">
+        <picture className="absolute inset-0 w-full h-full pointer-events-none">
+          <img
+            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg"
+            alt="ATI Products - Motorcycle, E-Bike & Sealing Solutions"
+            className="w-full h-full object-cover object-bottom sm:object-right sm:object-cover"
+            onError={(e) => {
+              e.target.src = 'https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg'
+            }}
+          />
+        </picture>
+        {/* Blue overlay matching Why ATI & other pages */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#005691] via-[#005691]/80 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/75 sm:to-[#005691]/00 pointer-events-none" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto w-full">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Our Products
           </span>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Everything You Need</h1>
-          <p className="text-white/90 text-xs sm:text-base max-w-1xl leading-relaxed">
-            Looking for the right parts without the sourcing hassle? From Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions, AT International brings quality-verified products together under one trusted roof — helping buyers source with confidence and keep their businesses moving forward.
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
+            Every Part<br />One Trusted Source
+          </h1>
+          <p className="text-white/90 text-xs sm:text-base max-w-2xl leading-relaxed">
+            From Motorcycle Parts and E-Bike Parts to Industrial Sealing Solutions — quality-verified and supplied in bulk from China.
           </p>
         </div>
       </section>

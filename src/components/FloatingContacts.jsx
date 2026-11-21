@@ -603,7 +603,7 @@ export default function FloatingContacts() {
                     className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg uppercase tracking-wider ${
                       hasMoqErrors
                         ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
-                        : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white hover:scale-105 active:scale-95 cursor-pointer shadow-amber-500/30'
+                        : 'bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 hover:scale-105 active:scale-95 cursor-pointer shadow-black/60'
                     }`}
                     title={hasMoqErrors ? 'Increase quantities to meet MOQ for all items before proceeding' : 'Proceed to Procurement Inquiry'}
                   >

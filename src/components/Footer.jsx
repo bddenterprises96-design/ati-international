@@ -206,7 +206,7 @@ export default function Footer({ onNavigate }) {
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all cursor-pointer shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 active:scale-95 duration-200"
+            className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-5 py-2.5 rounded-xl text-sm transition-all cursor-pointer shadow-xl shadow-black/60 flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 active:scale-95 duration-200"
           >
             <span className="material-symbols-outlined text-base">request_quote</span>
             <span>Request a Quote</span>

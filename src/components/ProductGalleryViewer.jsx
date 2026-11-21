@@ -250,7 +250,7 @@ export default function ProductGalleryViewer({ subProduct, dataSheet }) {
               className={`
                 relative rounded-xl p-1.5 sm:p-2 bg-white border-2 text-left transition-all duration-200 flex flex-col items-center cursor-pointer group
                 ${isActive
-                  ? 'border-amber-500 shadow-md shadow-amber-500/20 ring-2 ring-amber-500/20 scale-[1.02]'
+                  ? 'border-black shadow-md shadow-black/25 ring-2 ring-black/30 scale-[1.02]'
                   : 'border-[#c5c6cd] hover:border-[#005691] opacity-75 hover:opacity-100'
                 }
               `}

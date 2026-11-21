@@ -39,7 +39,7 @@ export default function Hero({ onNavigate }) {
             </button>
             <button
               onClick={() => onNavigate('Contact Us')}
-              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-sm rounded-xl flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-3 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-sm rounded-xl flex items-center justify-center gap-1.5 shadow-xl shadow-black/60 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <span>Get a Quote</span>
               <span className="material-symbols-outlined text-sm sm:text-base">request_quote</span>

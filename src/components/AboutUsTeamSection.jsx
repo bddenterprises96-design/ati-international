@@ -159,7 +159,7 @@ export default function AboutUsTeamSection({ onNavigate }) {
               href="https://wa.me/message/63ZBE2NPDE3FB1"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25"
+              className="flex-1 sm:flex-none bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-xl shadow-black/60"
             >
               <span className="material-symbols-outlined text-base">chat</span>
               <span>Direct WhatsApp Chat</span>
