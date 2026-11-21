@@ -2,6 +2,7 @@ import ProductGalleryViewer from '../components/ProductGalleryViewer'
 import VisualComponentShowcase from '../components/VisualComponentShowcase'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import productsHeroBanner from '../assets/products_hero_banner.jpg'
 
 const DATA_SHEETS = {
   'valve-stem': {
@@ -1531,13 +1532,10 @@ export default function Products({ onNavigate }) {
             src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg"
             alt="ATI Products - Motorcycle, E-Bike & Sealing Solutions"
             className="w-full h-full object-cover object-bottom sm:object-right sm:object-cover"
-            onError={(e) => {
-              e.target.src = 'https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg'
-            }}
           />
         </picture>
         {/* Blue overlay matching Why ATI & other pages */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#005691] via-[#005691]/80 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/75 sm:to-[#005691]/00 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#005691]/80 via-[#005691]/40 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/75 sm:to-[#005691]/00 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto w-full">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">

@@ -2,22 +2,13 @@
  * About Us & Key Team Members Section
  * Conforms to Section 03-E & Section 04 of Website Improvement & Redesign Plan
  */
+import usmanTariqPhoto from '../assets/team/usman_tariq.jpg'
 
 const TEAM_MEMBERS = [
   {
-    name: 'Mr. Tariq Mehmood',
-    role: 'Managing Director & Head of Sourcing',
-    photo: '',
-    experience: '25+ Years Experience',
-    bio: 'Leads global sourcing strategy, supplier auditing, and manufacturer partnerships across China to ensure world-class production standards for international buyers.',
-    badge: 'Executive Leadership',
-    email: 'info@theatinternational.com',
-    whatsapp: 'https://wa.me/message/63ZBE2NPDE3FB1',
-  },
-  {
-    name: 'Mr. Usman Tariq',
+    name: 'Mr. UK',
     role: 'Founder & CEO',
-    photo: '/assets/team/usman_tariq.jpg',
+    photo: usmanTariqPhoto,
     experience: 'Global Trade & Leadership',
     bio: 'Directs overall company vision, international partnerships, multi-modal supply chain operations, and verified delivery to 40+ destination countries.',
     badge: 'Founder & CEO',
@@ -25,9 +16,21 @@ const TEAM_MEMBERS = [
     whatsapp: 'https://wa.me/message/63ZBE2NPDE3FB1',
   },
   {
-    name: 'Mr. Liu Wei',
+    name: 'Mr. Kevin',
+    role: 'Managing Director & Head of Sourcing',
+    photo: '',
+    gender: 'male',
+    experience: '25+ Years Experience',
+    bio: 'Leads global sourcing strategy, supplier auditing, and manufacturer partnerships across China to ensure world-class production standards for international buyers.',
+    badge: 'Executive Leadership',
+    email: 'info@theatinternational.com',
+    whatsapp: 'https://wa.me/message/63ZBE2NPDE3FB1',
+  },
+  {
+    name: 'Mr. Mark',
     role: 'Quality Assurance & Technical Lead',
     photo: '',
+    gender: 'male',
     experience: 'ISO 9001:2015 QA Lead',
     bio: 'Directs on-site factory verification, dimensional laser checks, Shore durometer testing, and strict pre-shipment zero-defect quality control.',
     badge: 'Technical & QA',
@@ -35,9 +38,10 @@ const TEAM_MEMBERS = [
     whatsapp: 'https://wa.me/message/63ZBE2NPDE3FB1',
   },
   {
-    name: 'Ms. Fatima Noor',
+    name: 'Ms. Rachel',
     role: 'Customer Support & Procurement Coordinator',
     photo: '',
+    gender: 'female',
     experience: 'Client Accounts & RFQs',
     bio: 'Ensures 24-hour turnaround on technical quotes, manages OEM sample distribution, and coordinates bespoke CAD drawing sourcing requests.',
     badge: 'Client Relations',
@@ -50,7 +54,7 @@ export default function AboutUsTeamSection({ onNavigate }) {
   return (
     <section className="mt-16 pt-16">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
@@ -112,7 +116,9 @@ export default function AboutUsTeamSection({ onNavigate }) {
                     </>
                   ) : (
                     <div className="w-full h-full bg-gradient-to-b from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-300">
-                      <span className="material-symbols-outlined text-6xl select-none">person</span>
+                      <span className="material-symbols-outlined text-6xl select-none">
+                        {member.gender === 'female' ? 'woman' : 'man'}
+                      </span>
                     </div>
                   )}
                   <span className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-xs text-[#005691] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
