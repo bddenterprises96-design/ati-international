@@ -54,7 +54,7 @@ export default function Footer({ onNavigate }) {
               </a>
               
               <a
-                href="https://x.com/usman77765687?s=21&t=cTSAe3LIdfcsOj5pi9H0xg"
+                href="https://x.com/ati_china?s=11&t=cTSAe3LIdfcsOj5pi9HOxg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-11 h-11 bg-white/10 hover:bg-black transition-all duration-300 flex items-center justify-center group overflow-hidden rounded-lg"

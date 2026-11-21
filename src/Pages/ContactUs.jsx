@@ -35,7 +35,7 @@ const SOCIAL = [
   },
   {
     name: 'X',
-    href: 'https://x.com/usman77765687?s=21&t=cTSAe3LIdfcsOj5pi9H0xg',
+    href: 'https://x.com/ati_china?s=11&t=cTSAe3LIdfcsOj5pi9HOxg',
     icon: (
       <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
         <rect width="48" height="48" rx="12" fill="#000000" />

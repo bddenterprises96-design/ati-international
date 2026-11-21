@@ -1544,30 +1544,35 @@ export default function Products({ onNavigate }) {
       </section>
 
       {/* Sticky Products Sub-Navigation Bar */}
-      <div className="bg-white shadow-md sticky top-20 z-40 border-b border-[#c5c6cd]">
+      <div className="bg-white shadow-md sticky top-16 sm:top-20 z-40 border-b border-[#c5c6cd]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto h-16 items-center">
-            {PRODUCTS.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => {
-                  setActive(p.id)
-                  setActiveSubProduct(null)
-                  setSheetOpen(false)
-                }}
-                className={`
-                  px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 whitespace-nowrap flex items-center gap-2
-                  ${active === p.id
-                    ? 'bg-[#005691] text-white shadow-lg transform scale-105'
-                    : 'text-[#505f76] hover:text-[#005691] hover:bg-[#005691]/10'
-                  }
-                  transform transition-all duration-300 ease-in-out hover:scale-105
-                `}
-              >
-                <span className="material-symbols-outlined text-base sm:text-lg">{p.icon || 'inventory_2'}</span>
-                {p.name}
-              </button>
-            ))}
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto h-16 items-center">
+            {PRODUCTS.map((p) => {
+              const isActive = active === p.id
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => {
+                    setActive(p.id)
+                    setActiveSubProduct(null)
+                    setSheetOpen(false)
+                  }}
+                  className={`
+                    px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 whitespace-nowrap flex items-center gap-2 border cursor-pointer
+                    ${isActive
+                      ? 'bg-gradient-to-r from-[#005691] to-[#0284c7] text-white shadow-md shadow-blue-500/25 border-blue-600 scale-105'
+                      : 'bg-blue-50/90 text-[#005691] border-blue-200/90 hover:bg-blue-100 hover:border-blue-300 hover:text-blue-900'
+                    }
+                    hover:scale-105 active:scale-95
+                  `}
+                >
+                  <span className={`material-symbols-outlined text-base sm:text-lg transition-colors ${isActive ? 'text-white' : 'text-[#005691]'}`}>
+                    {p.icon || 'inventory_2'}
+                  </span>
+                  <span>{p.name}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>
