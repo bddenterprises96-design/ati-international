@@ -1535,7 +1535,7 @@ export default function Products({ onNavigate }) {
           />
         </picture>
         {/* Blue overlay matching Why ATI & other pages */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#005691]/80 via-[#005691]/40 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/75 sm:to-[#005691]/00 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#005691]/80 via-[#005691]/40 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/15 sm:to-[#005691]/00 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto w-full">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
