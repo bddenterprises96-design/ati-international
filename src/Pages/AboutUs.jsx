@@ -157,10 +157,10 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-20 min-h-[720px] sm:min-h-[750px] pt-28 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-20 min-h-[760px] sm:min-h-[840px] lg:min-h-[880px] pt-28 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
 
-        {/* Video Background — replaces the previous static image */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Video Background — starts strictly at top-20 (80px) below navbar */}
+        <div className="absolute top-20 inset-x-0 bottom-0 overflow-hidden">
           <video
             ref={videoRef}
             autoPlay
