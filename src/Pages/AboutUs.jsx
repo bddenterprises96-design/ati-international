@@ -102,14 +102,28 @@ function MotorcycleTireCard({ type, title, icon, description, imageSrc }) {
   )
 }
 
+// Video Assets
+const HERO_DESKTOP_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795156605/WhatsApp_Video_2026-11-20_at_11.34.58_AM11111_xok9fw.mp4'
+const HERO_MOBILE_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795236864/WhatsApp_Video_2026-11-20_at_11.34.59_AM_kqq6i6.mp4'
+
 // ── Main Component ────────────────────────────────────────────────
 export default function AboutUs({ onNavigate }) {
   const [visible, setVisible] = useState(false)
   const [countStarted, setCountStarted] = useState(false)
   const [divisionTab, setDivisionTab] = useState('all')
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640)
   const statsRef = useRef(null)
   const heroRef = useRef(null)
   const videoRef = useRef(null)
+
+  // Listen for viewport changes to serve the right video resolution
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)')
+    const handler = (e) => setIsMobile(e.matches)
+    setIsMobile(mq.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   // Hero entrance animation & document title
   useEffect(() => {
@@ -144,7 +158,7 @@ export default function AboutUs({ onNavigate }) {
     )
     if (heroRef.current) observer.observe(heroRef.current)
     return () => observer.disconnect()
-  }, [])
+  }, [isMobile])
 
   const STATS = [
     { num: '25+', label: 'Years in Industry' },
@@ -162,14 +176,18 @@ export default function AboutUs({ onNavigate }) {
         {/* Video Background — starts strictly at top-20 (80px) below navbar */}
         <div className="absolute top-20 inset-x-0 bottom-0 overflow-hidden">
           <video
+            key={isMobile ? 'mobile-hero-video' : 'desktop-hero-video'}
             ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full hero-video-showcase pointer-events-none"
+            className="w-full h-full object-cover object-center pointer-events-none"
           >
-            <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1795156605/WhatsApp_Video_2026-11-20_at_11.34.58_AM11111_xok9fw.mp4" />
+            <source
+              src={isMobile ? HERO_MOBILE_VIDEO : HERO_DESKTOP_VIDEO}
+              type="video/mp4"
+            />
           </video>
         </div>
 
