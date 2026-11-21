@@ -114,13 +114,13 @@ export default function Navbar({ onNavigate }) {
         {/* Right Side */}
         <div className="flex items-center gap-3 flex-shrink-0">
 
-          {/* Request a Quote button with High-Contrast Accent (Section 03-A) */}
+          {/* Request a Quote button with High-Contrast Accent (Section 03-A) — hidden on mobile to keep navbar clean, visible on sm+ */}
           <button
             onClick={() => onNavigate('Contact Us')}
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            className="hidden sm:flex bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl items-center gap-2 shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
           >
             <span className="material-symbols-outlined text-base">request_quote</span>
-            <span className="hidden sm:inline">Request a Quote</span>
+            <span>Request a Quote</span>
           </button>
 
           {/* Hamburger — mobile only */}

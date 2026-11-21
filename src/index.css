@@ -29,3 +29,15 @@ body {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* Custom mobile centering for homepage hero showcase video */
+.hero-video-showcase {
+  object-fit: cover;
+  object-position: 82% center;
+}
+
+@media (min-width: 640px) {
+  .hero-video-showcase {
+    object-position: center center;
+  }
+}

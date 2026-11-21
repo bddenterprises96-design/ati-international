@@ -157,17 +157,17 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-20 min-h-[640px] sm:min-h-[750px] pt-24 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-20 min-h-[720px] sm:min-h-[750px] pt-28 sm:pt-48 pb-10 sm:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
 
         {/* Video Background — replaces the previous static image */}
-        <div className="absolute top-16 sm:top-20 inset-x-0 bottom-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
           <video
             ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover object-bottom sm:object-center pointer-events-none"
+            className="w-full h-full hero-video-showcase pointer-events-none"
           >
             <source src="https://res.cloudinary.com/ybne3lvu/video/upload/v1795156605/WhatsApp_Video_2026-11-20_at_11.34.58_AM11111_xok9fw.mp4" />
           </video>
