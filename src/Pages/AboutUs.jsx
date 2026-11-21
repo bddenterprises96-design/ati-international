@@ -192,84 +192,84 @@ export default function AboutUs({ onNavigate }) {
         </div>
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/70 to-[#005691]/00 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/10 to-[#005691]/00 pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
-          <div className="max-w-full sm:max-w-md lg:max-w-xl xl:max-w-2xl">
+            <div className="max-w-full sm:max-w-md lg:max-w-xl xl:max-w-2xl">
 
-            {/* Badge */}
-            <div style={{ transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-1.5 sm:mb-4 uppercase tracking-widest backdrop-blur-xs">
-                GLOBAL REACH • TRUSTED SUPPLY
-              </span>
-            </div>
-
-            {/* Headline & Tagline */}
-            <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-1 sm:mb-4 leading-tight tracking-tight">
-                Global Sourcing <br />Partner
-              </h1>
-              <div className="flex items-center gap-2 sm:gap-2.5 text-white text-xs sm:text-xl md:text-2xl font-bold mb-1.5 sm:mb-6 tracking-tight">
-                <span className="w-5 sm:w-8 h-[2px] sm:h-[2.5px] bg-white inline-block flex-shrink-0" />
-                <span>Keep Your World Moving.</span>
+              {/* Badge */}
+              <div style={{ transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+                <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-1.5 sm:mb-4 uppercase tracking-widest backdrop-blur-xs">
+                  GLOBAL REACH • TRUSTED SUPPLY
+                </span>
               </div>
-            </div>
 
-            {/* Subtext */}
-            <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <p className="max-w-xl text-white/90 text-xs sm:text-base md:text-lg mb-2.5 sm:mb-8 leading-relaxed">
-                Quality-verified parts sourced in China and delivered to businesses across 40+ countries.
-              </p>
-            </div>
+              {/* Headline & Tagline */}
+              <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-1 sm:mb-4 leading-tight tracking-tight">
+                    Global Sourcing <br />Partner
+                  </h1>
+                  <div className="flex items-center gap-2 sm:gap-2.5 text-white text-xs sm:text-xl md:text-2xl font-bold mb-1.5 sm:mb-6 tracking-tight">
+                    <span className="w-5 sm:w-8 h-[2px] sm:h-[2.5px] bg-white inline-block flex-shrink-0" />
+                    <span>Keep Your World Moving.</span>
+                  </div>
+              </div>
 
-            {/* Category Pills */}
-            <div
-              className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-2.5 sm:mb-8"
-              style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
-            >
-              <button
-                type="button"
-                onClick={() => onNavigate('Products#motorcycle')}
-                className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
-              >
-                Motorcycle Parts
-              </button>
-              <button
-                type="button"
-                onClick={() => onNavigate('Products#e-bike')}
-                className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
-              >
-                E-Bike Parts
-              </button>
-              <button
-                type="button"
-                onClick={() => onNavigate('Products#industrial-seals')}
-                className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
-              >
-                Industrial Sealing
-              </button>
-            </div>
+              {/* Subtext */}
+              <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+                <p className="max-w-xl text-white/90 text-xs sm:text-base md:text-lg mb-2.5 sm:mb-8 leading-relaxed">
+                  Quality-verified parts sourced in China and delivered to businesses across 40+ countries.
+                </p>
+              </div>
 
-            {/* Action Buttons: 2 cols on mobile, flex on desktop */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 max-w-sm sm:max-w-none" style={{ transition: 'opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
-              <button
-                onClick={() => onNavigate('Products')}
-                className="bg-white text-[#005691] hover:bg-gray-100 px-3 sm:px-8 py-2 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs sm:text-sm hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+              {/* Category Pills */}
+              <div
+                className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-2.5 sm:mb-8"
+                style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
               >
-                <span>Explore Catalog</span>
-                <span className="material-symbols-outlined text-sm sm:text-base">north_east</span>
-              </button>
-              <button
-                onClick={() => onNavigate('Contact Us')}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-lg shadow-amber-500/25 cursor-pointer"
-              >
-                <span>Get a Quote</span>
-              </button>
-            </div>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('Products#motorcycle')}
+                  className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+                >
+                  Motorcycle Parts
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('Products#e-bike')}
+                  className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+                >
+                  E-Bike Parts
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('Products#industrial-seals')}
+                  className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+                >
+                  Industrial Sealing
+                </button>
+              </div>
 
+              {/* Action Buttons: 2 cols on mobile, flex on desktop */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 max-w-sm sm:max-w-none" style={{ transition: 'opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+                <button
+                  onClick={() => onNavigate('Products')}
+                  className="bg-white text-[#005691] hover:bg-gray-100 px-3 sm:px-8 py-2 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs sm:text-sm hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                >
+                  <span>Explore Catalog</span>
+                  <span className="material-symbols-outlined text-sm sm:text-base">north_east</span>
+                </button>
+                <button
+                  onClick={() => onNavigate('Contact Us')}
+                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-1.5 text-xs sm:text-sm shadow-lg shadow-amber-500/25 cursor-pointer"
+                >
+                  <span>Get a Quote</span>
+                </button>
+              </div>
+
+            </div>
           </div>
-        </div>
 
       </section>
 
