@@ -124,7 +124,7 @@ export default function WhyATI({ onNavigate }) {
             </div>
             <button
               onClick={() => handleNavigate('Products#motorcycle')}
-              className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/50"
+              className="w-full bg-[#FF6B35] hover:bg-[#e0531e] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-orange-500/20"
             >
               EXPLORE MOTORCYCLE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -265,7 +265,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── KEY DIFFERENTIATORS: WHAT SETS US APART ── */}
-      <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
+      <section className="py-10 sm:py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100 mb-3 inline-block">
             Global Supply Advantage
@@ -377,25 +377,25 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── CERTIFICATIONS & COMPLIANCE BAR ── */}
-      <section className="py-16">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+      <section className="py-8 sm:py-16">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-2">Quality & Compliance Assurance</h2>
             <p className="text-[#505f76] text-xs sm:text-sm">Globally recognized standards governing our supply operations and partner factories.</p>
           </div>
-          <div className="grid grid-cols-4 gap-2 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
               { cert: 'ISO 9001:2015', desc: 'Quality Management System', icon: 'verified' },
               { cert: '100% Pre-Shipment Inspection', desc: 'Batch Traceability & Reports', icon: 'fact_check' },
               { cert: 'RoHS 3 Compliant', desc: 'Hazardous Substance Directive', icon: 'eco' },
               { cert: 'REACH Compliant', desc: 'Global Chemical Safety', icon: 'gavel' },
             ].map((c) => (
-              <div key={c.cert} className="bg-white border border-[#cbe3f7] rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center hover:bg-blue-50/50 hover:border-[#005691] transition-all hover:-translate-y-0.5 duration-200 shadow-xs hover:shadow-md">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 bg-[#005691] text-white rounded-lg sm:rounded-2xl flex items-center justify-center mx-auto mb-1.5 sm:mb-3 shadow-md">
-                  <span className="material-symbols-outlined text-base sm:text-2xl">{c.icon}</span>
+              <div key={c.cert} className="bg-white border border-[#cbe3f7] rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:bg-blue-50/50 hover:border-[#005691] transition-all hover:-translate-y-0.5 duration-200 shadow-xs hover:shadow-md">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#005691] text-white rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 shadow-md">
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">{c.icon}</span>
                 </div>
-                <div className="font-bold text-[#005691] text-[10px] sm:text-sm mb-0.5 sm:mb-1 leading-tight">{c.cert}</div>
-                <div className="text-[#505f76] text-[8.5px] sm:text-xs leading-tight sm:leading-normal">{c.desc}</div>
+                <div className="font-bold text-[#005691] text-xs sm:text-sm mb-1 leading-tight">{c.cert}</div>
+                <div className="text-[#505f76] text-[10px] sm:text-xs leading-tight sm:leading-normal">{c.desc}</div>
               </div>
             ))}
           </div>
@@ -403,8 +403,8 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-[#005691] via-[#003d66] to-[#005691]">
-        <div className="max-w-[1280px] mx-auto px-2 sm:px-8 grid grid-cols-4 gap-2 sm:gap-6 text-center relative z-10">
+      <section className="relative py-10 sm:py-16 overflow-hidden bg-gradient-to-r from-[#005691] via-[#003d66] to-[#005691]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 text-center relative z-10">
           {[
             { num: '25+', label: 'Years of Global Trading Experience' },
             { num: '40+', label: 'Export Destinations Worldwide' },
@@ -413,10 +413,10 @@ export default function WhyATI({ onNavigate }) {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-2.5 sm:p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-200 shadow-md group"
+              className="bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-200 shadow-md group"
             >
-              <div className="text-lg sm:text-4xl font-extrabold text-white mb-1 sm:mb-2 group-hover:text-cyan-200 transition-colors">{s.num}</div>
-              <div className="text-white/90 text-[9px] sm:text-sm font-medium leading-tight sm:leading-relaxed tracking-wide">{s.label}</div>
+              <div className="text-2xl sm:text-4xl font-extrabold text-white mb-1 sm:mb-2 group-hover:text-cyan-200 transition-colors">{s.num}</div>
+              <div className="text-white/90 text-xs sm:text-sm font-medium leading-snug sm:leading-relaxed tracking-wide">{s.label}</div>
             </div>
           ))}
         </div>

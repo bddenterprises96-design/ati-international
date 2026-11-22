@@ -3,6 +3,7 @@ import VisualComponentShowcase from '../components/VisualComponentShowcase'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import productsHeroBanner from '../assets/products_hero_banner.jpg'
+import productsHeroMobile from '../assets/products_hero_mobile.jpg'
 
 const DATA_SHEETS = {
   'valve-stem': {
@@ -1526,16 +1527,17 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-16 sm:-mt-20 pt-28 sm:pt-48 pb-60 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-[#005691] min-h-[520px] sm:min-h-[420px] flex flex-col justify-between">
+      <section className="relative -mt-16 sm:-mt-20 pt-28 sm:pt-48 pb-60 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-[#023867] sm:bg-[#005691] min-h-[520px] sm:min-h-[420px] flex flex-col justify-between">
         <picture className="absolute inset-0 w-full h-full pointer-events-none">
+          <source media="(max-width: 639px)" srcSet={productsHeroMobile} />
           <img
             src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg"
             alt="ATI Products - Motorcycle, E-Bike & Sealing Solutions"
-            className="w-full h-full object-cover object-bottom sm:object-right sm:object-cover"
+            className="w-full h-full object-contain object-bottom sm:object-right sm:object-cover"
           />
         </picture>
         {/* Blue overlay matching Why ATI & other pages */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#005691]/80 via-[#005691]/40 to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/15 sm:to-[#005691]/00 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#023867]/60 via-transparent to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/15 sm:to-[#005691]/00 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1280px] mx-auto w-full">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">

@@ -1767,14 +1767,14 @@ export default function Blogs() {
       </section>
 
       {/* Filter Tabs Bar */}
-      <div className="bg-white border-b border-[#c5c6cd] sticky top-20 z-30 shadow-sm">
-        <div className="max-w-[1280px] mx-auto px-8 flex flex-wrap items-center justify-between gap-3 py-3">
-          <div className="flex flex-wrap items-center gap-2">
+      <div className="bg-white border-b border-[#c5c6cd] sticky top-16 sm:top-20 z-30 shadow-sm">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 flex items-center justify-between gap-2 sm:gap-3 py-2 sm:py-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto sm:overflow-visible [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-0.5 flex-1 min-w-0">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all whitespace-nowrap ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                   activeCategory === cat
                     ? 'bg-[#005691] text-white shadow-md'
                     : 'text-[#505f76] hover:bg-[#f2f4f6] hover:text-[#005691]'
@@ -1785,7 +1785,7 @@ export default function Blogs() {
             ))}
           </div>
 
-          <span className="text-xs text-[#505f76] font-medium whitespace-nowrap ml-auto">
+          <span className="text-[11px] sm:text-xs text-[#505f76] font-medium whitespace-nowrap shrink-0 pl-1 sm:pl-0 sm:ml-auto">
             {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
           </span>
         </div>

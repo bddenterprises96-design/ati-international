@@ -160,12 +160,12 @@ export default function AboutUsTeamSection({ onNavigate }) {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <a
               href="https://wa.me/message/63ZBE2NPDE3FB1"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-xl shadow-black/60"
+              className="w-full sm:w-[240px] h-12 bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-4 rounded-xl text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-xl shadow-black/60 whitespace-nowrap"
             >
               <span className="material-symbols-outlined text-base">chat</span>
               <span>Direct WhatsApp Chat</span>
@@ -176,7 +176,7 @@ export default function AboutUsTeamSection({ onNavigate }) {
                 const el = document.getElementById('inquiry-form-section')
                 if (el) el.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="flex-1 sm:flex-none bg-white text-[#005691] hover:bg-gray-100 font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-md"
+              className="w-full sm:w-[240px] h-12 bg-white text-[#005691] hover:bg-gray-100 font-bold px-4 rounded-xl text-xs uppercase tracking-wider border border-white transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer whitespace-nowrap"
             >
               <span className="material-symbols-outlined text-base">edit_note</span>
               <span>Start Sourcing RFQ</span>

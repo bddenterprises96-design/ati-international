@@ -21,13 +21,13 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer className="bg-[#191c1e] text-white">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
 
         {/* Brand */}
         <div className="flex flex-col justify-between h-full">
           <div>
             <div
-              className="flex items-center gap-3 mb-3 cursor-pointer"
+              className="flex items-center gap-4 mb-3 cursor-pointer"
               onClick={() => handleNavigate('Home')}
             >
               <img
@@ -135,15 +135,15 @@ export default function Footer({ onNavigate }) {
           <ul className="space-y-6">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                  <a
-                    href={link.path}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleNavigate(link.label)
-                    }}
-                    className="text-white/60 text-sm hover:text-white transition-colors flex items-center gap-1.5 group cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">chevron_right</span>
+                <a
+                  href={link.path}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavigate(link.label)
+                  }}
+                  className="text-white/60 text-sm hover:text-white transition-colors flex items-center gap-1.5 group cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">chevron_right</span>
                   {link.label}
                 </a>
               </li>
@@ -166,52 +166,52 @@ export default function Footer({ onNavigate }) {
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">precision_manufacturing</span>
                 Industrial Sealing Solutions
-            </a>
-          </li>
-          <li>
+              </a>
+            </li>
+            <li>
               <a
-              href="/products#motorcycle"
-              onClick={(e) => {
-                e.preventDefault()
-                handleNavigate('Products', 'motorcycle')
-              }}
-              className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
-              Motorcycle Parts
-          </a>
-        </li>
-        <li>
+                href="/products#motorcycle"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Products', 'motorcycle')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
+                Motorcycle Parts
+              </a>
+            </li>
+            <li>
               <a
-            href="/products#e-bike"
-            onClick={(e) => {
-              e.preventDefault()
-              handleNavigate('Products', 'e-bike')
-            }}
-            className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
-          >
-            <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
-            E-Bike Parts
-        </a>
-      </li>
-      <li>
+                href="/products#e-bike"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Products', 'e-bike')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
+                E-Bike Parts
+              </a>
+            </li>
+            <li>
               <a
-          href="/contact"
-          onClick={(e) => {
-            e.preventDefault()
-            handleNavigate('Contact Us')
-          }}
-          className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
-        >
-          <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">engineering</span>
-          Custom Order Sourcing
-      </a>
-    </li>
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Contact Us')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">engineering</span>
+                Custom Order Sourcing
+              </a>
+            </li>
           </ul >
         </div >
 
-    {/* Contact & Global Head Office */ }
-    < div >
+        {/* Contact & Global Head Office */}
+        < div >
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
           <ul className="space-y-4 text-white/70 text-sm mb-6">
             <li className="flex items-start gap-3">
@@ -233,7 +233,7 @@ export default function Footer({ onNavigate }) {
           </ul>
           <button
             onClick={() => handleNavigate('Contact Us')}
-            className="bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 font-bold px-5 py-2.5 rounded-xl text-sm transition-all cursor-pointer shadow-xl shadow-black/60 flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 active:scale-95 duration-200"
+            className="bg-white text-black hover:bg-[#005691] hover:text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all cursor-pointer shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105 active:scale-95 duration-200"
           >
             <span className="material-symbols-outlined text-base">request_quote</span>
             <span>Request a Quote</span>
@@ -241,8 +241,8 @@ export default function Footer({ onNavigate }) {
         </div >
       </div >
 
-    {/* Bottom Bar */ }
-    < div className = "border-t border-white/10 py-5 px-4 sm:px-8 text-center text-white/40 text-xs flex flex-col md:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto" >
+      {/* Bottom Bar */}
+      < div className="border-t border-white/10 py-5 px-4 sm:px-8 text-center text-white/40 text-xs flex flex-col md:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto" >
         <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China</div>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/60">
           <a

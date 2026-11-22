@@ -300,7 +300,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── COMPANY OVERVIEW with ANIMATED COUNTERS ── */}
-      <section className="py-12 sm:py-20 max-w-[1280px] mx-auto px-4 sm:px-8">
+      <section className="py-12 sm:py-20 max-w-[1440px] mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-4 sm:mb-6">Our Company</h2>
@@ -397,7 +397,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#industrial-seals')
                   }}
-                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-[#005691] hover:bg-[#003e69] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-blue-900/20 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore Industrial Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -446,7 +446,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#motorcycle')
                   }}
-                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-[#FF6B35] hover:bg-[#e0531e] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore Motorcycle Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -495,7 +495,7 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#e-bike')
                   }}
-                  className="w-full bg-gradient-to-b from-zinc-700 via-zinc-900 to-black hover:from-zinc-600 hover:via-zinc-800 hover:to-neutral-950 text-white border border-zinc-500/50 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/50 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-[#10B981] hover:bg-[#059669] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20 group-hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Explore E-Bike Division</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
