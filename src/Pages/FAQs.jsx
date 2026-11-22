@@ -88,12 +88,31 @@ export default function FAQs({ onNavigate }) {
     document.title = "FAQs | AT International"
   }, [])
 
-  const [open, setOpen] = useState(null)
+  const [open, setOpen] = useState('Products & Specifications-0')
 
   const toggle = (key) => setOpen(open === key ? null : key)
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.flatMap((sec) =>
+      sec.items.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      }))
+    ),
+  }
+
   return (
     <div className="bg-[#f7f9fb] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* Hero */}
       <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
@@ -138,11 +157,9 @@ export default function FAQs({ onNavigate }) {
                       <span className={`font-semibold text-sm leading-snug ${isOpen ? 'text-[#005691]' : 'text-[#191c1e]'}`}>{item.q}</span>
                       <span className={`material-symbols-outlined text-[#005691] flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}>expand_more</span>
                     </button>
-                    {isOpen && (
-                      <div className="px-4 sm:px-8 pb-5 sm:pb-6 border-t border-[#c5c6cd]">
-                        <p className="text-[#505f76] text-sm leading-relaxed pt-4">{item.a}</p>
-                      </div>
-                    )}
+                    <div className={`px-4 sm:px-8 pb-5 sm:pb-6 border-t border-[#c5c6cd] ${isOpen ? 'block' : 'hidden'}`}>
+                      <p className="text-[#505f76] text-sm leading-relaxed pt-4">{item.a}</p>
+                    </div>
                   </div>
                 )
               })}

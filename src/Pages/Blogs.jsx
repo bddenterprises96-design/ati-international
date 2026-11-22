@@ -1439,7 +1439,7 @@ function ArticleModal({ post, onClose, onSelectPost }) {
         <div className="overflow-y-auto p-6 sm:p-10 space-y-8">
           {/* Article Header */}
           <div>
-            <h1 className="text-2xl sm:text-4xl font-bold text-[#005691] leading-tight mb-4">{post.title}</h1>
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#005691] leading-tight mb-4">{post.title}</h2>
             <div className="flex flex-wrap items-center gap-4 text-xs text-[#505f76] pb-4 border-b border-gray-200">
               <span className="font-normal text-[#005691]">{post.author}</span>
               <span>•</span>

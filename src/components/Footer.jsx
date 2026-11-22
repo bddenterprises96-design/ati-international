@@ -1,6 +1,13 @@
 import React from 'react'
 
-const NAV_LINKS = ['Home', 'Products', 'Why ATI?', 'Contact Us', 'Blogs', 'FAQs']
+const NAV_LINKS = [
+  { label: 'Home', path: '/' },
+  { label: 'Products', path: '/products' },
+  { label: 'Why ATI?', path: '/why-ati' },
+  { label: 'Contact Us', path: '/contact' },
+  { label: 'Blogs', path: '/blogs' },
+  { label: 'FAQs', path: '/faqs' },
+]
 
 export default function Footer({ onNavigate }) {
   // Function to handle navigation with product section targeting
@@ -127,14 +134,18 @@ export default function Footer({ onNavigate }) {
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Navigation</h4>
           <ul className="space-y-6">
             {NAV_LINKS.map((link) => (
-              <li key={link}>
-                <button
-                  onClick={() => handleNavigate(link)}
-                  className="text-white/60 text-sm hover:text-white transition-colors flex items-center gap-1.5 group"
+              <li key={link.label}>
+                <a
+                  href={link.path}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavigate(link.label)
+                  }}
+                  className="text-white/60 text-sm hover:text-white transition-colors flex items-center gap-1.5 group cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">chevron_right</span>
-                  {link}
-                </button>
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
@@ -145,40 +156,56 @@ export default function Footer({ onNavigate }) {
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Products</h4>
           <ul className="space-y-6">
             <li>
-              <button
-                onClick={() => handleNavigate('Products', 'industrial-seals')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+              <a
+                href="/products#industrial-seals"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Products', 'industrial-seals')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">precision_manufacturing</span>
                 Industrial Sealing Solutions
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                onClick={() => handleNavigate('Products', 'motorcycle')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+              <a
+                href="/products#motorcycle"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Products', 'motorcycle')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">two_wheeler</span>
                 Motorcycle Parts
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                onClick={() => handleNavigate('Products', 'e-bike')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+              <a
+                href="/products#e-bike"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Products', 'e-bike')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">electric_bike</span>
                 E-Bike Parts
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                onClick={() => handleNavigate('Contact Us')}
-                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group"
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('Contact Us')
+                }}
+                className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >
                 <span className="material-symbols-outlined text-xs opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#005691]">engineering</span>
                 Custom Order Sourcing
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -218,19 +245,27 @@ export default function Footer({ onNavigate }) {
       <div className="border-t border-white/10 py-5 px-4 sm:px-8 text-center text-white/40 text-xs flex flex-col md:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto">
         <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China</div>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/60">
-          <button
-            onClick={() => handleNavigate('Privacy Policy')}
+          <a
+            href="/privacy-policy"
+            onClick={(e) => {
+              e.preventDefault()
+              handleNavigate('Privacy Policy')
+            }}
             className="hover:text-white text-white/75 font-medium transition-colors cursor-pointer hover:underline underline-offset-4"
           >
             Privacy Policy
-          </button>
+          </a>
           <span className="text-white/30">•</span>
-          <button
-            onClick={() => handleNavigate('Cookies Policy')}
+          <a
+            href="/cookie-policy"
+            onClick={(e) => {
+              e.preventDefault()
+              handleNavigate('Cookies Policy')
+            }}
             className="hover:text-white text-white/75 font-medium transition-colors cursor-pointer hover:underline underline-offset-4"
           >
             Cookies Policy
-          </button>
+          </a>
           <span className="hidden sm:inline text-white/30">•</span>
           <span className="text-white/50">Global Trade & Export Supplier</span>
           <span className="hidden sm:inline text-white/30">•</span>

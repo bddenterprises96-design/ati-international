@@ -89,10 +89,14 @@ export default function Navbar({ onNavigate }) {
           {NAV_LINKS.map(({ label, path }) => {
             const active = isActive(path)
             return (
-              <button
+              <a
                 key={label}
-                onClick={() => onNavigate(label)}
-                className={`relative px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                href={path}
+                onClick={(e) => {
+                  e.preventDefault()
+                  onNavigate(label)
+                }}
+                className={`relative px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                   active
                     ? scrolled
                       ? 'text-[#005691] bg-[#e6f1fb]'
@@ -106,7 +110,7 @@ export default function Navbar({ onNavigate }) {
                 {active && (
                   <span className={`absolute bottom-0 left-3 right-3 h-0.5 rounded-full ${scrolled ? 'bg-[#005691]' : 'bg-white'}`} />
                 )}
-              </button>
+              </a>
             )
           })}
         </nav>
@@ -148,10 +152,15 @@ export default function Navbar({ onNavigate }) {
               {NAV_LINKS.map(({ label, path }) => {
                 const active = isActive(path)
                 return (
-                  <button
+                  <a
                     key={label}
-                    onClick={() => { onNavigate(label); setMenuOpen(false) }}
-                    className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all flex items-center justify-between ${
+                    href={path}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      onNavigate(label)
+                      setMenuOpen(false)
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-all flex items-center justify-between cursor-pointer ${
                       active
                         ? 'text-[#005691] bg-[#e6f1fb] border-l-4 border-[#005691]'
                         : 'text-[#505f76] hover:text-[#005691] hover:bg-[#f2f4f6]'
@@ -161,7 +170,7 @@ export default function Navbar({ onNavigate }) {
                     {active && (
                       <span className="material-symbols-outlined text-[#005691] text-sm">chevron_right</span>
                     )}
-                  </button>
+                  </a>
                 )
               })}
             </div>

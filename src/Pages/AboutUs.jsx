@@ -108,7 +108,7 @@ const HERO_MOBILE_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v179
 
 // ── Main Component ────────────────────────────────────────────────
 export default function AboutUs({ onNavigate }) {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const [countStarted, setCountStarted] = useState(false)
   const [divisionTab, setDivisionTab] = useState('all')
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640)
