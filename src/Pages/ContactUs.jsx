@@ -980,7 +980,7 @@ export default function ContactUS({ onNavigate }) {
                 const formEl = document.getElementById('inquiry-form-section')
                 if (formEl) formEl.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="self-end md:self-auto bg-white text-[#005691] px-6 py-3.5 rounded-xl text-xs font-bold hover:bg-gray-100 transition-all shadow-lg hover:scale-105 active:scale-95 duration-200 whitespace-nowrap cursor-pointer"
+              className="self-center md:self-auto bg-white text-[#005691] px-6 py-3.5 rounded-xl text-xs font-bold hover:bg-gray-100 transition-all shadow-lg hover:scale-105 active:scale-95 duration-200 whitespace-nowrap cursor-pointer"
             >
               Request Custom Sourcing
             </button>

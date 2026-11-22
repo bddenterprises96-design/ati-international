@@ -52,7 +52,7 @@ const TEAM_MEMBERS = [
 
 export default function AboutUsTeamSection({ onNavigate }) {
   return (
-    <section className="mt-16 pt-16">
+    <section className="mt-2 pt-6 sm:mt-16 sm:pt-16">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
         {/* Section Header */}

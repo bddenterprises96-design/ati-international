@@ -610,7 +610,7 @@ export default function AboutUs({ onNavigate }) {
       </section>
 
       {/* ── GLOBAL REACH ── */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="pt-10 pb-8 sm:py-20 bg-white">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
           <div className="rounded-2xl overflow-hidden h-64 sm:h-80 shadow-lg">
             <img src="/assets/888.jpeg" alt="AT International Supply" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />

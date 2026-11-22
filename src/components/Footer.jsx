@@ -27,16 +27,16 @@ export default function Footer({ onNavigate }) {
         <div className="flex flex-col justify-between h-full">
           <div>
             <div
-              className="flex items-center gap-4 mb-3 cursor-pointer"
+              className="flex items-center gap-2.5 sm:gap-4 mb-3 cursor-pointer"
               onClick={() => handleNavigate('Home')}
             >
               <img
                 src="/assets/ooll.png"
                 alt="ATI Logo"
-                className="h-16 w-auto object-contain"
+                className="h-9 sm:h-16 w-auto object-contain"
                 onError={(e) => { e.target.style.display = 'none' }}
               />
-              <span className="font-bold text-white text-lg">AT International</span>
+              <span className="font-bold text-white text-base sm:text-lg">AT International</span>
             </div>
             <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-4">
               AT International is a premier global supplier, exporter, and specialized trading company for Motorcycle Parts, E-Bike Parts, and Industrial Sealing Solutions.

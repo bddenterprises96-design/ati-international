@@ -423,7 +423,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── HOW WE WORK WITH YOU (4 COMMITMENT CARDS) ── */}
-      <section className="py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
+      <section className="pt-10 pb-6 sm:py-20 max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-xs font-bold text-[#005691] uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3 inline-block">
             Our Process
@@ -489,7 +489,7 @@ export default function WhyATI({ onNavigate }) {
       </section>
 
       {/* ── CALL TO ACTION ── */}
-      <section className="py-16 text-center">
+      <section className="pt-6 pb-12 sm:py-16 text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#005691] mb-4">Ready to Simplify Your Global Sourcing?</h2>
           <p className="text-[#505f76] text-sm mb-8 leading-relaxed">
