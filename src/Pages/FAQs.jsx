@@ -182,7 +182,7 @@ export default function FAQs({ onNavigate }) {
               <span className="material-symbols-outlined text-sm">chat</span>
               WhatsApp Us
             </a>
-            <button 
+            <button
               onClick={() => onNavigate('Contact Us')}
               className="bg-white text-[#005691] px-8 py-3 rounded-lg font-semibold text-sm hover:brightness-105 flex items-center gap-2 shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
             >
