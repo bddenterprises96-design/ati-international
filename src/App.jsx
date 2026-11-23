@@ -14,6 +14,7 @@ const Blogs = lazy(() => import('./Pages/Blogs'))
 const FAQs = lazy(() => import('./Pages/FAQs'))
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy'))
 const CookiePolicy = lazy(() => import('./Pages/CookiePolicy'))
+const TermsConditions = lazy(() => import('./Pages/TermsConditions'))
 
 // Loading Fallback Component
 function PageLoader() {
@@ -71,6 +72,15 @@ export default function App() {
       'Privacy':        '/privacy-policy',
       'privacy-policy': '/privacy-policy',
       '/privacy-policy':'/privacy-policy',
+      'Terms & Conditions': '/terms-and-conditions',
+      'Terms and Conditions': '/terms-and-conditions',
+      'Terms':              '/terms-and-conditions',
+      'terms-and-conditions': '/terms-and-conditions',
+      '/terms-and-conditions':'/terms-and-conditions',
+      'terms-conditions':   '/terms-and-conditions',
+      '/terms-conditions':  '/terms-and-conditions',
+      'terms':              '/terms-and-conditions',
+      '/terms':             '/terms-and-conditions',
       'Cookie Policy':  '/cookie-policy',
       'Cookies Policy': '/cookie-policy',
       'Cookies':        '/cookie-policy',
@@ -118,6 +128,9 @@ export default function App() {
             <Route path="/faqs"           element={<FAQs          onNavigate={onNavigate} />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy onNavigate={onNavigate} />} />
             <Route path="/privacy"        element={<PrivacyPolicy onNavigate={onNavigate} />} />
+            <Route path="/terms-and-conditions" element={<TermsConditions onNavigate={onNavigate} />} />
+            <Route path="/terms-conditions"     element={<TermsConditions onNavigate={onNavigate} />} />
+            <Route path="/terms"                element={<TermsConditions onNavigate={onNavigate} />} />
             <Route path="/cookie-policy"  element={<CookiePolicy  onNavigate={onNavigate} />} />
             <Route path="/cookies-policy" element={<CookiePolicy  onNavigate={onNavigate} />} />
             <Route path="/cookies"        element={<CookiePolicy  onNavigate={onNavigate} />} />

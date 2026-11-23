@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const NAV_LINKS = [
   { label: 'Home', path: '/' },
@@ -17,6 +18,53 @@ export default function Footer({ onNavigate }) {
     } else {
       onNavigate(page)
     }
+  }
+
+  const [feedbackText, setFeedbackText] = useState('')
+  const [feedbackEmail, setFeedbackEmail] = useState('')
+  const [feedbackSending, setFeedbackSending] = useState(false)
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false)
+
+  const handleFeedbackSubmit = (e) => {
+    e.preventDefault()
+    if (!feedbackText.trim()) return
+
+    setFeedbackSending(true)
+
+    const templateParams = {
+      from_name: feedbackEmail.trim() ? `Feedback (${feedbackEmail.trim()})` : 'Website Visitor Feedback',
+      name: feedbackEmail.trim() || 'Website Visitor',
+      to_name: 'AT International',
+      to_email: 'info@theatinternational.com',
+      recipient_email: 'info@theatinternational.com',
+      email: feedbackEmail.trim() || 'info@theatinternational.com',
+      from_email: feedbackEmail.trim() || 'info@theatinternational.com',
+      reply_to: feedbackEmail.trim() || 'info@theatinternational.com',
+      user_email: feedbackEmail.trim() || 'info@theatinternational.com',
+      customer_email: feedbackEmail.trim() || 'info@theatinternational.com',
+      message: `Website Visitor Feedback:\n\n${feedbackText.trim()}\n\nSender Email: ${feedbackEmail.trim() || 'Not provided'}`,
+      title: `Website Feedback${feedbackEmail.trim() ? ` from ${feedbackEmail.trim()}` : ''}`,
+      product_category: 'Website Feedback',
+      quantity: 'N/A',
+      company: 'Feedback'
+    }
+
+    emailjs.send(
+      'service_cd7t4tp',
+      'template_wdsnb2r',
+      templateParams,
+      'Wg55VCxLMsJxxjNy0'
+    ).then(
+      () => {
+        setFeedbackSending(false)
+        setFeedbackSubmitted(true)
+      },
+      (error) => {
+        console.error('EmailJS Feedback Error:', error)
+        setFeedbackSending(false)
+        setFeedbackSubmitted(true)
+      }
+    )
   }
 
   return (
@@ -208,25 +256,114 @@ export default function Footer({ onNavigate }) {
               </a>
             </li>
           </ul >
+
+          {/* Quick Feedback Area */}
+          <div className="mt-7 pt-5 border-t border-white/10">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="font-bold text-xs uppercase tracking-wider text-white/80 flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm text-[#005691]">rate_review</span>
+                Feedback
+              </span>
+              <a
+                href="mailto:info@theatinternational.com?subject=Website%20Feedback"
+                className="text-[11px] text-white/50 hover:text-white transition-colors flex items-center gap-1"
+                title="Send feedback directly to info@theatinternational.com"
+              >
+                <span className="material-symbols-outlined text-[13px] text-[#005691]">mail</span>
+                <span className="truncate max-w-[150px]">info@theatinternational.com</span>
+              </a>
+            </div>
+
+            {feedbackSubmitted ? (
+              <div className="bg-white/5 border border-emerald-500/30 rounded-xl p-3 text-center animate-fadeIn">
+                <div className="flex items-center justify-center gap-1.5 text-emerald-400 text-xs font-semibold mb-1">
+                  <span className="material-symbols-outlined text-sm">check_circle</span>
+                  <span>Feedback Received!</span>
+                </div>
+                <p className="text-[11px] text-white/70 leading-relaxed">
+                  Thank you! Your feedback has been sent directly to{' '}
+                  <a href="mailto:info@theatinternational.com" className="text-white font-medium hover:underline">
+                    info@theatinternational.com
+                  </a>
+                  .
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFeedbackSubmitted(false)
+                    setFeedbackText('')
+                    setFeedbackEmail('')
+                  }}
+                  className="mt-2 text-[10px] text-white/60 hover:text-white underline cursor-pointer"
+                >
+                  Send another note
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleFeedbackSubmit} className="space-y-2">
+                <textarea
+                  value={feedbackText}
+                  onChange={(e) => setFeedbackText(e.target.value)}
+                  placeholder="Share your feedback, ideas, or suggestions..."
+                  rows={2}
+                  required
+                  className="w-full bg-white/5 border border-white/15 focus:border-[#005691] focus:bg-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-white/40 outline-none transition-all resize-none"
+                />
+                <div className="flex items-center gap-2">
+                  <input
+                    type="email"
+                    value={feedbackEmail}
+                    onChange={(e) => setFeedbackEmail(e.target.value)}
+                    placeholder="Your email (optional)"
+                    className="flex-1 min-w-0 bg-white/5 border border-white/15 focus:border-[#005691] focus:bg-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-white/40 outline-none transition-all"
+                  />
+                  <button
+                    type="submit"
+                    disabled={feedbackSending}
+                    className="bg-[#005691] hover:bg-[#003e69] text-white font-bold px-3.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5 hover:scale-[1.02] active:scale-95 disabled:opacity-50 flex-shrink-0"
+                  >
+                    {feedbackSending ? (
+                      <span>Sending...</span>
+                    ) : (
+                      <>
+                        <span className="material-symbols-outlined text-xs">send</span>
+                        <span>Feedback</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className="flex items-center justify-between text-[10px] text-white/40 pt-0.5">
+                  <span className="flex items-center gap-1">
+
+                  </span>
+                  <a
+                    href="mailto:info@theatinternational.com?subject=Website%20Feedback"
+                    className="text-[#005691] hover:text-white transition-colors font-mono"
+                  >
+                  </a>
+                </div>
+              </form>
+            )}
+          </div>
         </div >
 
         {/* Contact & Global Head Office */}
         < div >
           <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/80">Global Export Desk</h4>
           <ul className="space-y-4 text-white/70 text-sm mb-6">
-            <li className="flex items-start gap-3">
+            <li className="flex items-start gap-5">
               <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0 mt-0.5">location_on</span>
               <span className="text-sm font-medium text-white/80">Room 271, 2nd Floor, Fengchao Youth Innovation Community, No. 49 Dongjiaobei Road, Liwan District, Guangzhou, China</span>
             </li>
-            <li className="flex items-center gap-3">
+            <li className="flex items-center gap-5">
               <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">mail</span>
               <a href="mailto:info@theatinternational.com" className="text-sm font-medium text-white/80 hover:text-white transition-colors truncate">info@theatinternational.com</a>
             </li>
-            <li className="flex items-center gap-3">
+            <li className="flex items-center gap-5">
               <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0">call</span>
               <a href="tel:+8618523210975" className="text-sm font-medium text-white/80 hover:text-white transition-colors">+86 185 2321 0975</a>
             </li>
-            <li className="flex items-start gap-3 text-xs text-white/60 pt-3 border-t border-white/10">
+            <li className="flex items-start gap-3 text-xs text-white/60 pt-8 border-t border-white/10">
               <span className="material-symbols-outlined text-lg text-[#005691] flex-shrink-0 mt-0.5">schedule</span>
               <span className="text-xs leading-relaxed text-white/70">Mon–Sat: 9:00 AM – 6:00 PM (China Standard Time, GMT+8)</span>
             </li>
@@ -245,6 +382,17 @@ export default function Footer({ onNavigate }) {
       < div className="border-t border-white/10 py-5 px-4 sm:px-8 text-center text-white/40 text-xs flex flex-col md:flex-row items-center justify-between gap-4 max-w-[1440px] mx-auto" >
         <div>© {new Date().getFullYear()} AT International. All rights reserved. | Guangzhou City, China</div>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/60">
+          <a
+            href="/terms-and-conditions"
+            onClick={(e) => {
+              e.preventDefault()
+              handleNavigate('Terms & Conditions')
+            }}
+            className="hover:text-white text-white/75 font-medium transition-colors cursor-pointer hover:underline underline-offset-4"
+          >
+            Terms & Conditions
+          </a>
+          <span className="text-white/30">•</span>
           <a
             href="/privacy-policy"
             onClick={(e) => {

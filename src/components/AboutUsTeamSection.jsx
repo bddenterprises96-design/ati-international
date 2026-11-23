@@ -9,6 +9,7 @@ const TEAM_MEMBERS = [
     name: 'Mr. UK',
     role: 'Founder & CEO',
     photo: usmanTariqPhoto,
+    initial: 'U',
     experience: 'Global Trade & Leadership',
     bio: 'Directs overall company vision, international partnerships, multi-modal supply chain operations, and verified delivery to 40+ destination countries.',
     badge: 'Founder & CEO',
@@ -19,6 +20,7 @@ const TEAM_MEMBERS = [
     name: 'Mr. Kevin',
     role: 'Managing Director & Head of Sourcing',
     photo: '',
+    initial: 'K',
     gender: 'male',
     experience: '25+ Years Experience',
     bio: 'Leads global sourcing strategy, supplier auditing, and manufacturer partnerships across China to ensure world-class production standards for international buyers.',
@@ -30,6 +32,7 @@ const TEAM_MEMBERS = [
     name: 'Mr. Mark',
     role: 'Quality Assurance & Technical Lead',
     photo: '',
+    initial: 'M',
     gender: 'male',
     experience: 'ISO 9001:2015 QA Lead',
     bio: 'Directs on-site factory verification, dimensional laser checks, Shore durometer testing, and strict pre-shipment zero-defect quality control.',
@@ -41,6 +44,7 @@ const TEAM_MEMBERS = [
     name: 'Ms. Rachel',
     role: 'Customer Support & Procurement Coordinator',
     photo: '',
+    initial: 'R',
     gender: 'female',
     experience: 'Client Accounts & RFQs',
     bio: 'Ensures 24-hour turnaround on technical quotes, manages OEM sample distribution, and coordinates bespoke CAD drawing sourcing requests.',
@@ -115,10 +119,12 @@ export default function AboutUsTeamSection({ onNavigate }) {
                       </div>
                     </>
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-b from-slate-100 to-slate-200 flex flex-col items-center justify-center text-slate-300">
-                      <span className="material-symbols-outlined text-6xl select-none">
-                        {member.gender === 'female' ? 'woman' : 'man'}
-                      </span>
+                    <div className="w-full h-full bg-gradient-to-b from-[#f8fafc] to-[#eef4f9] flex flex-col items-center justify-center">
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#005691] flex items-center justify-center shadow-md ring-8 ring-[#005691]/15 group-hover:scale-105 transition-transform duration-300">
+                        <span className="text-white text-4xl sm:text-5xl font-bold select-none">
+                          {member.initial || member.name.replace(/^(Mr\.|Ms\.|Mrs\.|Dr\.)\s*/i, '').charAt(0)}
+                        </span>
+                      </div>
                     </div>
                   )}
                   <span className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-xs text-[#005691] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">

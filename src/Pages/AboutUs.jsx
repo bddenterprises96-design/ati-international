@@ -103,7 +103,7 @@ function MotorcycleTireCard({ type, title, icon, description, imageSrc }) {
 }
 
 // Video Assets
-const HERO_DESKTOP_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795156605/WhatsApp_Video_2026-11-20_at_11.34.58_AM11111_xok9fw.mp4'
+const HERO_DESKTOP_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795429702/AT_Hero_Background_Laptop_2560x1200_HQ_ehk39n.mp4'
 const HERO_MOBILE_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795236864/WhatsApp_Video_2026-11-20_at_11.34.59_AM_kqq6i6.mp4'
 
 // ── Main Component ────────────────────────────────────────────────
@@ -562,7 +562,7 @@ export default function AboutUs({ onNavigate }) {
         <picture className="absolute inset-0 w-full h-full pointer-events-none">
           <source media="(max-width: 639px)" srcSet="/assets/compliance_blueprint_mobile.jpg" />
           <img
-            src="/assets/compliance_blueprint_bg.jpg"
+            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795430301/AT_Compliance_BG_3840x1440_HQ_shshgi.png"
             alt="Quality Assurance & Compliance Standards Blueprint"
             className="w-full h-full object-cover object-center"
           />
@@ -611,39 +611,41 @@ export default function AboutUs({ onNavigate }) {
 
       {/* ── GLOBAL REACH ── */}
       <section className="pt-10 pb-8 sm:py-20 bg-white">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
-          <div className="rounded-2xl overflow-hidden h-64 sm:h-80 shadow-lg">
-            <img src="/assets/888.jpeg" alt="AT International Supply" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg h-72 sm:h-96 md:h-full md:min-h-[460px] max-h-[520px] bg-slate-100">
+            <img src="/assets/888.jpeg" alt="AT International Supply" className="w-full h-full object-cover object-[20%_center] hover:scale-105 transition-transform duration-500" />
           </div>
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#005691] mb-4 sm:mb-6">Global Sourcing & Export Capabilities</h2>
-            <p className="text-[#505f76] text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#005691] mb-3 sm:mb-4 tracking-tight">Global Sourcing & Export Capabilities</h2>
+            <p className="text-[#505f76] text-sm sm:text-base leading-relaxed mb-6 sm:mb-7 max-w-xl">
               From China, we coordinate the full supply chain on your behalf from supplier
               selection and quality verification to export documentation and international delivery.
             </p>
-            {[
-              { icon: 'check_circle', title: 'Full Documentation', desc: 'CoC, material data sheets, RoHS and REACH declarations available on request.' },
-              { icon: 'check_circle', title: 'Flexible Incoterms', desc: 'EXW, FOB, CFR, CIF and DDP terms available to suit your logistics and import requirements.' },
-              { icon: 'check_circle', title: 'Custom Sourcing', desc: 'We source to your drawings, specifications, and OEM cross-references from our verified supplier network.' },
-            ].map((item) => (
-              <div key={item.title} className="flex gap-3 sm:gap-4 mb-4 sm:mb-5">
-                <span className="material-symbols-outlined text-[#005691] text-lg sm:text-xl mt-0.5 flex-shrink-0">{item.icon}</span>
-                <div>
-                  <div className="font-bold text-[#005691] text-xs sm:text-sm mb-0.5 sm:mb-1">{item.title}</div>
-                  <div className="text-[#505f76] text-xs sm:text-sm">{item.desc}</div>
+            <div className="space-y-4 sm:space-y-5 mb-7 sm:mb-8">
+              {[
+                { icon: 'check_circle', title: 'Full Documentation', desc: 'CoC, material data sheets, RoHS and REACH declarations available on request.' },
+                { icon: 'check_circle', title: 'Flexible Incoterms', desc: 'EXW, FOB, CFR, CIF and DDP terms available to suit your logistics and import requirements.' },
+                { icon: 'check_circle', title: 'Custom Sourcing', desc: 'We source to your drawings, specifications, and OEM cross-references from our verified supplier network.' },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3 sm:gap-3.5">
+                  <span className="material-symbols-outlined text-[#005691] text-xl mt-0.5 flex-shrink-0">{item.icon}</span>
+                  <div>
+                    <div className="font-bold text-[#005691] text-sm sm:text-base mb-0.5">{item.title}</div>
+                    <div className="text-[#505f76] text-xs sm:text-sm leading-relaxed">{item.desc}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() => onNavigate('Contact Us')}
-                className="bg-[#005691] text-white px-6 sm:px-8 py-3 rounded-lg text-sm font-semibold hover:brightness-110 hover:scale-105 transition-all duration-200 text-center"
+                className="bg-black text-white hover:bg-neutral-800 px-6 sm:px-7 py-3 rounded-lg text-sm font-semibold transition-all duration-200 text-center shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
               >
                 Discuss Your Requirements
               </button>
               <button
                 onClick={() => onNavigate('Contact Us')}
-                className="border border-[#005691] text-[#005691] px-6 sm:px-8 py-3 rounded-lg text-sm font-semibold hover:bg-[#005691]/5 hover:scale-105 transition-all duration-200 text-center"
+                className="bg-white border border-black text-black hover:bg-gray-50 px-6 sm:px-7 py-3 rounded-lg text-sm font-semibold transition-all duration-200 text-center shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer"
               >
                 Submit a Sourcing Request
               </button>

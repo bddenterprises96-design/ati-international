@@ -1531,7 +1531,7 @@ export default function Products({ onNavigate }) {
         <picture className="absolute inset-0 w-full h-full pointer-events-none">
           <source media="(max-width: 639px)" srcSet={productsHeroMobile} />
           <img
-            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795286252/WhatsApp_Image_2026-11-21_at_11.16.58_PM_r610ow.jpg"
+            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795431315/AT_Products_Hero_Laptop_3840x1080_NavSafe_ccur2x.png"
             alt="ATI Products - Motorcycle, E-Bike & Sealing Solutions"
             className="w-full h-full object-contain object-bottom sm:object-right sm:object-cover"
           />
