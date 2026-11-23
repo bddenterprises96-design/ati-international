@@ -171,10 +171,10 @@ export default function AboutUs({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* ── ANIMATED HERO ── */}
-      <section ref={heroRef} className="relative -mt-16 sm:-mt-20 min-h-[760px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] pt-[134px] sm:pt-40 md:pt-48 pb-10 sm:pb-16 md:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]">
+      <section ref={heroRef} className="relative -mt-16 sm:-mt-20 min-h-[760px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] pt-36 sm:pt-40 md:pt-48 pb-10 sm:pb-16 md:pb-20 flex items-start sm:items-center overflow-hidden bg-[#005691]" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
 
         {/* Video Background — starts strictly at top-16/top-20 below navbar */}
-        <div className="absolute top-16 sm:top-20 inset-x-0 bottom-0 overflow-hidden">
+        <div className="absolute top-16 sm:top-20 inset-x-0 bottom-0 overflow-hidden" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
           <video
             key={isMobile ? 'mobile-hero-video' : 'desktop-hero-video'}
             ref={videoRef}
@@ -195,18 +195,18 @@ export default function AboutUs({ onNavigate }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/10 to-[#005691]/00 pointer-events-none" />
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <div className="max-w-full sm:max-w-md lg:max-w-xl xl:max-w-2xl">
 
             {/* Badge */}
-            <div style={{ transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+            <div style={{ transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s', opacity: visible ? 1 : 0, transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitTransform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
               <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-1.5 sm:mb-4 uppercase tracking-widest backdrop-blur-xs">
                 GLOBAL REACH • TRUSTED SUPPLY
               </span>
             </div>
 
             {/* Headline & Tagline */}
-            <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+            <div style={{ transition: 'opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s', opacity: visible ? 1 : 0, transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitTransform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
               <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-1 sm:mb-4 leading-tight tracking-tight">
                 Global Sourcing <br />Partner
               </h1>
@@ -217,7 +217,7 @@ export default function AboutUs({ onNavigate }) {
             </div>
 
             {/* Subtext */}
-            <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+            <div style={{ transition: 'opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s', opacity: visible ? 1 : 0, transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitTransform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
               <p className="max-w-xl text-white/90 text-xs sm:text-base md:text-lg mb-2.5 sm:mb-8 leading-relaxed">
                 Quality-verified parts sourced in China and delivered to businesses across 40+ countries.
               </p>
@@ -226,7 +226,7 @@ export default function AboutUs({ onNavigate }) {
             {/* Category Pills */}
             <div
               className="flex flex-wrap items-center gap-1.5 sm:gap-3 mb-2.5 sm:mb-8"
-              style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
+              style={{ transition: 'opacity 0.9s ease 0.7s, transform 0.9s ease 0.7s', opacity: visible ? 1 : 0, transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitTransform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}
             >
               <button
                 type="button"
@@ -252,7 +252,7 @@ export default function AboutUs({ onNavigate }) {
             </div>
 
             {/* Action Buttons: 2 cols on mobile, flex on desktop */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 max-w-sm sm:max-w-none" style={{ transition: 'opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}>
+            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2.5 sm:gap-4 max-w-sm sm:max-w-none" style={{ transition: 'opacity 0.9s ease 0.8s, transform 0.9s ease 0.8s', opacity: visible ? 1 : 0, transform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitTransform: visible ? 'translate3d(0,0,0)' : 'translate3d(0,30px,0)', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
               <button
                 onClick={() => onNavigate('Products')}
                 className="bg-white text-[#005691] hover:bg-gray-100 px-3 sm:px-8 py-2 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs sm:text-sm hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
@@ -397,9 +397,9 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#industrial-seals')
                   }}
-                  className="w-full bg-[#005691] hover:bg-[#003e69] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-blue-900/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/25 group-hover:scale-[1.02] cursor-pointer"
                 >
-                  <span>Explore Industrial Division</span>
+                  <span>EXPLORE INDUSTRIAL DIVISION</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </button>
               </div>
@@ -414,7 +414,7 @@ export default function AboutUs({ onNavigate }) {
             >
               <div>
                 <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center border-b border-[#e2effa]">
-                  <span className="absolute top-4 left-4 z-10 bg-[#FF6B35] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  <span className="absolute top-4 left-4 z-10 bg-[#005691] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                     Motorcycle Division
                   </span>
                   <img
@@ -446,9 +446,9 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#motorcycle')
                   }}
-                  className="w-full bg-[#FF6B35] hover:bg-[#e0531e] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/25 group-hover:scale-[1.02] cursor-pointer"
                 >
-                  <span>Explore Motorcycle Division</span>
+                  <span>EXPLORE MOTORCYCLE DIVISION</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </button>
               </div>
@@ -463,7 +463,7 @@ export default function AboutUs({ onNavigate }) {
             >
               <div>
                 <div className="h-64 overflow-hidden relative bg-white p-4 flex items-center justify-center border-b border-[#e2effa]">
-                  <span className="absolute top-4 left-4 z-10 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  <span className="absolute top-4 left-4 z-10 bg-[#005691] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                     E-Bike Division
                   </span>
                   <img
@@ -495,9 +495,9 @@ export default function AboutUs({ onNavigate }) {
                     e.stopPropagation()
                     onNavigate('Products#e-bike')
                   }}
-                  className="w-full bg-[#10B981] hover:bg-[#059669] text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20 group-hover:scale-[1.02] cursor-pointer"
+                  className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/25 group-hover:scale-[1.02] cursor-pointer"
                 >
-                  <span>Explore E-Bike Division</span>
+                  <span>EXPLORE E-BIKE DIVISION</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </button>
               </div>

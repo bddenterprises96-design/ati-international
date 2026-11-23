@@ -62,7 +62,11 @@ export default function Navbar({ onNavigate }) {
           ? 'bg-white/95 border-b border-[#c5c6cd] shadow-xs'
           : 'bg-transparent'
         }`}
-      style={scrolled ? { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' } : {}}
+      style={{
+        WebkitTransform: 'translate3d(0,0,0)',
+        transform: 'translateZ(0)',
+        ...(scrolled ? { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' } : {})
+      }}
     >
       <div className="flex justify-between items-center h-16 sm:h-20 px-4 max-w-[1440px] mx-auto">
 

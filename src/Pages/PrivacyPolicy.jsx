@@ -36,7 +36,7 @@ export default function PrivacyPolicy({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen text-[#191c1e]">
 
       {/* Hero Header */}
-      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
         {/* Background image */}
         <img
           src="/assets/compliance_bg.jpg"
@@ -50,7 +50,7 @@ export default function PrivacyPolicy({ onNavigate }) {
         {/* Blue overlay matching site identity */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/80 to-[#005691]/35" />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-white/70 text-xs sm:text-sm mb-3 sm:mb-4">
             <button

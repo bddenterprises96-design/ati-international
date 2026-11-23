@@ -115,7 +115,7 @@ export default function FAQs({ onNavigate }) {
       />
 
       {/* Hero */}
-      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
         {/* Background image */}
         <img
           src="/assets/fll.png"
@@ -125,7 +125,7 @@ export default function FAQs({ onNavigate }) {
         {/* Blue overlay so text stays readable, matches homepage style */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691]/100 via-[#005691]/65 to-[#005691]/10" />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Support
           </span>

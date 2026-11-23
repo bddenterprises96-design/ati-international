@@ -935,14 +935,14 @@ export default function ContactUS({ onNavigate }) {
     <div className="bg-[#f2f5f8] min-h-screen pb-24">
 
       {/* Hero */}
-      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
         <img
           src="/assets/icccc.png"
           alt="ATI Facility"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/10" />
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Get In Touch
           </span>

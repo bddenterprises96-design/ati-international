@@ -1,9 +1,9 @@
 export default function Hero({ onNavigate }) {
   return (
-    <section className="relative min-h-[560px] sm:h-[700px] pt-24 sm:pt-0 flex items-center overflow-hidden bg-[#005691]">
+    <section className="relative min-h-[560px] sm:h-[700px] pt-28 sm:pt-0 flex items-center overflow-hidden bg-[#005691]" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
 
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
         <video
           autoPlay
           loop
@@ -17,7 +17,7 @@ export default function Hero({ onNavigate }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 w-full" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
         <div className="max-w-3xl">
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-3 sm:mb-6 uppercase tracking-widest">
             Global Reach • Industrial Excellence

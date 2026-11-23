@@ -1527,11 +1527,11 @@ export default function Products({ onNavigate }) {
       )}
 
       {/* Hero Banner */}
-      <section className="relative -mt-16 sm:-mt-20 pt-28 sm:pt-48 pb-60 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-[#023867] sm:bg-[#005691] min-h-[520px] sm:min-h-[420px] flex flex-col justify-between">
-        <picture className="absolute inset-0 w-full h-full pointer-events-none">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-72 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-[#023867] sm:bg-[#005691] min-h-[580px] sm:min-h-[420px] flex flex-col justify-between" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
+        <picture className="absolute inset-0 w-full h-full pointer-events-none" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
           <source media="(max-width: 639px)" srcSet={productsHeroMobile} />
           <img
-            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795431315/AT_Products_Hero_Laptop_3840x1080_NavSafe_ccur2x.png"
+            src="https://res.cloudinary.com/ybne3lvu/image/upload/v1795458851/AT_Products_Hero_Laptop_3840x960_wnijne.png"
             alt="ATI Products - Motorcycle, E-Bike & Sealing Solutions"
             className="w-full h-full object-contain object-bottom sm:object-right sm:object-cover"
           />
@@ -1539,7 +1539,7 @@ export default function Products({ onNavigate }) {
         {/* Blue overlay matching Why ATI & other pages */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#023867]/60 via-transparent to-transparent sm:bg-gradient-to-r sm:from-[#005691] sm:via-[#005691]/15 sm:to-[#005691]/00 pointer-events-none" />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto w-full">
+        <div className="relative z-10 max-w-[1280px] mx-auto w-full" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Our Products
           </span>

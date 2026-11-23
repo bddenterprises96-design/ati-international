@@ -15,7 +15,7 @@ export default function WhyATI({ onNavigate }) {
     <div className="bg-[#f7f9fb] min-h-screen">
 
       {/* Hero — PRESERVED EXACTLY AS REQUESTED */}
-      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden">
+      <section className="relative -mt-16 sm:-mt-20 pt-36 sm:pt-48 pb-10 sm:pb-16 px-4 sm:px-8 overflow-hidden" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)' }}>
         {/* Background image */}
         <img
           src="/assets/why.jpeg"
@@ -25,7 +25,7 @@ export default function WhyATI({ onNavigate }) {
         {/* Blue overlay so text stays readable, matches homepage style */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/75 to-[#005691]/00" />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest">
             Our Advantage
           </span>
@@ -84,7 +84,7 @@ export default function WhyATI({ onNavigate }) {
             </div>
             <button
               onClick={() => handleNavigate('Products#industrial-seals')}
-              className="w-full bg-[#005691] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#003e69] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/20"
             >
               EXPLORE INDUSTRIAL DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -92,17 +92,17 @@ export default function WhyATI({ onNavigate }) {
           </div>
 
           {/* Division 2: Motorcycle Parts */}
-          <div className="bg-white border-2 border-orange-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#FF6B35] transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#005691] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 bg-orange-50 text-[#FF6B35] rounded-2xl flex items-center justify-center group-hover:bg-[#FF6B35] group-hover:text-white transition-colors duration-300 shadow-sm">
+                <div className="w-14 h-14 bg-blue-50 text-[#005691] rounded-2xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
                   <span className="material-symbols-outlined text-3xl">two_wheeler</span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B35] bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   Division 02
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#FF6B35] transition-colors">
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
                 Motorcycle Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
@@ -116,7 +116,7 @@ export default function WhyATI({ onNavigate }) {
                   'Clutch Plates, Gaskets & Complete Range of Motorcycle Parts'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
-                    <span className="material-symbols-outlined text-[#FF6B35] text-base">check_circle</span>
+                    <span className="material-symbols-outlined text-[#005691] text-base">check_circle</span>
                     <span>{item}</span>
                   </div>
                 ))}
@@ -124,7 +124,7 @@ export default function WhyATI({ onNavigate }) {
             </div>
             <button
               onClick={() => handleNavigate('Products#motorcycle')}
-              className="w-full bg-[#FF6B35] hover:bg-[#e0531e] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-orange-500/20"
+              className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/20"
             >
               EXPLORE MOTORCYCLE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -132,17 +132,17 @@ export default function WhyATI({ onNavigate }) {
           </div>
 
           {/* Division 3: E-Bike Parts */}
-          <div className="bg-white border-2 border-emerald-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#10B981] transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white border-2 border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#005691] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 bg-emerald-50 text-[#10B981] rounded-2xl flex items-center justify-center group-hover:bg-[#10B981] group-hover:text-white transition-colors duration-300 shadow-sm">
+                <div className="w-14 h-14 bg-blue-50 text-[#005691] rounded-2xl flex items-center justify-center group-hover:bg-[#005691] group-hover:text-white transition-colors duration-300 shadow-sm">
                   <span className="material-symbols-outlined text-3xl">electric_bike</span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#10B981] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#005691] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                   Division 03
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#10B981] transition-colors">
+              <h3 className="text-2xl font-bold text-[#005691] mb-3 group-hover:text-[#003e69] transition-colors">
                 E-Bike Parts
               </h3>
               <p className="text-[#505f76] text-xs sm:text-sm leading-relaxed mb-6">
@@ -156,7 +156,7 @@ export default function WhyATI({ onNavigate }) {
                   'IP67 Motor Shaft Seals & UL94-V0 Battery Gaskets'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5 text-xs text-gray-700 font-medium">
-                    <span className="material-symbols-outlined text-[#10B981] text-base">check_circle</span>
+                    <span className="material-symbols-outlined text-[#005691] text-base">check_circle</span>
                     <span>{item}</span>
                   </div>
                 ))}
@@ -164,7 +164,7 @@ export default function WhyATI({ onNavigate }) {
             </div>
             <button
               onClick={() => handleNavigate('Products#e-bike')}
-              className="w-full bg-[#10B981] text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-black/20"
             >
               EXPLORE E-BIKE DIVISION
               <span className="material-symbols-outlined text-base">arrow_forward</span>

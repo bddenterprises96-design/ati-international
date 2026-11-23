@@ -1750,10 +1750,12 @@ export default function Blogs() {
           backgroundImage: 'url(/assets/blogs_hero_bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          WebkitTransform: 'translate3d(0,0,0)',
+          transform: 'translateZ(0)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#005691] via-[#005691]/85 to-[#005691]/10" />
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto" style={{ WebkitTransform: 'translate3d(0,0,0)', transform: 'translateZ(0)', isolation: 'isolate' }}>
           <span className="inline-block px-3 py-1 bg-white/20 text-white text-[10px] sm:text-xs font-semibold rounded mb-2.5 sm:mb-4 uppercase tracking-widest backdrop-blur-sm">
             Technical & Sourcing Knowledge Hub
           </span>
