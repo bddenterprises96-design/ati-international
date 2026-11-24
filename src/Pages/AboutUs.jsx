@@ -104,7 +104,7 @@ function MotorcycleTireCard({ type, title, icon, description, imageSrc }) {
 
 // Video Assets
 const HERO_DESKTOP_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795429702/AT_Hero_Background_Laptop_2560x1200_HQ_ehk39n.mp4'
-const HERO_MOBILE_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795236864/WhatsApp_Video_2026-11-20_at_11.34.59_AM_kqq6i6.mp4'
+const HERO_MOBILE_VIDEO = 'https://res.cloudinary.com/ybne3lvu/video/upload/v1795507619/AT_Hero_Background_Mobile_1080x1920_HQ_nvqfvn.mp4'
 
 // ── Main Component ────────────────────────────────────────────────
 export default function AboutUs({ onNavigate }) {
