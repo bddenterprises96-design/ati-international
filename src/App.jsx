@@ -88,6 +88,16 @@ export default function App() {
       '/cookie-policy': '/cookie-policy',
       'cookies-policy': '/cookie-policy',
       '/cookies-policy':'/cookie-policy',
+      'Industrial Sealing Solutions': '/industrial-sealing-solutions',
+      'industrial-sealing-solutions': '/industrial-sealing-solutions',
+      'industrial-seals':             '/industrial-sealing-solutions',
+      'Motorcycle Parts':             '/motorcycle-parts',
+      'motorcycle-parts':             '/motorcycle-parts',
+      'motorcycle':                   '/motorcycle-parts',
+      'E-Bike Parts':                 '/e-bike-parts',
+      'e-bike-parts':                 '/e-bike-parts',
+      'ebike-parts':                  '/e-bike-parts',
+      'e-bike':                       '/e-bike-parts',
     }
 
     if (!page) {
@@ -134,6 +144,27 @@ export default function App() {
             <Route path="/cookie-policy"  element={<CookiePolicy  onNavigate={onNavigate} />} />
             <Route path="/cookies-policy" element={<CookiePolicy  onNavigate={onNavigate} />} />
             <Route path="/cookies"        element={<CookiePolicy  onNavigate={onNavigate} />} />
+
+            {/* Core Product Divisions for Google Search Console & SEO */}
+            <Route path="/industrial-sealing-solutions" element={<Products onNavigate={onNavigate} />} />
+            <Route path="/industrial-seals"             element={<Products onNavigate={onNavigate} />} />
+            <Route path="/motorcycle-parts"             element={<Products onNavigate={onNavigate} />} />
+            <Route path="/motorcycle"                   element={<Products onNavigate={onNavigate} />} />
+            <Route path="/e-bike-parts"                 element={<Products onNavigate={onNavigate} />} />
+            <Route path="/ebike-parts"                  element={<Products onNavigate={onNavigate} />} />
+            <Route path="/e-bike"                       element={<Products onNavigate={onNavigate} />} />
+
+            {/* Product & Sub-Product Deep Link Routes */}
+            <Route path="/valve-stem-seals"             element={<Products onNavigate={onNavigate} />} />
+            <Route path="/o-rings"                      element={<Products onNavigate={onNavigate} />} />
+            <Route path="/oil-seals"                    element={<Products onNavigate={onNavigate} />} />
+            <Route path="/motorcycle-crankshaft"        element={<Products onNavigate={onNavigate} />} />
+            <Route path="/motorcycle-cylinder-head"     element={<Products onNavigate={onNavigate} />} />
+            <Route path="/motorcycle-cylinder"          element={<Products onNavigate={onNavigate} />} />
+            <Route path="/e-bike-hub-motor"             element={<Products onNavigate={onNavigate} />} />
+            <Route path="/e-bike-motor-controller"      element={<Products onNavigate={onNavigate} />} />
+            <Route path="/e-bike-battery-charger"       element={<Products onNavigate={onNavigate} />} />
+
             {/* Fallback */}
             <Route path="*"               element={<AboutUs       onNavigate={onNavigate} />} />
           </Routes>

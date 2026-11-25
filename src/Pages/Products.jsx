@@ -1481,23 +1481,64 @@ export default function Products({ onNavigate }) {
   const [sheetOpen, setSheetOpen] = useState(false)
   const [activeSubProduct, setActiveSubProduct] = useState(null)
 
-  // Listen to hash or search parameters (e.g. #motorcycle, #e-bike, #industrial-seals)
+  // Listen to hash, path or search parameters (e.g. /motorcycle-parts, #motorcycle, #e-bike, #industrial-seals)
   useEffect(() => {
     document.title = 'Products | AT International'
     const rawHash = location.hash ? location.hash.replace('#', '') : ''
     const params = new URLSearchParams(location.search)
     const targetTab = params.get('tab') || rawHash
+    const path = location.pathname.toLowerCase()
 
-    if (targetTab) {
-      if (targetTab.includes('e-bike') || targetTab.includes('ebike')) {
-        setActive('e-bike')
-      } else if (targetTab.includes('motorcycle')) {
-        setActive('motorcycle')
-      } else if (targetTab.includes('industrial') || targetTab.includes('seal') || targetTab.includes('valve') || targetTab.includes('o-ring')) {
-        setActive('industrial-seals')
-      }
+    if (path.includes('e-bike') || path.includes('ebike') || targetTab.includes('e-bike') || targetTab.includes('ebike')) {
+      setActive('e-bike')
+      document.title = 'E-Bike Parts | AT International'
+    } else if (path.includes('motorcycle') || targetTab.includes('motorcycle')) {
+      setActive('motorcycle')
+      document.title = 'Motorcycle Parts | AT International'
+    } else if (path.includes('industrial') || path.includes('seal') || targetTab.includes('industrial') || targetTab.includes('seal')) {
+      setActive('industrial-seals')
+      document.title = 'Industrial Sealing Solutions | AT International'
     }
-  }, [location.hash, location.search])
+
+    // Sub-product deep-links from direct URLs or query params
+    if (path.includes('valve-stem') || targetTab.includes('valve-stem')) {
+      setActiveSubProduct('valve-stem')
+      setActive('industrial-seals')
+      document.title = 'Valve Stem Seals | AT International'
+    } else if (path.includes('o-ring') || targetTab.includes('o-ring')) {
+      setActiveSubProduct('o-rings')
+      setActive('industrial-seals')
+      document.title = 'O-Rings | AT International'
+    } else if (path.includes('oil-seal') || targetTab.includes('oil-seal')) {
+      setActiveSubProduct('oil-seals')
+      setActive('industrial-seals')
+      document.title = 'Oil Seals | AT International'
+    } else if (path.includes('crankshaft')) {
+      setActiveSubProduct('moto-engine')
+      setActive('motorcycle')
+      document.title = 'Motorcycle Crankshafts | AT International'
+    } else if (path.includes('cylinder-head')) {
+      setActiveSubProduct('moto-clutch')
+      setActive('motorcycle')
+      document.title = 'Motorcycle Cylinder Heads | AT International'
+    } else if (path.includes('cylinder')) {
+      setActiveSubProduct('moto-seals')
+      setActive('motorcycle')
+      document.title = 'Motorcycle Cylinders | AT International'
+    } else if (path.includes('hub-motor')) {
+      setActiveSubProduct('ebike-motor')
+      setActive('e-bike')
+      document.title = 'E-Bike BLDC Hub Motors | AT International'
+    } else if (path.includes('controller')) {
+      setActiveSubProduct('ebike-battery')
+      setActive('e-bike')
+      document.title = 'E-Bike Motor Controllers | AT International'
+    } else if (path.includes('charger')) {
+      setActiveSubProduct('ebike-drive')
+      setActive('e-bike')
+      document.title = 'E-Bike Battery Chargers | AT International'
+    }
+  }, [location.pathname, location.hash, location.search])
 
   const product = PRODUCTS.find((p) => p.id === active) || PRODUCTS[0]
 
