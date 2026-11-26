@@ -179,8 +179,11 @@ export default function AboutUsTeamSection({ onNavigate }) {
             <button
               type="button"
               onClick={() => {
-                const el = document.getElementById('inquiry-form-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
+                if (onNavigate) {
+                  onNavigate('Contact Us')
+                } else {
+                  window.location.href = '/contact'
+                }
               }}
               className="w-full sm:w-[240px] h-12 bg-white text-[#005691] hover:bg-gray-100 font-bold px-4 rounded-xl text-xs uppercase tracking-wider border border-white transition-all hover:scale-105 active:scale-95 duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer whitespace-nowrap"
             >
