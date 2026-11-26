@@ -127,7 +127,7 @@ export default function AboutUs({ onNavigate }) {
 
   // Hero entrance animation & document title
   useEffect(() => {
-    document.title = 'About Us | AT International'
+    document.title = 'AT International | Global Sourcing Partner'
     const timer = setTimeout(() => setVisible(true), 100)
     return () => clearTimeout(timer)
   }, [])
@@ -230,14 +230,14 @@ export default function AboutUs({ onNavigate }) {
             >
               <button
                 type="button"
-                onClick={() => onNavigate('Products#motorcycle')}
+                onClick={() => onNavigate('Products#motorcycle-parts')}
                 className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
               >
                 Motorcycle Parts
               </button>
               <button
                 type="button"
-                onClick={() => onNavigate('Products#e-bike')}
+                onClick={() => onNavigate('Products#e-bike-parts')}
                 className="px-2.5 sm:px-5 py-1 sm:py-2 rounded-full border border-white/35 bg-white/15 hover:bg-white/25 text-white text-[11px] sm:text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
               >
                 E-Bike Parts
@@ -409,7 +409,7 @@ export default function AboutUs({ onNavigate }) {
           {/* Motorcycle Division Card */}
           {(divisionTab === 'all' || divisionTab === 'motorcycle') && (
             <div
-              onClick={() => onNavigate('Products#motorcycle')}
+              onClick={() => onNavigate('Products#motorcycle-parts')}
               className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
             >
               <div>
@@ -444,7 +444,7 @@ export default function AboutUs({ onNavigate }) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation()
-                    onNavigate('Products#motorcycle')
+                    onNavigate('Products#motorcycle-parts')
                   }}
                   className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/25 group-hover:scale-[1.02] cursor-pointer"
                 >
@@ -458,7 +458,7 @@ export default function AboutUs({ onNavigate }) {
           {/* E-Bike Division Card */}
           {(divisionTab === 'all' || divisionTab === 'ebike') && (
             <div
-              onClick={() => onNavigate('Products#e-bike')}
+              onClick={() => onNavigate('Products#e-bike-parts')}
               className="bg-white border border-[#c5c6cd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
             >
               <div>
@@ -493,7 +493,7 @@ export default function AboutUs({ onNavigate }) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation()
-                    onNavigate('Products#e-bike')
+                    onNavigate('Products#e-bike-parts')
                   }}
                   className="w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black hover:from-zinc-700 hover:via-zinc-800 hover:to-neutral-900 text-white py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-black/25 group-hover:scale-[1.02] cursor-pointer"
                 >

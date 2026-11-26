@@ -218,10 +218,10 @@ export default function Footer({ onNavigate }) {
             </li>
             <li>
               <a
-                href="/products#motorcycle"
+                href="/products#motorcycle-parts"
                 onClick={(e) => {
                   e.preventDefault()
-                  handleNavigate('Products', 'motorcycle')
+                  handleNavigate('Products', 'motorcycle-parts')
                 }}
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >
@@ -231,10 +231,10 @@ export default function Footer({ onNavigate }) {
             </li>
             <li>
               <a
-                href="/products#e-bike"
+                href="/products#e-bike-parts"
                 onClick={(e) => {
                   e.preventDefault()
-                  handleNavigate('Products', 'e-bike')
+                  handleNavigate('Products', 'e-bike-parts')
                 }}
                 className="text-white/60 text-sm hover:text-white transition-colors text-left flex items-center gap-1.5 group cursor-pointer"
               >

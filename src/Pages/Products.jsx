@@ -1481,9 +1481,9 @@ export default function Products({ onNavigate }) {
   const [sheetOpen, setSheetOpen] = useState(false)
   const [activeSubProduct, setActiveSubProduct] = useState(null)
 
-  // Listen to hash, path or search parameters (e.g. /motorcycle-parts, #motorcycle, #e-bike, #industrial-seals)
+  // Listen to hash, path or search parameters (e.g. /motorcycle-parts, #motorcycle-parts, #e-bike-parts, #industrial-seals)
   useEffect(() => {
-    document.title = 'Products | AT International'
+    document.title = 'AT International | Products'
     const rawHash = location.hash ? location.hash.replace('#', '') : ''
     const params = new URLSearchParams(location.search)
     const targetTab = params.get('tab') || rawHash
@@ -1491,52 +1491,52 @@ export default function Products({ onNavigate }) {
 
     if (path.includes('e-bike') || path.includes('ebike') || targetTab.includes('e-bike') || targetTab.includes('ebike')) {
       setActive('e-bike')
-      document.title = 'E-Bike Parts | AT International'
+      document.title = 'AT International | E-Bike Parts'
     } else if (path.includes('motorcycle') || targetTab.includes('motorcycle')) {
       setActive('motorcycle')
-      document.title = 'Motorcycle Parts | AT International'
+      document.title = 'AT International | Motorcycle Parts'
     } else if (path.includes('industrial') || path.includes('seal') || targetTab.includes('industrial') || targetTab.includes('seal')) {
       setActive('industrial-seals')
-      document.title = 'Industrial Sealing Solutions | AT International'
+      document.title = 'AT International | Industrial Sealing Solutions'
     }
 
     // Sub-product deep-links from direct URLs or query params
     if (path.includes('valve-stem') || targetTab.includes('valve-stem')) {
       setActiveSubProduct('valve-stem')
       setActive('industrial-seals')
-      document.title = 'Valve Stem Seals | AT International'
+      document.title = 'AT International | Valve Stem Seals'
     } else if (path.includes('o-ring') || targetTab.includes('o-ring')) {
       setActiveSubProduct('o-rings')
       setActive('industrial-seals')
-      document.title = 'O-Rings | AT International'
+      document.title = 'AT International | O-Rings'
     } else if (path.includes('oil-seal') || targetTab.includes('oil-seal')) {
       setActiveSubProduct('oil-seals')
       setActive('industrial-seals')
-      document.title = 'Oil Seals | AT International'
+      document.title = 'AT International | Oil Seals'
     } else if (path.includes('crankshaft')) {
       setActiveSubProduct('moto-engine')
       setActive('motorcycle')
-      document.title = 'Motorcycle Crankshafts | AT International'
+      document.title = 'AT International | Motorcycle Crankshafts'
     } else if (path.includes('cylinder-head')) {
       setActiveSubProduct('moto-clutch')
       setActive('motorcycle')
-      document.title = 'Motorcycle Cylinder Heads | AT International'
+      document.title = 'AT International | Motorcycle Cylinder Heads'
     } else if (path.includes('cylinder')) {
       setActiveSubProduct('moto-seals')
       setActive('motorcycle')
-      document.title = 'Motorcycle Cylinders | AT International'
+      document.title = 'AT International | Motorcycle Cylinders'
     } else if (path.includes('hub-motor')) {
       setActiveSubProduct('ebike-motor')
       setActive('e-bike')
-      document.title = 'E-Bike BLDC Hub Motors | AT International'
+      document.title = 'AT International | E-Bike BLDC Hub Motors'
     } else if (path.includes('controller')) {
       setActiveSubProduct('ebike-battery')
       setActive('e-bike')
-      document.title = 'E-Bike Motor Controllers | AT International'
+      document.title = 'AT International | E-Bike Motor Controllers'
     } else if (path.includes('charger')) {
       setActiveSubProduct('ebike-drive')
       setActive('e-bike')
-      document.title = 'E-Bike Battery Chargers | AT International'
+      document.title = 'AT International | E-Bike Battery Chargers'
     }
   }, [location.pathname, location.hash, location.search])
 
@@ -1549,11 +1549,29 @@ export default function Products({ onNavigate }) {
 
   const handleSelectSubProduct = (subId) => {
     setActiveSubProduct(subId)
+    const subTitles = {
+      'valve-stem': 'AT International | Valve Stem Seals',
+      'o-rings': 'AT International | O-Rings',
+      'oil-seals': 'AT International | Oil Seals',
+      'moto-engine': 'AT International | Motorcycle Crankshafts',
+      'moto-clutch': 'AT International | Motorcycle Cylinder Heads',
+      'moto-seals': 'AT International | Motorcycle Cylinders',
+      'ebike-motor': 'AT International | E-Bike BLDC Hub Motors',
+      'ebike-battery': 'AT International | E-Bike Motor Controllers',
+      'ebike-drive': 'AT International | E-Bike Battery Chargers',
+    }
+    if (subTitles[subId]) {
+      document.title = subTitles[subId]
+    }
     window.scrollTo({ top: 180, behavior: 'smooth' })
   }
 
   const handleBackToMain = () => {
     setActiveSubProduct(null)
+    const title = active === 'motorcycle' ? 'AT International | Motorcycle Parts' : (active === 'e-bike' ? 'AT International | E-Bike Parts' : 'AT International | Industrial Sealing Solutions')
+    document.title = title
+    const hash = active === 'motorcycle' ? 'motorcycle-parts' : (active === 'e-bike' ? 'e-bike-parts' : 'industrial-seals')
+    window.history.replaceState(null, '', `/products#${hash}`)
     window.scrollTo({ top: 180, behavior: 'smooth' })
   }
 
@@ -1603,6 +1621,10 @@ export default function Products({ onNavigate }) {
                     setActive(p.id)
                     setActiveSubProduct(null)
                     setSheetOpen(false)
+                    const hash = p.id === 'motorcycle' ? 'motorcycle-parts' : (p.id === 'e-bike' ? 'e-bike-parts' : 'industrial-seals')
+                    const title = p.id === 'motorcycle' ? 'AT International | Motorcycle Parts' : (p.id === 'e-bike' ? 'AT International | E-Bike Parts' : 'AT International | Industrial Sealing Solutions')
+                    document.title = title
+                    window.history.replaceState(null, '', `/products#${hash}`)
                   }}
                   className={`
                     px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 whitespace-nowrap flex items-center gap-2 border cursor-pointer
